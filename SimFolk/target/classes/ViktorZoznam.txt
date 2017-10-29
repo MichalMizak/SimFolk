@@ -1,0 +1,495 @@
+!Polka
+
+%DUR
+
+A či ja mamočko
+A muj ocec z Pozdišovec
+Barďejovska ňemocnica
+Boboňec, Boboňec
+Dňeška mi tu zabavu hrame
+Dzirava maštaleň na verchu
+Ej, kročkom, koňu
+Frajiru vojačku, kup mi maľovačku
+Hore doľinami
+Idzem po valaľe
+Išol kohut z Ameriky
+Jedna stara baba
+Kamaratko moja
+Ked som išol popod chotar
+Kedz som išol, išol
+Ľubil ši me hadze
+Mam ja šumnu frajiročku
+Moja mila na mašiňe šila
+Nam je to jedno
+Ňeveľo ši chodzil
+Nit ľepši na švece
+Ocec i z maceru
+Ot sceni, Haňičko
+Piju chlapci, piju
+Pod Vihorlatom drevo rubaju
+Pomožce mi ľudze
+Šedňem sebe na lavočku
+Vadzila še stara baba
+V Mihaľovci hraju
+V zahradze na sadze
+Včera večar na draže
+Viľecela huska
+Virošľi taročki medži hurami
+Žulte uhorky, žeľene ľisce
+
+%MOL
+Americky men
+Červena ruža trojaka
+Daj že mi, Haňičko
+Kedz ja bul na baľe
+Už dožreľi žeľene jahodi
+
+$Rusnacke
+
+%DUR
+
+A tam dolu pod oblačko
+Čorny oči, čorny oči
+Dajže Bože dobrij čas
+Javorovo lisťa
+Ľisočka, ľisočka
+Majeran, majeran
+Na medži rosne hrušočka
+Nepij koňu vodu
+Oj čorna ja si čorna
+Oj pila ja v poneďiľok
+Oj ty kozače
+Oj, zabava
+Oj zahrala muzika
+Povidž, že mi lavičko dubova
+Za ľisom za ľisom
+Zaspivajme sobi dvoma holosami
+
+%MOL
+
+Cyganočka moloda
+A ked ja ša zavozmu
+Ivanku, Ivanku
+Jil bym, pil bym
+Oj išla ja hori hrunom
+Oj Maričko čičeri
+Oj na hori tri topoľi
+Rozpriahate chlopci koni
+Teče voda kalamutna
+Tys mene pidmanula
+Visit jabko visit
+
+$Slovenské
+
+%NULL
+
+Načo pôjdem domov
+Dva dubi
+Keď šoféri naštartujú
+Mariša pusu daj
+Tečie voda z javora
+Vydavali cigánku nevinnu
+Biela ruža rozkvitala
+Bodaj by vás, vy mládenci
+Dnes je sobota
+Do rana je mala chvíľa
+Dolina, dolina
+Javornik, Javornik
+Jedna ruže, dve ruže
+Keď rozkvitne biela ruža
+Krčmarik maličky
+Kúpala sa Katarína
+Mal som jednu frajirečku
+Na Orave dobre
+Na tu svätú Katarinu Nebogaj
+Nebola som vesela
+Neďaleko od Trenčína
+Pod horou čierne psíča
+Prečo si neprišiel
+Prídi ty, šuhajko ráno k nám
+Prší, prší, len sa leje
+Slovenske mamičky
+Tam pod Tatrami
+Tri stromečky okolo rajčianky
+V richtarovej studni
+V záhradôčke pod okienkom
+Vyrástla lipka, vyrástla borovienka
+Vysoký jalovec
+
+!Polka
+
+!Valčík
+
+%DUR
+
+A od Prešova
+Ach, mamičko moja
+Aňi ja ne juhas
+Co še mi stalo
+Hej, dumala moja mac
+Chodzil do nas jeden šuhaj
+Išli furmaňi z ľesa pomali
+Kebi ňe ja abo ňe ti
+Kedz ja išol večar po valaľe
+Kedz ja nadešol do kraja
+Koňare, koňare
+Na valaľe sosna
+Ňepriciskaj me gu sebe
+Od včera večara
+Oj, Jaňičku, tralala
+Pred farara mostek
+Šalata, šalata
+Visoka jedlička
+Za našim valalom
+Zaspala Hanička
+
+%MOL
+
+A ja taka čarna
+Kade chodím
+Kec ja na Toriše
+Muši vam mamočko
+Včera mi švicilo
+
+$Rusnacke
+
+%DUR
+
+Ci tebe Haňičko
+Čerez ričenku čerez boloto
+Jaňičko travu kosit
+Kolesa kruťaťsja
+Krjačok ľaľijovy
+Mal jem frajiročku
+Vyroslo ďivčatko
+
+%MOL
+
+Cvite teren
+Čom ty neprišol
+Horila sosna palala
+Oj na hori tri topoli
+Oj nesviť ty misjačeňku
+Sviť misjačku
+Živite ľudije
+
+$Slovenské
+
+%NULL
+
+Fúka vietor, fúka
+Sadla včielka
+A tam hore na skalnatom
+Cez oravu bystra voda pretekala
+Dedinka v údolí
+Horenka, horenka, hora
+Kdeže si Anička, kdes tu vodu brala
+Keď som išiel cez tie hory
+Keď som išiel okolo vás
+Keď som šiel ku milej naposledy
+Kúty, kúty
+Mala som, mala som
+Neviem, neviem čo ja za mamku mám
+Okolo Súče vodička tečie
+Trenčiansku dolinu, chlapci mašírujú
+Keď som išiel cez tie hory
+V hlbokej doline
+Vydala ma mamka za široku vodu
+Vydala mamička
+Vychodí slniečko, (Nádeje)
+Zahraj cigán (Ej, husle cigána)
+
+$České
+Aničko šafařova
+Cigánsky barón
+Do lesíčka na čekanou
+Hajku, háječku
+Hledam galanečku
+Když si muj dedeček babičku bral
+Morava krásna zem
+Na Pankráci
+Nedaleko mlyna, je stara myslivna
+Už troubějí
+Včera nedele byla
+Včera sem byl u muziky
+
+!Valčík
+
+!Čardáše
+
+%DUR
+@Duvaj
+Redovi
+A dze idzeš Heľenko, Heľenko
+A okolo Ľevoči
+A ty kačmar, bily kačmar
+Co še červeňeje
+Cuker jedla kavej pila
+Dobri večar frajiročko moja
+Mam frajirku u Hažine
+Ňebudzem dobrí, ňebudzem
+Od Prešova dražka nova
+V Trebišove karčmi dva (Dža, dža)
+
+%MOL
+A ja taka dzivočka
+Čerešeň, čerešeň
+Idze verbunk, idze, hore Košicami
+Kedz mi prišla karta narukovac
+Keď ja išol od frajirki do domu (Čarna kura)
+Nichto nezna co me boli
+Ňit krajšoho dzivčatečka
+Šaľena ja bula
+Tu stoj koňu Pejka
+Veš ti zajdu i ja zajdu
+
+-@Duvaj
+@Rýchle
+
+%DUR
+
+A na hure oves pokošeni
+A na hure agati
+A za našu stodolečku hruška
+Abo me pobiju, abo ja dakoho
+Aňi ja aňi ti
+Aňi ja ňe stadzi, hojaja
+Aňi še mi ňešňivalo
+Bodja tota karčma
+Co še červeňeje
+Červene, źeľene
+Dze še kuri, tam še kuri
+Ej, beťár ja dzivočka
+Ej, čarni ši jak cigan
+Ej, zalužicke poľo
+Ej, zlamal še mi, zlamal
+Hoja tebe, hoja i mňe
+Hraju v karčme hrajú
+Chodziľi bi do nas
+Išľi cigani do Bardejova
+Kapura, kapura
+Kec som bula mala
+Kenderička bobata
+Ľecelo jablučko dolu konarami
+Mila moja jaka ši A na hure agaty
+Mila moja, miľenka milena
+Moja mac maľučka
+Napisal mi mili
+Ňešedňem ja na lavočku
+Oktobrovo slunko švici
+Pači še mi, pači v našim valaliku
+Šofere, šofere
+Tajilam, tajilam
+Tri hviždi švica na ňebe
+Umarla nam kačmaročka
+Viľecela prepeľička
+Voda idze hučaci
+Zahrajce hudaci, by bulo vešelo
+Zašala petrušku
+
+%MOL
+Hura hura šiva skala
+Mamko moja cigan še mi pači
+Mila moja puš me dnuka (Dunaju)
+Odam še, ňeodam
+Oj, švekričko moja
+Sama ja fasuľu sadzila
+Taka ja dzivočka
+Večar je, večar je, už še večareje
+Zahrajce mi raslavicke hudaci
+
+$Rusnacke
+-@Rýchle
+%NULL
+
+Bude vojan bude
+Nad Stakčinom temno
+Nebudu tu, pidu dalej
+Počekaj ňa milyj
+Pila ja paľinku
+
+
+$Slovenské
+
+Mam ja hrušku
+Nepi, Jano, nepi vodu
+Oči, oči, čierne oči
+Trenčín dolinečka, pekna rovinečka
+Sedemdesiat sukien mala
+Tancuj, tancuj, vykrúcaj
+
+@Duvaj
+
+A v tej našej zahradôčke
+Anička, dušička nekašli
+Beťar ja parobek (J. A.)
+Darmo ma mamičko
+Ešte si ja pohar vínka vypijem
+Ešte vínko nevykyslo
+Javornik, javornik
+Močila konope, močila
+Na trenčianskom moste fijalôčka
+Pod tým naším okienečkom
+Také sa mi dievča pači
+Tota Heľpa tota Heľpa
+
+-@Duvaj
+@Rýchle
+
+A ja som z Oravy debnar
+Ani sa ma nepýtaj, nepýtaj
+Čij že si šuhajko
+Dievčatko Oravskô
+Ej, tak som si pomyslel
+Ej, toči sa mi, toči
+Išli dievky ľan trhať
+Na tej Detve studňa murovana
+Oči, oči, čierne oči
+Pači sa mi pači
+V pondelok doma nebudem
+Z východnej dievčence
+
+
+$Cigánske
+-@Rýchle
+
+Adro verdan
+Ando pani lampaši
+Aj de vlare
+Andre míre kále bala
+Bašav mange, bašav
+Bešľa e čhaj
+Duj, duj, duj, dešuduj
+Evo bičhav mange fotka
+Havelko
+Joj mamo, bokhali sľom
+Júlia, Júlia
+Loli paradiča
+Kali Rosita
+Nane oda lavutari
+O poštarisre avel
+
+!Čardáš
+
+!Krucene
+
+A jaki ty parobek Ojedla še fazuli
+A na medzi čerešenka
+A poniže Kelemeša
+A za jedno jablučko
+Anička konala
+Či to tota, či ne tota
+Dzifče počarovne
+Ej, kročkom koňu kročkom
+Ej, leto, leto, leto horuce
+Ej, zahrali vešelu
+Ešči mladej nezahrali
+Hej, mam ja lučku
+Ja parobok s Kapušan
+Kec ja išla s koscela
+Keca ja pujdzem orac
+Lúčka, lučka žeľeňučka
+Mal som, mal som
+Ňebudzem dobrý, nebudzem
+Ňebudzem še žeňic, aš po Veľkej noci
+Paľenočka dobrej moci
+Pomočil me, pomočil drobni dižďik
+Šedlačkovi dobre je
+Stala ja na skaľe
+U Vranove bubnuju
+Višol na hurečku, raz vistreliľ
+Z huri ot Braňiska
+Žimňučka rosa pada
+Poľana, Poľana
+
+Dzifče počarovne
+Pomočil me pomočil
+Cicha voda brehi mije
+Široko koreňe
+
+Červene jáblčko vo vačku mam
+Detvianski žandari
+Ej, tak som si pomyslel na detvianskom moste
+Prešporska kasareň maľovana
+Tri dni ma nahaňali
+V pondelok doma nebudem
+Vretienko mi pada
+Vyhorela lipka, od koreňa
+
+!Krucene
+
+!Tanga
+
+Biele Margaréty
+La Paloma
+Na brehu riečky
+Najkrajšia hviezdička
+Nečakaj ma už nikdy
+Rodný môj kraj
+Slovenska rodná dedina
+So slzami v očiach
+Deti s Pirea
+Cigánko ty krásna
+
+!Tanga
+
+!Pomalé
+
+$Východ
+
+Brežinki, brežinki
+Ej pobili me včera
+Hej, koňičku vrani muj
+Hora, hora, hora šumna, žeľena
+Ja parobek s Kapušan
+Lučka, lučka, źeľeňučka
+Mal som štyri volki
+Na Košickej turňi
+Povice vi mojej žeňe
+Odkažce vy mojej žene
+Široko korene
+Trebišov to valal
+U Maľčici na valaľe jahoda
+Už minulo 7 ročki na maja
+(Javore, javore)
+Zahraj cigan, fras ce trime
+
+$Slovak
+
+Anička dušička, kde si bola
+Boleraz, boleraz  – A
+Čierne oči, choďte spať
+Dobru noc, má milá
+Ej, musel by to chlap byť
+Ej, pada, pada rosička
+Hej. musel by to chlap byť
+Ide furman dolinou
+Išeu Macek do Mauacek
+Jasom bača veľmi starý
+Keby som bol vtáčkom
+Kysuca, Kysuca
+Limbora, Limbora (padaju oriešky)
+Lučka, lučka, lučka zelena
+Na Kráľovej holi
+Po nábreži koník beží
+Povedzte mojej materi
+Sadaj, slnko sadaj
+Slovenská rodná dedina G
+Sobotienka ide
+Spievanky, spievanky
+Svitaj Bože, svitaj, aby skorej deň byl
+Teče voda, teče
+Travička zelena, zelenaj sa
+Vinko, vinko, vinko červene
+Z brezového dreva voda kvapka
+Zahučali hory, zahučali lesy
+Zaleť sokol, biely vták
+Zbohom ostavajte
+
+$Česke
+
+Vinečko bíle
+Za tu horu, za vysokú
+Zaspala nevěsta
+
+!Pomalé
