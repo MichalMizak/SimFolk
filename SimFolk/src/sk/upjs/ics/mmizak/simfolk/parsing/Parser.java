@@ -1,5 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.parsing;
 
+import sk.upjs.ics.mmizak.simfolk.Containers.Song;
+
 import java.io.*;
 import java.util.*;
 
@@ -8,16 +10,13 @@ public class Parser {
     public static void main(String[] args) throws IOException {
         Parser parser = new Parser();
         //parser.parseViktor();
-        parser.parsePiesne372();
+        //parser.parsePiesne372();
     }
 
     public void parseViktor() throws FileNotFoundException {
 
-        /*getClass().getResource().toString()*/
-        /*"sk/upjs/ics/mmizak/simfolk/parsing/ViktorZoznam.txt"*/
-        /*File inputFile = new File("/ViktorZoznam.txt");*/
         InputStream is = getClass().getResourceAsStream("resources/ViktorZoznam.txt");
-        /*FileInputStream is = new FileInputStream(inputFile);*/
+
         Scanner scanner = new Scanner(is, "UTF8");
 
         List<Song> songs = new ArrayList<>();
@@ -120,7 +119,6 @@ public class Parser {
         while (scanner.hasNextLine()) {
 
             String line = scanner.nextLine();
-            //System.out.println(title + "\n" + line);
 
             if (line.trim().equals(title.trim())) {
                 line = scanner.nextLine();
@@ -153,10 +151,8 @@ public class Parser {
         InputStream is = getClass().getResourceAsStream("./resources/piesne372.txt");
         Scanner scanner = new Scanner(is, "UTF8");
 
-        /*Scanner scanner = new Scanner(inputFile, "windows-1250");*/
         int counter = 1;
 
-        File outputFile = new File("0.txt");
         StringBuilder lyrics = new StringBuilder();
         String title = null;
 

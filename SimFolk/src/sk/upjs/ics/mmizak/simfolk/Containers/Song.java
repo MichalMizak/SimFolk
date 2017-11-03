@@ -1,4 +1,4 @@
-package sk.upjs.ics.mmizak.simfolk.parsing;
+package sk.upjs.ics.mmizak.simfolk.Containers;
 
 import java.util.List;
 
@@ -17,10 +17,6 @@ public class Song {
     private String region;
 
     private String source;
-
-    /*private String description;
-
-    private int totalTimesPlayed;*/
 
     public Long getId() {
         return id;
