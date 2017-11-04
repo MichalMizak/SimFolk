@@ -16,6 +16,7 @@ public class LyricCleaner {
         lyrics = cleanSpecialCharacters(lyrics);
         lyrics = cleanRepetition(lyrics);
         lyrics = cleanWhitespaces(lyrics);
+        lyrics = cleanNumbers(lyrics);
 
         return lyrics;
     }
@@ -59,7 +60,7 @@ public class LyricCleaner {
      * @return
      */
     private static String cleanRepetition(String lyrics) {
-        return null;
+        return lyrics;
     }
 
     /**
@@ -70,5 +71,28 @@ public class LyricCleaner {
      */
     private static String cleanWhitespaces(String lyrics) {
         return lyrics.trim().replaceAll("\\s+", " ");
+    }
+
+    private static String cleanNumbers(String lyrics) {;
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < lyrics.length(); i++) {
+            char judgedChar = lyrics.charAt(i);
+            if (isIrrelevantNumber(judgedChar)) {
+                if ((i+1 < lyrics.length()) && (lyrics.charAt(i+1) == 'x')) {
+                    i++;
+                }
+                continue;
+            }
+            result.append(judgedChar);
+        }
+        return result.toString();
+    }
+
+    private static boolean isIrrelevantNumber(char judgedChar) {
+        if (judgedChar >= '0' && judgedChar <= '9') {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,21 +1,21 @@
 package sk.upjs.ics.mmizak.simfolk.parsing;
 
-import sk.upjs.ics.mmizak.simfolk.Containers.Song;
+import sk.upjs.ics.mmizak.simfolk.containers.Song;
 
 import java.io.*;
 import java.util.*;
 
-public class Parser {
+class Parser {
 
-    public static void main(String[] args) throws IOException {
-        Parser parser = new Parser();
-        //parser.parseViktor();
-        //parser.parsePiesne372();
-    }
+    static final String VIKTOR_ZOZNAM = "src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\ViktorZoznam.txt";
+    static final String VIKTOR = "src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\Viktor.txt";
+    static final String PIESNE372 = "src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\piesne372.txt";
 
-    public void parseViktor() throws FileNotFoundException {
 
-        InputStream is = getClass().getResourceAsStream("resources/ViktorZoznam.txt");
+
+    public List<Song> parseViktor() throws FileNotFoundException {
+
+        InputStream is = new FileInputStream(VIKTOR_ZOZNAM);
 
         Scanner scanner = new Scanner(is, "UTF8");
 
@@ -80,7 +80,7 @@ public class Parser {
                 continue;
             }
 
-                String title = line;
+            String title = line;
             if (title.trim().equals("")) {
                 break;
             }
@@ -103,17 +103,19 @@ public class Parser {
             song = new Song();
 
         }
-        for (Song songg : songs) {
+        /*for (Song songg : songs) {
             System.out.println(songg.toString());
             System.out.println("\n");
-        }
+        }*/
+
+        return songs;
     }
 
     private String findSongLyrics(String title) throws FileNotFoundException {
 
         StringBuilder lyrics = new StringBuilder();
 
-        InputStream is = getClass().getResourceAsStream("resources/Viktor.txt");
+        InputStream is = new FileInputStream(VIKTOR);
         Scanner scanner = new Scanner(is, "UTF8");
 
         while (scanner.hasNextLine()) {
@@ -146,9 +148,9 @@ public class Parser {
     }
 
 
-    private void parsePiesne372() throws FileNotFoundException, UnsupportedEncodingException {
+    public List<Song> parsePiesne372() throws FileNotFoundException, UnsupportedEncodingException {
 
-        InputStream is = getClass().getResourceAsStream("./resources/piesne372.txt");
+        InputStream is = new FileInputStream(PIESNE372);
         Scanner scanner = new Scanner(is, "UTF8");
 
         int counter = 1;
@@ -197,9 +199,10 @@ public class Parser {
 
         }
 
-        for (Song song : songs) {
+        /*for (Song song : songs) {
             System.out.println(song.toString());
             System.out.println("\n");
-        }
+        }*/
+        return songs;
     }
 }

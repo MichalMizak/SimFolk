@@ -1,8 +1,8 @@
-package sk.upjs.ics.mmizak.simfolk.Containers;
+package sk.upjs.ics.mmizak.simfolk.containers;
 
-import sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations.BiGram;
-import sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations.TriGram;
-import sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations.UnGram;
+import sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations.BiGram;
+import sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations.TriGram;
+import sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations.UnGram;
 import sk.upjs.ics.mmizak.simfolk.utilities.LyricCleaner;
 import sk.upjs.ics.mmizak.simfolk.utilities.UtilityFactory;
 import sk.upjs.ics.mmizak.simfolk.utilities.interfaces.INGramBuilder;
@@ -29,7 +29,7 @@ public class SongStats {
         this.songId = songId;
 
         lyrics = LyricCleaner.clean(lyrics);
-        
+
         INGramBuilder nGramBuilder = UtilityFactory.getNGramBuilder();
 
         this.unGrams = nGramBuilder.buildUnGrams(lyrics);
@@ -37,5 +37,19 @@ public class SongStats {
         this.triGrams = nGramBuilder.buildTriGrams(lyrics);
     }
 
+    public long getSongId() {
+        return songId;
+    }
 
+    public List<UnGram> getUnGrams() {
+        return unGrams;
+    }
+
+    public List<BiGram> getBiGrams() {
+        return biGrams;
+    }
+
+    public List<TriGram> getTriGrams() {
+        return triGrams;
+    }
 }

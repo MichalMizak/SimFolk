@@ -1,6 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.utilities;
 
-import sk.upjs.ics.mmizak.simfolk.utilities.Implementations.NGramBuilder;
+import sk.upjs.ics.mmizak.simfolk.utilities.implementations.NGramBuilder;
 import sk.upjs.ics.mmizak.simfolk.utilities.interfaces.INGramBuilder;
 
 public class UtilityFactory {

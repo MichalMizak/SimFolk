@@ -1,7 +1,7 @@
-package sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations;
+package sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations;
 
 import jdk.nashorn.internal.ir.annotations.Immutable;
-import sk.upjs.ics.mmizak.simfolk.Containers.NGram;
+import sk.upjs.ics.mmizak.simfolk.containers.NGram;
 
 @Immutable
     public class TriGram extends NGram {
@@ -13,6 +13,6 @@ import sk.upjs.ics.mmizak.simfolk.Containers.NGram;
         @Override
         protected boolean validateLyricsFragment() {
             // TODO: Correct validation
-            return false;
+            return true;
         }
     }

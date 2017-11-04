@@ -1,4 +1,4 @@
-package sk.upjs.ics.mmizak.simfolk.Containers;
+package sk.upjs.ics.mmizak.simfolk.containers;
 
 import jdk.nashorn.internal.ir.annotations.Immutable;
 

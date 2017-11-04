@@ -1,8 +1,8 @@
-package sk.upjs.ics.mmizak.simfolk.utilities.Implementations;
+package sk.upjs.ics.mmizak.simfolk.utilities.implementations;
 
-import sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations.BiGram;
-import sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations.TriGram;
-import sk.upjs.ics.mmizak.simfolk.Containers.NGramImplementations.UnGram;
+import sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations.BiGram;
+import sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations.TriGram;
+import sk.upjs.ics.mmizak.simfolk.containers.nGramImplementations.UnGram;
 import sk.upjs.ics.mmizak.simfolk.utilities.interfaces.INGramBuilder;
 
 import java.util.Arrays;
