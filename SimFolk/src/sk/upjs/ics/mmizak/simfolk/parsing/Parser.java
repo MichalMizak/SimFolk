@@ -1,6 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.parsing;
 
-import sk.upjs.ics.mmizak.simfolk.containers.Song;
+import sk.upjs.ics.mmizak.simfolk.algorithm.containers.Song;
 
 import java.io.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package sk.upjs.ics.mmizak.simfolk.utilities;
+package sk.upjs.ics.mmizak.simfolk.algorithm.utilities;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -73,6 +73,12 @@ public class LyricCleaner {
         return lyrics.trim().replaceAll("\\s+", " ");
     }
 
+
+    /**
+     * Cleans lyrics from numbers and repetition numbers such as 2x, 3x...
+     * @param lyrics
+     * @return clean lyrics without numbers
+     */
     private static String cleanNumbers(String lyrics) {;
         StringBuilder result = new StringBuilder();
 

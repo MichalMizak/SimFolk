@@ -1,4 +1,4 @@
-package sk.upjs.ics.mmizak.simfolk.containers;
+package sk.upjs.ics.mmizak.simfolk.algorithm.containers;
 
 import java.util.List;
 
