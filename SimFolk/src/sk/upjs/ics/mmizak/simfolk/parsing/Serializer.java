@@ -2,7 +2,7 @@ package sk.upjs.ics.mmizak.simfolk.parsing;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import sk.upjs.ics.mmizak.simfolk.algorithm.containers.Song;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;

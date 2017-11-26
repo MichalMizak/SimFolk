@@ -1,7 +1,8 @@
-package sk.upjs.ics.mmizak.simfolk.algorithm.containers.vector.space;
+package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
 public class Algorithm {
 
     private Long id;
     private AlgorithmConfiguration algorithmConfiguration;
+
 }

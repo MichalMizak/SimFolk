@@ -1,7 +1,8 @@
-package sk.upjs.ics.mmizak.simfolk.algorithm.utilities.implementations;
+package sk.upjs.ics.mmizak.simfolk.core.utilities.implementations;
 
-import sk.upjs.ics.mmizak.simfolk.algorithm.containers.term.schemes.Term;
-import sk.upjs.ics.mmizak.simfolk.algorithm.utilities.interfaces.ITermBuilder;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ public class TermBuilder implements ITermBuilder {
         Term[] unGrams = new Term[words.length];
 
         for (int i = 0; i < unGrams.length; i++) {
-            unGrams[i] = new Term(words[i], Arrays.asList(words));
+            unGrams[i] = new Term(null, words[i], Arrays.asList(words));
         }
 
         return Arrays.asList(unGrams);
@@ -53,7 +54,7 @@ public class TermBuilder implements ITermBuilder {
             wordsAsList.add(words[i]);
             wordsAsList.add(words[i + 1]);
 
-            biGrams[i] = new Term(sb.toString(), wordsAsList);
+            biGrams[i] = new Term(null, sb.toString(), wordsAsList);
         }
 
         return Arrays.asList(biGrams);
@@ -74,9 +75,40 @@ public class TermBuilder implements ITermBuilder {
             wordsAsList.add(words[i + 1]);
             wordsAsList.add(words[i + 2]);
 
-            triGrams[i] = new Term(sb.toString(), wordsAsList);
+            triGrams[i] = new Term(null, sb.toString(), wordsAsList);
         }
 
         return Arrays.asList(triGrams);
     }
+
+    @Override
+    public List<Term> buildTerms(AlgorithmConfiguration.TermScheme termScheme, String lyrics) {
+        switch (termScheme) {
+            case UNGRAM:
+                return buildUnGrams(lyrics);
+            case BIGRAM:
+                return buildBiGrams(lyrics);
+            case TRIGRAM:
+                return buildTriGrams(lyrics);
+            default:
+                return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<Term> buildTerms(AlgorithmConfiguration.TermScheme termScheme, Integer n, String lyrics) {
+        if (n == null) {
+            return buildTerms(termScheme, lyrics);
+        }
+
+        switch (termScheme) {
+            case NGRAM:
+                return buildNGrams(lyrics, n);
+            default:
+                return new ArrayList<>();
+        }
+
+    }
+
+
 }

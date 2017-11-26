@@ -1,4 +1,4 @@
-package sk.upjs.ics.mmizak.simfolk.algorithm.utilities;
+package sk.upjs.ics.mmizak.simfolk.core.utilities;
 
 import java.util.HashSet;
 import java.util.Set;
