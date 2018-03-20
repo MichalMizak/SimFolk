@@ -1,75 +1,93 @@
 package sk.upjs.ics.mmizak.simfolk.core.utilities.implementations;
 
-import sk.upjs.ics.mmizak.simfolk.core.utilities.UtilityFactory;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.WeightedTermAlphabeticalComparator;
 import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermVectorFormatter;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTerm;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermVector;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermVectorPair;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.VectorInclusion;
 
-// TODO: TOLERANCE TEST
+
+/**
+ * The class sorts the vectors alphabetically and formats them to match each other.
+ * Warning: The class MODIFIES the vectors it receives!!!
+ */
+// TODO: Implement
 public class TermVectorFormatter implements ITermVectorFormatter {
 
     @Override
-    public WeightedTermVectorPair aFormation(WeightedTermVector a, WeightedTermVector b) {
+    public WeightedVectorPair aFormation(WeightedVector a, WeightedVector b,
+                                         ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
+                                         double tolerance) {
 
-        a.sortAlphabetically();
-        b.sortAlphabetically();
+        sortAlphabetically(a);
+        sortAlphabetically(b);
 
-        List<WeightedTerm> bResult = new ArrayList<>();
-
-        ITermComparator termComparator = UtilityFactory.INSTANCE.getTermComparator();
+        List<WeightedTermGroup> bResult = new ArrayList<>();
 
 
-
-        for (WeightedTerm aTerm : a.getVector()) {
-            // if (termComparator.equals(aTerm, ))
+        for (WeightedTermGroup aTerm : a.getVector()) {
+            // if (termComparator.compare(aTerm, ))
         }
 
 
-
-
         return null;
     }
 
     @Override
-    public WeightedTermVectorPair bFormation(WeightedTermVector a, WeightedTermVector b) {
-        return aFormation(b, a);
+    public WeightedVectorPair bFormation(WeightedVector a, WeightedVector b,
+                                         ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
+                                         double tolerance) {
+        return aFormation(b, a, termComparator, termComparisonAlgorithm, tolerance);
     }
 
     @Override
-    public WeightedTermVectorPair abFormation(WeightedTermVector a, WeightedTermVector b) {
+    public WeightedVectorPair abFormation(WeightedVector a, WeightedVector b,
+                                          ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
+                                          double tolerance) {
         return null;
     }
 
     @Override
-    public WeightedTermVectorPair allFormation(WeightedTermVector a, WeightedTermVector b) {
+    public WeightedVectorPair allFormation(WeightedVector a, WeightedVector b,
+                                           ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
+                                           double tolerance) {
         return null;
     }
 
     @Override
-    public WeightedTermVectorPair formVector(WeightedTermVector a, WeightedTermVector b, VectorInclusion vectorInclusion) {
+    public WeightedVectorPair formVectors(WeightedVector a, WeightedVector b,
+                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
+                                          ITermComparator termComparator, VectorInclusion vectorInclusion) {
+
         switch (vectorInclusion) {
             case A:
-                return aFormation(a, b);
+                return aFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
             case B:
-                return bFormation(a, b);
+                return bFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
             case AB:
-                return abFormation(a, b);
+                return abFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
             case ALL:
-                return allFormation(a, b);
+                return allFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
             default:
                 throw new RuntimeException("Unimplemented vector inclusion");
         }
     }
 
     @Override
-    public WeightedTermVectorPair formVector(WeightedTermVectorPair ab, VectorInclusion vectorInclusion) {
-        return formVector(ab.getA(), ab.getB(), vectorInclusion);
+    public WeightedVectorPair formVectors(WeightedVectorPair ab,
+                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
+                                          ITermComparator termComparator, VectorInclusion vectorInclusion) {
+        return formVectors(ab.getA(), ab.getB(), termComparisonAlgorithm, tolerance, termComparator, vectorInclusion);
+    }
+
+    private void sortAlphabetically(WeightedVector vector) {
+        vector.getVector().sort(new WeightedTermAlphabeticalComparator());
     }
 }

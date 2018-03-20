@@ -21,7 +21,7 @@ public class TermBuilder implements ITermBuilder {
             case 3:
                 return buildTriGrams(lyrics);
 
-            // TODO: Implement
+            // TODO: Implement other Gram implementations
             default:
                 return null;
         }
@@ -109,6 +109,4 @@ public class TermBuilder implements ITermBuilder {
         }
 
     }
-
-
 }

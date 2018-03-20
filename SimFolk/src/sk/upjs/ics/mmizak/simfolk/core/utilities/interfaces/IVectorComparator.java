@@ -1,16 +1,16 @@
 package sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermVectorPair;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.VectorComparationAlgorithm;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.VectorComparisonAlgorithm;
 
 public interface IVectorComparator {
 
-    double calculateSimilarity(VectorComparationAlgorithm algorithm, WeightedTermVectorPair vectorPair);
+    double calculateSimilarity(VectorComparisonAlgorithm algorithm, WeightedVectorPair vectorPair);
 
-    double calculateSimilarity(VectorComparationAlgorithm algorithm, List<Double> A, List<Double> B);
+    double calculateSimilarity(VectorComparisonAlgorithm algorithm, List<Double> A, List<Double> B);
 
     double calculateCosineSimilarity(List<Double> A, List<Double> B);
 

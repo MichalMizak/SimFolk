@@ -1,5 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
+
 public abstract class AlgorithmConfiguration {
 
     public enum AlgorithmType {
@@ -7,20 +8,24 @@ public abstract class AlgorithmConfiguration {
     }
 
     public enum TermWeightType {
-        TF, IDF, TFIDF
+        TF_NAIVE, TF, IDF, TFIDF
     }
 
     public enum TermScheme {
         UNGRAM, BIGRAM, TRIGRAM, NGRAM;
 
         public boolean isDependantOnN() {
-            switch(this) {
+            switch (this) {
                 case NGRAM:
                     return true;
                 default:
                     return false;
             }
         }
+    }
+
+    public enum TermComparisonAlgorithm {
+        NAIVE
     }
 
     /**
@@ -30,7 +35,7 @@ public abstract class AlgorithmConfiguration {
         A, B, AB, ALL
     }
 
-    public enum VectorComparationAlgorithm {
+    public enum VectorComparisonAlgorithm {
         COS
     }
 }

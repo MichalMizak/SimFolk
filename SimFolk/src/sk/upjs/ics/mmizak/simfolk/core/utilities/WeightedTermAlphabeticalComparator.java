@@ -1,11 +1,11 @@
 package sk.upjs.ics.mmizak.simfolk.core.utilities;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTerm;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 
-public class WeightedTermAlphabeticalComparator implements java.util.Comparator<WeightedTerm> {
+public class WeightedTermAlphabeticalComparator implements java.util.Comparator<WeightedTermGroup> {
 
     @Override
-    public int compare(WeightedTerm o1, WeightedTerm o2) {
-        return o1.getTerm().getLyricsFragment().compareTo(o2.getTerm().getLyricsFragment());
+    public int compare(WeightedTermGroup o1, WeightedTermGroup o2) {
+        return o1.getTerms().getLyricsFragment().compareTo(o2.getTerms().getLyricsFragment());
     }
 }

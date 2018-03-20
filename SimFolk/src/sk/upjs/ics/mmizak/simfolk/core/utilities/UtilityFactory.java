@@ -1,26 +1,29 @@
 package sk.upjs.ics.mmizak.simfolk.core.utilities;
 
-import sk.upjs.ics.mmizak.simfolk.core.utilities.implementations.TermBuilder;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.implementations.TermComparator;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.implementations.TermVectorFormatter;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.implementations.VectorComparator;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermBuilder;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermComparator;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermVectorFormatter;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.IVectorComparator;
+import sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermService;
+import sk.upjs.ics.mmizak.simfolk.core.services.implementations.WeightService;
+import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermService;
+import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IWeightService;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.implementations.*;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.*;
 
 public enum UtilityFactory {
 
     INSTANCE;
 
-
     private ITermBuilder termBuilder;
+
+    private ITermService termService;
 
     private ITermVectorFormatter termVectorFormatter;
 
+    private IWeightService weightCalculator;
+
+    // comparators
     private ITermComparator termComparator;
 
     private IVectorComparator vectorComparator;
+
 
     public ITermBuilder getTermBuilder() {
         if (termBuilder == null) {
@@ -41,6 +44,7 @@ public enum UtilityFactory {
             termComparator = new TermComparator();
         }
         return termComparator;
+
     }
 
     public IVectorComparator getVectorComparator() {
@@ -48,5 +52,19 @@ public enum UtilityFactory {
             vectorComparator = new VectorComparator();
         }
         return vectorComparator;
+    }
+
+    public IWeightService getWeightCalculator() {
+        if (weightCalculator == null) {
+            weightCalculator = new WeightService();
+        }
+        return weightCalculator;
+    }
+
+    public ITermService getTermService() {
+        if (termService == null) {
+            termService = new TermService();
+        }
+        return termService;
     }
 }

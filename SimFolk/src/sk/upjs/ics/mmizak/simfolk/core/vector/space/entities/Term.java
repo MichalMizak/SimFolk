@@ -17,6 +17,15 @@ public class Term {
         this.tokenizedLyricsFragment = tokenizedLyricsFragment;
     }
 
+    //<editor-fold desc="Getters and setters">
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getLyricsFragment() {
         return lyricsFragment;
     }
@@ -28,4 +37,5 @@ public class Term {
     public List<String> getTokenizedLyricsFragment() {
         return tokenizedLyricsFragment;
     }
+    //</editor-fold>
 }

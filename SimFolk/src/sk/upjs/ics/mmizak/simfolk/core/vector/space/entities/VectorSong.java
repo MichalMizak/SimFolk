@@ -1,18 +1,15 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermVector;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.LyricCleaner;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.UtilityFactory;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermBuilder;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
 public class VectorSong {
 
     private Long songId;
 
-    private WeightedTermVector termVector;
+    private WeightedVector termVector;
 
-    public VectorSong(long songId, WeightedTermVector termVector) {
-        this.songId = songId;
+    public VectorSong(WeightedVector termVector) {
+        this.songId = termVector.getSongId();
         this.termVector =  termVector;
     }
 
@@ -20,7 +17,7 @@ public class VectorSong {
         return songId;
     }
 
-    public WeightedTermVector getTermVector() {
+    public WeightedVector getTermVector() {
         return termVector;
     }
 }

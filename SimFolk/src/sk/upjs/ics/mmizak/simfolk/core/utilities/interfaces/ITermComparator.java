@@ -2,8 +2,11 @@ package sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
+
 public interface ITermComparator {
 
-    boolean equals(Term t1, Term t2);
+    // determines whether the terms are equal or similar within the tolerance
+    boolean compare(Term t1, Term t2, double tolerance, TermComparisonAlgorithm termComparisonAlgorithm);
 
 }
