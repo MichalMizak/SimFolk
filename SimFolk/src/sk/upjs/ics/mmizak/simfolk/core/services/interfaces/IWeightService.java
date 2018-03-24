@@ -40,9 +40,9 @@ public interface IWeightService {
     WeightedVector getWeightedTermVectorBySongId(Long songId, TermWeightType termWeightType,
                                                  TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
-    WeightedVector calculateWeightedTermVector(List<Term> terms, TermWeightType termWeightType, Long songId,
-                                               TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
-                                               ITermComparator termComparator);
+    WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Long songId,
+                                              TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
+                                              ITermComparator termComparator);
 
     List<WeightedVector> getAllWeightedTermVectors(TermWeightType termWeightType,
                                                    TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);

@@ -18,6 +18,21 @@ public class Song {
 
     private String source;
 
+    public Song() {
+        // do nothing
+    }
+
+    public Song(Long id, String title, String lyrics, String songStyle, List<String> attributes, String region, String source) {
+        this.id = id;
+        this.title = title;
+        this.lyrics = lyrics;
+        this.songStyle = songStyle;
+        this.attributes = attributes;
+        this.region = region;
+        this.source = source;
+    }
+
+    //<editor-fold desc="Getters and setters">
     public Long getId() {
         return id;
     }
@@ -73,6 +88,7 @@ public class Song {
     public void setSongStyle(String songStyle) {
         this.songStyle = songStyle;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {

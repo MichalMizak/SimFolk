@@ -3,10 +3,7 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space;
 import sk.upjs.ics.mmizak.simfolk.core.IAlgorithmComputer;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermService;
 import sk.upjs.ics.mmizak.simfolk.core.utilities.UtilityFactory;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermBuilder;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermComparator;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermVectorFormatter;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.IVectorComparator;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.*;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IWeightService;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
@@ -26,8 +23,6 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
  */
 public class VectorAlgorithmComputer implements IAlgorithmComputer {
 
-    private VectorAlgorithmConfiguration vectorAlgorithmConfiguration;
-
     @Override
     public VectorAlgorithmResult computeSimilarity(AlgorithmConfiguration algorithmConfiguration, Song song) throws Exception {
 
@@ -36,44 +31,57 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             throw new Exception("Invalid AlgorithmConfiguration");
         }
 
-        vectorAlgorithmConfiguration = (VectorAlgorithmConfiguration) algorithmConfiguration;
+        VectorAlgorithmConfiguration vectorConfig = (VectorAlgorithmConfiguration) algorithmConfiguration;
 
         // dependencies initiation
         ITermBuilder termBuilder = INSTANCE.getTermBuilder();
         ITermService termService = INSTANCE.getTermService();
+        IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
         ITermComparator termComparator = INSTANCE.getTermComparator();
         IWeightService weightCalculator = UtilityFactory.INSTANCE.getWeightCalculator();
         ITermVectorFormatter termVectorFormatter = INSTANCE.getTermVectorFormatter();
         IVectorComparator vectorComparator = INSTANCE.getVectorComparator();
 
+        // local variables for readability
+        TermWeightType termWeightType = vectorConfig.getTermWeightType();
+        TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
 
-        List<Term> terms = termBuilder.buildTerms(vectorAlgorithmConfiguration.getTermScheme(),
-                vectorAlgorithmConfiguration.getTermDimension(), song.getLyrics());
+        // calculate numeric value of tolerance
+        double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
+                termComparisonAlgorithm);
 
-        // assigns database ids to existing terms
-        terms = termService.syncTerms(terms);
+        List<Term> terms;
+        WeightedVector vectorA;
 
-        TermWeightType termWeightType = vectorAlgorithmConfiguration.getTermWeightType();
+        if (song.getId() == null) {
+            terms = termBuilder.buildTerms(vectorConfig.getTermScheme(),
+                    vectorConfig.getTermDimension(), song.getLyrics());
 
-        // WARNING: songId is null for unsaved songs!
-        WeightedVector vectorA = weightCalculator.calculateWeightedTermVector(terms, termWeightType, song.getId(),
-                vectorAlgorithmConfiguration.getTermComparisonAlgorithm(), vectorAlgorithmConfiguration.getTolerance(),
-                termComparator);
+            // assigns database ids to existing terms
+            terms = termService.syncTerms(terms);
+
+            vectorA = weightCalculator.calculateNewWeightedVector(terms, termWeightType, song.getId(),
+                    termComparisonAlgorithm, tolerance,
+                    termComparator);
+        } else {
+            vectorA = weightCalculator.getWeightedTermVectorBySongId(song.getId(), termWeightType,
+                    termComparisonAlgorithm, tolerance);
+        }
         //</editor-fold>
 
         List<WeightedVector> allWeightedVectors = weightCalculator.getAllWeightedTermVectors(termWeightType,
-                vectorAlgorithmConfiguration.getTermComparisonAlgorithm(), vectorAlgorithmConfiguration.getTolerance());
+                termComparisonAlgorithm, tolerance);
 
         Map<Long, Double> songToSimilarityPercentage = new HashMap<>();
 
         for (WeightedVector vectorB : allWeightedVectors) {
 
             WeightedVectorPair vectorPair = termVectorFormatter.formVectors(vectorA, vectorB,
-                    vectorAlgorithmConfiguration.getTermComparisonAlgorithm(),
-                    vectorAlgorithmConfiguration.getTolerance(), termComparator,
-                    vectorAlgorithmConfiguration.getVectorInclusion());
+                    termComparisonAlgorithm,
+                    tolerance, termComparator,
+                    vectorConfig.getVectorInclusion());
 
-            double similarity = vectorComparator.calculateSimilarity(vectorAlgorithmConfiguration.getVectorComparisonAlgorithm(),
+            double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
                     vectorPair);
 
             songToSimilarityPercentage.put(vectorB.getSongId(), similarity);
@@ -82,7 +90,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         VectorAlgorithmResult result = new VectorAlgorithmResult();
 
         result.setSongToSimilarityPercentage(songToSimilarityPercentage);
-        result.setVectorAlgorithmConfiguration(this.vectorAlgorithmConfiguration);
+        result.setVectorAlgorithmConfiguration(vectorConfig);
         result.setVectorSong(new VectorSong(vectorA));
 
         return result;
@@ -101,9 +109,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
     public VectorAlgorithmResult computeSimilarityAndSave(AlgorithmConfiguration algorithmConfiguration, Song song) throws Exception {
         // TODO: save and refresh weights first
 
-        VectorAlgorithmResult result = computeSimilarity(algorithmConfiguration, song);
-
-        return result;
+        return computeSimilarity(algorithmConfiguration, song);
     }
 
     @Override

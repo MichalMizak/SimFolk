@@ -21,6 +21,9 @@ public class WeightService implements IWeightService {
     IWeightedVectorDao weightedVectorDao = DaoFactory.INSTANCE.getWeightedVectorDao();
     IWeightedTermGroupDao weightedTermGroupDao = DaoFactory.INSTANCE.getTermGroupDao();
 
+    /**
+     * Resets weights for all termWeightTypes
+     */
     @Override
     public void resetWeights() {
         List<TermWeightType> termWeightTypes = Arrays.asList(TermWeightType.values());
@@ -28,6 +31,11 @@ public class WeightService implements IWeightService {
         resetWeights(termWeightTypes);
     }
 
+    /**
+     * Resets weights for chosen termWeightTypes
+     *
+     * @param termWeightTypes
+     */
     @Override
     public void resetWeights(List<TermWeightType> termWeightTypes) {
         for (TermWeightType type : termWeightTypes) {
@@ -35,8 +43,14 @@ public class WeightService implements IWeightService {
         }
     }
 
+    /**
+     * Resets weights for this one termWeightType
+     *
+     * @param termWeightType
+     */
     @Override
     public void resetWeights(TermWeightType termWeightType) {
+       // weightedTermGroupDao.deleteAll(termWeightType);
 
     }
 
@@ -57,7 +71,10 @@ public class WeightService implements IWeightService {
 
 
     /**
-     * For instance if the @param songId contains terms which are already in the database and their weights
+     * A method that returns a WeightedVector of a song. If song already is in database (e.g. has its weights
+     * calculated) then the calculation is delegated to method getWeightedTermVectorBySongId
+     * <p>
+     * If the @param songId contains terms which are already in the database and their weights
      * are established, in this new context the weights might turn out differently. We will try to find out
      * whether the terms already exist in the database and calculate the weights taking them into account.
      *
@@ -66,9 +83,9 @@ public class WeightService implements IWeightService {
      * @param songId
      * @return
      */
-    public WeightedVector calculateWeightedTermVector(List<Term> terms, TermWeightType termWeightType, Long songId,
-                                                      TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
-                                                      ITermComparator termComparator) {
+    public WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Long songId,
+                                                     TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
+                                                     ITermComparator termComparator) {
 
         if (songId != null) {
             return getWeightedTermVectorBySongId(songId, termWeightType,
@@ -77,7 +94,6 @@ public class WeightService implements IWeightService {
 
         List<WeightedTermGroup> frequencyWeightedGroups = getFrequencyWeightedTerm(terms, termComparisonAlgorithm,
                 tolerance, termComparator);
-
 
         // init termWeightType and songId
         frequencyWeightedGroups.forEach(w -> {
@@ -97,12 +113,10 @@ public class WeightService implements IWeightService {
             default:
                 throw new RuntimeException("Unknown termWeightType");
         }
-
         return null;
     }
 
     /**
-     * Returns weighted term groups with their frequencies as weight. Inits only fields: terms, groupId and termWeight.
      * <p>
      * Firstly, the method synchronizes group ids with database. Then proceeds to merge terms with same group
      * ids together and assigns them the weight of the count of merged terms.
@@ -110,7 +124,11 @@ public class WeightService implements IWeightService {
      * taking tolerance and termComparisonAlgorithm into account
      *
      * @param terms
-     * @return
+     * @param termComparisonAlgorithm
+     * @param tolerance
+     * @param termComparator
+     * @return Returns weighted term groups with their frequencies as weight.
+     * Inits only fields: terms, groupId and termWeight.
      */
     private List<WeightedTermGroup> getFrequencyWeightedTerm(List<Term> terms,
                                                              TermComparisonAlgorithm termComparisonAlgorithm,
@@ -123,7 +141,6 @@ public class WeightService implements IWeightService {
         List<WeightedTermGroup> result = new ArrayList<>();
 
         // compare the groups one by one
-        mainICycle:
         for (int i = 0; i < weightedTermGroups.size(); i++) {
             if (usedIndices.contains(i)) {
                 continue;
@@ -134,7 +151,6 @@ public class WeightService implements IWeightService {
 
             iTermGroup.setTermWeight(1.0);
 
-            mainJCycle:
             for (int j = i + 1; j < weightedTermGroups.size(); j++) {
                 if (usedIndices.contains(j)) {
                     continue;
@@ -163,6 +179,7 @@ public class WeightService implements IWeightService {
 
     /**
      * Generated method that compares two term groups term by term and merges them if they are equal.
+     * jTermGroup is a singleton collection.
      * The method serves only for cosmetic purposes of getFrequencyWeightedTerm and should not be reused.
      *
      * @param iTermGroup
@@ -177,13 +194,10 @@ public class WeightService implements IWeightService {
     private void compareGroupsTermByTerm(WeightedTermGroup iTermGroup, WeightedTermGroup jTermGroup,
                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
                                          ITermComparator termComparator, Set<Integer> usedIndices, int j, Long jId) {
-        for (int ii = 0; ii < iTermGroup.getTerms().size(); ii++) {
-            Term iTerm = iTermGroup.getTerms().get(ii);
+        Term jTerm = jTermGroup.getTerms().get(0);
+        for (Term iTerm : iTermGroup.getTerms()) {
 
-            for (int jj = ii + 1; jj < jTermGroup.getTerms().size(); jj++) {
-                Term jTerm = iTermGroup.getTerms().get(jj);
-
-                if (termComparator.compare(iTerm, jTerm, tolerance, termComparisonAlgorithm)) {
+            if (termComparator.compare(iTerm, jTerm, tolerance, termComparisonAlgorithm)) {
 
                     /*
                         If jId is null this means that no groupId has been assigned to the group.
@@ -191,17 +205,17 @@ public class WeightService implements IWeightService {
                         the jGroup by not changing the id and merging the terms of j and i.
                      */
 
-                    if (jId != null) {
-                        iTermGroup.setGroupId(jId);
-                    }
-
-                    mergeGroups(iTermGroup, jTermGroup, usedIndices, j);
-
-                    return;
+                if (jId != null) {
+                    iTermGroup.setGroupId(jId);
                 }
+
+                mergeGroups(iTermGroup, jTermGroup, usedIndices, j);
+
+                return;
             }
         }
     }
+
 
     /**
      * Merges the groups and handles used indices
@@ -219,7 +233,7 @@ public class WeightService implements IWeightService {
     }
 
 
-    //<editor-fold desc="Methods delegated to dao">
+    //<editor-fold desc="Methods delegated to weightedVectorDao">
     @Override
     public WeightedVector getWeightedTermVectorBySongId(Long songId, TermWeightType termWeightType,
                                                         TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {

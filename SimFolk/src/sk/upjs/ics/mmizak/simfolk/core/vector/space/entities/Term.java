@@ -2,6 +2,8 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
 import java.util.List;
 
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+
 public class Term {
 
     private Long id;
@@ -10,11 +12,14 @@ public class Term {
     private int wordCount;
     private List<String> tokenizedLyricsFragment;
 
-    public Term(Long id, String lyricsFragment, List<String> tokenizedLyricsFragment) {
+    private TermScheme termScheme;
+
+    public Term(Long id, String lyricsFragment, List<String> tokenizedLyricsFragment, TermScheme termScheme) {
         this.id = id;
         this.lyricsFragment = lyricsFragment;
         this.wordCount = tokenizedLyricsFragment.size();
         this.tokenizedLyricsFragment = tokenizedLyricsFragment;
+        this.termScheme = termScheme;
     }
 
     //<editor-fold desc="Getters and setters">
@@ -36,6 +41,10 @@ public class Term {
 
     public List<String> getTokenizedLyricsFragment() {
         return tokenizedLyricsFragment;
+    }
+
+    public TermScheme getTermScheme() {
+        return termScheme;
     }
     //</editor-fold>
 }

@@ -1,12 +1,13 @@
 package sk.upjs.ics.mmizak.simfolk.core.utilities.implementations;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.ITermBuilder;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermScheme;
 
 // TODO: Test
 public class TermBuilder implements ITermBuilder {
@@ -15,33 +16,33 @@ public class TermBuilder implements ITermBuilder {
     public List<Term> buildNGrams(String lyrics, int n) {
         switch (n) {
             case 1:
-                return buildUnGrams(lyrics);
+                return buildUnGrams(lyrics, TermScheme.NGRAM);
             case 2:
-                return buildBiGrams(lyrics);
+                return buildBiGrams(lyrics, TermScheme.NGRAM);
             case 3:
-                return buildTriGrams(lyrics);
+                return buildTriGrams(lyrics, TermScheme.NGRAM);
 
             // TODO: Implement other Gram implementations
             default:
-                return null;
+                throw new UnsupportedOperationException();
         }
     }
 
     @Override
-    public List<Term> buildUnGrams(String lyrics) {
+    public List<Term> buildUnGrams(String lyrics, TermScheme termScheme) {
 
         String[] words = lyrics.split("\\s+");
         Term[] unGrams = new Term[words.length];
 
         for (int i = 0; i < unGrams.length; i++) {
-            unGrams[i] = new Term(null, words[i], Arrays.asList(words));
+            unGrams[i] = new Term(null, words[i], Arrays.asList(words), termScheme);
         }
 
         return Arrays.asList(unGrams);
     }
 
     @Override
-    public List<Term> buildBiGrams(String lyrics) {
+    public List<Term> buildBiGrams(String lyrics, TermScheme termScheme) {
         String[] words = lyrics.split("\\s+");
         int biGramCount = words.length - 1;
         Term[] biGrams = new Term[biGramCount];
@@ -54,14 +55,14 @@ public class TermBuilder implements ITermBuilder {
             wordsAsList.add(words[i]);
             wordsAsList.add(words[i + 1]);
 
-            biGrams[i] = new Term(null, sb.toString(), wordsAsList);
+            biGrams[i] = new Term(null, sb.toString(), wordsAsList, termScheme);
         }
 
         return Arrays.asList(biGrams);
     }
 
     @Override
-    public List<Term> buildTriGrams(String lyrics) {
+    public List<Term> buildTriGrams(String lyrics, TermScheme termScheme) {
         String[] words = lyrics.split("\\s+");
         int triGramCount = words.length - 2;
         Term[] triGrams = new Term[triGramCount];
@@ -75,29 +76,29 @@ public class TermBuilder implements ITermBuilder {
             wordsAsList.add(words[i + 1]);
             wordsAsList.add(words[i + 2]);
 
-            triGrams[i] = new Term(null, sb.toString(), wordsAsList);
+            triGrams[i] = new Term(null, sb.toString(), wordsAsList, termScheme);
         }
 
         return Arrays.asList(triGrams);
     }
 
     @Override
-    public List<Term> buildTerms(AlgorithmConfiguration.TermScheme termScheme, String lyrics) {
+    public List<Term> buildTerms(TermScheme termScheme, String lyrics) {
         switch (termScheme) {
             case UNGRAM:
-                return buildUnGrams(lyrics);
+                return buildUnGrams(lyrics, termScheme);
             case BIGRAM:
-                return buildBiGrams(lyrics);
+                return buildBiGrams(lyrics, termScheme);
             case TRIGRAM:
-                return buildTriGrams(lyrics);
+                return buildTriGrams(lyrics, termScheme);
             default:
                 return new ArrayList<>();
         }
     }
 
     @Override
-    public List<Term> buildTerms(AlgorithmConfiguration.TermScheme termScheme, Integer n, String lyrics) {
-        if (n == null) {
+    public List<Term> buildTerms(TermScheme termScheme, Integer n, String lyrics) {
+        if (n == null || !termScheme.isDependantOnN()) {
             return buildTerms(termScheme, lyrics);
         }
 
@@ -107,6 +108,5 @@ public class TermBuilder implements ITermBuilder {
             default:
                 return new ArrayList<>();
         }
-
     }
 }

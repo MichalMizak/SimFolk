@@ -15,6 +15,8 @@ public enum UtilityFactory {
 
     private ITermService termService;
 
+    private IToleranceCalculator toleranceCalculator;
+
     private ITermVectorFormatter termVectorFormatter;
 
     private IWeightService weightCalculator;
@@ -66,5 +68,12 @@ public enum UtilityFactory {
             termService = new TermService();
         }
         return termService;
+    }
+
+    public IToleranceCalculator getToleranceCalculator() {
+        if (toleranceCalculator == null) {
+            toleranceCalculator = new ToleranceCalculator();
+        }
+        return toleranceCalculator;
     }
 }

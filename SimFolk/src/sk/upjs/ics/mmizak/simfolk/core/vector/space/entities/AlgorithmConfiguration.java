@@ -38,4 +38,8 @@ public abstract class AlgorithmConfiguration {
     public enum VectorComparisonAlgorithm {
         COS
     }
+
+    public enum Tolerance {
+        NONE, LOW, MEDIUM, HIGH
+    }
 }

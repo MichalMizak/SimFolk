@@ -16,10 +16,12 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
     private TermWeightType termWeightType;
     private VectorInclusion vectorInclusion;
     private TermComparisonAlgorithm termComparisonAlgorithm;
-    private Double tolerance;
+    private Tolerance tolerance;
     private VectorComparisonAlgorithm vectorComparisonAlgorithm;
 
-    public VectorAlgorithmConfiguration(TermScheme termScheme, Integer termDimension, TermWeightType termWeightType, TermComparisonAlgorithm termComparisonAlgorithm, VectorComparisonAlgorithm vectorComparisonAlgorithm, VectorInclusion vectorInclusion, double tolerance) {
+    public VectorAlgorithmConfiguration(TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
+                                        TermComparisonAlgorithm termComparisonAlgorithm, VectorComparisonAlgorithm vectorComparisonAlgorithm,
+                                        VectorInclusion vectorInclusion, Tolerance tolerance) {
         this.termScheme = termScheme;
         this.termDimension = termDimension;
         this.termWeightType = termWeightType;
@@ -50,7 +52,7 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
         return vectorInclusion;
     }
 
-    public double getTolerance() {
+    public Tolerance getTolerance() {
         return tolerance;
     }
 

@@ -18,7 +18,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
                 TermWeightType.TFIDF,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
                 VectorInclusion.AB,
-                0);
+                Tolerance.NONE);
     }
 
     @Override
@@ -28,24 +28,24 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
 
         result.add(new VectorAlgorithmConfiguration(TermScheme.UNGRAM,
                 null,
-                TermWeightType.TFIDF,
+                TermWeightType.TF_NAIVE,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
                 VectorInclusion.AB,
-                0));
+                Tolerance.HIGH));
 
         result.add(new VectorAlgorithmConfiguration(TermScheme.TRIGRAM,
                 null,
-                TermWeightType.TFIDF,
+                TermWeightType.TF,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
                 VectorInclusion.AB,
-                0));
+                Tolerance.NONE));
 
         result.add(new VectorAlgorithmConfiguration(TermScheme.BIGRAM,
                 null,
                 TermWeightType.TFIDF,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
                 VectorInclusion.A,
-                0.5));
+                Tolerance.MEDIUM));
 
         return result;
     }

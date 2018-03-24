@@ -9,11 +9,11 @@ public interface ITermBuilder {
 
     List<Term> buildNGrams(String lyrics, int n);
 
-    List<Term> buildUnGrams(String lyrics);
+    List<Term> buildUnGrams(String lyrics, AlgorithmConfiguration.TermScheme termScheme);
 
-    List<Term> buildBiGrams(String lyrics);
+    List<Term> buildBiGrams(String lyrics, AlgorithmConfiguration.TermScheme termScheme);
 
-    List<Term> buildTriGrams(String lyrics);
+    List<Term> buildTriGrams(String lyrics, AlgorithmConfiguration.TermScheme termScheme);
 
     List<Term> buildTerms(AlgorithmConfiguration.TermScheme termScheme, String lyrics);
 
