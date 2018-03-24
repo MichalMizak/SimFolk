@@ -31,16 +31,16 @@ public interface IWeightService {
      */
     void resetWeights(TermWeightType termWeightType);
 
-    WeightedTermGroup getWeightedTermById(Term term, TermWeightType termWeightType, Long songId);
+    WeightedTermGroup getWeightedTermById(Term term, TermWeightType termWeightType, Integer songId);
 
-    WeightedTermGroup resetAndCalculateWeight(Term term, TermWeightType termWeightType, Long songId);
+    WeightedTermGroup resetAndCalculateWeight(Term term, TermWeightType termWeightType, Integer songId);
 
-    WeightedVector resetAndCalculateWeight(List<Term> terms, TermWeightType termWeightType, Long songId);
+    WeightedVector resetAndCalculateWeight(List<Term> terms, TermWeightType termWeightType, Integer songId);
 
-    WeightedVector getWeightedTermVectorBySongId(Long songId, TermWeightType termWeightType,
+    WeightedVector getWeightedTermVectorBySongId(Integer songId, TermWeightType termWeightType,
                                                  TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
-    WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Long songId,
+    WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Integer songId,
                                               TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
                                               ITermComparator termComparator);
 

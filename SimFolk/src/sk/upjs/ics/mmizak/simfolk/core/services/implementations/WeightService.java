@@ -55,17 +55,17 @@ public class WeightService implements IWeightService {
     }
 
     @Override
-    public WeightedTermGroup getWeightedTermById(Term term, TermWeightType termWeightType, Long songId) {
+    public WeightedTermGroup getWeightedTermById(Term term, TermWeightType termWeightType, Integer songId) {
         return null;
     }
 
     @Override
-    public WeightedTermGroup resetAndCalculateWeight(Term term, TermWeightType termWeightType, Long songId) {
+    public WeightedTermGroup resetAndCalculateWeight(Term term, TermWeightType termWeightType, Integer songId) {
         return null;
     }
 
     @Override
-    public WeightedVector resetAndCalculateWeight(List<Term> terms, TermWeightType termWeightType, Long songId) {
+    public WeightedVector resetAndCalculateWeight(List<Term> terms, TermWeightType termWeightType, Integer songId) {
         return null;
     }
 
@@ -83,7 +83,7 @@ public class WeightService implements IWeightService {
      * @param songId
      * @return
      */
-    public WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Long songId,
+    public WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Integer songId,
                                                      TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
                                                      ITermComparator termComparator) {
 
@@ -147,7 +147,7 @@ public class WeightService implements IWeightService {
             }
 
             WeightedTermGroup iTermGroup = weightedTermGroups.get(i);
-            Long iId = iTermGroup.getGroupId();
+            Integer iId = iTermGroup.getGroupId();
 
             iTermGroup.setTermWeight(1.0);
 
@@ -156,7 +156,7 @@ public class WeightService implements IWeightService {
                     continue;
                 }
                 WeightedTermGroup jTermGroup = weightedTermGroups.get(j);
-                Long jId = jTermGroup.getGroupId();
+                Integer jId = jTermGroup.getGroupId();
 
                 if (iId != null && iId.equals(jId)) {
                     mergeGroups(iTermGroup, jTermGroup, usedIndices, j);
@@ -193,7 +193,7 @@ public class WeightService implements IWeightService {
      */
     private void compareGroupsTermByTerm(WeightedTermGroup iTermGroup, WeightedTermGroup jTermGroup,
                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
-                                         ITermComparator termComparator, Set<Integer> usedIndices, int j, Long jId) {
+                                         ITermComparator termComparator, Set<Integer> usedIndices, int j, Integer jId) {
         Term jTerm = jTermGroup.getTerms().get(0);
         for (Term iTerm : iTermGroup.getTerms()) {
 
@@ -235,7 +235,7 @@ public class WeightService implements IWeightService {
 
     //<editor-fold desc="Methods delegated to weightedVectorDao">
     @Override
-    public WeightedVector getWeightedTermVectorBySongId(Long songId, TermWeightType termWeightType,
+    public WeightedVector getWeightedTermVectorBySongId(Integer songId, TermWeightType termWeightType,
                                                         TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
         return weightedVectorDao.getWeightedVectorBySongId(songId, termWeightType, termComparisonAlgorithm, tolerance);
     }

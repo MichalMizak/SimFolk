@@ -12,7 +12,7 @@ public interface IWeightedVectorDao {
     List<WeightedVector> getAllWeightedVectors(TermWeightType termWeightType,
                                                TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
-    WeightedVector getWeightedVectorBySongId(Long songId, TermWeightType termWeightType,
+    WeightedVector getWeightedVectorBySongId(Integer songId, TermWeightType termWeightType,
                                              TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
     void saveOrEdit(WeightedVector weightedVector);

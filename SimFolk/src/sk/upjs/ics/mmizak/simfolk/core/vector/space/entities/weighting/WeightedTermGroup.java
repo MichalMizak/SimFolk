@@ -14,16 +14,16 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 public class WeightedTermGroup {
 
     // group-specific fields
-    private Long groupId;
+    private Integer groupId;
     private List<Term> terms;
     private Long databaseIncidenceCount;
 
     // song-specific fields
-    private Long songId;
+    private Integer songId;
     private Double termWeight;
     private TermWeightType termWeightType;
 
-    public WeightedTermGroup(Long songId, Long groupId, List<Term> terms, Long databaseIncidenceCount, double weight, TermWeightType termWeightType) {
+    public WeightedTermGroup(Integer songId, Integer groupId, List<Term> terms, Long databaseIncidenceCount, double weight, TermWeightType termWeightType) {
         this.songId = songId;
         this.groupId = groupId;
         this.terms = terms;
@@ -52,11 +52,11 @@ public class WeightedTermGroup {
         return terms;
     }
 
-    public Long getSongId() {
+    public Integer getSongId() {
         return songId;
     }
 
-    public void setSongId(Long songId) {
+    public void setSongId(Integer songId) {
         this.songId = songId;
     }
 
@@ -68,11 +68,11 @@ public class WeightedTermGroup {
         return termWeightType;
     }
 
-    public Long getGroupId() {
+    public Integer getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Long groupId) {
+    public void setGroupId(Integer groupId) {
         this.groupId = groupId;
     }
 

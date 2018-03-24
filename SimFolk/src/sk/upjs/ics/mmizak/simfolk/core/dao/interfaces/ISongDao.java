@@ -8,7 +8,7 @@ public interface ISongDao {
 
     List<Song> getAll();
 
-    Song getById(Long id);
+    Song getById(Integer id);
 
     void saveOrEdit(Song song);
 

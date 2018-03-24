@@ -6,7 +6,7 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 
 public class Term {
 
-    private Long id;
+    private Integer id;
 
     private String lyricsFragment;
     private int wordCount;
@@ -14,7 +14,7 @@ public class Term {
 
     private TermScheme termScheme;
 
-    public Term(Long id, String lyricsFragment, List<String> tokenizedLyricsFragment, TermScheme termScheme) {
+    public Term(Integer id, String lyricsFragment, List<String> tokenizedLyricsFragment, TermScheme termScheme) {
         this.id = id;
         this.lyricsFragment = lyricsFragment;
         this.wordCount = tokenizedLyricsFragment.size();
@@ -23,11 +23,11 @@ public class Term {
     }
 
     //<editor-fold desc="Getters and setters">
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

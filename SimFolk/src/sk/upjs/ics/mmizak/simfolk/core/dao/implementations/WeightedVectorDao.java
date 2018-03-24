@@ -16,7 +16,7 @@ public class WeightedVectorDao implements IWeightedVectorDao {
     }
 
     @Override
-    public WeightedVector getWeightedVectorBySongId(Long songId, TermWeightType termWeightType,
+    public WeightedVector getWeightedVectorBySongId(Integer songId, TermWeightType termWeightType,
                                                     TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
         return null;
     }

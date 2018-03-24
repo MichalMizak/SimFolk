@@ -72,7 +72,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         List<WeightedVector> allWeightedVectors = weightCalculator.getAllWeightedTermVectors(termWeightType,
                 termComparisonAlgorithm, tolerance);
 
-        Map<Long, Double> songToSimilarityPercentage = new HashMap<>();
+        Map<Integer, Double> songToSimilarityPercentage = new HashMap<>();
 
         for (WeightedVector vectorB : allWeightedVectors) {
 

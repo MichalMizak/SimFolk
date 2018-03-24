@@ -10,11 +10,11 @@ import java.util.List;
  */
 public class WeightedVector {
 
-    private Long songId;
+    private Integer songId;
 
     private List<WeightedTermGroup> vector;
 
-    public WeightedVector(List<WeightedTermGroup> vector, Long songId) {
+    public WeightedVector(List<WeightedTermGroup> vector, Integer songId) {
         this.vector = vector;
         this.songId = songId;
     }
@@ -40,7 +40,7 @@ public class WeightedVector {
         return vector.get(0).getTermWeightType();
     }
 
-    public Long getSongId() {
+    public Integer getSongId() {
         return songId;
     }
 }

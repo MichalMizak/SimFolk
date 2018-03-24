@@ -13,7 +13,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
 
     @Override
     public AlgorithmConfiguration generateRandomConfiguration() {
-        return new VectorAlgorithmConfiguration(TermScheme.UNGRAM,
+        return new VectorAlgorithmConfiguration(null, TermScheme.UNGRAM,
                 null,
                 TermWeightType.TFIDF,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
@@ -26,21 +26,21 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
 
         List<AlgorithmConfiguration> result = new ArrayList<>();
 
-        result.add(new VectorAlgorithmConfiguration(TermScheme.UNGRAM,
+        result.add(new VectorAlgorithmConfiguration(null, TermScheme.UNGRAM,
                 null,
                 TermWeightType.TF_NAIVE,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
                 VectorInclusion.AB,
                 Tolerance.HIGH));
 
-        result.add(new VectorAlgorithmConfiguration(TermScheme.TRIGRAM,
+        result.add(new VectorAlgorithmConfiguration(null, TermScheme.TRIGRAM,
                 null,
                 TermWeightType.TF,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,
                 VectorInclusion.AB,
                 Tolerance.NONE));
 
-        result.add(new VectorAlgorithmConfiguration(TermScheme.BIGRAM,
+        result.add(new VectorAlgorithmConfiguration(null, TermScheme.BIGRAM,
                 null,
                 TermWeightType.TFIDF,
                 TermComparisonAlgorithm.NAIVE, VectorComparisonAlgorithm.COS,

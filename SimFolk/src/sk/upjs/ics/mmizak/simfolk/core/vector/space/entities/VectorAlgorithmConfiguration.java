@@ -5,7 +5,7 @@ import jdk.nashorn.internal.ir.annotations.Immutable;
 @Immutable
 public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
 
-    private Long id;
+    private Integer id;
 
     private TermScheme termScheme;
     /**
@@ -19,9 +19,10 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
     private Tolerance tolerance;
     private VectorComparisonAlgorithm vectorComparisonAlgorithm;
 
-    public VectorAlgorithmConfiguration(TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
+    public VectorAlgorithmConfiguration(Integer id, TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
                                         TermComparisonAlgorithm termComparisonAlgorithm, VectorComparisonAlgorithm vectorComparisonAlgorithm,
                                         VectorInclusion vectorInclusion, Tolerance tolerance) {
+        this.id = id;
         this.termScheme = termScheme;
         this.termDimension = termDimension;
         this.termWeightType = termWeightType;
@@ -60,11 +61,11 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
         return termComparisonAlgorithm;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     //</editor-fold>

@@ -13,7 +13,7 @@ public class VectorAlgorithmResult {
     private VectorSong vectorSong;
 
     // TODO: Proper format of result
-    private Map<Long, Double> songToSimilarityPercentage;
+    private Map<Integer, Double> songToSimilarityPercentage;
 
     private VectorAlgorithmConfiguration vectorAlgorithmConfiguration;
 
@@ -26,11 +26,11 @@ public class VectorAlgorithmResult {
         this.vectorSong = vectorSong;
     }
 
-    public Map<Long, Double> getSongToSimilarityPercentage() {
+    public Map<Integer, Double> getSongToSimilarityPercentage() {
         return songToSimilarityPercentage;
     }
 
-    public void setSongToSimilarityPercentage(Map<Long, Double> songToSimilarityPercentage) {
+    public void setSongToSimilarityPercentage(Map<Integer, Double> songToSimilarityPercentage) {
         this.songToSimilarityPercentage = songToSimilarityPercentage;
     }
 

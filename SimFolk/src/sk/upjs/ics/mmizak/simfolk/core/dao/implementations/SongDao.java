@@ -1,15 +1,15 @@
 package sk.upjs.ics.mmizak.simfolk.core.dao.implementations;
 
 import org.jooq.DSLContext;
-import org.jooq.Record;
-import org.jooq.Record1;
-import org.jooq.Result;
 import sk.upjs.ics.mmizak.simfolk.core.dao.interfaces.ISongDao;
+import sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.records.SongRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static org.jooq.impl.DSL.row;
+import static org.jooq.impl.DSL.select;
+import static org.jooq.impl.DSL.selectFrom;
 import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TSong.T_SONG;
 import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TSongToAttribute.T_SONG_TO_ATTRIBUTE;
 
@@ -21,49 +21,93 @@ public class SongDao implements ISongDao {
         this.create = create;
     }
 
+
     @Override
     public List<Song> getAll() {
-        Result<Record> result = create.select().from(T_SONG).fetch();
+        List<Song> result = create.selectFrom(T_SONG).
+                fetch(this::map);
 
-        List<Song> songs = new ArrayList<>();
+        result.forEach(this::initAttributes);
 
-        for (Record r : result) {
-            Integer id = r.getValue(T_SONG.SONGID);
-            String lyrics = r.getValue(T_SONG.LYRICS);
-            String title = r.getValue(T_SONG.TITLE);
-
-            String region = r.getValue(T_SONG.REGION);
-            String source = r.getValue(T_SONG.SOURCE);
-            String songStyle = r.getValue(T_SONG.SONGSTYLE);
+        return result;
+    }
 
 
-            Result<Record1<String>> attributes = create.select(T_SONG_TO_ATTRIBUTE.ATTRIBUTE)
-                    .from(T_SONG_TO_ATTRIBUTE).where(T_SONG_TO_ATTRIBUTE.SONGID.equal(id))
-                    .fetch();
+    @Override
+    public Song getById(Integer id) {
+        Song result = create.selectFrom(T_SONG).where(T_SONG.SONGID.eq(id)).
+                fetchOne(this::map);
 
-            List<String> values = attributes.getValues(T_SONG_TO_ATTRIBUTE.ATTRIBUTE);
+        return result == null ? null : initAttributes(result);
+    }
 
-            Long idL = new Long(id);
+    @Override
+    public void saveOrEdit(Song s) {
 
-            Song song = new Song(idL, title, lyrics, songStyle, values, region, source);
+        if (s.getId() == null) {
+            SongRecord songRecord = create.insertInto(T_SONG, T_SONG.TITLE, T_SONG.LYRICS,
+                    T_SONG.SONGSTYLE, T_SONG.REGION, T_SONG.SOURCE)
+                    .values(s.getTitle(), s.getLyrics(),
+                            s.getSongStyle(), s.getRegion(), s.getSource())
+                    .returning(T_SONG.SONGID)
+                    .fetchOne();
+            s.setId(songRecord.getSongid());
 
-            songs.add(song);
+
+            s.getAttributes().forEach(attribute ->
+                    create.insertInto(T_SONG_TO_ATTRIBUTE, T_SONG_TO_ATTRIBUTE.SONGID,
+                            T_SONG_TO_ATTRIBUTE.ATTRIBUTE)
+                            .values(s.getId(), attribute)
+                            .execute());
+        } else {
+            create.update(T_SONG)
+                    .set(T_SONG.TITLE, s.getTitle())
+                    .set(T_SONG.LYRICS, s.getLyrics())
+                    .set(T_SONG.SONGSTYLE, s.getSongStyle())
+                    .set(T_SONG.REGION, s.getRegion())
+                    .set(T_SONG.SOURCE, s.getSource())
+                    .where(T_SONG.SONGID.eq(s.getId()))
+                    .execute();
+
+
+            create.deleteFrom(T_SONG_TO_ATTRIBUTE)
+                    .where(T_SONG_TO_ATTRIBUTE.SONGID.eq(s.getId())
+                            .and(T_SONG_TO_ATTRIBUTE.ATTRIBUTE.in(s.getAttributes())))
+                    .execute();
+
+            s.getAttributes().forEach(attribute ->
+                    create.insertInto(T_SONG_TO_ATTRIBUTE, T_SONG_TO_ATTRIBUTE.SONGID,
+                            T_SONG_TO_ATTRIBUTE.ATTRIBUTE)
+                            .values(s.getId(), attribute)
+                            .onDuplicateKeyIgnore()
+                            .execute());
         }
-        return songs;
     }
 
-    @Override
-    public Song getById(Long id) {
-        return null;
-    }
-
-    @Override
-    public void saveOrEdit(Song song) {
-
-    }
-
+    /**
+     * On delete songtoattributes cascades
+     *
+     * @param song
+     */
     @Override
     public void delete(Song song) {
-
+        create.deleteFrom(T_SONG)
+                .where(T_SONG.SONGID.eq(song.getId()))
+                .execute();
     }
+
+    //<editor-fold desc="Utilities">
+    private Song initAttributes(Song s) {
+        List<String> attributes = create.selectFrom(T_SONG_TO_ATTRIBUTE)
+                .where(T_SONG_TO_ATTRIBUTE.SONGID.equal(s.getId()))
+                .fetch(T_SONG_TO_ATTRIBUTE.ATTRIBUTE);
+        s.setAttributes(attributes);
+        return s;
+    }
+
+    private Song map(SongRecord s) {
+        return new Song(s.getSongid(), s.getTitle(), s.getLyrics(),
+                s.getSongstyle(), null, s.getRegion(), s.getSource());
+    }
+    //</editor-fold>
 }

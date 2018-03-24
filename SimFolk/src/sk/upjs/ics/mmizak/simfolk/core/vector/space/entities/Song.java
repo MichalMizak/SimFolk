@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Song {
 
-    private Long id;
+    private Integer id;
 
     private String title;
 
@@ -22,7 +22,7 @@ public class Song {
         // do nothing
     }
 
-    public Song(Long id, String title, String lyrics, String songStyle, List<String> attributes, String region, String source) {
+    public Song(Integer id, String title, String lyrics, String songStyle, List<String> attributes, String region, String source) {
         this.id = id;
         this.title = title;
         this.lyrics = lyrics;
@@ -33,11 +33,11 @@ public class Song {
     }
 
     //<editor-fold desc="Getters and setters">
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

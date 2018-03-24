@@ -2,33 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16b2b1a9-f2df-4141-a1b8-8b945c8863b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/ToleranceCalculator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/IToleranceCalculator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/WeightedTermAlphabeticalComparator.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/WeightedTermGroupIdComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimFolk.iml" afterPath="$PROJECT_DIR$/SimFolk.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/DaoFactory.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/DaoFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedTermGroupDao.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedTermGroupDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/UtilityFactory.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/UtilityFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermBuilder.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermComparator.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermVectorFormatter.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermVectorFormatter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/ITermBuilder.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/ITermBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/record/mappers/SongRecordMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/javask/upjs/ics/mmizak/simfolk/core/dao/implementations/DaoTestSetup.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedVectorDao.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedVectorDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedVectorDao.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedVectorDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmResult.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmResult.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Algorithm.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Algorithm.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorSong.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorSong.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,28 +40,43 @@
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="SimFolk" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="SongDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java">
+      <file leaf-file-name="SongDaoTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="13" column="9" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="1550">
+              <caret line="68" column="44" lean-forward="false" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#478#479#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoTestSetup.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/javask/upjs/ics/mmizak/simfolk/core/dao/implementations/DaoTestSetup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="52" lean-forward="false" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#createConnection#0;class#DaoTestSetup#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -76,21 +85,11 @@
       <file leaf-file-name="DaoFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/DaoFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="970">
-              <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+            <state relative-caret-position="409">
+              <caret line="63" column="35" lean-forward="true" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverManager.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/sql/DriverManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="631" column="30" lean-forward="false" selection-start-line="631" selection-start-column="30" selection-end-line="631" selection-end-column="30" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -98,21 +97,13 @@
       <file leaf-file-name="SongDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="650">
+              <caret line="67" column="54" lean-forward="false" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="n#!!doc;n#initAttributes#0;n#SongDao#0" expanded="false" />
+                <element signature="method#initAttributes#0;class#SongDao#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="16" column="62" lean-forward="true" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -125,8 +116,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -146,28 +137,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/WeightCalculator.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/WeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/IWeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTerm.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedTermDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermVector.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/TermDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/TermDao.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermService.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermService.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedTermVectorDao.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedTermVectorDao.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ITermDao.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedTermGroupDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/ITermVectorFormatter.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/WeightedTermAlphabeticalComparator.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/WeightedTermGroupIdComparator.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermVectorFormatter.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermComparator.java" />
@@ -177,10 +154,6 @@
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/UtilityFactory.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/IToleranceCalculator.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/ToleranceCalculator.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermBuilder.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/gen/generated/Keys.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/gen/generated/tables/Song.java" />
@@ -188,15 +161,33 @@
         <option value="$PROJECT_DIR$/src/test/generated/Tables.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/gen/generated/generated/Tables.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/gen/generated/Tables.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedTermGroupDao.java" />
         <option value="$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/testest.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/DaoFactory.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/implementations/SongDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Algorithm.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorSong.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedVectorDao.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedVectorDao.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmResult.java" />
+        <option value="$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DaoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/implementations/SongDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/implementations/dao/SongDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DaoTestSetup.java" />
+        <option value="$PROJECT_DIR$/src/test/javask/upjs/ics/mmizak/simfolk/core/dao/implementations/DaoTestSetup.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" />
       </list>
     </option>
   </component>
@@ -213,11 +204,10 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1942" />
-    <option name="height" value="1042" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -258,67 +248,127 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimFolk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="space" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="space" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="space" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="weighting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -336,17 +386,18 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="test.sk.upjs.ics.mmizak.simfolk.core.dao.implementations" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="sk.upjs.ics.mmizak.simfolk.core.utilities" />
-      <recent name="sk.upjs.ics.mmizak.simfolk.core.dao.implementations" />
-      <recent name="sk.upjs.ics.mmizak.simfolk.core.dao.interfaces" />
-      <recent name="sk.upjs.ics.mmizak.simfolk.core" />
-      <recent name="sk.upjs.ics.mmizak.simfolk.core.vector.space" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources" />
+      <recent name="C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing" />
+      <recent name="C:\Users\Mikey\IdeaProjects\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources" />
+      <recent name="C:\Users\Mikey\IdeaProjects\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing" />
+      <recent name="C:\Users\Mikey\IdeaProjects\SimFolk\src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk" />
@@ -358,12 +409,12 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources" />
-      <recent name="C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing" />
-      <recent name="C:\Users\Mikey\IdeaProjects\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources" />
-      <recent name="C:\Users\Mikey\IdeaProjects\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing" />
-      <recent name="C:\Users\Mikey\IdeaProjects\SimFolk\src" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="test.java" />
+      <recent name="sk.upjs.ics.mmizak.simfolk.core.utilities" />
+      <recent name="sk.upjs.ics.mmizak.simfolk.core.dao.implementations" />
+      <recent name="sk.upjs.ics.mmizak.simfolk.core.dao.interfaces" />
+      <recent name="sk.upjs.ics.mmizak.simfolk.core" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -378,15 +429,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SongDaoTest.getAll (1)">
-    <configuration default="false" name="Serializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="sk.upjs.ics.mmizak.simfolk.parsing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="sk.upjs.ics.mmizak.simfolk.parsing.Serializer" />
+  <component name="RunManager" selected="JUnit.SongDaoTest (1)">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -395,60 +448,13 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SimFolk" />
+      <module name="" />
       <envs />
-      <method />
     </configuration>
-    <configuration default="false" name="AlgorithmStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="testest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="sk.upjs.ics.mmizak.simfolk.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="sk.upjs.ics.mmizak.simfolk.core.AlgorithmStarter" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SimFolk" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="SongDaoTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.java.implementations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="SimFolk" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test.java.implementations" />
-      <option name="MAIN_CLASS_NAME" value="test.java.implementations.SongDaoTest" />
-      <option name="METHOD_NAME" value="getAll" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="testest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.sk.upjs.ics.mmizak.simfolk.core.dao.*" />
+          <option name="PATTERN" value="test.java.implementations.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -463,20 +469,77 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="SimFolk" />
       <envs />
-      <method />
     </configuration>
-    <configuration default="false" name="SongDaoTest.getAll (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+    </configuration>
+    <configuration name="SongDaoTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="test.sk.upjs.ics.mmizak.simfolk.core.dao.implementations.*" />
+          <option name="PATTERN" value="test.java.sk.upjs.ics.mmizak.simfolk.core.dao.implementations.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="SimFolk" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test.sk.upjs.ics.mmizak.simfolk.core.dao.implementations" />
-      <option name="MAIN_CLASS_NAME" value="test.sk.upjs.ics.mmizak.simfolk.core.dao.implementations.SongDaoTest" />
+      <option name="PACKAGE_NAME" value="test.java.sk.upjs.ics.mmizak.simfolk.core.dao.implementations" />
+      <option name="MAIN_CLASS_NAME" value="test.java.sk.upjs.ics.mmizak.simfolk.core.dao.implementations.SongDaoTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SongDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.java.implementations.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SimFolk" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.java.implementations.dao" />
+      <option name="MAIN_CLASS_NAME" value="test.java.implementations.dao.SongDaoTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SongDaoTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.java.implementations.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SimFolk" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.java.implementations.dao" />
+      <option name="MAIN_CLASS_NAME" value="test.java.implementations.dao.SongDaoTest" />
       <option name="METHOD_NAME" value="getAll" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -489,14 +552,91 @@
       </option>
       <envs />
       <patterns />
-      <method />
+    </configuration>
+    <configuration name="SongDaoTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.java.implementations.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SimFolk" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.java.implementations.dao" />
+      <option name="MAIN_CLASS_NAME" value="test.java.implementations.dao.SongDaoTest" />
+      <option name="METHOD_NAME" value="getAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-      <method />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
@@ -551,29 +691,6 @@
         <option name="SUPPORT_LIB_ENABLED" value="true" />
         <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -722,36 +839,6 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
@@ -814,54 +901,9 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
       <envs />
       <method />
     </configuration>
@@ -878,20 +920,28 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Serializer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.AlgorithmStarter" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll" />
-      <item index="3" class="java.lang.String" itemvalue="Application.testest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll (1)" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll" />
+      <item index="1" class="java.lang.String" itemvalue="Application.testest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll (1)" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.SongDaoTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SongDaoTest (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll" />
-        <item index="2" class="java.lang.String" itemvalue="Application.testest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.AlgorithmStarter" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Serializer" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.SongDaoTest (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SongDaoTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll (1)" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.SongDaoTest.getAll" />
+        <item index="4" class="java.lang.String" itemvalue="Application.testest" />
       </list>
     </recent_temporary>
   </component>
@@ -948,44 +998,45 @@
       <workItem from="1521207578822" duration="3760000" />
       <workItem from="1521231306337" duration="6187000" />
       <workItem from="1521303103272" duration="25141000" />
-      <workItem from="1521715363549" duration="19623000" />
+      <workItem from="1521715363549" duration="19682000" />
+      <workItem from="1521896197459" duration="13226000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SongDaoTest_getAll - 2018.03.24 at 13h 07m 26s.xml">
-      <configuration name="SongDaoTest.getAll" configurationId="JUnit" />
+    <history-entry file="SongDaoTest - 2018.03.24 at 18h 44m 45s.xml">
+      <configuration name="SongDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll - 2018.03.24 at 13h 08m 41s.xml">
-      <configuration name="SongDaoTest.getAll" configurationId="JUnit" />
+    <history-entry file="SongDaoTest - 2018.03.24 at 18h 46m 27s.xml">
+      <configuration name="SongDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 10m 31s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest - 2018.03.24 at 18h 50m 52s.xml">
+      <configuration name="SongDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 11m 15s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest - 2018.03.24 at 18h 52m 54s.xml">
+      <configuration name="SongDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 11m 32s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest - 2018.03.24 at 19h 09m 13s.xml">
+      <configuration name="SongDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 14m 12s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest - 2018.03.24 at 19h 44m 15s.xml">
+      <configuration name="SongDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 18m 25s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest_(1) - 2018.03.24 at 19h 44m 48s.xml">
+      <configuration name="SongDaoTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 21m 48s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest_(1) - 2018.03.24 at 19h 54m 58s.xml">
+      <configuration name="SongDaoTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 24m 35s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest_(1) - 2018.03.24 at 19h 58m 23s.xml">
+      <configuration name="SongDaoTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SongDaoTest_getAll_(1) - 2018.03.24 at 13h 27m 48s.xml">
-      <configuration name="SongDaoTest.getAll (1)" configurationId="JUnit" />
+    <history-entry file="SongDaoTest_(1) - 2018.03.24 at 19h 59m 55s.xml">
+      <configuration name="SongDaoTest (1)" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180958000" />
+    <option name="totallyTimeSpent" value="194243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -997,41 +1048,42 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-10" y="0" width="1940" height="1030" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74791914" sideWeight="0.50216216" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.49348232" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39952436" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33412606" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58666664" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74791914" sideWeight="0.49783784" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5065177" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28054053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4351962" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74791914" sideWeight="0.50216216" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53818184" sideWeight="0.49783784" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969698" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43515152" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.49348232" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39952436" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5065177" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1070,7 +1122,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1097,7 +1149,7 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="24" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1106,166 +1158,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedVectorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/Comparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-556">
-          <caret line="108" column="17" lean-forward="false" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="475" column="17" lean-forward="false" selection-start-line="475" selection-start-column="17" selection-end-line="475" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/ITermComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/WeightedTermGroupIdComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="13" column="54" lean-forward="false" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#560#561#0" expanded="false" />
-            <element signature="e#589#590#0" expanded="false" />
-            <element signature="method#getWeightValueVector#0;class#WeightedVector#0" expanded="false" />
-            <element signature="e#1026#1027#0" expanded="false" />
-            <element signature="e#1055#1056#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c5fa2efd-cd8c-466e-952d-5343dbb2fce6/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermVectorFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="method#bFormation#0;class#TermVectorFormatter#0" expanded="false" />
-            <element signature="method#abFormation#0;class#TermVectorFormatter#0" expanded="false" />
-            <element signature="method#allFormation#0;class#TermVectorFormatter#0" expanded="false" />
-            <element signature="method#formVectors#0;class#TermVectorFormatter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/ToleranceCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="46" lean-forward="true" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/interfaces/IToleranceCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="99" lean-forward="true" selection-start-line="7" selection-start-column="99" selection-end-line="7" selection-end-column="99" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc;n#getVectorSong#0;n#VectorAlgorithmResult#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="62" column="55" lean-forward="false" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
-          <folding>
-            <element signature="method#computeSimilarityAndSave#1;class#VectorAlgorithmComputer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#calculateNewWeightedVector#0;class#WeightService#0" expanded="false" />
-            <element signature="method#getFrequencyWeightedTerm#0;class#WeightService#0" expanded="false" />
-            <element signature="docComment;method#compareGroupsTermByTerm#0;class#WeightService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/implementations/TermBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1290,14 +1182,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/SongToAttribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/SongToAttribute.java" />
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/records/SongRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3400">
@@ -1310,7 +1195,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1318,7 +1202,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,34 +1217,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="3" column="54" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/song.java" />
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/Simfolk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/records/song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/records/song.java" />
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedTermGroupDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1370,29 +1237,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedVectorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="19" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ITermDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1408,37 +1256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
           <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="18" selection-end-column="26" />
-          <folding>
-            <element signature="method#Song#0;class#Song#0" expanded="false" />
-            <element signature="method#Song#1;class#Song#0" expanded="false" />
-            <element signature="n#!!doc;n#getId#0;n#Song#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#1051#1093#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1450,68 +1267,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#getId#0;n#Term#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/DaoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="970">
-          <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jooq/jooq/3.10.6/jooq-3.10.6.jar!/org/jooq/impl/SelectImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="1876" column="0" lean-forward="false" selection-start-line="1876" selection-start-column="0" selection-end-line="1876" selection-end-column="0" />
-          <folding>
-            <element signature="e#85368#85369#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="9" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/implementations/SongDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/testest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/sk/upjs/ics/mmizak/simfolk/core/dao/testest.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/sql/DriverManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="14800">
           <caret line="631" column="30" lean-forward="false" selection-start-line="631" selection-start-column="30" selection-end-line="631" selection-end-column="30" />
           <folding />
         </state>
@@ -1521,7 +1288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="194" column="0" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1529,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1537,25 +1302,250 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="16" column="62" lean-forward="true" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+          <caret line="16" column="62" lean-forward="false" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding>
+            <element signature="method#Song#0;class#Song#0" expanded="false" />
+            <element signature="method#Song#1;class#Song#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Algorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="52" lean-forward="false" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVectorPair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/jooq/generated/tables/records/SongToAttributeRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/ISongDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/record/mappers/SongRecordMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorSong.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedTermGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-953">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="42" column="102" lean-forward="false" selection-start-line="42" selection-start-column="102" selection-end-line="42" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/interfaces/IWeightedVectorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/WeightedVectorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="18" column="59" lean-forward="false" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1471">
+          <caret line="67" column="106" lean-forward="false" selection-start-line="67" selection-start-column="106" selection-end-line="67" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9771#9772#0" expanded="true" />
+            <element signature="e#9831#9832#0" expanded="true" />
+            <element signature="e#9902#9903#0" expanded="true" />
+            <element signature="e#9958#9959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+          <folding>
+            <element signature="method#getWeightValueVector#0;class#WeightedVector#0" expanded="false" />
+            <element signature="e#1035#1036#0" expanded="false" />
+            <element signature="e#1064#1065#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="91" column="31" lean-forward="false" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+          <folding>
+            <element signature="method#computeSimilarityAndSave#1;class#VectorAlgorithmComputer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/TermDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.1.0/junit-jupiter-api-5.1.0.jar!/org/junit/jupiter/api/BeforeEach.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="262" column="9" lean-forward="false" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="63" column="35" lean-forward="true" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/javask/upjs/ics/mmizak/simfolk/core/dao/implementations/DaoTestSetup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="52" lean-forward="false" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createConnection#0;class#DaoTestSetup#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="67" column="54" lean-forward="false" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="n#!!doc;n#initAttributes#0;n#SongDao#0" expanded="false" />
+            <element signature="method#initAttributes#0;class#SongDao#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/dao/implementations/SongDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1550">
+          <caret line="68" column="44" lean-forward="false" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
