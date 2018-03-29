@@ -4,13 +4,15 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
-import sk.upjs.ics.mmizak.simfolk.core.dao.implementations.SongDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.SongDao;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SongDaoTest {
@@ -19,7 +21,7 @@ class SongDaoTest {
     Connection connection;
 
     @BeforeAll
-    void setUp() {
+    void setUpAll() {
         connection = DaoTestSetup.createConnection();
         DSLContext create = DSL.using(connection, SQLDialect.MYSQL);
         songDao = new SongDao(create);
@@ -32,11 +34,6 @@ class SongDaoTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    @BeforeEach
-    void setupEach() {
-
     }
 
     @AfterAll
@@ -56,7 +53,7 @@ class SongDaoTest {
 
         songDao.saveOrEdit(song);
 
-        Assertions.assertNotNull(songDao.getAll());
+        assertNotNull(songDao.getAll());
     }
 
     @Test
@@ -66,7 +63,7 @@ class SongDaoTest {
 
         Song song2 = songDao.getById(song.getId());
 
-        Assertions.assertEquals(song.getId(), song2.getId());
+        assertEquals(song.getId(), song2.getId());
     }
 
     @Test
@@ -77,7 +74,7 @@ class SongDaoTest {
 
         songDao.saveOrEdit(song);
 
-        Assertions.assertNotNull(song.getId());
+        assertNotNull(song.getId());
 
         String newTitle = "new title 2";
         song.setTitle(newTitle);
@@ -86,7 +83,7 @@ class SongDaoTest {
 
         Song byId = songDao.getById(song.getId());
 
-        Assertions.assertEquals(byId.getTitle(), newTitle);
+        assertEquals(byId.getTitle(), newTitle);
 
     }
 
@@ -99,7 +96,7 @@ class SongDaoTest {
 
         songDao.delete(song);
 
-        Assertions.assertNull(songDao.getById(song.getId()));
+        assertNull(songDao.getById(song.getId()));
     }
 
 }

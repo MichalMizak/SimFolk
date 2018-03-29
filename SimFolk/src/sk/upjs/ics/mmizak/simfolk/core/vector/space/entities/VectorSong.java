@@ -20,4 +20,12 @@ public class VectorSong {
     public WeightedVector getTermVector() {
         return termVector;
     }
+
+    @Override
+    public String toString() {
+        return "VectorSong{" +
+                "songId=" + songId +
+                ", termVector=" + termVector +
+                '}';
+    }
 }

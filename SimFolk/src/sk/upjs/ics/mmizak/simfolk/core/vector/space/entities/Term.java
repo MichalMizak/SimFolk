@@ -12,6 +12,8 @@ public class Term {
     private int wordCount;
     private List<String> tokenizedLyricsFragment;
 
+
+
     private TermScheme termScheme;
 
     public Term(Integer id, String lyricsFragment, List<String> tokenizedLyricsFragment, TermScheme termScheme) {
@@ -43,8 +45,25 @@ public class Term {
         return tokenizedLyricsFragment;
     }
 
+    public void setTokenizedLyricsFragment(List<String> tokenizedLyricsFragment) {
+        this.tokenizedLyricsFragment = tokenizedLyricsFragment;
+        wordCount = tokenizedLyricsFragment.size();
+    }
+
     public TermScheme getTermScheme() {
         return termScheme;
     }
     //</editor-fold>
+
+
+    @Override
+    public String   toString() {
+        return "Term{" +
+                "id=" + id +
+                ", lyricsFragment='" + lyricsFragment + '\'' +
+                ", wordCount=" + wordCount +
+                ", tokenizedLyricsFragment=" + tokenizedLyricsFragment +
+                ", termScheme=" + termScheme +
+                '}';
+    }
 }

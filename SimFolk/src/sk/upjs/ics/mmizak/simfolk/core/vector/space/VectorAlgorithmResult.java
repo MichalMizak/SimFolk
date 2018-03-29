@@ -42,4 +42,14 @@ public class VectorAlgorithmResult {
         this.vectorAlgorithmConfiguration = vectorAlgorithmConfiguration;
     }
     //</editor-fold>
+
+
+    @Override
+    public String toString() {
+        return "VectorAlgorithmResult{" +
+                "vectorSong=" + vectorSong +
+                ", songToSimilarityPercentage=" + songToSimilarityPercentage +
+                ", vectorAlgorithmConfiguration=" + vectorAlgorithmConfiguration +
+                '}';
+    }
 }

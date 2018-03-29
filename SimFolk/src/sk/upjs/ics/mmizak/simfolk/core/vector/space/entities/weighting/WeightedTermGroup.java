@@ -1,6 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 
 import java.util.List;
 
@@ -11,33 +12,52 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
  * Class represents a group of terms which are similar to each other
  * within a given tolerance
  */
-public class WeightedTermGroup {
-
-    // group-specific fields
-    private Integer groupId;
-    private List<Term> terms;
-    private Long databaseIncidenceCount;
+public class WeightedTermGroup extends TermGroup {
 
     // song-specific fields
     private Integer songId;
     private Double termWeight;
     private TermWeightType termWeightType;
 
-    public WeightedTermGroup(Integer songId, Integer groupId, List<Term> terms, Long databaseIncidenceCount, double weight, TermWeightType termWeightType) {
-        this.songId = songId;
-        this.groupId = groupId;
-        this.terms = terms;
-        this.databaseIncidenceCount = databaseIncidenceCount;
+    /**
+     * WeightedTermGroup with uninitialized fields of TermGroup
+     * @param songId
+     * @param termWeightType
+     * @param weight
+     */
+    public WeightedTermGroup(Integer songId, TermWeightType termWeightType, Double weight) {
+        super(null, null, null, null, null);
 
+        this.songId = songId;
+        this.termWeightType = termWeightType;
+        this.termWeight = weight;
+    }
+
+    public WeightedTermGroup(TermGroup termGroup, Integer songId, TermWeightType termWeightType, Double weight) {
+        this(songId, termGroup.getGroupId(), termGroup.getTerms(), termGroup.getDatabaseIncidenceCount(),
+                weight, termWeightType, termGroup.getTermComparisonAlgorithm(), termGroup.getTolerance());
+        this.songId = songId;
+        this.termWeight = weight;
+        this.termWeightType = termWeightType;
+    }
+
+
+    public WeightedTermGroup(Integer songId, Integer groupId, List<Term> terms, Integer databaseIncidenceCount, Double weight,
+                             TermWeightType termWeightType, TermComparisonAlgorithm termComparisonAlgorithm, Double tolerance) {
+        super(groupId, terms, databaseIncidenceCount, termComparisonAlgorithm, tolerance);
+
+        this.songId = songId;
         this.termWeight = weight;
         this.termWeightType = termWeightType;
     }
 
     //<editor-fold desc="Getters and setters">
-
-
-    public void setTerms(List<Term> terms) {
-        this.terms = terms;
+    public void setTermGroup(TermGroup termGroup) {
+        setGroupId(termGroup.getGroupId());
+        setTerms(termGroup.getTerms());
+        setDatabaseIncidenceCount(termGroup.getDatabaseIncidenceCount());
+        setTermComparisonAlgorithm(termGroup.getTermComparisonAlgorithm());
+        setTolerance(termGroup.getTolerance());
     }
 
     public void setTermWeight(Double termWeight) {
@@ -46,10 +66,6 @@ public class WeightedTermGroup {
 
     public void setTermWeightType(TermWeightType termWeightType) {
         this.termWeightType = termWeightType;
-    }
-
-    public List<Term> getTerms() {
-        return terms;
     }
 
     public Integer getSongId() {
@@ -68,21 +84,26 @@ public class WeightedTermGroup {
         return termWeightType;
     }
 
-    public Integer getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
-
-    public Long getDatabaseIncidenceCount() {
-        return databaseIncidenceCount;
-    }
-
-    public void setDatabaseIncidenceCount(Long databaseIncidenceCount) {
-        this.databaseIncidenceCount = databaseIncidenceCount;
-    }
     //</editor-fold>
 
+
+    @Override
+    public String toString() {
+
+        String termGroup = "\n{" +
+                "groupId=" + getGroupId() +
+                ", terms=" + getTerms() +
+                ", databaseIncidenceCount=" + getDatabaseIncidenceCount() +
+                ", termComparisonAlgorithm=" + getTermComparisonAlgorithm() +
+                ", tolerance=" + getTolerance() +
+                '}';
+
+        String weightedTermGroup = "WeightedTermGroup{" +
+                "songId=" + songId +
+                ", termWeight=" + termWeight +
+                ", termWeightType=" + termWeightType +
+                '}';
+
+        return weightedTermGroup + termGroup;
+    }
 }

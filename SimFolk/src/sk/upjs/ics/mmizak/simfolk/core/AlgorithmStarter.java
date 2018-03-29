@@ -1,10 +1,17 @@
 package sk.upjs.ics.mmizak.simfolk.core;
 
-import sk.upjs.ics.mmizak.simfolk.core.services.implementations.DummyVectorAlgorithmConfigurationService;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.DaoFactory;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ISongDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations.DummyVectorAlgorithmConfigurationService;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ILyricCleaner;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations.LyricCleaner;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmComputer;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
+import sk.upjs.ics.mmizak.simfolk.parsing.Parser;
+
+import java.util.List;
 
 
 /**
@@ -23,13 +30,21 @@ public class AlgorithmStarter {
         AlgorithmConfiguration vectorAlgorithmConfiguration =
                 dummyVectorConfigurationGenerator.generateRandomConfiguration();
 
-        Song songToCompare = new Song();
 
+        Parser parser = new Parser();
         IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
+        List<Song> viktor = parser.parseViktor();
 
-        // TODO: For progress send an object to the algorithm computer
+        for (int i = 0; i < viktor.size()/2; i++) {
 
-        VectorAlgorithmResult result = algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, songToCompare);
+            Song songToCompare = viktor.get(i);
+
+            // TODO: For progress send an object to the algorithm computer
+
+            VectorAlgorithmResult result = algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songToCompare);
+
+            System.out.println(result.toString());
+        }
 
         // TODO: Handle result
     }

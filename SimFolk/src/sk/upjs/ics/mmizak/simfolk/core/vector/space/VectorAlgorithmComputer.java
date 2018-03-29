@@ -1,10 +1,8 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space;
 
 import sk.upjs.ics.mmizak.simfolk.core.IAlgorithmComputer;
-import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermService;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.UtilityFactory;
-import sk.upjs.ics.mmizak.simfolk.core.utilities.interfaces.*;
-import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IWeightService;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.*;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.ServiceFactory;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
@@ -14,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static sk.upjs.ics.mmizak.simfolk.core.utilities.UtilityFactory.INSTANCE;
+import static sk.upjs.ics.mmizak.simfolk.core.database.access.ServiceFactory.INSTANCE;
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 
@@ -38,7 +36,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         ITermService termService = INSTANCE.getTermService();
         IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
         ITermComparator termComparator = INSTANCE.getTermComparator();
-        IWeightService weightCalculator = UtilityFactory.INSTANCE.getWeightCalculator();
+        IWeightService weightCalculator = ServiceFactory.INSTANCE.getWeightCalculator();
         ITermVectorFormatter termVectorFormatter = INSTANCE.getTermVectorFormatter();
         IVectorComparator vectorComparator = INSTANCE.getVectorComparator();
 
@@ -58,7 +56,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
                     vectorConfig.getTermDimension(), song.getLyrics());
 
             // assigns database ids to existing terms
-            terms = termService.syncTerms(terms);
+            terms = termService.syncTermIds(terms);
 
             vectorA = weightCalculator.calculateNewWeightedVector(terms, termWeightType, song.getId(),
                     termComparisonAlgorithm, tolerance,
@@ -108,6 +106,43 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
     @Override
     public VectorAlgorithmResult computeSimilarityAndSave(AlgorithmConfiguration algorithmConfiguration, Song song) throws Exception {
         // TODO: save and refresh weights first
+
+        if (!algorithmConfiguration.getClass().equals(VectorAlgorithmConfiguration.class)) {
+            throw new Exception("Invalid AlgorithmConfiguration");
+        }
+
+        VectorAlgorithmConfiguration vectorConfig = (VectorAlgorithmConfiguration) algorithmConfiguration;
+
+        ILyricCleaner lyricCleaner = INSTANCE.getLyricCleaner();
+        ITermBuilder termBuilder = INSTANCE.getTermBuilder();
+        ITermService termService = INSTANCE.getTermService();
+        IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
+        ITermComparator termComparator = INSTANCE.getTermComparator();
+        IWeightService weightCalculator = ServiceFactory.INSTANCE.getWeightCalculator();
+        ISongService songService = ServiceFactory.INSTANCE.getSongService();
+
+        TermWeightType termWeightType = vectorConfig.getTermWeightType();
+        TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
+        double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
+                termComparisonAlgorithm);
+
+
+        song = lyricCleaner.clean(song);
+
+        song = songService.syncId(song);
+
+        if (song.getId() == null)
+            songService.saveOrEdit(song);
+
+        List<Term> terms = termBuilder.buildTerms(vectorConfig.getTermScheme(),
+                vectorConfig.getTermDimension(), song.getLyrics());
+
+        terms = termService.saveOrEdit(terms);
+
+        WeightedVector weightedVector = weightCalculator.calculateNewWeightedVector(terms, termWeightType, song.getId(),
+                termComparisonAlgorithm, tolerance, termComparator);
+
+        weightCalculator.saveOrEdit(weightedVector);
 
         return computeSimilarity(algorithmConfiguration, song);
     }

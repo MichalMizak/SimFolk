@@ -10,18 +10,7 @@ import java.util.List;
 
 public class Serializer {
 
-    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, JsonProcessingException {
-
-        Parser parser = new Parser();
-
-        List<Song> songsViktor = parser.parseViktor();
-        List<Song> songsPiesne372 = parser.parsePiesne372();
-
-        System.out.println(songsViktor.size() + songsPiesne372.size());
-
-    }
-
-    private String generateJSON(List<Song> songs) throws JsonProcessingException {
+    public static String generateJSON(List<Song> songs) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {

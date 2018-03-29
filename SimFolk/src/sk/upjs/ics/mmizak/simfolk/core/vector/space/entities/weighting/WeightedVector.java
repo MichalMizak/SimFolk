@@ -14,7 +14,7 @@ public class WeightedVector {
 
     private List<WeightedTermGroup> vector;
 
-    public WeightedVector(List<WeightedTermGroup> vector, Integer songId) {
+    public WeightedVector(Integer songId, List<WeightedTermGroup> vector) {
         this.vector = vector;
         this.songId = songId;
     }
@@ -42,5 +42,13 @@ public class WeightedVector {
 
     public Integer getSongId() {
         return songId;
+    }
+
+    @Override
+    public String toString() {
+        return "WeightedVector{" +
+                "songId=" + songId +
+                ", vector=" + vector +
+                '}';
     }
 }
