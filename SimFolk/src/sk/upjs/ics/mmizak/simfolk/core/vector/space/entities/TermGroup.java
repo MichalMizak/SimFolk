@@ -2,20 +2,22 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 public class TermGroup {
 
     // With change on fields review setter in WeightedTermGroup
-    private Integer groupId;
+    private Long groupId;
+    private TermScheme termScheme;
     private List<Term> terms;
     private Integer databaseIncidenceCount;
     private TermComparisonAlgorithm termComparisonAlgorithm;
     private Double tolerance;
 
-    public TermGroup(Integer groupId, List<Term> terms, Integer databaseIncidenceCount,
+    public TermGroup(Long groupId, TermScheme termScheme, List<Term> terms, Integer databaseIncidenceCount,
                      TermComparisonAlgorithm termComparisonAlgorithm, Double tolerance) {
         this.groupId = groupId;
+        this.termScheme = termScheme;
         this.terms = terms;
         this.databaseIncidenceCount = databaseIncidenceCount;
         this.termComparisonAlgorithm = termComparisonAlgorithm;
@@ -23,11 +25,11 @@ public class TermGroup {
     }
 
     //<editor-fold desc="Getters and setters">
-    public Integer getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Integer groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
@@ -74,5 +76,13 @@ public class TermGroup {
                 ", termComparisonAlgorithm=" + termComparisonAlgorithm +
                 ", tolerance=" + tolerance +
                 '}';
+    }
+
+    public TermScheme getTermScheme() {
+        return termScheme;
+    }
+
+    public void setTermScheme(TermScheme termScheme) {
+        this.termScheme = termScheme;
     }
 }

@@ -20,10 +20,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class WeightedTermGroupDaoTest {
@@ -69,12 +68,12 @@ class WeightedTermGroupDaoTest {
 
         termDao.saveOrEdit(terms);
 
-        termGroup = new TermGroup(null, terms, 4,
+        termGroup = new TermGroup(null, TermScheme.UNGRAM, terms, 4,
                 TermComparisonAlgorithm.NAIVE, 0D);
 
         termGroup = termGroupDao.saveOrEdit(termGroup);
 
-        this.song = new Song(null, "test title", "test lyrics", "test songstyle",
+        this.song = new Song(null, "test title", "test lyrics", "test clean lyrics", "test songstyle",
                 Collections.singletonList("TEST DUR"), "test region", "test source");
 
         song = songDao.saveOrEdit(song);
@@ -103,7 +102,7 @@ class WeightedTermGroupDaoTest {
 
     @Test
     void getAll() {
-        List<WeightedTermGroup> all = weightedTermGroupDao.getAll(weightedTermGroup.getSongId(), weightedTermGroup.getTermWeightType(),
+        List<WeightedTermGroup> all = weightedTermGroupDao.getAllFittingBySongId(weightedTermGroup.getSongId(), weightedTermGroup.getTermWeightType(),
                 weightedTermGroup.getTermComparisonAlgorithm(), weightedTermGroup.getTolerance());
 
         if (assertContainsWeightedGroup(all)) return;
@@ -121,10 +120,10 @@ class WeightedTermGroupDaoTest {
 
     private boolean assertContainsWeightedGroup(List<WeightedTermGroup> all) {
         for (WeightedTermGroup wtg : all) {
-            Integer songId = wtg.getSongId();
+            Long songId = wtg.getSongId();
             assertNotNull(songId, wtg.getTerms().toString());
 
-            Integer groupId = wtg.getGroupId();
+            Long groupId = wtg.getGroupId();
             assertNotNull(groupId);
 
             if (songId.equals(weightedTermGroup.getSongId())

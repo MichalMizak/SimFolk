@@ -2,16 +2,16 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 
 import org.jooq.DSLContext;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermDao;
-import sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.records.TermRecord;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TTerm.*;
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TTermTokenized.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm.T_TERM;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized.T_TERM_TOKENIZED;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 public class TermDao implements ITermDao {
 
@@ -29,7 +29,7 @@ public class TermDao implements ITermDao {
 
     @Override
     public Term syncTermId(Term term) {
-        Integer id = create.select(T_TERM.TERMID)
+        Long id = create.select(T_TERM.TERMID)
                 .from(T_TERM)
                 .where(T_TERM.LYRICSFRAGMENT.eq(term.getLyricsFragment()))
                 .and(T_TERM.TERMSCHEME.eq(term.getTermScheme().toString()))
@@ -53,7 +53,7 @@ public class TermDao implements ITermDao {
     }
 
     @Override
-    public List<Term> getTermsById(List<Integer> termIds) {
+    public List<Term> getTermsById(List<Long> termIds) {
         List<Term> result = create.selectFrom(T_TERM)
                 .where(T_TERM.TERMID.in(termIds))
                 .fetch(this::map);

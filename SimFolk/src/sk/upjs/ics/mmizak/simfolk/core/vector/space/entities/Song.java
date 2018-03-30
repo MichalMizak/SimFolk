@@ -4,9 +4,11 @@ import java.util.List;
 
 public class Song {
 
-    private Integer id;
+    private Long id;
 
     private String title;
+
+    private String cleanLyrics;
 
     private String lyrics;
 
@@ -22,9 +24,10 @@ public class Song {
         // do nothing
     }
 
-    public Song(Integer id, String title, String lyrics, String songStyle, List<String> attributes, String region, String source) {
+    public Song(Long id, String title, String lyrics, String cleanLyrics, String songStyle, List<String> attributes, String region, String source) {
         this.id = id;
         this.title = title;
+        this.cleanLyrics = cleanLyrics;
         this.lyrics = lyrics;
         this.songStyle = songStyle;
         this.attributes = attributes;
@@ -33,11 +36,11 @@ public class Song {
     }
 
     //<editor-fold desc="Getters and setters">
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,12 +52,12 @@ public class Song {
         this.title = title;
     }
 
-    public String getLyrics() {
-        return lyrics;
+    public String getCleanLyrics() {
+        return cleanLyrics;
     }
 
-    public void setLyrics(String lyrics) {
-        this.lyrics = lyrics;
+    public void setCleanLyrics(String cleanLyrics) {
+        this.cleanLyrics = cleanLyrics;
     }
 
     public String getRegion() {
@@ -95,12 +98,20 @@ public class Song {
         return "Song{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", lyrics='" + lyrics + '\'' +
+                ", cleanLyrics='" + cleanLyrics + '\'' +
                 ", songStyle='" + songStyle + '\'' +
                 ", attributes=" + attributes +
                 ", region='" + region + '\'' +
                 ", source='" + source + '\'' +
                 '}';
+    }
+
+    public String getLyrics() {
+        return lyrics;
+    }
+
+    public void setLyrics(String lyrics) {
+        this.lyrics = lyrics;
     }
 }
 

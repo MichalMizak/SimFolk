@@ -2,13 +2,13 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 
 import org.jooq.DSLContext;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ISongDao;
-import sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.records.SongRecord;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.SongRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TSong.T_SONG;
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TSongToAttribute.T_SONG_TO_ATTRIBUTE;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong.T_SONG;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute.T_SONG_TO_ATTRIBUTE;
 
 public class SongDao implements ISongDao {
 
@@ -30,7 +30,7 @@ public class SongDao implements ISongDao {
 
 
     @Override
-    public Song getById(Integer id) {
+    public Song getById(Long id) {
         Song result = create.selectFrom(T_SONG).where(T_SONG.SONGID.eq(id)).
                 fetchOne(this::map);
 
@@ -42,10 +42,11 @@ public class SongDao implements ISongDao {
 
         if (s.getId() == null) {
             SongRecord songRecord = create
-                    .insertInto(T_SONG, T_SONG.TITLE, T_SONG.LYRICS,
+                    .insertInto(T_SONG, T_SONG.TITLE, T_SONG.LYRICS, T_SONG.CLEANLYRICS,
                                 T_SONG.SONGSTYLE, T_SONG.REGION, T_SONG.SOURCE)
-                    .values(s.getTitle(), s.getLyrics(),
+                    .values(s.getTitle(), s.getLyrics(), s.getCleanLyrics(),
                             s.getSongStyle(), s.getRegion(), s.getSource())
+                    .onDuplicateKeyIgnore()
                     .returning(T_SONG.SONGID)
                     .fetchOne();
 
@@ -60,6 +61,7 @@ public class SongDao implements ISongDao {
             create.update(T_SONG)
                     .set(T_SONG.TITLE, s.getTitle())
                     .set(T_SONG.LYRICS, s.getLyrics())
+                    .set(T_SONG.CLEANLYRICS, s.getCleanLyrics())
                     .set(T_SONG.SONGSTYLE, s.getSongStyle())
                     .set(T_SONG.REGION, s.getRegion())
                     .set(T_SONG.SOURCE, s.getSource())
@@ -98,10 +100,10 @@ public class SongDao implements ISongDao {
     // TODO: change this into fetchOne
     @Override
     public Song syncId(Song song) {
-        Integer id = create.select()
+        Long id = create.select()
                 .from(T_SONG)
                 .where(T_SONG.LYRICS.eq(song.getLyrics()))
-                .fetchAny(T_SONG.SONGID);
+                .fetchOne(T_SONG.SONGID);
 
         if (id != null) {
             song.setId(id);
@@ -121,7 +123,7 @@ public class SongDao implements ISongDao {
     }
 
     private Song map(SongRecord s) {
-        return new Song(s.getSongid(), s.getTitle(), s.getLyrics(),
+        return new Song(s.getSongid(), s.getTitle(), s.getLyrics(), s.getCleanlyrics(),
                 s.getSongstyle(), null, s.getRegion(), s.getSource());
     }
     //</editor-fold>

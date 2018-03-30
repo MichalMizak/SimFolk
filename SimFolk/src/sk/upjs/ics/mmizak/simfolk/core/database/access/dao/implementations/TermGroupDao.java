@@ -1,21 +1,20 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 
 import org.jooq.DSLContext;
-import org.jooq.Record;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermGroupDao;
-import sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.records.TermGroupRecord;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermGroupRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TTermGroup.T_TERM_GROUP;
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TTermGroupToTerm.T_TERM_GROUP_TO_TERM;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup.T_TERM_GROUP;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroupToTerm.T_TERM_GROUP_TO_TERM;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 
 // TODO: TEST
@@ -53,7 +52,20 @@ public class TermGroupDao implements ITermGroupDao {
     }
 
     @Override
-    public TermGroup getTermGroupById(Integer groupId) {
+    public List<TermGroup> getTermGroups(TermComparisonAlgorithm termComparisonAlgorithm, TermScheme termScheme, double tolerance) {
+        List<TermGroup> result = create.selectFrom(T_TERM_GROUP)
+                .where(T_TERM_GROUP.TERMCOMPARISONALGORITHM.eq(termComparisonAlgorithm.toString()))
+                .and(T_TERM_GROUP.TERMSCHEME.eq(termScheme.toString()))
+                .and(T_TERM_GROUP.TOLERANCE.eq(tolerance))
+                .fetch(this::map);
+
+        result.forEach(this::initTerms);
+
+        return result;
+    }
+
+    @Override
+    public TermGroup getTermGroupById(Long groupId) {
 
         TermGroup result = create.selectFrom(T_TERM_GROUP)
                 .where(T_TERM_GROUP.GROUPID.eq(groupId))
@@ -71,9 +83,11 @@ public class TermGroupDao implements ITermGroupDao {
 
         if (termGroup.getGroupId() == null) {
             TermGroupRecord termGroupRecord = create.insertInto(T_TERM_GROUP)
-                    .columns(T_TERM_GROUP.GROUPID, T_TERM_GROUP.INCIDENCECOUNT,
+                    .columns(T_TERM_GROUP.GROUPID, T_TERM_GROUP.TERMSCHEME,
+                            T_TERM_GROUP.INCIDENCECOUNT,
                             T_TERM_GROUP.TERMCOMPARISONALGORITHM, T_TERM_GROUP.TOLERANCE)
-                    .values(termGroup.getGroupId(), termGroup.getDatabaseIncidenceCount(),
+                    .values(termGroup.getGroupId(), termGroup.getTermScheme().toString(),
+                            termGroup.getDatabaseIncidenceCount(),
                             termGroup.getTermComparisonAlgorithm().toString(), termGroup.getTolerance())
                     .returning(T_TERM_GROUP.GROUPID)
                     .fetchOne();
@@ -88,13 +102,14 @@ public class TermGroupDao implements ITermGroupDao {
                             .execute());
         } else {
             create.update(T_TERM_GROUP)
+                    .set(T_TERM_GROUP.TERMSCHEME, termGroup.getTermScheme().toString())
                     .set(T_TERM_GROUP.INCIDENCECOUNT, termGroup.getDatabaseIncidenceCount())
                     .set(T_TERM_GROUP.TERMCOMPARISONALGORITHM, termGroup.getTermComparisonAlgorithm().toString())
                     .set(T_TERM_GROUP.TOLERANCE, termGroup.getTolerance())
                     .where(T_TERM_GROUP.GROUPID.eq(termGroup.getGroupId()))
                     .execute();
 
-            List<Integer> idList =
+            List<Long> idList =
                     termGroup.getTerms().stream().map(Term::getId).collect(Collectors.toList());
 
             create.deleteFrom(T_TERM_GROUP_TO_TERM)
@@ -123,17 +138,6 @@ public class TermGroupDao implements ITermGroupDao {
     }
 
 
-    /**
-     * Simply returns a list of the same size as the parameter terms containing
-     * one-term TermGroups with initialized group id.
-     * Group ids will vary depending on termComparisonAlgorithm and the tolerance we use for the same term.
-     * If a term belongs to a group, initializes all fields. If not, sets groupId and terms to default values
-     *
-     * @param terms
-     * @param termComparisonAlgorithm
-     * @param tolerance
-     * @return
-     */
     @Override
     public List<TermGroup> syncGroupIds(List<Term> terms, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
 
@@ -148,7 +152,7 @@ public class TermGroupDao implements ITermGroupDao {
 
     @Override
     public TermGroup syncGroupId(Term term, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
-        Integer groupId = create.select()
+        Long groupId = create.select()
                 .from(T_TERM_GROUP_TO_TERM)
                 .join(T_TERM_GROUP)
                 .on(T_TERM_GROUP_TO_TERM.GROUPID.eq(T_TERM_GROUP.GROUPID))
@@ -164,13 +168,13 @@ public class TermGroupDao implements ITermGroupDao {
         List<Term> terms = new ArrayList<>();
         terms.add(term);
 
-        return new TermGroup(null, terms, 1,
+        return new TermGroup(null, term.getTermScheme(), terms, 1,
                 termComparisonAlgorithm, tolerance);
     }
 
     //<editor-fold desc="Private methods">
     private TermGroup initTerms(TermGroup termGroup) {
-        List<Integer> termIds = create.selectFrom(T_TERM_GROUP_TO_TERM)
+        List<Long> termIds = create.selectFrom(T_TERM_GROUP_TO_TERM)
                 .where(T_TERM_GROUP_TO_TERM.GROUPID.eq(termGroup.getGroupId()))
                 .fetch(T_TERM_GROUP_TO_TERM.TERMID);
 
@@ -183,8 +187,9 @@ public class TermGroupDao implements ITermGroupDao {
 
     private TermGroup map(TermGroupRecord termGroupRecord) {
         TermComparisonAlgorithm termComparisonAlgorithm = TermComparisonAlgorithm.valueOf(termGroupRecord.getTermcomparisonalgorithm());
+        TermScheme termScheme = TermScheme.valueOf(termGroupRecord.getTermscheme());
 
-        return new TermGroup(termGroupRecord.getGroupid(), null, termGroupRecord.getIncidencecount(),
+        return new TermGroup(termGroupRecord.getGroupid(), termScheme, null, termGroupRecord.getIncidencecount(),
                 termComparisonAlgorithm, termGroupRecord.getTolerance());
     }
     //</editor-fold>

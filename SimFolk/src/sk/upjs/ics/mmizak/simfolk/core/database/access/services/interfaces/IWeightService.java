@@ -1,13 +1,14 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermWeightType;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
 
 public interface IWeightService {
 
@@ -36,12 +37,18 @@ public interface IWeightService {
 
     WeightedVector resetAndCalculateWeight(List<Term> terms, TermWeightType termWeightType, Integer songId);
 
-    WeightedVector getWeightedTermVectorBySongId(Integer songId, TermWeightType termWeightType,
-                                                 TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
+    WeightedVector calculateNewWeightedVector(List<Term> terms, Long songId, VectorAlgorithmConfiguration vectorConfig,
+                                              ITermComparator termComparator, double tolerance);
 
-    WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Integer songId,
-                                              TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
-                                              ITermComparator termComparator);
+    WeightedVector getFittingWeightedTermVectorBySongId(Long songId, VectorAlgorithmConfiguration vectorConfig, double tolerance);
+
+    /**
+     * This method takes Tolerance, TermComparisonAlgorithm and TermScheme into account
+     * @param vectorConfig
+     * @param tolerance
+     * @return
+     */
+    List<WeightedVector> getAllFittingWeightedVectors(VectorAlgorithmConfiguration vectorConfig, double tolerance);
 
     List<WeightedVector> getAllWeightedTermVectors(TermWeightType termWeightType,
                                                    TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);

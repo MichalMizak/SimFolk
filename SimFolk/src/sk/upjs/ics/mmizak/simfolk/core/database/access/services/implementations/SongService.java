@@ -20,7 +20,7 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public Song getById(Integer id) {
+    public Song getById(Long id) {
         return songDao.getById(id);
     }
 

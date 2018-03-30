@@ -1,13 +1,9 @@
 package sk.upjs.ics.mmizak.simfolk.core;
 
-import sk.upjs.ics.mmizak.simfolk.core.database.access.DaoFactory;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ISongDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations.DummyVectorAlgorithmConfigurationService;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ILyricCleaner;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations.LyricCleaner;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmComputer;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmResult;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.parsing.Parser;
 
@@ -43,7 +39,8 @@ public class AlgorithmStarter {
 
             VectorAlgorithmResult result = algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songToCompare);
 
-            System.out.println(result.toString());
+            System.out.println("Song id: " + result.getVectorSong().getSongId());
+            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
         }
 
         // TODO: Handle result

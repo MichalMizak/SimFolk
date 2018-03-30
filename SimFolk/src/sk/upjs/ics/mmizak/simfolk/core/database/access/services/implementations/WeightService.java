@@ -7,13 +7,14 @@ import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedV
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.IWeightService;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
 import java.util.*;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermWeightType;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
 
 // TODO: implement reset weights and weight calculations
 // TODO: TEST
@@ -79,15 +80,19 @@ public class WeightService implements IWeightService {
      * If the @param songId contains terms which are already in the database and their weights
      * are established, in this new context the weights might turn out differently. We will try to find out
      * whether the terms already exist in the database and calculate the weights taking them into account.
-     *
      * @param terms
-     * @param termWeightType
-     * @param songId
+     * @param id
+     * @param vectorConfig
+     * @param termComparator
+     * @param tolerance
      * @return
      */
-    public WeightedVector calculateNewWeightedVector(List<Term> terms, TermWeightType termWeightType, Integer songId,
-                                                     TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
-                                                     ITermComparator termComparator) {
+    @Override
+    public WeightedVector calculateNewWeightedVector(List<Term> terms, Long songId, VectorAlgorithmConfiguration vectorConfig,
+                                                     ITermComparator termComparator, double tolerance) {
+
+        TermWeightType termWeightType = vectorConfig.getTermWeightType();
+        TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
 
         List<WeightedTermGroup> frequencyWeightedGroups = getFrequencyWeightedTerm(terms, termComparisonAlgorithm,
                 tolerance, termComparator);
@@ -144,7 +149,7 @@ public class WeightService implements IWeightService {
             }
 
             WeightedTermGroup iTermGroup = termGroups.get(i);
-            Integer iId = iTermGroup.getGroupId();
+            Long iId = iTermGroup.getGroupId();
 
             iTermGroup.setTermWeight(1.0);
 
@@ -153,7 +158,7 @@ public class WeightService implements IWeightService {
                     continue;
                 }
                 WeightedTermGroup jTermGroup = termGroups.get(j);
-                Integer jId = jTermGroup.getGroupId();
+                Long jId = jTermGroup.getGroupId();
 
                 if (iId != null && iId.equals(jId)) {
                     mergeGroups(iTermGroup, jTermGroup, usedIndices, j);
@@ -190,7 +195,7 @@ public class WeightService implements IWeightService {
      */
     private void compareGroupsTermByTerm(WeightedTermGroup iTermGroup, WeightedTermGroup jTermGroup,
                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
-                                         ITermComparator termComparator, Set<Integer> usedIndices, int j, Integer jId) {
+                                         ITermComparator termComparator, Set<Integer> usedIndices, int j, Long jId) {
         Term jTerm = jTermGroup.getTerms().get(0);
         for (Term iTerm : iTermGroup.getTerms()) {
 
@@ -230,12 +235,21 @@ public class WeightService implements IWeightService {
     }
 
 
-    //<editor-fold desc="Methods delegated to weightedVectorDao">
     @Override
-    public WeightedVector getWeightedTermVectorBySongId(Integer songId, TermWeightType termWeightType,
-                                                        TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
-        return weightedVectorDao.getWeightedVectorBySongId(songId, termWeightType, termComparisonAlgorithm, tolerance);
+    public WeightedVector getFittingWeightedTermVectorBySongId(Long songId, VectorAlgorithmConfiguration vectorConfig, double tolerance) {
+
+        TermWeightType termWeightType = vectorConfig.getTermWeightType();
+        TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
+
+        return weightedVectorDao.getFittingWeightedVectorBySongId(songId, vectorConfig, tolerance);
     }
+
+    @Override
+    public List<WeightedVector> getAllFittingWeightedVectors(VectorAlgorithmConfiguration vectorConfig, double tolerance) {
+        return weightedVectorDao.getAllFittingWeightedVectors(vectorConfig, tolerance);
+    }
+
+    //<editor-fold desc="Methods delegated to weightedVectorDao">
 
     @Override
     public List<WeightedVector> getAllWeightedTermVectors(TermWeightType termWeightType,
@@ -252,5 +266,6 @@ public class WeightService implements IWeightService {
     public void delete(WeightedVector weightedVector) {
         weightedVectorDao.delete(weightedVector);
     }
+
     //</editor-fold>
 }

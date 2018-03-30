@@ -4,7 +4,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermScheme;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermScheme;
 
 public interface ITermBuilder {
 

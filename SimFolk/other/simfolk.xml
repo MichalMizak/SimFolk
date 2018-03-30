@@ -56,7 +56,7 @@
 
     <target>
       <!-- The destination package of your generated classes (within the destination directory) -->
-      <packageName>sk.upjs.ics.mmizak.simfolk.core.jooq.generated</packageName>
+      <packageName>sk.upjs.ics.mmizak.simfolk.core.database.generated</packageName>
 
       <!-- The destination directory of your generated classes. Using Maven directory layout here -->
       <directory>C:\Users\Mikey\Desktop\ClassGenerator</directory>

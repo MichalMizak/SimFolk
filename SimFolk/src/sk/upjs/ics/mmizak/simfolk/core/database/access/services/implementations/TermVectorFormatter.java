@@ -13,8 +13,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.VectorInclusion;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.VectorInclusion;
 
 
 /**
@@ -64,7 +64,7 @@ public class TermVectorFormatter implements ITermVectorFormatter {
             if (!foundSimilarTerm) {
                 // add dummy group with 0 weight
                 Double dummyWeight = 0D;
-                bResult.add(new WeightedTermGroup(b.getSongId(), aGroup.getGroupId(), aGroup.getTerms(),
+                bResult.add(new WeightedTermGroup(b.getSongId(), aGroup.getGroupId(), aGroup.getTermScheme(), aGroup.getTerms(),
                         aGroup.getDatabaseIncidenceCount(), dummyWeight, a.getTermWeightType(),
                         termComparisonAlgorithm, tolerance));
             }

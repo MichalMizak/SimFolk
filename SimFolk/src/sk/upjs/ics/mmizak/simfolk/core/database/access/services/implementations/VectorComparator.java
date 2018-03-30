@@ -5,7 +5,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedV
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 public class VectorComparator implements IVectorComparator {
 

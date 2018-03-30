@@ -4,7 +4,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermScheme;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermScheme;
 
 public interface ITermDao {
 
@@ -20,7 +20,7 @@ public interface ITermDao {
 
     List<Term> getAllTerms();
 
-    List<Term> getTermsById(List<Integer> termIds);
+    List<Term> getTermsById(List<Long> termIds);
 
     List<Term> getTermByTermScheme(TermScheme termScheme);
 

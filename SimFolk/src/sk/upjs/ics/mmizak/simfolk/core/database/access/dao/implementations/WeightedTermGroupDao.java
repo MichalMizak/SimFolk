@@ -4,17 +4,18 @@ import org.jooq.DSLContext;
 import org.jooq.Record2;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
-import sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.records.WeightedTermGroupRecord;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.WeightedTermGroupRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermWeightType;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermComparisonAlgorithm;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
 
 public class WeightedTermGroupDao implements IWeightedTermGroupDao {
 
@@ -28,7 +29,7 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
     }
 
     @Override
-    public WeightedTermGroup getByIds(Integer groupId, Integer songId) {
+    public WeightedTermGroup getByIds(Long groupId, Long songId) {
         TermGroup termGroup = termGroupDao.getTermGroupById(groupId);
 
         if (termGroup == null) {
@@ -54,45 +55,22 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
 
         List<TermGroup> fittingTermGroups = termGroupDao.getTermGroups(termComparisonAlgorithm, tolerance);
 
-        for (TermGroup termGroup : fittingTermGroups) {
-
-            List<WeightedTermGroup> weightedTermGroups =
-                    create.selectFrom(T_WEIGHTED_TERM_GROUP)
-                            .where(T_WEIGHTED_TERM_GROUP.GROUPID.eq(termGroup.getGroupId()))
-                            .fetch(this::map);
-
-            for (WeightedTermGroup wt : weightedTermGroups) {
-                wt.setTermGroup(termGroup);
-            }
-
-            result.addAll(weightedTermGroups);
-        }
+        selectAndInitWeightedGroupsByTermGroups(result, fittingTermGroups);
 
         return result;
     }
 
 
     @Override
-    public List<WeightedTermGroup> getAll(Integer songId, TermWeightType termWeightType,
-                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
+    @Deprecated
+    public List<WeightedTermGroup> getAllFittingBySongId(Long songId, TermWeightType termWeightType,
+                                                         TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
 
         List<WeightedTermGroup> result = new ArrayList<>();
 
         List<TermGroup> fittingTermGroups = termGroupDao.getTermGroups(termComparisonAlgorithm, tolerance);
 
-        for (TermGroup termGroup : fittingTermGroups) {
-
-            List<WeightedTermGroup> temp = create.selectFrom(T_WEIGHTED_TERM_GROUP)
-                    .where(T_WEIGHTED_TERM_GROUP.SONGID.eq(songId))
-                    .and(T_WEIGHTED_TERM_GROUP.GROUPID.eq(termGroup.getGroupId()))
-                    .fetch(this::map);
-
-            for (WeightedTermGroup weightedGroup : temp) {
-                weightedGroup.setTermGroup(termGroupDao.getTermGroupById(termGroup.getGroupId()));
-            }
-
-            result.addAll(temp);
-        }
+        selectAndInitWeightedGroupsByTermGroupsAndSongId(songId, result, fittingTermGroups);
         return result;
     }
 
@@ -170,9 +148,65 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
         return new WeightedTermGroup(termGroup, null, null, 1D);
     }
 
+    @Override
+    public List<WeightedTermGroup> getAllFitting(VectorAlgorithmConfiguration vectorConfig, double tolerance) {
+        List<WeightedTermGroup> result = new ArrayList<>();
+
+        List<TermGroup> fittingTermGroups = termGroupDao.getTermGroups(vectorConfig.getTermComparisonAlgorithm(),
+                vectorConfig.getTermScheme(), tolerance);
+
+        selectAndInitWeightedGroupsByTermGroups(result, fittingTermGroups);
+
+        return result;
+    }
+
+    @Override
+    public List<WeightedTermGroup> getAllFittingBySongId(Long songId, VectorAlgorithmConfiguration vectorConfig, double tolerance) {
+        List<WeightedTermGroup> result = new ArrayList<>();
+
+        List<TermGroup> fittingTermGroups = termGroupDao.getTermGroups(vectorConfig.getTermComparisonAlgorithm(),
+                vectorConfig.getTermScheme(), tolerance);
+
+        selectAndInitWeightedGroupsByTermGroupsAndSongId(songId, result, fittingTermGroups);
+        return result;
+    }
+
+    private void selectAndInitWeightedGroupsByTermGroupsAndSongId(Long songId, List<WeightedTermGroup> result, List<TermGroup> fittingTermGroups) {
+        for (TermGroup termGroup : fittingTermGroups) {
+
+            List<WeightedTermGroup> temp = create.selectFrom(T_WEIGHTED_TERM_GROUP)
+                    .where(T_WEIGHTED_TERM_GROUP.SONGID.eq(songId))
+                    .and(T_WEIGHTED_TERM_GROUP.GROUPID.eq(termGroup.getGroupId()))
+                    .fetch(this::map);
+
+            for (WeightedTermGroup weightedGroup : temp) {
+                weightedGroup.setTermGroup(termGroupDao.getTermGroupById(termGroup.getGroupId()));
+            }
+
+            result.addAll(temp);
+        }
+    }
+
+    private void selectAndInitWeightedGroupsByTermGroups(List<WeightedTermGroup> result, List<TermGroup> fittingTermGroups) {
+        for (TermGroup termGroup : fittingTermGroups) {
+
+            List<WeightedTermGroup> weightedTermGroups =
+                    create.selectFrom(T_WEIGHTED_TERM_GROUP)
+                            .where(T_WEIGHTED_TERM_GROUP.GROUPID.eq(termGroup.getGroupId()))
+                            .fetch(this::map);
+
+            for (WeightedTermGroup wt : weightedTermGroups) {
+
+                wt.setTermGroup(termGroup);
+            }
+
+            result.addAll(weightedTermGroups);
+        }
+    }
+
     //<editor-fold desc="Private methods">
 
-    private WeightedTermGroup syncWeightWithTermGroup(Integer groupId, Integer songId, TermGroup termGroup) {
+    private WeightedTermGroup syncWeightWithTermGroup(Long groupId, Long songId, TermGroup termGroup) {
         Record2<String, Double> typeToWeight = create.select(T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPE, T_WEIGHTED_TERM_GROUP.WEIGHT)
                 .from(T_WEIGHTED_TERM_GROUP)
                 .where(T_WEIGHTED_TERM_GROUP.GROUPID.eq(groupId))
@@ -191,7 +225,7 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
 
     private WeightedTermGroup map(WeightedTermGroupRecord weightedTermGroupRecord) {
 
-        Integer songid = weightedTermGroupRecord.getSongid();
+        Long songid = weightedTermGroupRecord.getSongid();
         String termweighttype = weightedTermGroupRecord.getTermweighttype();
         Double weight = weightedTermGroupRecord.getWeight();
 

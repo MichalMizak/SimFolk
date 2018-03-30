@@ -2,10 +2,9 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations
 
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermService;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TermService implements ITermService {
@@ -33,7 +32,7 @@ public class TermService implements ITermService {
     }
 
     @Override
-    public List<Term> getTermsById(List<Integer> termIds) {
+    public List<Term> getTermsById(List<Long> termIds) {
         return termDao.getTermsById(termIds);
     }
 

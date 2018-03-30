@@ -2,8 +2,10 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations
 
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 
 /**
@@ -35,7 +37,44 @@ public class TermComparator implements ITermComparator {
             default:
                 return false;
         }
+    }
 
+    public boolean compareGroups(TermGroup aTermGroup, TermGroup bTermGroup,
+                                 VectorAlgorithmConfiguration vectorConfiguration,
+                                 double tolerance) {
+
+        switch (vectorConfiguration.getTermGroupMatchingStrategy()) {
+            case MATCH_ONE:
+                return matchOne(aTermGroup, bTermGroup, tolerance, vectorConfiguration.getTermComparisonAlgorithm());
+            case MATCH_ALL:
+                return matchAll(aTermGroup, bTermGroup, tolerance, vectorConfiguration.getTermComparisonAlgorithm());
+            default:
+                return false;
+        }
+    }
+
+    private boolean matchAll(TermGroup aTermGroup, TermGroup bTermGroup,
+                             double tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
+        for (Term aTerm : aTermGroup.getTerms()) {
+            for (Term bTerm : bTermGroup.getTerms()) {
+                if (!compare(aTerm, bTerm, tolerance, termComparisonAlgorithm)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean matchOne(TermGroup aTermGroup, TermGroup bTermGroup,
+                             double tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
+        for (Term aTerm : aTermGroup.getTerms()) {
+            for (Term bTerm : bTermGroup.getTerms()) {
+                if (!compare(aTerm, bTerm, tolerance, termComparisonAlgorithm)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private boolean naiveTermComparison(Term t1, Term t2) {

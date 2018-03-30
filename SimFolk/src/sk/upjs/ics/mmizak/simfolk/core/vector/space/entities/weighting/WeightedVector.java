@@ -1,6 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermWeightType;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.List;
  */
 public class WeightedVector {
 
-    private Integer songId;
+    private Long songId;
 
     private List<WeightedTermGroup> vector;
 
-    public WeightedVector(Integer songId, List<WeightedTermGroup> vector) {
+    public WeightedVector(Long songId, List<WeightedTermGroup> vector) {
         this.vector = vector;
         this.songId = songId;
     }
@@ -40,7 +40,7 @@ public class WeightedVector {
         return vector.get(0).getTermWeightType();
     }
 
-    public Integer getSongId() {
+    public Long getSongId() {
         return songId;
     }
 

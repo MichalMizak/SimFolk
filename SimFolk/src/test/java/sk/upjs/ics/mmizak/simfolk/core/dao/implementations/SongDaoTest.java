@@ -48,7 +48,7 @@ class SongDaoTest {
     @Test
     void getAll() {
 
-        Song song = new Song(null, "new title", "lyrics", "songstyle",
+        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
                 Collections.singletonList("DUR"), "region", "source");
 
         songDao.saveOrEdit(song);
@@ -58,18 +58,21 @@ class SongDaoTest {
 
     @Test
     void getById() {
-        Song song = new Song(null, "new title", "lyrics", "songstyle",
+        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
                 Collections.singletonList("DUR"), "region", "source");
+
+        song = songDao.saveOrEdit(song);
 
         Song song2 = songDao.getById(song.getId());
 
+        assertNotNull(song2);
         assertEquals(song.getId(), song2.getId());
     }
 
     @Test
     void saveOrEdit() {
 
-        Song song = new Song(null, "new title", "lyrics", "songstyle",
+        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
                 Collections.singletonList("DUR"), "region", "source");
 
         songDao.saveOrEdit(song);
@@ -89,7 +92,7 @@ class SongDaoTest {
 
     @Test
     void delete() {
-        Song song = new Song(null, "new title", "lyrics", "songstyle",
+        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
                 Collections.singletonList("DUR"), "region", "source");
 
         songDao.saveOrEdit(song);

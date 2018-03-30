@@ -8,7 +8,7 @@ public interface ISongService {
 
     List<Song> getAll();
 
-    Song getById(Integer id);
+    Song getById(Long id);
 
     Song saveOrEdit(Song song);
 

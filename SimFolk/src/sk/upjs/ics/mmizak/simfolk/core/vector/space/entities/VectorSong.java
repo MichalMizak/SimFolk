@@ -4,7 +4,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedV
 
 public class VectorSong {
 
-    private Integer songId;
+    private Long songId;
 
     private WeightedVector termVector;
 
@@ -13,7 +13,7 @@ public class VectorSong {
         this.termVector =  termVector;
     }
 
-    public Integer getSongId() {
+    public Long getSongId() {
         return songId;
     }
 

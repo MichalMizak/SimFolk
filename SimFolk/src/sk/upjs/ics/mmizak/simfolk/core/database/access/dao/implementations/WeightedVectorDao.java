@@ -3,13 +3,13 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 import org.jooq.DSLContext;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedVectorDao;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 public class WeightedVectorDao implements IWeightedVectorDao {
 
@@ -29,7 +29,7 @@ public class WeightedVectorDao implements IWeightedVectorDao {
 
         // TODO: Delegate this to a batch select from database
         // Groups term groups by songIds
-        Map<Integer, List<WeightedTermGroup>> songIdToWeightedTermGroups =
+        Map<Long, List<WeightedTermGroup>> songIdToWeightedTermGroups =
                 new HashMap<>();
         for (WeightedTermGroup allGroup : allGroups) {
             songIdToWeightedTermGroups.computeIfAbsent(allGroup.getSongId(), k -> new ArrayList<>()).add(allGroup);
@@ -42,12 +42,36 @@ public class WeightedVectorDao implements IWeightedVectorDao {
         return result;
     }
 
+    @Override
+    public List<WeightedVector> getAllFittingWeightedVectors(VectorAlgorithmConfiguration vectorConfig, double tolerance) {
+        List<WeightedTermGroup> fittingTermGroups = weightedTermGroupDao.getAllFitting(vectorConfig, tolerance);
 
+        // TODO: Delegate this to a batch select from database
+        // Groups term groups by songIds
+        Map<Long, List<WeightedTermGroup>> songIdToWeightedTermGroups =
+                new HashMap<>();
+        for (WeightedTermGroup allGroup : fittingTermGroups) {
+            songIdToWeightedTermGroups.computeIfAbsent(allGroup.getSongId(), k -> new ArrayList<>()).add(allGroup);
+        }
+
+        List<WeightedVector> result = new ArrayList<>();
+
+        songIdToWeightedTermGroups.forEach((id, group) -> result.add(new WeightedVector(id, group)));
+
+        return result;
+    }
 
     @Override
-    public WeightedVector getWeightedVectorBySongId(Integer songId, TermWeightType termWeightType,
+    public WeightedVector getFittingWeightedVectorBySongId(Long songId, VectorAlgorithmConfiguration vectorConfig, double tolerance) {
+        List<WeightedTermGroup> fittingTermGroups = weightedTermGroupDao.getAllFittingBySongId(songId, vectorConfig, tolerance);
+
+        return new WeightedVector(songId, fittingTermGroups);
+    }
+
+    @Override
+    public WeightedVector getFittingWeightedVectorBySongId(Long songId, TermWeightType termWeightType,
                                                     TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
-        List<WeightedTermGroup> fittingGroups = weightedTermGroupDao.getAll(songId, termWeightType, termComparisonAlgorithm, tolerance);
+        List<WeightedTermGroup> fittingGroups = weightedTermGroupDao.getAllFittingBySongId(songId, termWeightType, termComparisonAlgorithm, tolerance);
 
         return new WeightedVector(songId, fittingGroups);
     }

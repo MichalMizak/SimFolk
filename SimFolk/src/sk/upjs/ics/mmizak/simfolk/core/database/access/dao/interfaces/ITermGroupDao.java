@@ -5,7 +5,8 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 public interface ITermGroupDao {
 
@@ -13,17 +14,17 @@ public interface ITermGroupDao {
 
     List<TermGroup> getTermGroups(TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
-    TermGroup getTermGroupById(Integer groupId);
+    TermGroup getTermGroupById(Long groupId);
 
     TermGroup saveOrEdit(TermGroup termGroup);
 
     void delete(TermGroup termGroup);
 
-
     /**
-     * If terms are already in database (have non-zero ids) and were previously
-     * assigned to an equivalence group with a given term comparison algorithm and
-     * a given tolerance, we assign them with the group id
+     * Returns a list of the same size as the parameter terms containing
+     * one-term TermGroups with initialized group id.
+     * Group ids will vary depending on termComparisonAlgorithm and the tolerance we use for the same term.
+     * If a term belongs to a group, initializes all fields. If not, sets groupId and terms to default values
      *
      * @param terms
      * @param termComparisonAlgorithm
@@ -34,4 +35,5 @@ public interface ITermGroupDao {
 
     TermGroup syncGroupId(Term term, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
+    List<TermGroup> getTermGroups(TermComparisonAlgorithm termComparisonAlgorithm, TermScheme termScheme, double tolerance);
 }

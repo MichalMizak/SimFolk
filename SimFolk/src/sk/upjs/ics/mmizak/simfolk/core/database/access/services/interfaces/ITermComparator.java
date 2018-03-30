@@ -2,7 +2,7 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 public interface ITermComparator {
 

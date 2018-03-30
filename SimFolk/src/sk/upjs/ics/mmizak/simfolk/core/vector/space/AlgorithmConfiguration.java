@@ -1,4 +1,4 @@
-package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
+package sk.upjs.ics.mmizak.simfolk.core.vector.space;
 
 
 public abstract class AlgorithmConfiguration {
@@ -26,6 +26,14 @@ public abstract class AlgorithmConfiguration {
 
     public enum TermComparisonAlgorithm {
         NAIVE
+    }
+
+    public enum TermGroupMatchingStrategy {
+        MATCH_ALL, MATCH_ONE
+    }
+
+    public enum TermGroupMergingStrategy {
+        MERGE_ANY, MERGE_ALL
     }
 
     /**

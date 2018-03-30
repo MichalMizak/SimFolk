@@ -4,11 +4,8 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.SongDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.TermDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.TermGroupDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.WeightedTermGroupDao;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
 

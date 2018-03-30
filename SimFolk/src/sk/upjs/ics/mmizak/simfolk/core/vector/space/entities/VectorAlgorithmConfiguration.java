@@ -1,11 +1,12 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
 import jdk.nashorn.internal.ir.annotations.Immutable;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 
 @Immutable
 public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
 
-    private Integer id;
+    private Long id;
 
     private TermScheme termScheme;
     /**
@@ -16,17 +17,23 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
     private TermWeightType termWeightType;
     private VectorInclusion vectorInclusion;
     private TermComparisonAlgorithm termComparisonAlgorithm;
+    private TermGroupMatchingStrategy termGroupMatchingStrategy;
+    private TermGroupMergingStrategy termGroupMergingStrategy;
     private Tolerance tolerance;
     private VectorComparisonAlgorithm vectorComparisonAlgorithm;
 
-    public VectorAlgorithmConfiguration(Integer id, TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
-                                        TermComparisonAlgorithm termComparisonAlgorithm, VectorComparisonAlgorithm vectorComparisonAlgorithm,
-                                        VectorInclusion vectorInclusion, Tolerance tolerance) {
+
+    public VectorAlgorithmConfiguration(Long id, TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
+                                        TermComparisonAlgorithm termComparisonAlgorithm, TermGroupMatchingStrategy termGroupMatchingStrategy,
+                                        TermGroupMergingStrategy termGroupMergingStrategy, VectorInclusion vectorInclusion, VectorComparisonAlgorithm vectorComparisonAlgorithm,
+                                        Tolerance tolerance) {
         this.id = id;
         this.termScheme = termScheme;
         this.termDimension = termDimension;
         this.termWeightType = termWeightType;
         this.termComparisonAlgorithm = termComparisonAlgorithm;
+        this.termGroupMatchingStrategy = termGroupMatchingStrategy;
+        this.termGroupMergingStrategy = termGroupMergingStrategy;
         this.vectorComparisonAlgorithm = vectorComparisonAlgorithm;
         this.vectorInclusion = vectorInclusion;
         this.tolerance = tolerance;
@@ -61,12 +68,22 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
         return termComparisonAlgorithm;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
+
+    public TermGroupMatchingStrategy getTermGroupMatchingStrategy() {
+        return termGroupMatchingStrategy;
+    }
+
+    public TermGroupMergingStrategy getTermGroupMergingStrategy() {
+        return termGroupMergingStrategy;
+    }
     //</editor-fold>
+
+
 }

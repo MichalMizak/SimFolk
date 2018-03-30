@@ -30,7 +30,7 @@ public class LyricCleaner implements ILyricCleaner {
 
         String cleanLyrics = clean(song.getLyrics());
 
-        song.setLyrics(cleanLyrics);
+        song.setCleanLyrics(cleanLyrics);
 
         return song;
     }

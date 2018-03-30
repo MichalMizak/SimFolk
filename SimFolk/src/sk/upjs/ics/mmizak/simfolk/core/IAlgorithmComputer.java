@@ -1,7 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmResult;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 
 import java.util.List;
