@@ -6,6 +6,7 @@ import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.SongDao;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
 
 import java.sql.Connection;
@@ -48,8 +49,7 @@ class SongDaoTest {
     @Test
     void getAll() {
 
-        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
-                Collections.singletonList("DUR"), "region", "source");
+        Song song = new SongBuilder().setId(null).setTitle("new title").setLyrics("lyrics").setCleanLyrics("cleanLyrics").setSongStyle("songstyle").setAttributes(Collections.singletonList("DUR")).setRegion("region").setSource("source").createSong();
 
         songDao.saveOrEdit(song);
 
@@ -58,8 +58,7 @@ class SongDaoTest {
 
     @Test
     void getById() {
-        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
-                Collections.singletonList("DUR"), "region", "source");
+        Song song = new SongBuilder().setId(null).setTitle("new title").setLyrics("lyrics").setCleanLyrics("cleanLyrics").setSongStyle("songstyle").setAttributes(Collections.singletonList("DUR")).setRegion("region").setSource("source").createSong();
 
         song = songDao.saveOrEdit(song);
 
@@ -72,8 +71,7 @@ class SongDaoTest {
     @Test
     void saveOrEdit() {
 
-        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
-                Collections.singletonList("DUR"), "region", "source");
+        Song song = new SongBuilder().setId(null).setTitle("new title").setLyrics("lyrics").setCleanLyrics("cleanLyrics").setSongStyle("songstyle").setAttributes(Collections.singletonList("DUR")).setRegion("region").setSource("source").createSong();
 
         songDao.saveOrEdit(song);
 
@@ -92,8 +90,7 @@ class SongDaoTest {
 
     @Test
     void delete() {
-        Song song = new Song(null, "new title", "lyrics", "cleanLyrics", "songstyle",
-                Collections.singletonList("DUR"), "region", "source");
+        Song song = new SongBuilder().setId(null).setTitle("new title").setLyrics("lyrics").setCleanLyrics("cleanLyrics").setSongStyle("songstyle").setAttributes(Collections.singletonList("DUR")).setRegion("region").setSource("source").createSong();
 
         songDao.saveOrEdit(song);
 

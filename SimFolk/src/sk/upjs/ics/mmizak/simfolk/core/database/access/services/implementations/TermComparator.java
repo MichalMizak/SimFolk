@@ -39,6 +39,7 @@ public class TermComparator implements ITermComparator {
         }
     }
 
+    @Override
     public boolean compareGroups(TermGroup aTermGroup, TermGroup bTermGroup,
                                  VectorAlgorithmConfiguration vectorConfiguration,
                                  double tolerance) {
@@ -69,7 +70,7 @@ public class TermComparator implements ITermComparator {
                              double tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
         for (Term aTerm : aTermGroup.getTerms()) {
             for (Term bTerm : bTermGroup.getTerms()) {
-                if (!compare(aTerm, bTerm, tolerance, termComparisonAlgorithm)) {
+                if (compare(aTerm, bTerm, tolerance, termComparisonAlgorithm)) {
                     return true;
                 }
             }

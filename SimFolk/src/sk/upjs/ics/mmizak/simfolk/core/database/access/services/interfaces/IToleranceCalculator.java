@@ -5,5 +5,5 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguratio
 
 public interface IToleranceCalculator {
 
-    double calculateTolerance(Tolerance tolerance, TermComparisonAlgorithm termComparisonAlgorithm);
+    Double calculateTolerance(Tolerance tolerance, TermComparisonAlgorithm termComparisonAlgorithm);
 }

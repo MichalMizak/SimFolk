@@ -1,12 +1,14 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations;
 
 import sk.upjs.ics.mmizak.simfolk.core.database.access.DaoFactory;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.WeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedVectorDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.IWeightService;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
@@ -73,6 +75,31 @@ public class WeightService implements IWeightService {
     }
 
 
+    @Override
+    public WeightedVector calculateNewWeightedVector(Long songId, List<WeightedTermGroup> frequencyWeightedGroups, VectorAlgorithmConfiguration vectorConfig) {
+
+        // init termWeightType and songId
+        frequencyWeightedGroups.forEach(w -> {
+            w.setTermWeightType(vectorConfig.getTermWeightType());
+            w.setSongId(songId);
+        });
+        switch (vectorConfig.getTermWeightType()) {
+            case TF_NAIVE: {
+                return new WeightedVector(songId, frequencyWeightedGroups);
+            }
+            case TF:
+                break;
+            case IDF:
+                break;
+            case TFIDF:
+                break;
+            default:
+                throw new RuntimeException("Unknown termWeightType");
+        }
+        return null;
+    }
+
+
     /**
      * A method that returns a WeightedVector of a song. If song already is in database (e.g. has its weights
      * calculated) then the calculation is delegated to method getWeightedTermVectorBySongId
@@ -80,8 +107,9 @@ public class WeightService implements IWeightService {
      * If the @param songId contains terms which are already in the database and their weights
      * are established, in this new context the weights might turn out differently. We will try to find out
      * whether the terms already exist in the database and calculate the weights taking them into account.
+     *
      * @param terms
-     * @param id
+     * @param songId
      * @param vectorConfig
      * @param termComparator
      * @param tolerance

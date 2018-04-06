@@ -14,7 +14,7 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguratio
  * A formation: vector a = (a, b, c) (1, 2, 3)
  * vector b = (a, b, c) (3, 2, 0)
  * B formation: reverse a and b
- * AB formation: vector a = (a, b, c, d) (1, 2, 3, 0)
+ * INTERSECTION formation: vector a = (a, b, c, d) (1, 2, 3, 0)
  * vector b = (a, b, c, d) (2, 3, 0, 4)
  * ALL formation: take all terms from database and create huge sparse vectors
  */
@@ -26,8 +26,8 @@ public interface ITermVectorFormatter {
     WeightedVectorPair bFormation(WeightedVector a, WeightedVector b,
                                   ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
-    WeightedVectorPair abFormation(WeightedVector a, WeightedVector b,
-                                   ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
+    WeightedVectorPair intersectionFormation(WeightedVector a, WeightedVector b,
+                                             ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
     WeightedVectorPair allFormation(WeightedVector a, WeightedVector b,
                                     ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
@@ -35,6 +35,8 @@ public interface ITermVectorFormatter {
     WeightedVectorPair formVectors(WeightedVector a, WeightedVector b,
                                    TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
                                    ITermComparator termComparator, VectorInclusion vectorInclusion);
+
+    WeightedVectorPair unificationFormation(WeightedVector a, WeightedVector b, ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
     WeightedVectorPair formVectors(WeightedVectorPair ab,
                                    TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,

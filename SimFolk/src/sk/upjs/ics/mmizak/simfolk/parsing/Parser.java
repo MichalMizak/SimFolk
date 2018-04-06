@@ -1,6 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.parsing;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder;
 
 import java.io.*;
 import java.util.*;
@@ -27,7 +28,7 @@ public class Parser {
 
             songs = new ArrayList<>();
 
-            Song song = new Song();
+            Song song = new SongBuilder().createSong();
 
             String region = "";
             String key = "";
@@ -108,7 +109,7 @@ public class Parser {
                 song.setSource("Spevník ĽH Zemplín - Viktor Gliganič");
                 song.setSongStyle(character);
                 songs.add(song);
-                song = new Song();
+                song = new SongBuilder().createSong();
 
             }
         }
@@ -191,7 +192,7 @@ public class Parser {
                         }
                     }
                     if (lyrics.length() != 0) {
-                        Song song = new Song();
+                        Song song = new SongBuilder().createSong();
 
                         song.setLyrics(lyrics.toString());
                         song.setTitle(title);

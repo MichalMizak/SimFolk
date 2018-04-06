@@ -12,6 +12,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedT
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
 
@@ -73,8 +74,7 @@ class WeightedTermGroupDaoTest {
 
         termGroup = termGroupDao.saveOrEdit(termGroup);
 
-        this.song = new Song(null, "test title", "test lyrics", "test clean lyrics", "test songstyle",
-                Collections.singletonList("TEST DUR"), "test region", "test source");
+        this.song = new SongBuilder().setId(null).setTitle("test title").setLyrics("test lyrics").setCleanLyrics("test clean lyrics").setSongStyle("test songstyle").setAttributes(Collections.singletonList("TEST DUR")).setRegion("test region").setSource("test source").createSong();
 
         song = songDao.saveOrEdit(song);
 

@@ -3,7 +3,6 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations
 import sk.upjs.ics.mmizak.simfolk.core.utilities.WeightedTermGroupIdComparator;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermVectorFormatter;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
@@ -22,7 +21,6 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguratio
  * Warning: The class MODIFIES the vectors it receives!!!
  */
 // TODO: Implement
-// TODO: Group comparator
 public class TermVectorFormatter implements ITermVectorFormatter {
 
     @Override
@@ -46,14 +44,14 @@ public class TermVectorFormatter implements ITermVectorFormatter {
 
                 WeightedTermGroup bGroup = b.getVector().get(i);
 
-                if (aGroup.getGroupId() != null) {
+                if (aGroup.getGroupId() != null && bGroup.getGroupId() != null) {
                     // the vectors are sorted in ascending order
                     if (aGroup.getGroupId() < bGroup.getGroupId()) {
                         break vectorBCycle;
                     }
                 }
 
-                if (compareGroups(aGroup, bGroup, termComparator, termComparisonAlgorithm, tolerance)) {
+                if (compareGroupsById(aGroup, bGroup)) {
                     foundSimilarTerm = true;
                     bResult.add(bGroup);
                     usedIndices.add(i);
@@ -64,9 +62,10 @@ public class TermVectorFormatter implements ITermVectorFormatter {
             if (!foundSimilarTerm) {
                 // add dummy group with 0 weight
                 Double dummyWeight = 0D;
-                bResult.add(new WeightedTermGroup(b.getSongId(), aGroup.getGroupId(), aGroup.getTermScheme(), aGroup.getTerms(),
-                        aGroup.getDatabaseIncidenceCount(), dummyWeight, a.getTermWeightType(),
-                        termComparisonAlgorithm, tolerance));
+                bResult.add(new WeightedTermGroup(b.getSongId(), a.getTermWeightType(), dummyWeight, aGroup.getGroupId(),
+                        aGroup.getTermScheme(), aGroup.getTerms(),
+                        termComparisonAlgorithm, tolerance, aGroup.getDatabaseIncidenceCount()
+                ));
             }
             foundSimilarTerm = false;
         }
@@ -84,9 +83,9 @@ public class TermVectorFormatter implements ITermVectorFormatter {
     }
 
     @Override
-    public WeightedVectorPair abFormation(WeightedVector a, WeightedVector b,
-                                          ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
-                                          double tolerance) {
+    public WeightedVectorPair intersectionFormation(WeightedVector a, WeightedVector b,
+                                                    ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
+                                                    double tolerance) {
         return null;
     }
 
@@ -105,15 +104,27 @@ public class TermVectorFormatter implements ITermVectorFormatter {
         switch (vectorInclusion) {
             case A:
                 return aFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
+
             case B:
                 return bFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
-            case AB:
-                return abFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
+
+            case UNIFICATION:
+                return unificationFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
+
+            case INTERSECTION:
+                return intersectionFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
+
             case ALL:
                 return allFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
+
             default:
                 throw new RuntimeException("Unimplemented vector inclusion");
         }
+    }
+
+    @Override
+    public WeightedVectorPair unificationFormation(WeightedVector a, WeightedVector b, ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -127,24 +138,19 @@ public class TermVectorFormatter implements ITermVectorFormatter {
         vector.getVector().sort(new WeightedTermGroupIdComparator());
     }
 
-    private boolean compareGroups(WeightedTermGroup t1, WeightedTermGroup t2, ITermComparator termComparator,
-                                  TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
 
-        if (t1.getGroupId() != null && t2.getGroupId() != null) {
-            return t1.getGroupId().equals(t2.getGroupId());
+    /**
+     * Assumes that if a group has null id it is unique in database
+     * @param t1
+     * @param t2
+     * @return
+     */
+    private boolean compareGroupsById(WeightedTermGroup t1, WeightedTermGroup t2) {
+
+        if (t1.getGroupId() == null || t2.getGroupId() == null) {
+            return false;
         }
 
-        for (int i = 0; i < t1.getTerms().size(); i++) {
-            Term t1Term = t1.getTerms().get(i);
-
-            for (int j = 0; j < t2.getTerms().size(); j++) {
-                Term t2Term = t2.getTerms().get(j);
-
-                if (termComparator.compare(t1Term, t2Term, tolerance, termComparisonAlgorithm)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return t1.getGroupId().equals(t2.getGroupId());
     }
 }

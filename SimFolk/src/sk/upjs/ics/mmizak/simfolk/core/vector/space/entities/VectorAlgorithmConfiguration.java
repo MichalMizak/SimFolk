@@ -8,18 +8,34 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
 
     private Long id;
 
-    private TermScheme termScheme;
     /**
-     * In case term scheme is more complex
+     * N-gram...
      */
+    private TermScheme termScheme;
     private Integer termDimension;
 
+    /**
+     * TF, IDF, TF-IDF
+     */
     private TermWeightType termWeightType;
-    private VectorInclusion vectorInclusion;
+
+    /**
+     * NAIVE, LEVENSHTEIN_DISTANCE
+     */
     private TermComparisonAlgorithm termComparisonAlgorithm;
+    private Tolerance tolerance;
+
     private TermGroupMatchingStrategy termGroupMatchingStrategy;
     private TermGroupMergingStrategy termGroupMergingStrategy;
-    private Tolerance tolerance;
+
+    /**
+     * A, B, INTERSECTION, UNIFICATION, ALL
+     */
+    private VectorInclusion vectorInclusion;
+
+    /**
+     * SIMPLE_MATCHING, COS_COEFFICIENT, DICE'S_COEFICIENT, JACCARD'S_COEFFICIENT...
+     */
     private VectorComparisonAlgorithm vectorComparisonAlgorithm;
 
 

@@ -18,6 +18,8 @@ public enum ServiceFactory {
 
     private ITermService termService;
 
+    private ITermGroupService termGroupService;
+
     private IToleranceCalculator toleranceCalculator;
 
     private IWeightService weightCalculator;
@@ -99,5 +101,12 @@ public enum ServiceFactory {
             songService = new SongService(DaoFactory.INSTANCE.getSongDao());
         }
         return songService;
+    }
+
+    public ITermGroupService getTermGroupService() {
+        if (termGroupService == null) {
+            termGroupService = new TermGroupService(DaoFactory.INSTANCE.getTermGroupDao());
+        }
+        return termGroupService;
     }
 }

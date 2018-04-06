@@ -11,9 +11,10 @@ public class VectorComparator implements IVectorComparator {
 
     @Override
     public double calculateSimilarity(VectorComparisonAlgorithm algorithm, WeightedVectorPair vectorPair) {
-        /*System.out.println("@VectorComparator/calculateSimilarity");
+       /* System.out.println("@VectorComparator/calculateSimilarity");
         System.out.println(vectorPair.getA().getWeightValueVector());
-        System.out.println(vectorPair.getB().getWeightValueVector());*/
+        System.out.println(vectorPair.getB().getWeightValueVector());
+        System.out.println();*/
         return calculateSimilarity(algorithm,
                 vectorPair.getA().getWeightValueVector(), vectorPair.getB().getWeightValueVector());
 }
@@ -43,11 +44,6 @@ public class VectorComparator implements IVectorComparator {
             normA += aValue * aValue;
             normB += bValue * bValue;
         }
-
-        /*System.out.println("@VectorComparator/calculateCosineSimilarity");
-        System.out.println(normA);
-        System.out.println(normB);
-        System.out.println(dotProduct);*/
 
         return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
     }

@@ -1,13 +1,14 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations;
 
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermGroupDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermGroupService;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
@@ -19,9 +20,32 @@ public class TermGroupService implements ITermGroupService {
         this.termGroupDao = termGroupDao;
     }
 
+
     @Override
-    public List<TermGroup> syncAndInitTermGroups(List<Term> terms, VectorAlgorithmConfiguration vectorConfiguration,
-                                                 TermComparator termComparator, double tolerance) {
+    public List<WeightedTermGroup> syncInitAndSaveTermGroups(List<Term> terms, VectorAlgorithmConfiguration vectorConfiguration,
+                                                             ITermComparator termComparator, double tolerance) {
+        List<WeightedTermGroup> result = syncAndInitTermGroups(terms, vectorConfiguration, termComparator, tolerance);
+
+        result = initIncidenceCount(result);
+
+        result = saveOrEditWeightedTermGroups(result);
+
+        return result;
+    }
+
+    private List<WeightedTermGroup> initIncidenceCount(List<WeightedTermGroup> result) {
+        for (WeightedTermGroup weightedTermGroup : result) {
+            weightedTermGroup.setDatabaseIncidenceCount(
+                    weightedTermGroup.getDatabaseIncidenceCount() +
+                            weightedTermGroup.getTermWeight().intValue());
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<WeightedTermGroup> syncAndInitTermGroups(List<Term> terms, VectorAlgorithmConfiguration vectorConfiguration,
+                                                         ITermComparator termComparator, double tolerance) {
         List<TermGroup> syncedTermGroups = syncGroupIds(terms, vectorConfiguration.getTermComparisonAlgorithm(), tolerance);
 
         boolean foundNull = false;
@@ -34,7 +58,11 @@ public class TermGroupService implements ITermGroupService {
         }
 
         if (!foundNull) {
-            return syncedTermGroups;
+            List<WeightedTermGroup> result = new ArrayList<>();
+
+            syncedTermGroups.stream().map(WeightedTermGroup::new).forEach(result::add);
+
+            return result;
         }
 
         List<TermGroup> allTermGroups = getTermGroups(vectorConfiguration.getTermComparisonAlgorithm(),
@@ -42,38 +70,55 @@ public class TermGroupService implements ITermGroupService {
 
         switch (vectorConfiguration.getTermGroupMergingStrategy()) {
             case MERGE_ALL:
-                return merge(syncedTermGroups, allTermGroups, vectorConfiguration, termComparator, tolerance);
+                return mergeAll(syncedTermGroups, allTermGroups, vectorConfiguration, termComparator, tolerance);
             case MERGE_ANY:
                 return mergeAny(syncedTermGroups, allTermGroups, vectorConfiguration, termComparator, tolerance);
             default:
-                return syncedTermGroups;
+                throw new UnsupportedOperationException();
         }
     }
 
     /**
      * MERGE_ANY strategy merges the first term group that is similar according to termComparator.compareGroups
      *
-     * @param syncedTermGroups
+     * @param termGroups
      * @param allTermGroups
      * @param vectorConfiguration
      * @param termComparator
      * @param tolerance
      * @return
      */
-    private List<TermGroup> mergeAny(List<TermGroup> syncedTermGroups, List<TermGroup> allTermGroups,
-                                     VectorAlgorithmConfiguration vectorConfiguration,
-                                     TermComparator termComparator, double tolerance) {
+    private List<WeightedTermGroup> mergeAny(List<TermGroup> termGroups, List<TermGroup> allTermGroups,
+                                             VectorAlgorithmConfiguration vectorConfiguration,
+                                             ITermComparator termComparator, double tolerance) {
+        // map groups to ids
+        Map<Long, List<TermGroup>> groupIdToTermGroups = mapGroupIdToTermGroups(termGroups);
 
-        for (TermGroup syncedTermGroup : syncedTermGroups) {
+        List<WeightedTermGroup> result = new ArrayList<>();
 
-            if (syncedTermGroup.getGroupId() != null) {
-                continue;
+        groupIdToTermGroups.forEach((groupId, termGroups1) -> {
+            // surely is non null
+            if (groupId != null) {
+                WeightedTermGroup weightedTermGroup = new WeightedTermGroup(termGroups1.get(0));
+                weightedTermGroup.setTermWeight((double) termGroups1.size());
+                result.add(weightedTermGroup);
             }
+        });
+
+
+        // unify similar term groups with null ids
+        List<TermGroup> nullIdGroups = groupIdToTermGroups.get(null);
+
+        List<WeightedTermGroup> mergedNullGroups = mergeNullIdGroups(nullIdGroups, vectorConfiguration, termComparator, tolerance);
+
+        // init all null
+        for (WeightedTermGroup mergedNullGroup : mergedNullGroups) {
 
             TermGroup similarTermGroup = null;
 
+            // find and fetch first similar
             for (TermGroup allTermGroup : allTermGroups) {
-                if (termComparator.compareGroups(syncedTermGroup, allTermGroup, vectorConfiguration, tolerance)) {
+                if (termComparator.compareGroups(mergedNullGroup, allTermGroup, vectorConfiguration, tolerance)) {
                     similarTermGroup = allTermGroup;
                     break;
                 }
@@ -82,34 +127,75 @@ public class TermGroupService implements ITermGroupService {
             if (similarTermGroup != null) {
                 Long similarId = similarTermGroup.getGroupId();
 
-                List<Term> newTerms = syncedTermGroup.getTerms();
+                boolean foundSimilarId = false;
 
-                Integer newDatabaseCount = syncedTermGroup.getDatabaseIncidenceCount() +
-                        similarTermGroup.getDatabaseIncidenceCount();
+                for (WeightedTermGroup weightedTermGroup : result) {
 
-                syncedTermGroup.setTerms(similarTermGroup.getTerms());
-                syncedTermGroup.setGroupId(similarId);
+                    if (similarId.equals(weightedTermGroup.getGroupId())) {
 
-                // TODO: implement
-                for (TermGroup notUpToDateTermGroup : syncedTermGroups) {
-                    if (similarId.equals(notUpToDateTermGroup.getGroupId())) {
-                        notUpToDateTermGroup.setDatabaseIncidenceCount(newDatabaseCount);
-                        notUpToDateTermGroup.getTerms().addAll(newTerms);
+                        double newTermWeight = weightedTermGroup.getTermWeight()
+                                + mergedNullGroup.getTermWeight();
+
+                        weightedTermGroup.setTermWeight(newTermWeight);
+
+                        weightedTermGroup.getTerms().addAll(mergedNullGroup.getTerms());
+                        foundSimilarId = true;
+                        break;
                     }
-
                 }
 
-                mergeAnySave(syncedTermGroup, similarTermGroup);
+                if (!foundSimilarId) {
+                    mergedNullGroup.setGroupId(similarId);
+                    result.add(mergedNullGroup);
+                }
+            } else {
+                result.add(mergedNullGroup);
             }
         }
 
-        return syncedTermGroups;
+        return result;
     }
 
-    // TODO: implement
-    private void mergeAnySave(TermGroup syncedTermGroup, TermGroup similarTermGroup) {
-        syncedTermGroup.setDatabaseIncidenceCount(similarTermGroup.getDatabaseIncidenceCount() + 1);
+    private List<WeightedTermGroup> mergeNullIdGroups(List<TermGroup> nullIdGroups, VectorAlgorithmConfiguration vectorConfiguration,
+                                                      ITermComparator termComparator, double tolerance) {
 
+        Set<Integer> usedIndices = new HashSet<>();
+        List<WeightedTermGroup> result = new ArrayList<>();
+
+        for (int i = 0; i < nullIdGroups.size(); i++) {
+            if (usedIndices.contains(i)) {
+                continue;
+            }
+            WeightedTermGroup termGroup = new WeightedTermGroup(nullIdGroups.get(i));
+
+            for (int j = i + 1; j < nullIdGroups.size(); j++) {
+                if (usedIndices.contains(j)) {
+                    continue;
+                }
+
+                WeightedTermGroup comparedTermGroup = new WeightedTermGroup(nullIdGroups.get(j));
+
+                if (termComparator.compareGroups(termGroup, comparedTermGroup, vectorConfiguration, tolerance)) {
+                    // merge terms and refresh loop
+                    termGroup.getTerms().addAll(comparedTermGroup.getTerms());
+                    termGroup.setTermWeight(termGroup.getTermWeight() + 1.0);
+                    usedIndices.add(j);
+                    j = i + 1;
+                }
+            }
+            result.add(termGroup);
+        }
+
+        return result;
+    }
+
+    private Map<Long, List<TermGroup>> mapGroupIdToTermGroups(List<TermGroup> syncedTermGroups) {
+        Map<Long, List<TermGroup>> groupIdToTermGroups = new HashMap<>();
+
+        for (TermGroup group : syncedTermGroups) {
+            groupIdToTermGroups.computeIfAbsent(group.getGroupId(), k -> new ArrayList<>()).add(group);
+        }
+        return groupIdToTermGroups;
     }
 
     /**
@@ -122,9 +208,10 @@ public class TermGroupService implements ITermGroupService {
      * @param tolerance
      * @return
      */
-    private List<TermGroup> merge(List<TermGroup> syncedTermGroups, List<TermGroup> allTermGroups,
-                                  VectorAlgorithmConfiguration vectorConfiguration,
-                                  TermComparator termComparator, double tolerance) {
+    private List<WeightedTermGroup> mergeAll(List<TermGroup> syncedTermGroups, List<TermGroup> allTermGroups,
+                                             VectorAlgorithmConfiguration vectorConfiguration,
+                                             ITermComparator termComparator, double tolerance) {
+        //TODO: implement
         for (TermGroup syncedTermGroup : syncedTermGroups) {
 
             if (syncedTermGroup.getGroupId() != null) {
@@ -145,7 +232,47 @@ public class TermGroupService implements ITermGroupService {
             }
         }
 
-        return syncedTermGroups;
+        throw new UnsupportedOperationException();
+    }
+
+
+    @Override
+    public Map<Long, List<TermGroup>> saveOrEdit(Map<Long, List<TermGroup>> initializedTermGroups) {
+
+        List<TermGroup> tempGroups = new ArrayList<>();
+
+        initializedTermGroups.forEach((groupId, termGroups) ->
+                tempGroups.addAll(saveOrEdit(termGroups)));
+
+        return mapGroupIdToTermGroups(tempGroups);
+    }
+
+    @Override
+    public List<WeightedTermGroup> saveOrEditWeightedTermGroups(List<WeightedTermGroup> termGroups) {
+        List<WeightedTermGroup> result = new ArrayList<>();
+
+        for (WeightedTermGroup termGroup : termGroups) {
+            TermGroup savedTermGroup = saveOrEdit(termGroup);
+
+            WeightedTermGroup wtg = new WeightedTermGroup(savedTermGroup, termGroup.getSongId(),
+                    termGroup.getTermWeightType(), termGroup.getTermWeight());
+
+            result.add(wtg);
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<TermGroup> saveOrEdit(List<TermGroup> termGroups) {
+        List<TermGroup> result = new ArrayList<>();
+
+        for (TermGroup termGroup : termGroups) {
+            TermGroup savedTermGroup = saveOrEdit(termGroup);
+            result.add(savedTermGroup);
+        }
+
+        return result;
     }
 
     //<editor-fold desc="Methods delegated to Dao">

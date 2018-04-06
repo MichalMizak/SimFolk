@@ -4,6 +4,7 @@ import org.jooq.DSLContext;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ISongDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.SongRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder;
 
 import java.util.List;
 
@@ -20,8 +21,7 @@ public class SongDao implements ISongDao {
 
     @Override
     public List<Song> getAll() {
-        List<Song> result = create.selectFrom(T_SONG).
-                fetch(this::map);
+        List<Song> result = create.selectFrom(T_SONG).fetch(this::map);
 
         result.forEach(this::initAttributes);
 
@@ -43,20 +43,26 @@ public class SongDao implements ISongDao {
         if (s.getId() == null) {
             SongRecord songRecord = create
                     .insertInto(T_SONG, T_SONG.TITLE, T_SONG.LYRICS, T_SONG.CLEANLYRICS,
-                                T_SONG.SONGSTYLE, T_SONG.REGION, T_SONG.SOURCE)
+                            T_SONG.SONGSTYLE, T_SONG.REGION, T_SONG.SOURCE)
                     .values(s.getTitle(), s.getLyrics(), s.getCleanLyrics(),
                             s.getSongStyle(), s.getRegion(), s.getSource())
                     .onDuplicateKeyIgnore()
                     .returning(T_SONG.SONGID)
                     .fetchOne();
 
-            s.setId(songRecord.getSongid());
+            if (songRecord == null) {
+                s = getByLyrics(s.getLyrics());
+            } else {
+                s.setId(songRecord.getSongid());
 
-            s.getAttributes().forEach(attribute ->
+                for (String attribute : s.getAttributes()) {
                     create.insertInto(T_SONG_TO_ATTRIBUTE, T_SONG_TO_ATTRIBUTE.SONGID,
                             T_SONG_TO_ATTRIBUTE.ATTRIBUTE)
                             .values(s.getId(), attribute)
-                            .execute());
+                            .onDuplicateKeyIgnore()
+                            .execute();
+                }
+            }
         } else {
             create.update(T_SONG)
                     .set(T_SONG.TITLE, s.getTitle())
@@ -74,15 +80,23 @@ public class SongDao implements ISongDao {
                             .and(T_SONG_TO_ATTRIBUTE.ATTRIBUTE.notIn(s.getAttributes())))
                     .execute();
 
-            s.getAttributes().forEach(attribute ->
-                    create.insertInto(T_SONG_TO_ATTRIBUTE, T_SONG_TO_ATTRIBUTE.SONGID,
-                            T_SONG_TO_ATTRIBUTE.ATTRIBUTE)
-                            .values(s.getId(), attribute)
-                            .onDuplicateKeyIgnore()
-                            .execute());
+            for (String attribute : s.getAttributes()) {
+                create.insertInto(T_SONG_TO_ATTRIBUTE, T_SONG_TO_ATTRIBUTE.SONGID,
+                        T_SONG_TO_ATTRIBUTE.ATTRIBUTE)
+                        .values(s.getId(), attribute)
+                        .onDuplicateKeyIgnore()
+                        .execute();
+            }
         }
 
         return s;
+    }
+
+    private Song getByLyrics(String lyrics) {
+        Song result = create.selectFrom(T_SONG).where(T_SONG.LYRICS.eq(lyrics)).
+                fetchOne(this::map);
+
+        return result == null ? null : initAttributes(result);
     }
 
     /**
@@ -123,8 +137,14 @@ public class SongDao implements ISongDao {
     }
 
     private Song map(SongRecord s) {
-        return new Song(s.getSongid(), s.getTitle(), s.getLyrics(), s.getCleanlyrics(),
-                s.getSongstyle(), null, s.getRegion(), s.getSource());
+        return new SongBuilder().setId(s.getSongid())
+                .setTitle(s.getTitle())
+                .setLyrics(s.getLyrics())
+                .setCleanLyrics(s.getCleanlyrics())
+                .setSongStyle(s.getSongstyle())
+                .setAttributes(null)
+                .setRegion(s.getRegion())
+                .setSource(s.getSource()).createSong();
     }
     //</editor-fold>
 }

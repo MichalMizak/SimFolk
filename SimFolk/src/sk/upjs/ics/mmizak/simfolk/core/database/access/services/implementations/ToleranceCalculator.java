@@ -8,12 +8,12 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguratio
 public class ToleranceCalculator implements IToleranceCalculator {
 
     @Override
-    public double calculateTolerance(Tolerance tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
+    public Double calculateTolerance(Tolerance tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
         switch (termComparisonAlgorithm) {
             case NAIVE:
-                return 1;
+                return 1D;
             default:
-                return 0;
+                return 0D;
         }
     }
 }

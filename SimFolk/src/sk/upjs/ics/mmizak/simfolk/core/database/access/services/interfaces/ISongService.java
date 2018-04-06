@@ -15,4 +15,6 @@ public interface ISongService {
     void delete(Song song);
 
     Song syncId(Song song);
+
+    List<Song> saveOrEdit(List<Song> viktor);
 }

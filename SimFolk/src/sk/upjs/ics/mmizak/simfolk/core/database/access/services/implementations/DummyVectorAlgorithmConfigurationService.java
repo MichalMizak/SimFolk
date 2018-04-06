@@ -19,9 +19,9 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
                 .setTermDimension(null)
                 .setTermWeightType(TermWeightType.TF_NAIVE)
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
-                .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
+                .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ALL)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.A)
+                .setVectorInclusion(VectorInclusion.B)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.NONE)
                 .createVectorAlgorithmConfiguration();
@@ -39,7 +39,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.AB)
+                .setVectorInclusion(VectorInclusion.INTERSECTION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.HIGH)
                 .createVectorAlgorithmConfiguration());
@@ -51,7 +51,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.AB)
+                .setVectorInclusion(VectorInclusion.INTERSECTION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.NONE)
                 .createVectorAlgorithmConfiguration());

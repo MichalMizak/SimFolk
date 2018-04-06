@@ -40,7 +40,7 @@ public abstract class AlgorithmConfiguration {
      * Only vector algorithm enums
      */
     public enum VectorInclusion {
-        A, B, AB, ALL
+        A, B, INTERSECTION, UNIFICATION, ALL
     }
 
     public enum VectorComparisonAlgorithm {

@@ -1,11 +1,13 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
 import java.util.List;
+import java.util.Map;
 
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
@@ -56,4 +58,6 @@ public interface IWeightService {
     void saveOrEdit(WeightedVector weightedVector);
 
     void delete(WeightedVector weightedVector);
+
+    WeightedVector calculateNewWeightedVector(Long id, List<WeightedTermGroup> frequencyWeightedGroups, VectorAlgorithmConfiguration vectorConfig);
 }
