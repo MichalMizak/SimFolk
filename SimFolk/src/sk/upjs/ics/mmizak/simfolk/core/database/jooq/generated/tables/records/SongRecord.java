@@ -28,7 +28,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SongRecord extends UpdatableRecordImpl<SongRecord> implements Record7<Long, String, String, String, String, String, String> {
 
-    private static final long serialVersionUID = -1955937368;
+    private static final long serialVersionUID = 783757756;
 
     /**
      * Setter for <code>simfolk.song.songId</code>.

@@ -39,7 +39,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.Te
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TTermTokenized extends TableImpl<TermTokenizedRecord> {
 
-    private static final long serialVersionUID = -927997424;
+    private static final long serialVersionUID = -600067565;
 
     /**
      * The reference instance of <code>simfolk.term_tokenized</code>

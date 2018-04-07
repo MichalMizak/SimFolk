@@ -22,7 +22,7 @@ CREATE TABLE `SONG_TO_ATTRIBUTE`
     attribute	VARCHAR(40) NOT NULL,
     PRIMARY KEY (`songId`, `attribute`),
     FOREIGN KEY (`songId`)
-    REFERENCES song(`songId`)
+    REFERENCES SONG(`songId`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -43,7 +43,7 @@ CREATE TABLE `TERM_TOKENIZED`
     word			VARCHAR(30) NOT NULL,
     PRIMARY KEY (`termId`, `orderNumber`),
     FOREIGN KEY (`termId`)
-    REFERENCES term(`termId`)
+    REFERENCES TERM(`termId`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -63,28 +63,42 @@ CREATE TABLE `TERM_GROUP_TO_TERM`
     termId		BIGINT NOT NULL,
     PRIMARY KEY (`groupId`, `termId`),
     FOREIGN KEY (`groupId`)
-    REFERENCES term_group(`groupId`)
+    REFERENCES TERM_GROUP(`groupId`)
     ON DELETE CASCADE,
     FOREIGN KEY (`termId`)
-    REFERENCES term(`termId`)
+    REFERENCES TERM(`termId`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `TERM_WEIGHT_TYPE`
+(
+	termWeightTypeId	INT NOT NULL,
+    isTFIDF				TINYINT(1) NOT NULL,
+    TF					VARCHAR(40),
+    IDF					VARCHAR(40),
+    nonTFIDFTermWeight	VARCHAR(40),
+    PRIMARY KEY (`termWeightTypeId`),
+    UNIQUE(`isTFIDF`, `TF`, `IDF`, `nonTFIDFTermWeight`)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `WEIGHTED_TERM_GROUP`
 (
-	songId			BIGINT NOT NULL,
-    groupId			BIGINT NOT NULL,
-    termWeightType	VARCHAR(40) NOT NULL,
-    weight			DOUBLE NOT NULL,
+	songId				BIGINT NOT NULL,
+    groupId				BIGINT NOT NULL,
+    termWeightTypeId	INT NOT NULL,
+    weight				DOUBLE NOT NULL,
     PRIMARY KEY (`songId`, `groupId`), 
     FOREIGN KEY (`songId`)
-    REFERENCES song(`songId`)
+    REFERENCES SONG(`songId`)
     ON DELETE CASCADE,
     FOREIGN KEY (`groupId`)
-    REFERENCES term_group(`groupId`)
+    REFERENCES TERM_GROUP(`groupId`)
+    ON DELETE CASCADE,
+    FOREIGN KEY (`termWeightTypeId`)
+    REFERENCES TERM_WEIGHT_TYPE(`termWeightTypeId`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `VECTOR_ALGORITHM_CONFIGURATION`
 (

@@ -1,18 +1,32 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations;
 
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermBuilder;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ITermService;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 
 import java.util.List;
 
 public class TermService implements ITermService {
 
     private ITermDao termDao;
+    private ITermBuilder termBuilder;
 
-    public TermService(ITermDao termDao) {
+    public TermService(ITermDao termDao, ITermBuilder termBuilder) {
         this.termDao = termDao;
+        this.termBuilder = termBuilder;
+    }
+
+    @Override
+    public List<Term> buildAndSync(Song song, VectorAlgorithmConfiguration vectorConfig) {
+        List<Term> terms = termBuilder.buildTerms(vectorConfig.getTermScheme(),
+                vectorConfig.getTermDimension(), song.getCleanLyrics());
+
+        terms = saveOrEdit(terms);
+        return terms;
     }
 
     //<editor-fold desc="Methods delegated to DAO">

@@ -20,6 +20,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroupToTerm;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
 
@@ -37,7 +38,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedT
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Simfolk extends SchemaImpl {
 
-    private static final long serialVersionUID = -1310495930;
+    private static final long serialVersionUID = 1762189948;
 
     /**
      * The reference instance of <code>simfolk</code>
@@ -47,42 +48,47 @@ public class Simfolk extends SchemaImpl {
     /**
      * The table <code>simfolk.song</code>.
      */
-    public final TSong T_SONG = TSong.T_SONG;
+    public final TSong T_SONG = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong.T_SONG;
 
     /**
      * The table <code>simfolk.song_to_attribute</code>.
      */
-    public final TSongToAttribute T_SONG_TO_ATTRIBUTE = TSongToAttribute.T_SONG_TO_ATTRIBUTE;
+    public final TSongToAttribute T_SONG_TO_ATTRIBUTE = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute.T_SONG_TO_ATTRIBUTE;
 
     /**
      * The table <code>simfolk.term</code>.
      */
-    public final TTerm T_TERM = TTerm.T_TERM;
+    public final TTerm T_TERM = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm.T_TERM;
 
     /**
      * The table <code>simfolk.term_group</code>.
      */
-    public final TTermGroup T_TERM_GROUP = TTermGroup.T_TERM_GROUP;
+    public final TTermGroup T_TERM_GROUP = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup.T_TERM_GROUP;
 
     /**
      * The table <code>simfolk.term_group_to_term</code>.
      */
-    public final TTermGroupToTerm T_TERM_GROUP_TO_TERM = TTermGroupToTerm.T_TERM_GROUP_TO_TERM;
+    public final TTermGroupToTerm T_TERM_GROUP_TO_TERM = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroupToTerm.T_TERM_GROUP_TO_TERM;
 
     /**
      * The table <code>simfolk.term_tokenized</code>.
      */
-    public final TTermTokenized T_TERM_TOKENIZED = TTermTokenized.T_TERM_TOKENIZED;
+    public final TTermTokenized T_TERM_TOKENIZED = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized.T_TERM_TOKENIZED;
+
+    /**
+     * The table <code>simfolk.term_weight_type</code>.
+     */
+    public final TTermWeightType T_TERM_WEIGHT_TYPE = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType.T_TERM_WEIGHT_TYPE;
 
     /**
      * The table <code>simfolk.vector_algorithm_configuration</code>.
      */
-    public final TVectorAlgorithmConfiguration T_VECTOR_ALGORITHM_CONFIGURATION = TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION;
+    public final TVectorAlgorithmConfiguration T_VECTOR_ALGORITHM_CONFIGURATION = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION;
 
     /**
      * The table <code>simfolk.weighted_term_group</code>.
      */
-    public final TWeightedTermGroup T_WEIGHTED_TERM_GROUP = TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
+    public final TWeightedTermGroup T_WEIGHTED_TERM_GROUP = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
 
     /**
      * No further instances allowed
@@ -115,6 +121,7 @@ public class Simfolk extends SchemaImpl {
             TTermGroup.T_TERM_GROUP,
             TTermGroupToTerm.T_TERM_GROUP_TO_TERM,
             TTermTokenized.T_TERM_TOKENIZED,
+            TTermWeightType.T_TERM_WEIGHT_TYPE,
             TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION,
             TWeightedTermGroup.T_WEIGHTED_TERM_GROUP);
     }

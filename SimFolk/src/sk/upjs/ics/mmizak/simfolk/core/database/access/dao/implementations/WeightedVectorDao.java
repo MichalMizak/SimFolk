@@ -3,13 +3,18 @@ package sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 import org.jooq.DSLContext;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedVectorDao;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 public class WeightedVectorDao implements IWeightedVectorDao {
 

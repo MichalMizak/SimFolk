@@ -38,7 +38,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.Ve
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TVectorAlgorithmConfiguration extends TableImpl<VectorAlgorithmConfigurationRecord> {
 
-    private static final long serialVersionUID = -2024542875;
+    private static final long serialVersionUID = -919317784;
 
     /**
      * The reference instance of <code>simfolk.vector_algorithm_configuration</code>

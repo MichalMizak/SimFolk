@@ -16,6 +16,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroupToTerm;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
 
@@ -46,10 +47,13 @@ public class Indexes {
     public static final Index TERM_GROUP_TO_TERM_PRIMARY = Indexes0.TERM_GROUP_TO_TERM_PRIMARY;
     public static final Index TERM_GROUP_TO_TERM_TERMID = Indexes0.TERM_GROUP_TO_TERM_TERMID;
     public static final Index TERM_TOKENIZED_PRIMARY = Indexes0.TERM_TOKENIZED_PRIMARY;
+    public static final Index TERM_WEIGHT_TYPE_ISTFIDF = Indexes0.TERM_WEIGHT_TYPE_ISTFIDF;
+    public static final Index TERM_WEIGHT_TYPE_PRIMARY = Indexes0.TERM_WEIGHT_TYPE_PRIMARY;
     public static final Index VECTOR_ALGORITHM_CONFIGURATION_PRIMARY = Indexes0.VECTOR_ALGORITHM_CONFIGURATION_PRIMARY;
     public static final Index VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME = Indexes0.VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME;
     public static final Index WEIGHTED_TERM_GROUP_GROUPID = Indexes0.WEIGHTED_TERM_GROUP_GROUPID;
     public static final Index WEIGHTED_TERM_GROUP_PRIMARY = Indexes0.WEIGHTED_TERM_GROUP_PRIMARY;
+    public static final Index WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID = Indexes0.WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -65,9 +69,12 @@ public class Indexes {
         public static Index TERM_GROUP_TO_TERM_PRIMARY = Internal.createIndex("PRIMARY", TTermGroupToTerm.T_TERM_GROUP_TO_TERM, new OrderField[] { TTermGroupToTerm.T_TERM_GROUP_TO_TERM.GROUPID, TTermGroupToTerm.T_TERM_GROUP_TO_TERM.TERMID }, true);
         public static Index TERM_GROUP_TO_TERM_TERMID = Internal.createIndex("termId", TTermGroupToTerm.T_TERM_GROUP_TO_TERM, new OrderField[] { TTermGroupToTerm.T_TERM_GROUP_TO_TERM.TERMID }, false);
         public static Index TERM_TOKENIZED_PRIMARY = Internal.createIndex("PRIMARY", TTermTokenized.T_TERM_TOKENIZED, new OrderField[] { TTermTokenized.T_TERM_TOKENIZED.TERMID, TTermTokenized.T_TERM_TOKENIZED.ORDERNUMBER }, true);
+        public static Index TERM_WEIGHT_TYPE_ISTFIDF = Internal.createIndex("isTFIDF", TTermWeightType.T_TERM_WEIGHT_TYPE, new OrderField[] { TTermWeightType.T_TERM_WEIGHT_TYPE.ISTFIDF, TTermWeightType.T_TERM_WEIGHT_TYPE.TF, TTermWeightType.T_TERM_WEIGHT_TYPE.IDF, TTermWeightType.T_TERM_WEIGHT_TYPE.NONTFIDFTERMWEIGHT }, true);
+        public static Index TERM_WEIGHT_TYPE_PRIMARY = Internal.createIndex("PRIMARY", TTermWeightType.T_TERM_WEIGHT_TYPE, new OrderField[] { TTermWeightType.T_TERM_WEIGHT_TYPE.TERMWEIGHTTYPEID }, true);
         public static Index VECTOR_ALGORITHM_CONFIGURATION_PRIMARY = Internal.createIndex("PRIMARY", TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION, new OrderField[] { TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.CONFIGURATIONID }, true);
         public static Index VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME = Internal.createIndex("termScheme", TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION, new OrderField[] { TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMSCHEME, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMDIMENSION, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMWEIGHTTYPE, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.VECTORINCLUSION, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMCOMPARISONALGORITHM, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TOLERANCE, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.VECTORCOMPARISONALGORITHM }, true);
         public static Index WEIGHTED_TERM_GROUP_GROUPID = Internal.createIndex("groupId", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID }, false);
         public static Index WEIGHTED_TERM_GROUP_PRIMARY = Internal.createIndex("PRIMARY", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.SONGID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID }, true);
+        public static Index WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID = Internal.createIndex("termWeightTypeId", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID }, false);
     }
 }

@@ -1,6 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations;
 
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ISongDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ILyricCleaner;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ISongService;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 
@@ -11,11 +12,21 @@ import java.util.stream.Collectors;
 public class SongService implements ISongService {
 
     private ISongDao songDao;
+    private ILyricCleaner lyricCleaner;
 
-    public SongService(ISongDao songDao) {
+    public SongService(ISongDao songDao, ILyricCleaner lyricCleaner) {
         this.songDao = songDao;
+        this.lyricCleaner = lyricCleaner;
     }
 
+    @Override
+    public Song initAndSave(Song song) {
+        song = lyricCleaner.clean(song);
+        song = syncId(song);
+
+        song = saveOrEdit(song);
+        return song;
+    }
 
     @Override
     public List<Song> saveOrEdit(List<Song> viktor) {

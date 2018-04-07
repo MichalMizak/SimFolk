@@ -18,12 +18,11 @@ public interface ITermGroupService {
      *
      * @param terms
      * @param vectorConfiguration
-     * @param termComparator
      * @param tolerance
      * @return A List<WeightedTermGroup> with corresponding groupId and frequency as a weight
      */
     List<WeightedTermGroup> syncInitAndSaveTermGroups(List<Term> terms, VectorAlgorithmConfiguration vectorConfiguration,
-                                                      ITermComparator termComparator, double tolerance);
+                                                      double tolerance);
 
     /**
      * Synchronizes terms with database taking termComparisonAlgorithm into account,
@@ -31,12 +30,11 @@ public interface ITermGroupService {
      * terms in the database, so can be considered a new TermGroup
      * @param terms
      * @param vectorConfiguration
-     * @param termComparator
      * @param tolerance
      * @return A List<WeightedTermGroup> with corresponding groupId and frequency as a weight
      */
     List<WeightedTermGroup> syncAndInitTermGroups(List<Term> terms, VectorAlgorithmConfiguration vectorConfiguration,
-                                                  ITermComparator termComparator, double tolerance);
+                                                  double tolerance);
 
     Map<Long, List<TermGroup>> saveOrEdit(Map<Long, List<TermGroup>> initializedTermGroups);
 

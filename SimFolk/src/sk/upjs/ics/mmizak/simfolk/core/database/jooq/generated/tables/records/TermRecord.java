@@ -28,7 +28,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TermRecord extends UpdatableRecordImpl<TermRecord> implements Record4<Long, String, Integer, String> {
 
-    private static final long serialVersionUID = 584667299;
+    private static final long serialVersionUID = 139853763;
 
     /**
      * Setter for <code>simfolk.term.termId</code>.

@@ -8,6 +8,7 @@ import java.util.List;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.VectorAlgorithmConfigurationBuilder;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
 public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfigurationService {
 
@@ -17,7 +18,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
                 .setId(1L)
                 .setTermScheme(TermScheme.BIGRAM)
                 .setTermDimension(null)
-                .setTermWeightType(TermWeightType.TF_NAIVE)
+                .setTermWeightType(new TermWeightType(null, TF.TF_NAIVE, IDF.IDF))
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ALL)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
@@ -35,7 +36,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
         result.add(new VectorAlgorithmConfigurationBuilder()
                 .setId(null).setTermScheme(TermScheme.UNGRAM)
                 .setTermDimension(null)
-                .setTermWeightType(TermWeightType.TF_NAIVE)
+                .setTermWeightType(new TermWeightType(null, TF.AUGMENTED_TF, IDF.NONE))
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
@@ -47,7 +48,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
         result.add(new VectorAlgorithmConfigurationBuilder()
                 .setId(null).setTermScheme(TermScheme.TRIGRAM)
                 .setTermDimension(null)
-                .setTermWeightType(TermWeightType.TF)
+                .setTermWeightType(new TermWeightType(null, TF.TF_NAIVE, IDF.IDF))
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
@@ -60,7 +61,7 @@ public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfi
                 .setId(null)
                 .setTermScheme(TermScheme.BIGRAM)
                 .setTermDimension(null)
-                .setTermWeightType(TermWeightType.TFIDF)
+                .setTermWeightType(new TermWeightType(null, TF.LOG_TF, IDF.IDF))
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)

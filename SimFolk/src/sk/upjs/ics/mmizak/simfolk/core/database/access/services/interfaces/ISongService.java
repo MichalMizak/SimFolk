@@ -16,5 +16,7 @@ public interface ISongService {
 
     Song syncId(Song song);
 
+    Song initAndSave(Song song);
+
     List<Song> saveOrEdit(List<Song> viktor);
 }

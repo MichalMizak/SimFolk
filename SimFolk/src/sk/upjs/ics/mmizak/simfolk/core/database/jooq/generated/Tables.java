@@ -12,6 +12,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroupToTerm;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
 
@@ -32,40 +33,45 @@ public class Tables {
     /**
      * The table <code>simfolk.song</code>.
      */
-    public static final TSong T_SONG = TSong.T_SONG;
+    public static final TSong T_SONG = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong.T_SONG;
 
     /**
      * The table <code>simfolk.song_to_attribute</code>.
      */
-    public static final TSongToAttribute T_SONG_TO_ATTRIBUTE = TSongToAttribute.T_SONG_TO_ATTRIBUTE;
+    public static final TSongToAttribute T_SONG_TO_ATTRIBUTE = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute.T_SONG_TO_ATTRIBUTE;
 
     /**
      * The table <code>simfolk.term</code>.
      */
-    public static final TTerm T_TERM = TTerm.T_TERM;
+    public static final TTerm T_TERM = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm.T_TERM;
 
     /**
      * The table <code>simfolk.term_group</code>.
      */
-    public static final TTermGroup T_TERM_GROUP = TTermGroup.T_TERM_GROUP;
+    public static final TTermGroup T_TERM_GROUP = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup.T_TERM_GROUP;
 
     /**
      * The table <code>simfolk.term_group_to_term</code>.
      */
-    public static final TTermGroupToTerm T_TERM_GROUP_TO_TERM = TTermGroupToTerm.T_TERM_GROUP_TO_TERM;
+    public static final TTermGroupToTerm T_TERM_GROUP_TO_TERM = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroupToTerm.T_TERM_GROUP_TO_TERM;
 
     /**
      * The table <code>simfolk.term_tokenized</code>.
      */
-    public static final TTermTokenized T_TERM_TOKENIZED = TTermTokenized.T_TERM_TOKENIZED;
+    public static final TTermTokenized T_TERM_TOKENIZED = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized.T_TERM_TOKENIZED;
+
+    /**
+     * The table <code>simfolk.term_weight_type</code>.
+     */
+    public static final TTermWeightType T_TERM_WEIGHT_TYPE = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType.T_TERM_WEIGHT_TYPE;
 
     /**
      * The table <code>simfolk.vector_algorithm_configuration</code>.
      */
-    public static final TVectorAlgorithmConfiguration T_VECTOR_ALGORITHM_CONFIGURATION = TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION;
+    public static final TVectorAlgorithmConfiguration T_VECTOR_ALGORITHM_CONFIGURATION = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION;
 
     /**
      * The table <code>simfolk.weighted_term_group</code>.
      */
-    public static final TWeightedTermGroup T_WEIGHTED_TERM_GROUP = TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
+    public static final TWeightedTermGroup T_WEIGHTED_TERM_GROUP = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
 }

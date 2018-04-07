@@ -18,6 +18,8 @@ public enum DaoFactory {
 
     private ITermDao termDao;
 
+    private ITermWeightTypeDao termWeightTypeDao;
+
     private ITermGroupDao termGroupDao;
 
     private IWeightedTermGroupDao weightedTermGroupDao;
@@ -42,7 +44,7 @@ public enum DaoFactory {
 
     public IWeightedTermGroupDao getWeightedTermGroupDao() {
         if (weightedTermGroupDao == null) {
-            weightedTermGroupDao = new WeightedTermGroupDao(getCreate(), getTermGroupDao());
+            weightedTermGroupDao = new WeightedTermGroupDao(getCreate(), getTermWeightTypeDao(), getTermGroupDao());
         }
         return weightedTermGroupDao;
     }
@@ -82,5 +84,12 @@ public enum DaoFactory {
             termGroupDao = new TermGroupDao(getCreate(), getTermDao());
         }
         return termGroupDao;
+    }
+
+    public ITermWeightTypeDao getTermWeightTypeDao() {
+        if (termWeightTypeDao == null) {
+            termWeightTypeDao = new TermWeightTypeDao(getCreate());
+        }
+        return termWeightTypeDao;
     }
 }

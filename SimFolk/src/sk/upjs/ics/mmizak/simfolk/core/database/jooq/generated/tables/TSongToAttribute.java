@@ -39,7 +39,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.So
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TSongToAttribute extends TableImpl<SongToAttributeRecord> {
 
-    private static final long serialVersionUID = 1021687621;
+    private static final long serialVersionUID = -1041572856;
 
     /**
      * The reference instance of <code>simfolk.song_to_attribute</code>

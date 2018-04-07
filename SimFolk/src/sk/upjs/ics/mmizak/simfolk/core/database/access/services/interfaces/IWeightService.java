@@ -1,16 +1,15 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces;
 
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 
 import java.util.List;
-import java.util.Map;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 public interface IWeightService {
 
@@ -38,9 +37,6 @@ public interface IWeightService {
     WeightedTermGroup resetAndCalculateWeight(Term term, TermWeightType termWeightType, Integer songId);
 
     WeightedVector resetAndCalculateWeight(List<Term> terms, TermWeightType termWeightType, Integer songId);
-
-    WeightedVector calculateNewWeightedVector(List<Term> terms, Long songId, VectorAlgorithmConfiguration vectorConfig,
-                                              ITermComparator termComparator, double tolerance);
 
     WeightedVector getFittingWeightedTermVectorBySongId(Long songId, VectorAlgorithmConfiguration vectorConfig, double tolerance);
 

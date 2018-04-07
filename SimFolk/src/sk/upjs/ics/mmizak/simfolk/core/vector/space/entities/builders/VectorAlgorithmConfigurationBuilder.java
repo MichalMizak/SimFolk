@@ -2,12 +2,13 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
 public class VectorAlgorithmConfigurationBuilder {
     private Long id;
     private AlgorithmConfiguration.TermScheme termScheme;
     private Integer termDimension;
-    private AlgorithmConfiguration.TermWeightType termWeightType;
+    private TermWeightType termWeightType;
     private AlgorithmConfiguration.TermComparisonAlgorithm termComparisonAlgorithm;
     private AlgorithmConfiguration.TermGroupMatchingStrategy termGroupMatchingStrategy;
     private AlgorithmConfiguration.TermGroupMergingStrategy termGroupMergingStrategy;
@@ -30,7 +31,7 @@ public class VectorAlgorithmConfigurationBuilder {
         return this;
     }
 
-    public VectorAlgorithmConfigurationBuilder setTermWeightType(AlgorithmConfiguration.TermWeightType termWeightType) {
+    public VectorAlgorithmConfigurationBuilder setTermWeightType(TermWeightType termWeightType) {
         this.termWeightType = termWeightType;
         return this;
     }

@@ -39,7 +39,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.So
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TSong extends TableImpl<SongRecord> {
 
-    private static final long serialVersionUID = 1256274404;
+    private static final long serialVersionUID = 1500119617;
 
     /**
      * The reference instance of <code>simfolk.song</code>

@@ -39,7 +39,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.Te
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TTermGroupToTerm extends TableImpl<TermGroupToTermRecord> {
 
-    private static final long serialVersionUID = -888494940;
+    private static final long serialVersionUID = -421652505;
 
     /**
      * The reference instance of <code>simfolk.term_group_to_term</code>

@@ -1,7 +1,5 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TermWeightType;
-
 import java.util.ArrayList;
 import java.util.List;
 

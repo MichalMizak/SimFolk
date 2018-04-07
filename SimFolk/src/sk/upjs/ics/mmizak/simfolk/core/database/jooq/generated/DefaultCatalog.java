@@ -27,7 +27,7 @@ import org.jooq.impl.CatalogImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DefaultCatalog extends CatalogImpl {
 
-    private static final long serialVersionUID = -440602127;
+    private static final long serialVersionUID = 1409836507;
 
     /**
      * The reference instance of <code></code>
@@ -37,7 +37,7 @@ public class DefaultCatalog extends CatalogImpl {
     /**
      * The schema <code>simfolk</code>.
      */
-    public final Simfolk SIMFOLK = Simfolk.SIMFOLK;
+    public final Simfolk SIMFOLK = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Simfolk.SIMFOLK;
 
     /**
      * No further instances allowed

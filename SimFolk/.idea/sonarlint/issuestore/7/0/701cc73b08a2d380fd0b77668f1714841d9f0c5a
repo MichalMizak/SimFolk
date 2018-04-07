@@ -1,0 +1,6 @@
+
+ˆ squid:ForLoopCounterChangedCheck"XRefactor the code in order to not assign to this loop counter from within the loop body.(å—v8İõşş©,
+€squid:S4165"dRemove this useless assignment; "result" already holds the assigned value along all execution paths.(à‚ÉÙ8İõşş©,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÀÆÈ¶ıÿÿÿÿ8İõşş©,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(‘±ºİøÿÿÿÿ8İõşş©,
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Õ÷Ü8İõşş©,

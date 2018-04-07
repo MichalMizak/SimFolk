@@ -28,14 +28,34 @@ public class AlgorithmStarter {
 
         AlgorithmConfiguration vectorAlgorithmConfiguration =
                 dummyVectorConfigurationGenerator.generateRandomConfiguration();
-
+        IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
 
         Parser parser = new Parser();
-        IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
         List<Song> viktor = parser.parseViktor();
 
         Song modifiedSong = new Song();
 
+        ISongService songService = ServiceFactory.INSTANCE.getSongService();
+
+        saveSongs(viktor, modifiedSong, songService);
+
+
+        List<Song> all = songService.getAll();
+        VectorAlgorithmResult result;
+
+        for (Song songToCompare : all) {
+
+            // TODO: For progress send an object to the algorithm computer
+            result = algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songToCompare);
+
+            System.out.println("Song id: " + result.getVectorSong().getSongId());
+            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
+            // TODO: Handle result
+
+        }
+    }
+
+    public static void saveSongs(List<Song> viktor, Song modifiedSong, ISongService songService) {
         modifiedSong.setLyrics("1/ Kolo nas poza nas, /2x/ dražečka do kriva,\n" +
                 "pitala še me mac /2x/ keho mam frajira,\n" +
                 "[:ja jej povedala,bi še ňestarala,\n" +
@@ -61,27 +81,10 @@ public class AlgorithmStarter {
         modifiedSong.setAttributes(new ArrayList<>());
         modifiedSong.setSource("sours");
 
-        ISongService songService = ServiceFactory.INSTANCE.getSongService();
-
-        modifiedSong = songService.saveOrEdit(modifiedSong);
-        viktor = songService.saveOrEdit(viktor);
-
-        VectorAlgorithmResult result = algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, modifiedSong);
-
-        System.out.println("Song id: " + result.getVectorSong().getSongId());
-        System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
-
-        for (Song songToCompare : viktor) {
-
-            // TODO: For progress send an object to the algorithm computer
-            result = algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songToCompare);
-
-            System.out.println("Song id: " + result.getVectorSong().getSongId());
-            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
-            // TODO: Handle result
-
-        }
+        songService.saveOrEdit(modifiedSong);
+        songService.saveOrEdit(viktor);
     }
 
 }
+
 

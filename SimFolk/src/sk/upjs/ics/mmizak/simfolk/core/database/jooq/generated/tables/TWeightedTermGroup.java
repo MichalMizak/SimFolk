@@ -39,7 +39,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.We
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TWeightedTermGroup extends TableImpl<WeightedTermGroupRecord> {
 
-    private static final long serialVersionUID = 441864061;
+    private static final long serialVersionUID = 1453585995;
 
     /**
      * The reference instance of <code>simfolk.weighted_term_group</code>
@@ -65,9 +65,9 @@ public class TWeightedTermGroup extends TableImpl<WeightedTermGroupRecord> {
     public final TableField<WeightedTermGroupRecord, Long> GROUPID = createField("groupId", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>simfolk.weighted_term_group.termWeightType</code>.
+     * The column <code>simfolk.weighted_term_group.termWeightTypeId</code>.
      */
-    public final TableField<WeightedTermGroupRecord, String> TERMWEIGHTTYPE = createField("termWeightType", org.jooq.impl.SQLDataType.VARCHAR(40).nullable(false), this, "");
+    public final TableField<WeightedTermGroupRecord, Integer> TERMWEIGHTTYPEID = createField("termWeightTypeId", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>simfolk.weighted_term_group.weight</code>.
@@ -116,7 +116,7 @@ public class TWeightedTermGroup extends TableImpl<WeightedTermGroupRecord> {
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.WEIGHTED_TERM_GROUP_GROUPID, Indexes.WEIGHTED_TERM_GROUP_PRIMARY);
+        return Arrays.<Index>asList(Indexes.WEIGHTED_TERM_GROUP_GROUPID, Indexes.WEIGHTED_TERM_GROUP_PRIMARY, Indexes.WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID);
     }
 
     /**
@@ -140,7 +140,7 @@ public class TWeightedTermGroup extends TableImpl<WeightedTermGroupRecord> {
      */
     @Override
     public List<ForeignKey<WeightedTermGroupRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<WeightedTermGroupRecord, ?>>asList(Keys.WEIGHTED_TERM_GROUP_IBFK_1, Keys.WEIGHTED_TERM_GROUP_IBFK_2);
+        return Arrays.<ForeignKey<WeightedTermGroupRecord, ?>>asList(Keys.WEIGHTED_TERM_GROUP_IBFK_1, Keys.WEIGHTED_TERM_GROUP_IBFK_2, Keys.WEIGHTED_TERM_GROUP_IBFK_3);
     }
 
     /**

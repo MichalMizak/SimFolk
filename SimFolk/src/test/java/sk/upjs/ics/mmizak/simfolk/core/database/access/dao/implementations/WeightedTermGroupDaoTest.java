@@ -4,15 +4,14 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.SongDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.TermDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.TermGroupDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.WeightedTermGroupDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.*;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermWeightTypeDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
 
@@ -33,6 +32,7 @@ class WeightedTermGroupDaoTest {
     private double tolerance;
     private TermDao termDao;
     private TermGroupDao termGroupDao;
+    private ITermWeightTypeDao termWeightTypeDao;
     private SongDao songDao;
     private TermGroup termGroup;
     private Song song;
@@ -46,7 +46,8 @@ class WeightedTermGroupDaoTest {
         songDao = new SongDao(create);
         termDao = new TermDao(create);
         termGroupDao = new TermGroupDao(create, termDao);
-        weightedTermGroupDao = new WeightedTermGroupDao(create, termGroupDao);
+        termWeightTypeDao = new TermWeightTypeDao(create);
+        weightedTermGroupDao = new WeightedTermGroupDao(create, termWeightTypeDao, termGroupDao);
     }
 
     @AfterAll
@@ -79,7 +80,7 @@ class WeightedTermGroupDaoTest {
         song = songDao.saveOrEdit(song);
 
         this.weightedTermGroup = new WeightedTermGroup(termGroup,
-                song.getId(), TermWeightType.TF_NAIVE, 1D);
+                song.getId(), TermWeightType.getDummy(), 1D);
 
         weightedTermGroup = weightedTermGroupDao.saveOrEdit(weightedTermGroup);
     }
@@ -149,7 +150,7 @@ class WeightedTermGroupDaoTest {
 
 
         weightedTermGroup.setTermWeight(testValue);
-        weightedTermGroup.setTermWeightType(TermWeightType.TF);
+        weightedTermGroup.setTermWeightType(TermWeightType.getDummy());
 
         weightedTermGroup.setTolerance(testValue);
         weightedTermGroup.setTerms(testTerms);
@@ -160,7 +161,7 @@ class WeightedTermGroupDaoTest {
 
         assertEquals(testValue, weightedTermGroup.getTermWeight());
         assertEquals(testValue, weightedTermGroup.getTolerance());
-        assertEquals(TermWeightType.TF, weightedTermGroup.getTermWeightType());
+        assertNotNull(weightedTermGroup.getTermWeightType().getId());
 
         termGroup = termGroupDao.getTermGroupById(weightedTermGroup.getGroupId());
 
@@ -185,7 +186,7 @@ class WeightedTermGroupDaoTest {
 
 
         weightedTermGroup.setTermWeight(testValue);
-        weightedTermGroup.setTermWeightType(TermWeightType.TF);
+        weightedTermGroup.setTermWeightType(TermWeightType.getDummy());
 
         weightedTermGroup.setTolerance(testValue);
         weightedTermGroup.setTerms(testTerms);
@@ -193,7 +194,7 @@ class WeightedTermGroupDaoTest {
         weightedTermGroup = weightedTermGroupDao.saveOrEditExcludingTermGroup(weightedTermGroup);
 
         assertEquals(testValue, weightedTermGroup.getTermWeight());
-        assertEquals(TermWeightType.TF, weightedTermGroup.getTermWeightType());
+        assertNotNull(weightedTermGroup.getTermWeightType().getId());
 
         termGroup = termGroupDao.getTermGroupById(weightedTermGroup.getGroupId());
 

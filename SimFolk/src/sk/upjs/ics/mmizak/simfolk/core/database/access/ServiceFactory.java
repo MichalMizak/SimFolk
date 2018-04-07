@@ -70,14 +70,14 @@ public enum ServiceFactory {
 
     public IWeightService getWeightCalculator() {
         if (weightCalculator == null) {
-            weightCalculator = new WeightService();
+            weightCalculator = new WeightService(DaoFactory.INSTANCE.getWeightedVectorDao());
         }
         return weightCalculator;
     }
 
     public ITermService getTermService() {
         if (termService == null) {
-            termService = new TermService(DaoFactory.INSTANCE.getTermDao());
+            termService = new TermService(DaoFactory.INSTANCE.getTermDao(), INSTANCE.getTermBuilder());
         }
         return termService;
     }
@@ -98,14 +98,14 @@ public enum ServiceFactory {
 
     public ISongService getSongService() {
         if (songService == null) {
-            songService = new SongService(DaoFactory.INSTANCE.getSongDao());
+            songService = new SongService(DaoFactory.INSTANCE.getSongDao(), INSTANCE.getLyricCleaner());
         }
         return songService;
     }
 
     public ITermGroupService getTermGroupService() {
         if (termGroupService == null) {
-            termGroupService = new TermGroupService(DaoFactory.INSTANCE.getTermGroupDao());
+            termGroupService = new TermGroupService(DaoFactory.INSTANCE.getTermGroupDao(), INSTANCE.getTermComparator());
         }
         return termGroupService;
     }

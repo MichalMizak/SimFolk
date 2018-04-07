@@ -38,12 +38,12 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         ITermService termService = INSTANCE.getTermService();
         IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
         ITermComparator termComparator = INSTANCE.getTermComparator();
+        ITermGroupService termGroupService = INSTANCE.getTermGroupService();
         IWeightService weightCalculator = ServiceFactory.INSTANCE.getWeightCalculator();
         ITermVectorFormatter termVectorFormatter = INSTANCE.getTermVectorFormatter();
         IVectorComparator vectorComparator = INSTANCE.getVectorComparator();
 
         // local variables for readability
-        TermWeightType termWeightType = vectorConfig.getTermWeightType();
         TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
 
         // calculate numeric value of tolerance
@@ -62,8 +62,9 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             // assigns database ids to existing terms
             terms = termService.syncTermIds(terms);
 
-            vectorA = weightCalculator.calculateNewWeightedVector(terms, song.getId(), vectorConfig,
-                    termComparator, tolerance);
+            List<WeightedTermGroup> frequencyTermGroups = termGroupService.syncAndInitTermGroups(terms, vectorConfig, tolerance);
+
+            vectorA = weightCalculator.calculateNewWeightedVector(song.getId(), frequencyTermGroups, vectorConfig);
         } else {
             vectorA = weightCalculator.getFittingWeightedTermVectorBySongId(song.getId(), vectorConfig, tolerance);
         }
@@ -110,40 +111,36 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             throw new Exception("Invalid AlgorithmConfiguration");
         }
 
-        VectorAlgorithmConfiguration vectorConfig = (VectorAlgorithmConfiguration) algorithmConfiguration;
+        song = saveSong((VectorAlgorithmConfiguration) algorithmConfiguration, song);
 
-        ILyricCleaner lyricCleaner = INSTANCE.getLyricCleaner();
-        ITermBuilder termBuilder = INSTANCE.getTermBuilder();
+        return computeSimilarity(algorithmConfiguration, song);
+    }
+
+    private Song saveSong(VectorAlgorithmConfiguration algorithmConfiguration, Song song) {
+
         ITermService termService = INSTANCE.getTermService();
         ITermGroupService termGroupService = INSTANCE.getTermGroupService();
         IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
-        ITermComparator termComparator = INSTANCE.getTermComparator();
+
         IWeightService weightCalculator = ServiceFactory.INSTANCE.getWeightCalculator();
         ISongService songService = ServiceFactory.INSTANCE.getSongService();
 
-        TermWeightType termWeightType = vectorConfig.getTermWeightType();
+        VectorAlgorithmConfiguration vectorConfig = algorithmConfiguration;
         TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
         double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
                 termComparisonAlgorithm);
 
 
-        song = lyricCleaner.clean(song);
-        song = songService.syncId(song);
+        song =  songService.initAndSave(song);
 
-        song = songService.saveOrEdit(song);
+        List<Term> terms = termService.buildAndSync(song, vectorConfig);
 
-        List<Term> terms = termBuilder.buildTerms(vectorConfig.getTermScheme(),
-                vectorConfig.getTermDimension(), song.getCleanLyrics());
-
-        terms = termService.saveOrEdit(terms);
-
-        List<WeightedTermGroup> frequencyTermGroups = termGroupService.syncInitAndSaveTermGroups(terms, vectorConfig, termComparator, tolerance);
+        List<WeightedTermGroup> frequencyTermGroups = termGroupService.syncInitAndSaveTermGroups(terms, vectorConfig, tolerance);
 
         WeightedVector weightedVector = weightCalculator.calculateNewWeightedVector(song.getId(), frequencyTermGroups, vectorConfig);
-
         weightCalculator.saveOrEdit(weightedVector);
 
-        return computeSimilarity(algorithmConfiguration, song);
+        return song;
     }
 
     @Override

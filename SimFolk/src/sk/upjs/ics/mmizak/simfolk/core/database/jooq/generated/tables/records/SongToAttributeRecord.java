@@ -27,7 +27,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAtt
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SongToAttributeRecord extends UpdatableRecordImpl<SongToAttributeRecord> implements Record2<Long, String> {
 
-    private static final long serialVersionUID = -703590949;
+    private static final long serialVersionUID = 637720355;
 
     /**
      * Setter for <code>simfolk.song_to_attribute.songId</code>.

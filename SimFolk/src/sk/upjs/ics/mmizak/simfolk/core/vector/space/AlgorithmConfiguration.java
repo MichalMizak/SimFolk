@@ -1,15 +1,25 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space;
 
-
-public abstract class AlgorithmConfiguration {
+public class AlgorithmConfiguration {
 
     public enum AlgorithmType {
         VECTOR
     }
 
-    public enum TermWeightType {
-        TF_NAIVE, TF, IDF, TFIDF
+    //<editor-fold desc="Term weight type">
+    public enum NonTFIDFTermWeightType {
+        NONE
+
     }
+
+    public enum TF {
+        TF_NAIVE, LOG_TF, IDF, NONE, AUGMENTED_TF
+    }
+
+    public enum IDF {
+        NO, IDF, NONE, PROB_IDF
+    }
+    //</editor-fold>
 
     public enum TermScheme {
         UNGRAM, BIGRAM, TRIGRAM, NGRAM;

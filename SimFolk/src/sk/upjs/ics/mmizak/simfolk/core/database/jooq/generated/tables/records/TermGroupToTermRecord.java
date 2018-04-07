@@ -27,7 +27,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TermGroupToTermRecord extends UpdatableRecordImpl<TermGroupToTermRecord> implements Record2<Long, Long> {
 
-    private static final long serialVersionUID = 389166940;
+    private static final long serialVersionUID = -2026457436;
 
     /**
      * Setter for <code>simfolk.term_group_to_term.groupId</code>.

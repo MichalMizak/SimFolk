@@ -1,0 +1,18 @@
+
+Ssquid:S1135"2Complete the task associated to this TODO comment.(úŸÞìúÿÿÿÿ8§²‚ë©,
+gsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Ì“¼¥8îä¯þ©,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(¼”À„ûÿÿÿÿ8§²‚ë©,
+Isquid:S1199"-Extract this nested code block into a method.(ÞÛ»Ü8¥ç®þ©,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—Ñæ–úÿÿÿÿ8§²‚ë©,
+‘squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(««8ã¿ìþ©,
+‘"squid:SwitchLastCaseIsDefaultCheck"YComplete cases by adding the missing enum constants or add a default case to this switch.(‰»ž¦þÿÿÿÿ8íÈ³þ©,
+–squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(Ÿ¦Â‘ÿÿÿÿÿ8ã¿ìþ©,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ô§¡žüÿÿÿÿ8§²‚ë©,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…¡”þÿÿÿÿ8§²‚ë©,
+csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(„Ó‰Ï8¢¨þ©,
+lsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(‰»ž¦þÿÿÿÿ8íÈ³þ©,
+Isquid:S1199"-Extract this nested code block into a method.( ÅÌ»8íÈ³þ©,
+Isquid:S1199"-Extract this nested code block into a method.(Ø Öë8¥ç®þ©,
+csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(„Ó‰Ï8¥ç®þ©,
+Isquid:S1199"-Extract this nested code block into a method.(öøêª8ï÷Ãþ©,
+‘squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(ïúÑÔ8®¬ìþ©,
