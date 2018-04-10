@@ -1,11 +1,14 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 
 import org.jooq.DSLContext;
+import org.jooq.Field;
+import org.jooq.impl.DSL;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermRecord;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +27,17 @@ public class TermDao implements ITermDao {
     // TODO: optimize select into batch select
     @Override
     public List<Term> syncTermIds(List<Term> terms) {
+
+        /*List<String> lyricsFragments = terms.stream().map(Term::getLyricsFragment).collect(Collectors.toList());
+
+        Field<Long> ids = DSL.when(T_TERM.LYRICSFRAGMENT.in(lyricsFragments), T_TERM.TERMID)
+                .otherwise();
+
+        for (int i = 0; i < terms.size(); i++) {
+            terms.get(i).setId(ids.getValue());
+        }
+        */
+
         return terms.stream().map(this::syncTermId).collect(Collectors.toList());
     }
 

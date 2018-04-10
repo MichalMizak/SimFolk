@@ -109,7 +109,6 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
                             wtg.getTermWeightType().getId(), wtg.getTermWeight())
                     .execute();
         } else {
-
             if (wtg.getTermWeightType().getId() == null) {
                 wtg.setTermWeightType(termWeightTypeDao.saveOrEdit(wtg.getTermWeightType()));
             }

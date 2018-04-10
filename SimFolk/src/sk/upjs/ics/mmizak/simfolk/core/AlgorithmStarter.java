@@ -7,6 +7,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmComputer;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.parsing.Parser;
 
 import java.util.ArrayList;
@@ -24,13 +25,14 @@ public class AlgorithmStarter {
 
     public static void main(String[] args) throws Exception {
 
-        DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator = new DummyVectorAlgorithmConfigurationService();
+        DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator =
+                new DummyVectorAlgorithmConfigurationService();
 
-        AlgorithmConfiguration vectorAlgorithmConfiguration =
+        VectorAlgorithmConfiguration vectorAlgorithmConfiguration =
                 dummyVectorConfigurationGenerator.generateRandomConfiguration();
         IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
 
-        Parser parser = new Parser();
+        /*Parser parser = new Parser();
         List<Song> viktor = parser.parseViktor();
 
         Song modifiedSong = new Song();
@@ -38,21 +40,23 @@ public class AlgorithmStarter {
         ISongService songService = ServiceFactory.INSTANCE.getSongService();
 
         saveSongs(viktor, modifiedSong, songService);
+*/
 
-
+        ISongService songService = ServiceFactory.INSTANCE.getSongService();
         List<Song> all = songService.getAll();
-        VectorAlgorithmResult result;
 
-        for (Song songToCompare : all) {
+       /* for (Song song : all) {
+            VectorAlgorithmResult result = algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, song);
+            System.out.println(result.getSongToSimilarityPercentage());
+        }*/
 
-            // TODO: For progress send an object to the algorithm computer
-            result = algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songToCompare);
 
-            System.out.println("Song id: " + result.getVectorSong().getSongId());
-            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
-            // TODO: Handle result
+        // TODO: For progress send an object to the algorithm computer
+        List<VectorAlgorithmResult> result = algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, all);
 
-        }
+
+        // TODO: Handle result
+
     }
 
     public static void saveSongs(List<Song> viktor, Song modifiedSong, ISongService songService) {

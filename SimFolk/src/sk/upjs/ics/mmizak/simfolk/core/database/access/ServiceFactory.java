@@ -8,7 +8,7 @@ public enum ServiceFactory {
 
     INSTANCE;
 
-    private IAlgorithmConfigurationService algorithmConfigurationService;
+    private IVectorAlgorithmConfigurationService algorithmConfigurationService;
 
     private ILyricCleaner lyricCleaner;
 
@@ -32,7 +32,7 @@ public enum ServiceFactory {
     private IVectorComparator vectorComparator;
 
 
-    public IAlgorithmConfigurationService getAlgorithmConfigurationService() {
+    public IVectorAlgorithmConfigurationService getAlgorithmConfigurationService() {
         if (algorithmConfigurationService == null) {
             algorithmConfigurationService = new DummyVectorAlgorithmConfigurationService();
         }
@@ -70,7 +70,8 @@ public enum ServiceFactory {
 
     public IWeightService getWeightCalculator() {
         if (weightCalculator == null) {
-            weightCalculator = new WeightService(DaoFactory.INSTANCE.getWeightedVectorDao());
+            weightCalculator = new WeightService(DaoFactory.INSTANCE.getWeightedVectorDao(),
+                    DaoFactory.INSTANCE.getWeightedTermGroupDao());
         }
         return weightCalculator;
     }

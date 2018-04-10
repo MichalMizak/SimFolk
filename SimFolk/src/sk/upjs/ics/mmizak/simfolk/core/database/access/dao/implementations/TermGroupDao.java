@@ -152,6 +152,7 @@ public class TermGroupDao implements ITermGroupDao {
 
     @Override
     public TermGroup syncGroupId(Term term, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
+        // TODO: CHANGE INTO FETCH ONE
         Long groupId = create.select()
                 .from(T_TERM_GROUP_TO_TERM)
                 .join(T_TERM_GROUP)
@@ -159,7 +160,7 @@ public class TermGroupDao implements ITermGroupDao {
                 .where(T_TERM_GROUP_TO_TERM.TERMID.eq(term.getId()))
                 .and(T_TERM_GROUP.TERMCOMPARISONALGORITHM.eq(termComparisonAlgorithm.toString()))
                 .and(T_TERM_GROUP.TOLERANCE.eq(tolerance))
-                .fetchOne(T_TERM_GROUP.GROUPID);
+                .fetchAny(T_TERM_GROUP.GROUPID);
 
         if (groupId != null) {
             return getTermGroupById(groupId);

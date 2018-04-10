@@ -1,37 +1,37 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.IAlgorithmConfigurationService;
+import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.IVectorAlgorithmConfigurationService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.VectorAlgorithmConfigurationBuilder;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
-public class DummyVectorAlgorithmConfigurationService implements IAlgorithmConfigurationService {
+public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorithmConfigurationService {
 
     @Override
-    public AlgorithmConfiguration generateRandomConfiguration() {
+    public VectorAlgorithmConfiguration generateRandomConfiguration() {
         return new VectorAlgorithmConfigurationBuilder()
                 .setId(1L)
                 .setTermScheme(TermScheme.BIGRAM)
                 .setTermDimension(null)
                 .setTermWeightType(new TermWeightType(null, TF.TF_NAIVE, IDF.IDF))
-                .setTermComparisonAlgorithm(TermComparisonAlgorithm.NAIVE)
-                .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ALL)
+                .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
+                .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
                 .setVectorInclusion(VectorInclusion.B)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
-                .setTolerance(Tolerance.NONE)
+                .setTolerance(Tolerance.MEDIUM)
                 .createVectorAlgorithmConfiguration();
     }
 
     @Override
-    public List<AlgorithmConfiguration> loadAllConfigurations() {
+    public List<VectorAlgorithmConfiguration> loadAllConfigurations() {
 
-        List<AlgorithmConfiguration> result = new ArrayList<>();
+        List<VectorAlgorithmConfiguration> result = new ArrayList<>();
 
         result.add(new VectorAlgorithmConfigurationBuilder()
                 .setId(null).setTermScheme(TermScheme.UNGRAM)

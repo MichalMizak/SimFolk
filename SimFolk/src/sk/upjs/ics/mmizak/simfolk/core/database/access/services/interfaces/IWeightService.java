@@ -56,4 +56,7 @@ public interface IWeightService {
     void delete(WeightedVector weightedVector);
 
     WeightedVector calculateNewWeightedVector(Long id, List<WeightedTermGroup> frequencyWeightedGroups, VectorAlgorithmConfiguration vectorConfig);
+
+    WeightedVector calculateNewWeightedVectorFromTFNaive(Long id, VectorAlgorithmConfiguration vectorConfig,
+                                                         double tolerance);
 }

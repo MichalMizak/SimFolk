@@ -9,6 +9,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeigh
 import java.util.List;
 
 import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
 
 public class TermWeightTypeDao implements ITermWeightTypeDao {
 
@@ -31,7 +32,6 @@ public class TermWeightTypeDao implements ITermWeightTypeDao {
     @Override
     public TermWeightType saveOrEdit(TermWeightType termWeightType) {
         if (termWeightType.getId() == null) {
-
 
             TermWeightTypeRecord typeRecord = create
                     .insertInto(T_TERM_WEIGHT_TYPE)
@@ -67,9 +67,9 @@ public class TermWeightTypeDao implements ITermWeightTypeDao {
         create.deleteFrom(T_TERM_WEIGHT_TYPE).where(T_TERM_WEIGHT_TYPE.TERMWEIGHTTYPEID.eq(termWeightType.getId()));
     }
 
-    public TermWeightType getUnique(boolean isTFIDF, AlgorithmConfiguration.TF tf, AlgorithmConfiguration.IDF idf,
-                                    AlgorithmConfiguration.NonTFIDFTermWeightType nonTFIDFTermWeightType) {
-
+    @Override
+    public TermWeightType getUnique(boolean isTFIDF, TF tf, IDF idf,
+                                    NonTFIDFTermWeightType nonTFIDFTermWeightType) {
         return create.selectFrom(T_TERM_WEIGHT_TYPE)
                 .where(T_TERM_WEIGHT_TYPE.ISTFIDF.eq(isTFIDF))
                 .and(T_TERM_WEIGHT_TYPE.TF.eq(tf.toString()))
@@ -80,11 +80,11 @@ public class TermWeightTypeDao implements ITermWeightTypeDao {
 
     private TermWeightType map(TermWeightTypeRecord termWeightTypeRecord) {
         if (termWeightTypeRecord.getIstfidf()) {
-            return new TermWeightType(termWeightTypeRecord.getTermweighttypeid(), AlgorithmConfiguration.TF.valueOf(termWeightTypeRecord.getTf()),
-                    AlgorithmConfiguration.IDF.valueOf(termWeightTypeRecord.getIdf()));
+            return new TermWeightType(termWeightTypeRecord.getTermweighttypeid(), TF.valueOf(termWeightTypeRecord.getTf()),
+                    IDF.valueOf(termWeightTypeRecord.getIdf()));
         }
         return new TermWeightType(termWeightTypeRecord.getTermweighttypeid(),
-                AlgorithmConfiguration.NonTFIDFTermWeightType.valueOf(termWeightTypeRecord.getNontfidftermweight()));
+                NonTFIDFTermWeightType.valueOf(termWeightTypeRecord.getNontfidftermweight()));
     }
 
 }

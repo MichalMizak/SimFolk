@@ -1,4 +1,4 @@
-package test.java.sk.upjs.ics.mmizak.simfolk.core.dao.implementations;
+package test.java.sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations;
 
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

@@ -1,5 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations;
 
+import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedVectorDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.IWeightService;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
@@ -19,10 +20,11 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguratio
 public class WeightService implements IWeightService {
 
     private IWeightedVectorDao weightedVectorDao;
-    //  private IWeightedTermGroupDao weightedTermGroupDao;
+    private IWeightedTermGroupDao weightedTermGroupDao;
 
-    public WeightService(IWeightedVectorDao weightedVectorDao) {
+    public WeightService(IWeightedVectorDao weightedVectorDao, IWeightedTermGroupDao weightedTermGroupDao) {
         this.weightedVectorDao = weightedVectorDao;
+        this.weightedTermGroupDao = weightedTermGroupDao;
     }
 
     /**
@@ -95,7 +97,7 @@ public class WeightService implements IWeightService {
     @Override
     public WeightedVector calculateNewWeightedVector(Long songId, List<WeightedTermGroup> frequencyWeightedGroups, VectorAlgorithmConfiguration vectorConfig) {
 
-        // init termWeightType and songId
+        // readability purposes
         TermWeightType termWeightType = vectorConfig.getTermWeightType();
 
         frequencyWeightedGroups.forEach(w -> {
@@ -115,6 +117,16 @@ public class WeightService implements IWeightService {
                 throw new RuntimeException("Unknown termWeightType");
         }
         return new WeightedVector(songId, frequencyWeightedGroups);
+    }
+
+    @Override
+    public WeightedVector calculateNewWeightedVectorFromTFNaive(Long songId, VectorAlgorithmConfiguration vectorConfig,
+                                                                double tolerance) {
+        List<WeightedTermGroup> frequencyWeightedTerms = weightedTermGroupDao.getAllFittingBySongId(songId,
+                TermWeightType.getFrequencyWeight(),
+                vectorConfig.getTermComparisonAlgorithm(), tolerance);
+
+        return calculateNewWeightedVector(songId, frequencyWeightedTerms, vectorConfig);
     }
 
     private WeightedVector calculateTFIDF(Long songId, List<WeightedTermGroup> frequencyWeightedGroups, VectorAlgorithmConfiguration vectorConfig) {
@@ -175,7 +187,7 @@ public class WeightService implements IWeightService {
     private List<WeightedTermGroup> augmentedTF(List<WeightedTermGroup> frequencyWeightedGroups) {
         WeightedTermGroup mostFrequentGroup = frequencyWeightedGroups.parallelStream()
                 .max(Comparator.comparing(WeightedTermGroup::getTermWeight))
-                .orElse(new WeightedTermGroup(null, TermWeightType.getDummy(), 0D));
+                .orElse(new WeightedTermGroup(null, TermWeightType.getFrequencyWeight(), 0D));
 
         double maxFrequency = mostFrequentGroup.getTermWeight();
 

@@ -80,7 +80,7 @@ class WeightedTermGroupDaoTest {
         song = songDao.saveOrEdit(song);
 
         this.weightedTermGroup = new WeightedTermGroup(termGroup,
-                song.getId(), TermWeightType.getDummy(), 1D);
+                song.getId(), TermWeightType.getFrequencyWeight(), 1D);
 
         weightedTermGroup = weightedTermGroupDao.saveOrEdit(weightedTermGroup);
     }
@@ -150,7 +150,7 @@ class WeightedTermGroupDaoTest {
 
 
         weightedTermGroup.setTermWeight(testValue);
-        weightedTermGroup.setTermWeightType(TermWeightType.getDummy());
+        weightedTermGroup.setTermWeightType(TermWeightType.getFrequencyWeight());
 
         weightedTermGroup.setTolerance(testValue);
         weightedTermGroup.setTerms(testTerms);
@@ -161,6 +161,7 @@ class WeightedTermGroupDaoTest {
 
         assertEquals(testValue, weightedTermGroup.getTermWeight());
         assertEquals(testValue, weightedTermGroup.getTolerance());
+        assertNotNull(weightedTermGroup.getTermWeightType());
         assertNotNull(weightedTermGroup.getTermWeightType().getId());
 
         termGroup = termGroupDao.getTermGroupById(weightedTermGroup.getGroupId());
@@ -186,7 +187,7 @@ class WeightedTermGroupDaoTest {
 
 
         weightedTermGroup.setTermWeight(testValue);
-        weightedTermGroup.setTermWeightType(TermWeightType.getDummy());
+        weightedTermGroup.setTermWeightType(TermWeightType.getFrequencyWeight());
 
         weightedTermGroup.setTolerance(testValue);
         weightedTermGroup.setTerms(testTerms);

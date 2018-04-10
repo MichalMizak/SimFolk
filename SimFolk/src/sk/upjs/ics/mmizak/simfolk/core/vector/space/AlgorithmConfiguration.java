@@ -35,7 +35,7 @@ public class AlgorithmConfiguration {
     }
 
     public enum TermComparisonAlgorithm {
-        NAIVE
+        LEVENSHTEIN_DISTANCE, NAIVE
     }
 
     public enum TermGroupMatchingStrategy {

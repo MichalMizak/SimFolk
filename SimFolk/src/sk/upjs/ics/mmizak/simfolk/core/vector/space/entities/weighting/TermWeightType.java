@@ -68,8 +68,8 @@ public class TermWeightType {
         this.id = id;
     }
 
-    public static TermWeightType getDummy() {
-        return new TermWeightType(null, TF.TF_NAIVE, IDF.IDF);
+    public static TermWeightType getFrequencyWeight() {
+        return new TermWeightType(null, TF.TF_NAIVE, IDF.NONE);
     }
     //</editor-fold>
 }

@@ -42,7 +42,7 @@ class TermDaoTest {
     }
 
     @BeforeEach
-    void setUp() {
+    void setUpEach() {
 
         List<Term> terms = new ArrayList<>();
         terms.add(new Term(null, "test", new ArrayList<>(Collections.singleton("test")), AlgorithmConfiguration.TermScheme.UNGRAM));
@@ -55,11 +55,11 @@ class TermDaoTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDownEach() {
         try {
-            connection.close();
+            connection.rollback();
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 

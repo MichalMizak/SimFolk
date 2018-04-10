@@ -89,7 +89,7 @@ public class TermGroupService implements ITermGroupService {
      * @return
      */
     private List<WeightedTermGroup> mergeAny(List<TermGroup> termGroups, List<TermGroup> allTermGroups,
-                                             VectorAlgorithmConfiguration vectorConfiguration,double tolerance) {
+                                             VectorAlgorithmConfiguration vectorConfiguration, double tolerance) {
         List<WeightedTermGroup> result = new ArrayList<>();
         List<WeightedTermGroup> mergedNullGroups = getMergedNullGroups(termGroups, vectorConfiguration, tolerance, result);
 
@@ -139,6 +139,54 @@ public class TermGroupService implements ITermGroupService {
         return result;
     }
 
+    /**
+     * MERGE_ALL strategy merges all term groups that are similar according to termComparator.compareGroups
+     *
+     * @param termGroups
+     * @param allTermGroups
+     * @param vectorConfiguration
+     * @param tolerance
+     * @return
+     */
+    private List<WeightedTermGroup> mergeAll(List<TermGroup> termGroups, List<TermGroup> allTermGroups,
+                                             VectorAlgorithmConfiguration vectorConfiguration, double tolerance) {
+
+        List<WeightedTermGroup> result = new ArrayList<>();
+        List<WeightedTermGroup> mergedNullGroups = getMergedNullGroups(termGroups, vectorConfiguration, tolerance, result);
+
+        //TODO: implement
+        for (WeightedTermGroup syncedTermGroup : mergedNullGroups) {
+
+            if (syncedTermGroup.getGroupId() != null) {
+                continue;
+            }
+
+            List<TermGroup> similarTermGroups = new ArrayList<>();
+
+            // iterate over all term groups, compare them according to comparator and
+            // accumulate similar term groups
+            for (TermGroup allTermGroup : allTermGroups) {
+                if (termComparator.compareGroups(syncedTermGroup, allTermGroup, vectorConfiguration, tolerance)) {
+                    similarTermGroups.add(allTermGroup);
+                    break;
+                }
+            }
+
+            // if we found no similar group we have nothing to do
+            if (!similarTermGroups.isEmpty()) {
+                result.add(syncedTermGroup);
+                continue;
+            }
+
+            if (similarTermGroups.size() == 1) {
+
+            }
+
+        }
+
+        throw new UnsupportedOperationException();
+    }
+
     private List<WeightedTermGroup> getMergedNullGroups(List<TermGroup> termGroups, VectorAlgorithmConfiguration vectorConfiguration, double tolerance, List<WeightedTermGroup> result) {
         // map groups to ids
         Map<Long, List<TermGroup>> groupIdToTermGroups = mapGroupIdToTermGroups(termGroups);
@@ -160,9 +208,17 @@ public class TermGroupService implements ITermGroupService {
         return mergeNullIdGroups(nullIdGroups, vectorConfiguration, tolerance);
     }
 
-    private List<WeightedTermGroup> mergeNullIdGroups(List<TermGroup> nullIdGroups, VectorAlgorithmConfiguration vectorConfiguration,
+    /**
+     * Merges all null id groups with a MERGE_ALL strategy
+     *
+     * @param nullIdGroups
+     * @param vectorConfiguration
+     * @param tolerance
+     * @return
+     */
+    private List<WeightedTermGroup> mergeNullIdGroups(List<TermGroup> nullIdGroups,
+                                                      VectorAlgorithmConfiguration vectorConfiguration,
                                                       double tolerance) {
-
         Set<Integer> usedIndices = new HashSet<>();
         List<WeightedTermGroup> result = new ArrayList<>();
 
@@ -170,24 +226,24 @@ public class TermGroupService implements ITermGroupService {
             if (usedIndices.contains(i)) {
                 continue;
             }
-            WeightedTermGroup termGroup = new WeightedTermGroup(nullIdGroups.get(i));
+            WeightedTermGroup iTermGroup = new WeightedTermGroup(nullIdGroups.get(i));
 
             for (int j = i + 1; j < nullIdGroups.size(); j++) {
                 if (usedIndices.contains(j)) {
                     continue;
                 }
 
-                WeightedTermGroup comparedTermGroup = new WeightedTermGroup(nullIdGroups.get(j));
+                WeightedTermGroup jTermGroup = new WeightedTermGroup(nullIdGroups.get(j));
 
-                if (termComparator.compareGroups(termGroup, comparedTermGroup, vectorConfiguration, tolerance)) {
+                if (termComparator.compareGroups(iTermGroup, jTermGroup, vectorConfiguration, tolerance)) {
                     // merge terms and refresh loop
-                    termGroup.getTerms().addAll(comparedTermGroup.getTerms());
-                    termGroup.setTermWeight(termGroup.getTermWeight() + 1.0);
+                    iTermGroup.getTerms().addAll(jTermGroup.getTerms());
+                    iTermGroup.setTermWeight(iTermGroup.getTermWeight() + 1.0);
                     usedIndices.add(j);
                     j = i + 1;
                 }
             }
-            result.add(termGroup);
+            result.add(iTermGroup);
         }
 
         return result;
@@ -200,45 +256,6 @@ public class TermGroupService implements ITermGroupService {
             groupIdToTermGroups.computeIfAbsent(group.getGroupId(), k -> new ArrayList<>()).add(group);
         }
         return groupIdToTermGroups;
-    }
-
-    /**
-     * MERGE_ALL strategy merges all term groups that are similar according to termComparator.compareGroups
-     *
-     * @param termGroups
-     * @param allTermGroups
-     * @param vectorConfiguration
-     * @param tolerance
-     * @return
-     */
-    private List<WeightedTermGroup> mergeAll(List<TermGroup> termGroups, List<TermGroup> allTermGroups,
-                                             VectorAlgorithmConfiguration vectorConfiguration, double tolerance) {
-
-        List<WeightedTermGroup> result = new ArrayList<>();
-        List<WeightedTermGroup> mergedNullGroups = getMergedNullGroups(termGroups, vectorConfiguration, tolerance, result);
-
-        //TODO: implement
-        for (TermGroup syncedTermGroup : mergedNullGroups) {
-
-            if (syncedTermGroup.getGroupId() != null) {
-                continue;
-            }
-
-            List<TermGroup> similarTermGroups = new ArrayList<>();
-
-            for (TermGroup allTermGroup : allTermGroups) {
-                if (termComparator.compareGroups(syncedTermGroup, allTermGroup, vectorConfiguration, tolerance)) {
-                    similarTermGroups.add(allTermGroup);
-                    break;
-                }
-            }
-
-            if (!similarTermGroups.isEmpty()) {
-                //syncedTermGroup.setGroupId(similarTermGroups.getGroupId());
-            }
-        }
-
-        throw new UnsupportedOperationException();
     }
 
 
