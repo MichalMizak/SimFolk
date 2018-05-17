@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.Generated;
 
 import org.jooq.Field;
+import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Schema;
@@ -38,7 +39,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.Te
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TTermWeightType extends TableImpl<TermWeightTypeRecord> {
 
-    private static final long serialVersionUID = 1359661981;
+    private static final long serialVersionUID = 50082664;
 
     /**
      * The reference instance of <code>simfolk.term_weight_type</code>
@@ -56,7 +57,7 @@ public class TTermWeightType extends TableImpl<TermWeightTypeRecord> {
     /**
      * The column <code>simfolk.term_weight_type.termWeightTypeId</code>.
      */
-    public final TableField<TermWeightTypeRecord, Integer> TERMWEIGHTTYPEID = createField("termWeightTypeId", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<TermWeightTypeRecord, Integer> TERMWEIGHTTYPEID = createField("termWeightTypeId", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>simfolk.term_weight_type.isTFIDF</code>.
@@ -121,6 +122,14 @@ public class TTermWeightType extends TableImpl<TermWeightTypeRecord> {
     @Override
     public List<Index> getIndexes() {
         return Arrays.<Index>asList(Indexes.TERM_WEIGHT_TYPE_ISTFIDF, Indexes.TERM_WEIGHT_TYPE_PRIMARY);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Identity<TermWeightTypeRecord, Integer> getIdentity() {
+        return Keys.IDENTITY_T_TERM_WEIGHT_TYPE;
     }
 
     /**

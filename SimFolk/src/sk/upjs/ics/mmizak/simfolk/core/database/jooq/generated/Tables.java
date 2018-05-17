@@ -6,6 +6,7 @@ package sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated;
 
 import javax.annotation.Generated;
 
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TResultToSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
@@ -14,6 +15,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
 
 
@@ -29,6 +31,11 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedT
 )
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>simfolk.result_to_song</code>.
+     */
+    public static final TResultToSong T_RESULT_TO_SONG = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TResultToSong.T_RESULT_TO_SONG;
 
     /**
      * The table <code>simfolk.song</code>.
@@ -69,6 +76,11 @@ public class Tables {
      * The table <code>simfolk.vector_algorithm_configuration</code>.
      */
     public static final TVectorAlgorithmConfiguration T_VECTOR_ALGORITHM_CONFIGURATION = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION;
+
+    /**
+     * The table <code>simfolk.vector_algorithm_result</code>.
+     */
+    public static final TVectorAlgorithmResult T_VECTOR_ALGORITHM_RESULT = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT;
 
     /**
      * The table <code>simfolk.weighted_term_group</code>.

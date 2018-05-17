@@ -4,9 +4,8 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.TermWeightTypeDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermWeightTypeDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermWeightTypeRecord;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.implementations.TermWeightTypeDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.ITermWeightTypeDao;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
 
@@ -14,8 +13,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType.T_TERM_WEIGHT_TYPE;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TermWeightTypeDaoTest {

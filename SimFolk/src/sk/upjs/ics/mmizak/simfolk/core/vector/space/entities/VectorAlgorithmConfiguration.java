@@ -1,7 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
 import jdk.nashorn.internal.ir.annotations.Immutable;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
 @Immutable

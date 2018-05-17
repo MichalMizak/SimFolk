@@ -4,7 +4,7 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.SongDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.implementations.SongDao;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder;
 import test.javask.upjs.ics.mmizak.simfolk.core.dao.implementations.DaoTestSetup;
@@ -97,6 +97,12 @@ class SongDaoTest {
         songDao.delete(song);
 
         assertNull(songDao.getById(song.getId()));
+    }
+
+    @Test
+    void getCount() {
+        Long count = songDao.getCount();
+        assertNotNull(count);
     }
 
 }

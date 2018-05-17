@@ -2,7 +2,7 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 public class TermGroup {
 

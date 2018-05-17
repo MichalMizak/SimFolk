@@ -5,7 +5,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 
 /**

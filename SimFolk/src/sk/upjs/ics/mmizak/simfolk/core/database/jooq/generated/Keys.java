@@ -11,6 +11,7 @@ import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
 
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TResultToSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
@@ -19,7 +20,9 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.ResultToSongRecord;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.SongRecord;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.SongToAttributeRecord;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermGroupRecord;
@@ -28,6 +31,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.Te
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermTokenizedRecord;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.TermWeightTypeRecord;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.VectorAlgorithmConfigurationRecord;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.VectorAlgorithmResultRecord;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records.WeightedTermGroupRecord;
 
 
@@ -52,11 +56,14 @@ public class Keys {
     public static final Identity<SongRecord, Long> IDENTITY_T_SONG = Identities0.IDENTITY_T_SONG;
     public static final Identity<TermRecord, Long> IDENTITY_T_TERM = Identities0.IDENTITY_T_TERM;
     public static final Identity<TermGroupRecord, Long> IDENTITY_T_TERM_GROUP = Identities0.IDENTITY_T_TERM_GROUP;
+    public static final Identity<TermWeightTypeRecord, Integer> IDENTITY_T_TERM_WEIGHT_TYPE = Identities0.IDENTITY_T_TERM_WEIGHT_TYPE;
+    public static final Identity<VectorAlgorithmResultRecord, Long> IDENTITY_T_VECTOR_ALGORITHM_RESULT = Identities0.IDENTITY_T_VECTOR_ALGORITHM_RESULT;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<ResultToSongRecord> KEY_RESULT_TO_SONG_SONGID = UniqueKeys0.KEY_RESULT_TO_SONG_SONGID;
     public static final UniqueKey<SongRecord> KEY_SONG_PRIMARY = UniqueKeys0.KEY_SONG_PRIMARY;
     public static final UniqueKey<SongRecord> KEY_SONG_LYRICS = UniqueKeys0.KEY_SONG_LYRICS;
     public static final UniqueKey<SongToAttributeRecord> KEY_SONG_TO_ATTRIBUTE_PRIMARY = UniqueKeys0.KEY_SONG_TO_ATTRIBUTE_PRIMARY;
@@ -69,16 +76,21 @@ public class Keys {
     public static final UniqueKey<TermWeightTypeRecord> KEY_TERM_WEIGHT_TYPE_ISTFIDF = UniqueKeys0.KEY_TERM_WEIGHT_TYPE_ISTFIDF;
     public static final UniqueKey<VectorAlgorithmConfigurationRecord> KEY_VECTOR_ALGORITHM_CONFIGURATION_PRIMARY = UniqueKeys0.KEY_VECTOR_ALGORITHM_CONFIGURATION_PRIMARY;
     public static final UniqueKey<VectorAlgorithmConfigurationRecord> KEY_VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME = UniqueKeys0.KEY_VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME;
+    public static final UniqueKey<VectorAlgorithmResultRecord> KEY_VECTOR_ALGORITHM_RESULT_PRIMARY = UniqueKeys0.KEY_VECTOR_ALGORITHM_RESULT_PRIMARY;
     public static final UniqueKey<WeightedTermGroupRecord> KEY_WEIGHTED_TERM_GROUP_PRIMARY = UniqueKeys0.KEY_WEIGHTED_TERM_GROUP_PRIMARY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<ResultToSongRecord, SongRecord> RESULT_TO_SONG_IBFK_1 = ForeignKeys0.RESULT_TO_SONG_IBFK_1;
+    public static final ForeignKey<ResultToSongRecord, VectorAlgorithmResultRecord> RESULT_TO_SONG_IBFK_2 = ForeignKeys0.RESULT_TO_SONG_IBFK_2;
     public static final ForeignKey<SongToAttributeRecord, SongRecord> SONG_TO_ATTRIBUTE_IBFK_1 = ForeignKeys0.SONG_TO_ATTRIBUTE_IBFK_1;
     public static final ForeignKey<TermGroupToTermRecord, TermGroupRecord> TERM_GROUP_TO_TERM_IBFK_1 = ForeignKeys0.TERM_GROUP_TO_TERM_IBFK_1;
     public static final ForeignKey<TermGroupToTermRecord, TermRecord> TERM_GROUP_TO_TERM_IBFK_2 = ForeignKeys0.TERM_GROUP_TO_TERM_IBFK_2;
     public static final ForeignKey<TermTokenizedRecord, TermRecord> TERM_TOKENIZED_IBFK_1 = ForeignKeys0.TERM_TOKENIZED_IBFK_1;
+    public static final ForeignKey<VectorAlgorithmResultRecord, SongRecord> VECTOR_ALGORITHM_RESULT_IBFK_1 = ForeignKeys0.VECTOR_ALGORITHM_RESULT_IBFK_1;
+    public static final ForeignKey<VectorAlgorithmResultRecord, VectorAlgorithmConfigurationRecord> VECTOR_ALGORITHM_RESULT_IBFK_2 = ForeignKeys0.VECTOR_ALGORITHM_RESULT_IBFK_2;
     public static final ForeignKey<WeightedTermGroupRecord, SongRecord> WEIGHTED_TERM_GROUP_IBFK_1 = ForeignKeys0.WEIGHTED_TERM_GROUP_IBFK_1;
     public static final ForeignKey<WeightedTermGroupRecord, TermGroupRecord> WEIGHTED_TERM_GROUP_IBFK_2 = ForeignKeys0.WEIGHTED_TERM_GROUP_IBFK_2;
     public static final ForeignKey<WeightedTermGroupRecord, TermWeightTypeRecord> WEIGHTED_TERM_GROUP_IBFK_3 = ForeignKeys0.WEIGHTED_TERM_GROUP_IBFK_3;
@@ -91,9 +103,12 @@ public class Keys {
         public static Identity<SongRecord, Long> IDENTITY_T_SONG = Internal.createIdentity(TSong.T_SONG, TSong.T_SONG.SONGID);
         public static Identity<TermRecord, Long> IDENTITY_T_TERM = Internal.createIdentity(TTerm.T_TERM, TTerm.T_TERM.TERMID);
         public static Identity<TermGroupRecord, Long> IDENTITY_T_TERM_GROUP = Internal.createIdentity(TTermGroup.T_TERM_GROUP, TTermGroup.T_TERM_GROUP.GROUPID);
+        public static Identity<TermWeightTypeRecord, Integer> IDENTITY_T_TERM_WEIGHT_TYPE = Internal.createIdentity(TTermWeightType.T_TERM_WEIGHT_TYPE, TTermWeightType.T_TERM_WEIGHT_TYPE.TERMWEIGHTTYPEID);
+        public static Identity<VectorAlgorithmResultRecord, Long> IDENTITY_T_VECTOR_ALGORITHM_RESULT = Internal.createIdentity(TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.RESULTID);
     }
 
     private static class UniqueKeys0 {
+        public static final UniqueKey<ResultToSongRecord> KEY_RESULT_TO_SONG_SONGID = Internal.createUniqueKey(TResultToSong.T_RESULT_TO_SONG, "KEY_result_to_song_songId", TResultToSong.T_RESULT_TO_SONG.SONGID, TResultToSong.T_RESULT_TO_SONG.RESULTID);
         public static final UniqueKey<SongRecord> KEY_SONG_PRIMARY = Internal.createUniqueKey(TSong.T_SONG, "KEY_song_PRIMARY", TSong.T_SONG.SONGID);
         public static final UniqueKey<SongRecord> KEY_SONG_LYRICS = Internal.createUniqueKey(TSong.T_SONG, "KEY_song_lyrics", TSong.T_SONG.LYRICS);
         public static final UniqueKey<SongToAttributeRecord> KEY_SONG_TO_ATTRIBUTE_PRIMARY = Internal.createUniqueKey(TSongToAttribute.T_SONG_TO_ATTRIBUTE, "KEY_song_to_attribute_PRIMARY", TSongToAttribute.T_SONG_TO_ATTRIBUTE.SONGID, TSongToAttribute.T_SONG_TO_ATTRIBUTE.ATTRIBUTE);
@@ -106,14 +121,19 @@ public class Keys {
         public static final UniqueKey<TermWeightTypeRecord> KEY_TERM_WEIGHT_TYPE_ISTFIDF = Internal.createUniqueKey(TTermWeightType.T_TERM_WEIGHT_TYPE, "KEY_term_weight_type_isTFIDF", TTermWeightType.T_TERM_WEIGHT_TYPE.ISTFIDF, TTermWeightType.T_TERM_WEIGHT_TYPE.TF, TTermWeightType.T_TERM_WEIGHT_TYPE.IDF, TTermWeightType.T_TERM_WEIGHT_TYPE.NONTFIDFTERMWEIGHT);
         public static final UniqueKey<VectorAlgorithmConfigurationRecord> KEY_VECTOR_ALGORITHM_CONFIGURATION_PRIMARY = Internal.createUniqueKey(TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION, "KEY_vector_algorithm_configuration_PRIMARY", TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.CONFIGURATIONID);
         public static final UniqueKey<VectorAlgorithmConfigurationRecord> KEY_VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME = Internal.createUniqueKey(TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION, "KEY_vector_algorithm_configuration_termScheme", TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMSCHEME, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMDIMENSION, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMWEIGHTTYPE, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.VECTORINCLUSION, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMCOMPARISONALGORITHM, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TOLERANCE, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.VECTORCOMPARISONALGORITHM);
-        public static final UniqueKey<WeightedTermGroupRecord> KEY_WEIGHTED_TERM_GROUP_PRIMARY = Internal.createUniqueKey(TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, "KEY_weighted_term_group_PRIMARY", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.SONGID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID);
+        public static final UniqueKey<VectorAlgorithmResultRecord> KEY_VECTOR_ALGORITHM_RESULT_PRIMARY = Internal.createUniqueKey(TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, "KEY_vector_algorithm_result_PRIMARY", TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.RESULTID, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.SONGID, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.CONFIGURATIONID);
+        public static final UniqueKey<WeightedTermGroupRecord> KEY_WEIGHTED_TERM_GROUP_PRIMARY = Internal.createUniqueKey(TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, "KEY_weighted_term_group_PRIMARY", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.SONGID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID);
     }
 
     private static class ForeignKeys0 {
+        public static final ForeignKey<ResultToSongRecord, SongRecord> RESULT_TO_SONG_IBFK_1 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_SONG_PRIMARY, TResultToSong.T_RESULT_TO_SONG, "result_to_song_ibfk_1", TResultToSong.T_RESULT_TO_SONG.SONGID);
+        public static final ForeignKey<ResultToSongRecord, VectorAlgorithmResultRecord> RESULT_TO_SONG_IBFK_2 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_VECTOR_ALGORITHM_RESULT_PRIMARY, TResultToSong.T_RESULT_TO_SONG, "result_to_song_ibfk_2", TResultToSong.T_RESULT_TO_SONG.RESULTID);
         public static final ForeignKey<SongToAttributeRecord, SongRecord> SONG_TO_ATTRIBUTE_IBFK_1 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_SONG_PRIMARY, TSongToAttribute.T_SONG_TO_ATTRIBUTE, "song_to_attribute_ibfk_1", TSongToAttribute.T_SONG_TO_ATTRIBUTE.SONGID);
         public static final ForeignKey<TermGroupToTermRecord, TermGroupRecord> TERM_GROUP_TO_TERM_IBFK_1 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_TERM_GROUP_PRIMARY, TTermGroupToTerm.T_TERM_GROUP_TO_TERM, "term_group_to_term_ibfk_1", TTermGroupToTerm.T_TERM_GROUP_TO_TERM.GROUPID);
         public static final ForeignKey<TermGroupToTermRecord, TermRecord> TERM_GROUP_TO_TERM_IBFK_2 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_TERM_PRIMARY, TTermGroupToTerm.T_TERM_GROUP_TO_TERM, "term_group_to_term_ibfk_2", TTermGroupToTerm.T_TERM_GROUP_TO_TERM.TERMID);
         public static final ForeignKey<TermTokenizedRecord, TermRecord> TERM_TOKENIZED_IBFK_1 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_TERM_PRIMARY, TTermTokenized.T_TERM_TOKENIZED, "term_tokenized_ibfk_1", TTermTokenized.T_TERM_TOKENIZED.TERMID);
+        public static final ForeignKey<VectorAlgorithmResultRecord, SongRecord> VECTOR_ALGORITHM_RESULT_IBFK_1 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_SONG_PRIMARY, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, "vector_algorithm_result_ibfk_1", TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.SONGID);
+        public static final ForeignKey<VectorAlgorithmResultRecord, VectorAlgorithmConfigurationRecord> VECTOR_ALGORITHM_RESULT_IBFK_2 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_VECTOR_ALGORITHM_CONFIGURATION_PRIMARY, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, "vector_algorithm_result_ibfk_2", TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.CONFIGURATIONID);
         public static final ForeignKey<WeightedTermGroupRecord, SongRecord> WEIGHTED_TERM_GROUP_IBFK_1 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_SONG_PRIMARY, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, "weighted_term_group_ibfk_1", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.SONGID);
         public static final ForeignKey<WeightedTermGroupRecord, TermGroupRecord> WEIGHTED_TERM_GROUP_IBFK_2 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_TERM_GROUP_PRIMARY, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, "weighted_term_group_ibfk_2", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID);
         public static final ForeignKey<WeightedTermGroupRecord, TermWeightTypeRecord> WEIGHTED_TERM_GROUP_IBFK_3 = Internal.createForeignKey(sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.Keys.KEY_TERM_WEIGHT_TYPE_PRIMARY, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, "weighted_term_group_ibfk_3", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID);

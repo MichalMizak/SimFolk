@@ -10,6 +10,7 @@ import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
 
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TResultToSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
@@ -18,6 +19,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
 
 
@@ -38,6 +40,8 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index RESULT_TO_SONG_RESULTID = Indexes0.RESULT_TO_SONG_RESULTID;
+    public static final Index RESULT_TO_SONG_SONGID = Indexes0.RESULT_TO_SONG_SONGID;
     public static final Index SONG_LYRICS = Indexes0.SONG_LYRICS;
     public static final Index SONG_PRIMARY = Indexes0.SONG_PRIMARY;
     public static final Index SONG_TO_ATTRIBUTE_PRIMARY = Indexes0.SONG_TO_ATTRIBUTE_PRIMARY;
@@ -51,6 +55,9 @@ public class Indexes {
     public static final Index TERM_WEIGHT_TYPE_PRIMARY = Indexes0.TERM_WEIGHT_TYPE_PRIMARY;
     public static final Index VECTOR_ALGORITHM_CONFIGURATION_PRIMARY = Indexes0.VECTOR_ALGORITHM_CONFIGURATION_PRIMARY;
     public static final Index VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME = Indexes0.VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME;
+    public static final Index VECTOR_ALGORITHM_RESULT_CONFIGURATIONID = Indexes0.VECTOR_ALGORITHM_RESULT_CONFIGURATIONID;
+    public static final Index VECTOR_ALGORITHM_RESULT_PRIMARY = Indexes0.VECTOR_ALGORITHM_RESULT_PRIMARY;
+    public static final Index VECTOR_ALGORITHM_RESULT_SONGID = Indexes0.VECTOR_ALGORITHM_RESULT_SONGID;
     public static final Index WEIGHTED_TERM_GROUP_GROUPID = Indexes0.WEIGHTED_TERM_GROUP_GROUPID;
     public static final Index WEIGHTED_TERM_GROUP_PRIMARY = Indexes0.WEIGHTED_TERM_GROUP_PRIMARY;
     public static final Index WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID = Indexes0.WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID;
@@ -60,6 +67,8 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index RESULT_TO_SONG_RESULTID = Internal.createIndex("resultId", TResultToSong.T_RESULT_TO_SONG, new OrderField[] { TResultToSong.T_RESULT_TO_SONG.RESULTID }, false);
+        public static Index RESULT_TO_SONG_SONGID = Internal.createIndex("songId", TResultToSong.T_RESULT_TO_SONG, new OrderField[] { TResultToSong.T_RESULT_TO_SONG.SONGID, TResultToSong.T_RESULT_TO_SONG.RESULTID }, true);
         public static Index SONG_LYRICS = Internal.createIndex("lyrics", TSong.T_SONG, new OrderField[] { TSong.T_SONG.LYRICS }, true);
         public static Index SONG_PRIMARY = Internal.createIndex("PRIMARY", TSong.T_SONG, new OrderField[] { TSong.T_SONG.SONGID }, true);
         public static Index SONG_TO_ATTRIBUTE_PRIMARY = Internal.createIndex("PRIMARY", TSongToAttribute.T_SONG_TO_ATTRIBUTE, new OrderField[] { TSongToAttribute.T_SONG_TO_ATTRIBUTE.SONGID, TSongToAttribute.T_SONG_TO_ATTRIBUTE.ATTRIBUTE }, true);
@@ -73,8 +82,11 @@ public class Indexes {
         public static Index TERM_WEIGHT_TYPE_PRIMARY = Internal.createIndex("PRIMARY", TTermWeightType.T_TERM_WEIGHT_TYPE, new OrderField[] { TTermWeightType.T_TERM_WEIGHT_TYPE.TERMWEIGHTTYPEID }, true);
         public static Index VECTOR_ALGORITHM_CONFIGURATION_PRIMARY = Internal.createIndex("PRIMARY", TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION, new OrderField[] { TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.CONFIGURATIONID }, true);
         public static Index VECTOR_ALGORITHM_CONFIGURATION_TERMSCHEME = Internal.createIndex("termScheme", TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION, new OrderField[] { TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMSCHEME, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMDIMENSION, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMWEIGHTTYPE, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.VECTORINCLUSION, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TERMCOMPARISONALGORITHM, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.TOLERANCE, TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION.VECTORCOMPARISONALGORITHM }, true);
+        public static Index VECTOR_ALGORITHM_RESULT_CONFIGURATIONID = Internal.createIndex("configurationId", TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, new OrderField[] { TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.CONFIGURATIONID }, false);
+        public static Index VECTOR_ALGORITHM_RESULT_PRIMARY = Internal.createIndex("PRIMARY", TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, new OrderField[] { TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.RESULTID, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.SONGID, TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.CONFIGURATIONID }, true);
+        public static Index VECTOR_ALGORITHM_RESULT_SONGID = Internal.createIndex("songId", TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT, new OrderField[] { TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT.SONGID }, false);
         public static Index WEIGHTED_TERM_GROUP_GROUPID = Internal.createIndex("groupId", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID }, false);
-        public static Index WEIGHTED_TERM_GROUP_PRIMARY = Internal.createIndex("PRIMARY", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.SONGID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID }, true);
+        public static Index WEIGHTED_TERM_GROUP_PRIMARY = Internal.createIndex("PRIMARY", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.SONGID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.GROUPID, TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID }, true);
         public static Index WEIGHTED_TERM_GROUP_TERMWEIGHTTYPEID = Internal.createIndex("termWeightTypeId", TWeightedTermGroup.T_WEIGHTED_TERM_GROUP, new OrderField[] { TWeightedTermGroup.T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID }, false);
     }
 }

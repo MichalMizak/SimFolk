@@ -1,0 +1,8 @@
+
+Ssquid:S1135"2Complete the task associated to this TODO comment.(‘±ºİøÿÿÿÿ8ÕºË€·,
+Fsquid:S00108")Either remove or fill this block of code.(ë´÷‰8ÕºË€·,
+s
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(÷ÖÇ+8ÕºË€·,
+ˆ squid:ForLoopCounterChangedCheck"XRefactor the code in order to not assign to this loop counter from within the loop body.(å—v8ÕºË€·,
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Õ÷Ü8ÕºË€·,
+€squid:S4165"dRemove this useless assignment; "result" already holds the assigned value along all execution paths.(à‚ÉÙ8ÕºË€·,

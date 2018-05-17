@@ -14,6 +14,7 @@ import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TResultToSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TSongToAttribute;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTerm;
@@ -22,6 +23,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermGroup
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermTokenized;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup;
 
 
@@ -38,12 +40,17 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedT
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Simfolk extends SchemaImpl {
 
-    private static final long serialVersionUID = 1762189948;
+    private static final long serialVersionUID = 82173036;
 
     /**
      * The reference instance of <code>simfolk</code>
      */
     public static final Simfolk SIMFOLK = new Simfolk();
+
+    /**
+     * The table <code>simfolk.result_to_song</code>.
+     */
+    public final TResultToSong T_RESULT_TO_SONG = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TResultToSong.T_RESULT_TO_SONG;
 
     /**
      * The table <code>simfolk.song</code>.
@@ -86,6 +93,11 @@ public class Simfolk extends SchemaImpl {
     public final TVectorAlgorithmConfiguration T_VECTOR_ALGORITHM_CONFIGURATION = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION;
 
     /**
+     * The table <code>simfolk.vector_algorithm_result</code>.
+     */
+    public final TVectorAlgorithmResult T_VECTOR_ALGORITHM_RESULT = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT;
+
+    /**
      * The table <code>simfolk.weighted_term_group</code>.
      */
     public final TWeightedTermGroup T_WEIGHTED_TERM_GROUP = sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
@@ -115,6 +127,7 @@ public class Simfolk extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+            TResultToSong.T_RESULT_TO_SONG,
             TSong.T_SONG,
             TSongToAttribute.T_SONG_TO_ATTRIBUTE,
             TTerm.T_TERM,
@@ -123,6 +136,7 @@ public class Simfolk extends SchemaImpl {
             TTermTokenized.T_TERM_TOKENIZED,
             TTermWeightType.T_TERM_WEIGHT_TYPE,
             TVectorAlgorithmConfiguration.T_VECTOR_ALGORITHM_CONFIGURATION,
+            TVectorAlgorithmResult.T_VECTOR_ALGORITHM_RESULT,
             TWeightedTermGroup.T_WEIGHTED_TERM_GROUP);
     }
 }

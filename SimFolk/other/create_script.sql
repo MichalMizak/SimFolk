@@ -87,7 +87,7 @@ CREATE TABLE `WEIGHTED_TERM_GROUP`
     groupId				BIGINT NOT NULL,
     termWeightTypeId	INT NOT NULL,
     weight				DOUBLE NOT NULL,
-    PRIMARY KEY (`songId`, `groupId`), 
+    PRIMARY KEY (`songId`, `groupId`, `termWeightTypeId`), 
     FOREIGN KEY (`songId`)
     REFERENCES SONG(`songId`)
     ON DELETE CASCADE,
@@ -116,6 +116,33 @@ CREATE TABLE `VECTOR_ALGORITHM_CONFIGURATION`
     `vectorComparisonAlgorithm`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `VECTOR_ALGORITHM_RESULT`
+(
+	resultId		BIGINT NOT NULL AUTO_INCREMENT,
+    songId			BIGINT NOT NULL,
+    configurationId	BIGINT NOT NULL,
+    PRIMARY KEY (`resultId`, `songId`, `configurationId`),
+    FOREIGN KEY (`songId`)
+    REFERENCES SONG(`songId`)
+    ON DELETE CASCADE,
+    FOREIGN KEY (`configurationId`)
+    REFERENCES VECTOR_ALGORITHM_CONFIGURATION(`configurationId`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `RESULT_TO_SONG`
+(
+	songId 		BIGINT NOT NULL,
+    resultId	BIGINT NOT NULL,
+    similarity	DOUBLE NOT NULL,	
+    UNIQUE (`songId`, `resultId`),
+    FOREIGN KEY (`songId`)
+    REFERENCES SONG(`songId`)
+    ON DELETE CASCADE,
+    FOREIGN KEY (`resultId`)
+    REFERENCES VECTOR_ALGORITHM_RESULT(`resultId`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 

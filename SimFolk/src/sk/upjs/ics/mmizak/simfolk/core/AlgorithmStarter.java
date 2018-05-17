@@ -1,13 +1,16 @@
 package sk.upjs.ics.mmizak.simfolk.core;
 
-import sk.upjs.ics.mmizak.simfolk.core.database.access.ServiceFactory;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.services.implementations.DummyVectorAlgorithmConfigurationService;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.services.interfaces.ISongService;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmComputer;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.VectorAlgorithmResult;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.factories.DaoFactory;
+import sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.ITermWeightTypeDao;
+import sk.upjs.ics.mmizak.simfolk.core.services.implementations.DummyVectorAlgorithmConfigurationService;
+import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
+import sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorAlgorithmComputer;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
 import sk.upjs.ics.mmizak.simfolk.parsing.Parser;
 
 import java.util.ArrayList;
@@ -23,8 +26,98 @@ import java.util.List;
 public class AlgorithmStarter {
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
+        compute();
+
+        // thesisOutput();
+
+    }
+
+    /**
+     * A utility method designated to output
+     */
+    private static void thesisOutput() {
+        DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator =
+                new DummyVectorAlgorithmConfigurationService();
+
+        VectorAlgorithmConfiguration vectorConfig =
+                dummyVectorConfigurationGenerator.generateRandomConfiguration();
+
+        ISongService songService = ServiceFactory.INSTANCE.getSongService();
+
+        Song song52 = songService.getById(52L);
+        Song song66 = songService.getById(66L);
+
+        System.out.println("fetched songs");
+
+        ITermWeightTypeDao termWeightTypeDao = DaoFactory.INSTANCE.getTermWeightTypeDao();
+
+        IWeightService termGroupService = ServiceFactory.INSTANCE.getWeightCalculator();
+        IToleranceCalculator toleranceCalculator = ServiceFactory.INSTANCE.getToleranceCalculator();
+
+        double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
+                vectorConfig.getTermComparisonAlgorithm());
+
+        WeightedVector song52Vector = termGroupService.getFittingWeightedTermVectorBySongId(song52.getId(), vectorConfig, tolerance);
+
+        System.out.println("got first fitting vector");
+        WeightedVector song66Vector = termGroupService.getFittingWeightedTermVectorBySongId(song66.getId(), vectorConfig, tolerance);
+
+        System.out.println("fetched vectors");
+
+        ITermVectorFormatter termVectorFormatter = ServiceFactory.INSTANCE.getTermVectorFormatter();
+        ITermComparator termComparator = ServiceFactory.INSTANCE.getTermComparator();
+
+
+        WeightedVectorPair weightedVectorPair1 = termVectorFormatter.formVectors(song52Vector, song66Vector,
+                vectorConfig.getTermComparisonAlgorithm(),
+                tolerance, termComparator, vectorConfig.getVectorInclusion());
+
+        System.out.println("formatted first vector");
+
+        WeightedVectorPair weightedVectorPair2 = termVectorFormatter.formVectors(song66Vector, song52Vector,
+                vectorConfig.getTermComparisonAlgorithm(),
+                tolerance, termComparator, vectorConfig.getVectorInclusion());
+
+        System.out.println(song52Vector.getVector().size());
+        int rowsPerPage = Math.min(Math.min(song52Vector.getVector().size(), 28), song66Vector.getVector().size());
+        for (int i = 0; i < rowsPerPage; i++) {
+            System.out.println(song52Vector.pairAtIndexToString(i) + "\\\\ \\hline");
+        }
+        System.out.println("brejk");
+        for (int i = 0; i < rowsPerPage; i++) {
+            System.out.println(song66Vector.pairAtIndexToString(i) + "\\\\ \\hline");
+        }
+
+
+        // System.out.println(song52Vector);
+        // System.out.println(song66Vector);
+
+        rowsPerPage = Math.min(Math.min(weightedVectorPair1.getA().getVector().size(), 28), weightedVectorPair2.getA().getVector().size());
+
+
+        for (int i = 0; i < rowsPerPage; i++) {
+            System.out.print(weightedVectorPair1.getA().pairAtIndexToString(i) + " & ");
+            System.out.println(weightedVectorPair1.getB().pairAtIndexToString(i) + "\\\\ \\hline");
+        }
+        System.out.println("brejk");
+        for (int i = 0; i < rowsPerPage; i++) {
+        }
+
+        for (int i = 0; i < rowsPerPage; i++) {
+            System.out.print(weightedVectorPair2.getA().pairAtIndexToString(i) + " & ");
+            System.out.println(weightedVectorPair2.getB().pairAtIndexToString(i) + "\\\\ \\hline");
+        }
+
+        IVectorComparator vectorComparator = ServiceFactory.INSTANCE.getVectorComparator();
+
+        System.out.println("Pair 1 similarity: " + vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(), weightedVectorPair1));
+        System.out.println("Pair 2 similarity: " + vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(), weightedVectorPair2));
+
+    }
+
+    private static void compute() {
         DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator =
                 new DummyVectorAlgorithmConfigurationService();
 
@@ -32,7 +125,7 @@ public class AlgorithmStarter {
                 dummyVectorConfigurationGenerator.generateRandomConfiguration();
         IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
 
-        /*Parser parser = new Parser();
+        Parser parser = new Parser();
         List<Song> viktor = parser.parseViktor();
 
         Song modifiedSong = new Song();
@@ -40,23 +133,20 @@ public class AlgorithmStarter {
         ISongService songService = ServiceFactory.INSTANCE.getSongService();
 
         saveSongs(viktor, modifiedSong, songService);
-*/
 
-        ISongService songService = ServiceFactory.INSTANCE.getSongService();
+        System.out.println("AlgorithmStarter.compute: Songs saved, Time: " + System.currentTimeMillis() / 1000 + " sec");
+
         List<Song> all = songService.getAll();
 
-       /* for (Song song : all) {
+  /*      for (Song song : all) {
             VectorAlgorithmResult result = algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, song);
             System.out.println(result.getSongToSimilarityPercentage());
-        }*/
-
-
+        }
+*/
         // TODO: For progress send an object to the algorithm computer
-        List<VectorAlgorithmResult> result = algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, all);
-
-
+        List<VectorAlgorithmResult> result =
+                algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, all);
         // TODO: Handle result
-
     }
 
     public static void saveSongs(List<Song> viktor, Song modifiedSong, ISongService songService) {
@@ -86,7 +176,10 @@ public class AlgorithmStarter {
         modifiedSong.setSource("sours");
 
         songService.saveOrEdit(modifiedSong);
-        songService.saveOrEdit(viktor);
+
+        for (int i = 0; i < 1; i++) {
+            songService.saveOrEdit(viktor.get(i));
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting;
 
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,23 @@ public class WeightedVector {
     public Long getSongId() {
         return songId;
     }
+
+    public String pairAtIndexToString(int index) {
+        WeightedTermGroup weightedTermGroup = vector.get(index);
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\\utrzok{");
+        sb.append(weightedTermGroup.getTerms().get(0).getLyricsFragment());
+
+        for (int i = 1; i < weightedTermGroup.getTerms().size(); i++) {
+            Term term = weightedTermGroup.getTerms().get(i);
+            sb.append(", " + term.getLyricsFragment());
+        }
+
+        sb.append("}");
+        return sb.toString() + " & " + Math.round(vector.get(index).getTermWeight() * 100) / 100.0;
+    }
+
 
     @Override
     public String toString() {

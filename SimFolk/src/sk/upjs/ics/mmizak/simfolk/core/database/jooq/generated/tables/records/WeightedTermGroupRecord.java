@@ -7,7 +7,7 @@ package sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.records;
 import javax.annotation.Generated;
 
 import org.jooq.Field;
-import org.jooq.Record2;
+import org.jooq.Record3;
 import org.jooq.Record4;
 import org.jooq.Row4;
 import org.jooq.impl.UpdatableRecordImpl;
@@ -28,7 +28,7 @@ import sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedT
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class WeightedTermGroupRecord extends UpdatableRecordImpl<WeightedTermGroupRecord> implements Record4<Long, Long, Integer, Double> {
 
-    private static final long serialVersionUID = 89799008;
+    private static final long serialVersionUID = -1508606419;
 
     /**
      * Setter for <code>simfolk.weighted_term_group.songId</code>.
@@ -94,8 +94,8 @@ public class WeightedTermGroupRecord extends UpdatableRecordImpl<WeightedTermGro
      * {@inheritDoc}
      */
     @Override
-    public Record2<Long, Long> key() {
-        return (Record2) super.key();
+    public Record3<Long, Long, Integer> key() {
+        return (Record3) super.key();
     }
 
     // -------------------------------------------------------------------------

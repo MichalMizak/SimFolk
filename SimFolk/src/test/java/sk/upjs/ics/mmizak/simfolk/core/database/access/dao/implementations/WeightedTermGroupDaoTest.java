@@ -4,9 +4,9 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.junit.jupiter.api.*;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.implementations.*;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.ITermWeightTypeDao;
-import sk.upjs.ics.mmizak.simfolk.core.database.access.dao.interfaces.IWeightedTermGroupDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.implementations.*;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.ITermWeightTypeDao;
+import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.IWeightedTermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class WeightedTermGroupDaoTest {

@@ -1,6 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 

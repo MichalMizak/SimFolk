@@ -1,11 +1,11 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.TF;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TF;
 
 import java.util.NoSuchElementException;
 
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.IDF;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.AlgorithmConfiguration.NonTFIDFTermWeightType;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.IDF;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.NonTFIDFTermWeightType;
 
 public class TermWeightType {
 
