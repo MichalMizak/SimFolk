@@ -1,45 +1,39 @@
 
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(¼í·ûÿÿÿÿ8ÔºË€·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ˆİˆ­úÿÿÿÿ8ÔºË€·,
-Lsquid:S1481"+Remove this unused "result" local variable.(ı¿„øÿÿÿÿ8ÔºË€·,
-`squid:UnusedPrivateMethod"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8ƒÕ›·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(éğŠÊûÿÿÿÿ8¾™Ş€·,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(˜ù¼8ÔºË€·,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÿ‡û’8ÔºË€·,
-nsquid:S1192"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8ÔºË€·,
-Nsquid:S1135"2Complete the task associated to this TODO comment.(ÆÇÊ¥8ÔºË€·,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(üÚÛˆ8ÔºË€·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ó‹¹ışÿÿÿÿ8ÔºË€·,
-asquid:S1854"ERemove this useless assignment to local variable "termWeightTypeDao".(õ…§‚8ÔºË€·,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(½Ó£Ì8ÔºË€·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(¨­Î–üÿÿÿÿ8ÔºË€·,
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã¿¸8ƒÕ›·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(Áøİøúÿÿÿÿ8ÔºË€·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ù¿õŞúÿÿÿÿ8¾™Ş€·,
-Fsquid:S00108")Either remove or fill this block of code.(ÏáÖÓ8ÔºË€·,
-Rsquid:S1481"6Remove this unused "termWeightTypeDao" local variable.(õ…§‚8ÔºË€·,
-S
-squid:S106"9Replace this use of System.out or System.err by a logger.(¥™éU8ÔºË€·,
-[squid:S1854":Remove this useless assignment to local variable "result".(ı¿„øÿÿÿÿ8ÔºË€·,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ô«Ûô8ÔºË€·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8ÔºË€·,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8ÔºË€·,
-Msquid:S1135"2Complete the task associated to this TODO comment.(ÌÇëv8ÔºË€·,
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³ ¼áúÿÿÿÿ8ÔºË€·,
-S
-squid:S106"9Replace this use of System.out or System.err by a logger.(¹™ã8ÔºË€·,
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—îÄ¢8ÔºË€·,
+\
+squid:S106×"9Replace this use of System.out or System.err by a logger.(ó‹¹ışÿÿÿÿ8ù›ãÃ·,
+\
+squid:S106É"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8Ä›€Ä·,
+W
+squid:S106´"9Replace this use of System.out or System.err by a logger.(Ô«Ûô8Ä›€Ä·,
+W
+squid:S106¢"9Replace this use of System.out or System.err by a logger.(½Ó£Ì8Ä›€Ä·,
+Ÿsquid:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Š¢è™8Ä›€Ä·,
+\
+squid:S106Ş"9Replace this use of System.out or System.err by a logger.(éğŠÊûÿÿÿÿ8Ä›€Ä·,
+\
+squid:S106±"9Replace this use of System.out or System.err by a logger.(¨­Î–üÿÿÿÿ8Ä›€Ä·,
+\
+squid:S106İ"9Replace this use of System.out or System.err by a logger.(ù¿õŞúÿÿÿÿ8ù›ãÃ·,
+V
+squid:S106Ø"9Replace this use of System.out or System.err by a logger.(¹™ã8Ä›€Ä·,
+W
+squid:S106Ä"9Replace this use of System.out or System.err by a logger.(ÿ‡û’8Ä›€Ä·,
+`squid:UnusedPrivateMethod@"4Remove this unused private "runQuickVersion" method.(Š¢è™8Ä›€Ä·,
+W
+squid:S106¾"9Replace this use of System.out or System.err by a logger.(üÚÛˆ8Ä›€Ä·,
+qsquid:S1192Ç"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8Ä›€Ä·,
+\
+squid:S106Ç"9Replace this use of System.out or System.err by a logger.(Áøİøúÿÿÿÿ8Ä›€Ä·,
+Osquid:S1135="2Complete the task associated to this TODO comment.(ÌÇëv8Ä›€Ä·,
+Psquid:S11356"2Complete the task associated to this TODO comment.(ÆÇÊ¥8Ù‰üÂ·,
+\
+squid:S106Ó"9Replace this use of System.out or System.err by a logger.(ˆİˆ­úÿÿÿÿ8Ä›€Ä·,
+csquid:UnusedPrivateMethod–"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8Ä›€Ä·,
+hsquid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(Ã¿¸8Ù‰üÂ·,
+esquid:S1854p"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8Ä›€Ä·,
+csquid:S1854Î"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8Ä›€Ä·,
+\
+squid:S106Ò"9Replace this use of System.out or System.err by a logger.(¼í·ûÿÿÿÿ8ù›ãÃ·,
+V
+squid:S106Ë"9Replace this use of System.out or System.err by a logger.(¥™éU8Ä›€Ä·,
+jsquid:CommentedOutCodeLine¤"<This block of commented-out lines of code should be removed.(Ç¨Ê»8Ä›€Ä·,

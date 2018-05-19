@@ -38,7 +38,7 @@ public interface ITermGroupService {
 
     Map<Long, List<TermGroup>> saveOrEdit(Map<Long, List<TermGroup>> initializedTermGroups);
 
-    List<WeightedTermGroup> saveOrEditWeightedTermGroups(List<WeightedTermGroup> termGroups);
+    List<WeightedTermGroup> saveOrEditTermGroupsFromWeightedTermGroups(List<WeightedTermGroup> termGroups);
 
     List<TermGroup> saveOrEdit(List<TermGroup> termGroups);
 

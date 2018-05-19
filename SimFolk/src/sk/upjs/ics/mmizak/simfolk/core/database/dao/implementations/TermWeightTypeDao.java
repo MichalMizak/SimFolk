@@ -7,7 +7,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeigh
 
 import java.util.List;
 
-import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType.*;
+import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TTermWeightType.T_TERM_WEIGHT_TYPE;
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 public class TermWeightTypeDao implements ITermWeightTypeDao {
@@ -30,6 +30,7 @@ public class TermWeightTypeDao implements ITermWeightTypeDao {
 
     @Override
     public TermWeightType saveOrEdit(TermWeightType termWeightType) {
+
         if (termWeightType.getId() == null) {
 
             TermWeightTypeRecord typeRecord = create
@@ -64,6 +65,23 @@ public class TermWeightTypeDao implements ITermWeightTypeDao {
     @Override
     public void delete(TermWeightType termWeightType) {
         create.deleteFrom(T_TERM_WEIGHT_TYPE).where(T_TERM_WEIGHT_TYPE.TERMWEIGHTTYPEID.eq(termWeightType.getId()));
+    }
+
+    /**
+     * Watch out, tightly coupled with unique table values, but doesn't use getUnique because of performance
+     * @param termWeightType
+     * @return
+     */
+    @Override
+    public TermWeightType syncId(TermWeightType termWeightType) {
+        Integer id = create.selectOne().from(T_TERM_WEIGHT_TYPE)
+                .where(T_TERM_WEIGHT_TYPE.ISTFIDF.eq(termWeightType.isTFIDF()))
+                .and(T_TERM_WEIGHT_TYPE.TF.eq(termWeightType.getTf().toString()))
+                .and(T_TERM_WEIGHT_TYPE.IDF.eq(termWeightType.getIdf().toString()))
+                .and(T_TERM_WEIGHT_TYPE.NONTFIDFTERMWEIGHT.eq(termWeightType.getNonTFIDFTermWeight().toString()))
+                .fetchOne(T_TERM_WEIGHT_TYPE.TERMWEIGHTTYPEID);
+        termWeightType.setId(id);
+        return termWeightType;
     }
 
     @Override

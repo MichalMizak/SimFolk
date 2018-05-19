@@ -23,6 +23,7 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
  */
 public class VectorAlgorithmComputer implements IAlgorithmComputer {
 
+
     @Override
     public VectorAlgorithmResult computeSimilarity(VectorAlgorithmConfiguration vectorConfig, Song song) {
 
@@ -75,6 +76,12 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
                     termComparisonAlgorithm,
                     tolerance, termComparator,
                     vectorConfig.getVectorInclusion());
+
+            /*if (vectorB.getSongId() == 1 || vectorB.getSongId() == 2) {
+                System.out.println("VectorAlgorithmComputer.computeSimilarity");
+                System.out.println(vectorPair.getA());
+                System.out.println(vectorPair.getB());
+            }*/
 
             double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
                     vectorPair);
@@ -178,12 +185,14 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
 
             songToTerms.put(song, terms);
 
-            System.out.println("VectorAlgorithmComputer.saveSongs Song " + song.getId() + " built into terms, Time: " + System.currentTimeMillis()/1000 + " sec");
+            System.out.println("VectorAlgorithmComputer.saveSongs Song " + song.getId() + " built into terms, Time: " + System.currentTimeMillis() / 1000 + " sec");
 
             // save and merge groups for the first time
             termGroupService.syncInitAndSaveTermGroups(terms, vectorConfig, tolerance);
-            System.out.println("VectorAlgorithmComputer.saveSongs Term groups built, Time: "  + System.currentTimeMillis()/1000 + " sec");
+            System.out.println("VectorAlgorithmComputer.saveSongs Term groups built, Time: " + System.currentTimeMillis() / 1000 + " sec");
         }
+
+        TermWeightType frequencyWeight = TermWeightType.getFrequencyWeight();
 
         // init NAIVE weights and other weights
         songToTerms.forEach((song, terms) -> {
@@ -192,21 +201,21 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
                     termGroupService.syncInitAndSaveTermGroups(terms, vectorConfig, tolerance);
 
             frequencyWeightedGroups.forEach(wtg -> {
-                wtg.setTermWeightType(TermWeightType.getFrequencyWeight());
+                wtg.setTermWeightType(frequencyWeight);
                 wtg.setSongId(song.getId());
             });
 
             weightCalculator.saveOrEditExcludingTermGroup(new WeightedVector(song.getId(), frequencyWeightedGroups));
 
             System.out.println("VectorAlgorithmComputer.saveSongs Saved naive weights for Song "
-                    + song.getId() + ", Time: "  + System.currentTimeMillis()/1000 + " sec");
+                    + song.getId() + ", Time: " + System.currentTimeMillis() / 1000 + " sec");
 
             WeightedVector weightedVector = weightCalculator.calculateNewWeightedVector(
                     song.getId(), frequencyWeightedGroups, vectorConfig);
             weightCalculator.saveOrEditExcludingTermGroup(weightedVector);
 
             System.out.println("VectorAlgorithmComputer.saveSongs Saved nontrivial weights for Song "
-                    + song.getId() + ", Time: "  + System.currentTimeMillis()/1000 + " sec");
+                    + song.getId() + ", Time: " + System.currentTimeMillis() / 1000 + " sec");
         });
 
         return savedSongs;

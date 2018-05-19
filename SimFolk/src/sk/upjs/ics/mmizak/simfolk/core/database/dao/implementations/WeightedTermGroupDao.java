@@ -1,6 +1,8 @@
 package sk.upjs.ics.mmizak.simfolk.core.database.dao.implementations;
 
+import org.jooq.Condition;
 import org.jooq.DSLContext;
+import org.jooq.Record1;
 import org.jooq.Record2;
 import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.ITermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.ITermWeightTypeDao;
@@ -15,6 +17,7 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedT
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.jooq.impl.DSL.exists;
 import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
 
@@ -41,6 +44,15 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
 
         return syncWeightWithTermGroup(groupId, songId, termGroup);
     }
+
+    private boolean existsUnique(Long songId, Long groupId, TermWeightType termWeightType) {
+
+        return create.fetchExists(create.selectOne().from(T_WEIGHTED_TERM_GROUP)
+                .where(T_WEIGHTED_TERM_GROUP.SONGID.eq(songId))
+                .and(T_WEIGHTED_TERM_GROUP.GROUPID.eq(groupId))
+                .and(T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID.eq(termWeightType.getId())));
+    }
+
 
     /**
      * All weighted term groups, unsorted.
@@ -95,11 +107,11 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
      */
     @Override
     public WeightedTermGroup saveOrEditExcludingTermGroup(WeightedTermGroup wtg) {
-        if (getByIds(wtg.getGroupId(), wtg.getSongId()) == null) {
+        if (wtg.getTermWeightType().getId() == null) {
+            wtg.setTermWeightType(termWeightTypeDao.saveOrEdit(wtg.getTermWeightType()));
+        }
 
-            if (wtg.getTermWeightType().getId() == null) {
-                wtg.setTermWeightType(termWeightTypeDao.saveOrEdit(wtg.getTermWeightType()));
-            }
+        if (!existsUnique(wtg.getSongId(), wtg.getGroupId(), wtg.getTermWeightType())) {
 
             create.insertInto(T_WEIGHTED_TERM_GROUP)
                     .columns(T_WEIGHTED_TERM_GROUP.GROUPID, T_WEIGHTED_TERM_GROUP.SONGID,
@@ -108,15 +120,12 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
                             wtg.getTermWeightType().getId(), wtg.getTermWeight())
                     .execute();
         } else {
-            if (wtg.getTermWeightType().getId() == null) {
-                wtg.setTermWeightType(termWeightTypeDao.saveOrEdit(wtg.getTermWeightType()));
-            }
 
             create.update(T_WEIGHTED_TERM_GROUP)
-                    .set(T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID, wtg.getTermWeightType().getId())
                     .set(T_WEIGHTED_TERM_GROUP.WEIGHT, wtg.getTermWeight())
                     .where(T_WEIGHTED_TERM_GROUP.GROUPID.eq(wtg.getGroupId()))
                     .and(T_WEIGHTED_TERM_GROUP.SONGID.eq(wtg.getSongId()))
+                    .and(T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID.eq(wtg.getTermWeightType().getId()))
                     .execute();
         }
 

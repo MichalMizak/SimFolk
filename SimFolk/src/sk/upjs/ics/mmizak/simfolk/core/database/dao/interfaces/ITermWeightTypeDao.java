@@ -15,6 +15,8 @@ public interface ITermWeightTypeDao {
 
     void delete(TermWeightType song);
 
+    TermWeightType syncId(TermWeightType termWeightType);
+
     TermWeightType getUnique(boolean isTFIDF, AlgorithmConfiguration.TF tf, AlgorithmConfiguration.IDF idf,
                              AlgorithmConfiguration.NonTFIDFTermWeightType nonTFIDFTermWeightType);
 }

@@ -11,7 +11,7 @@ public interface IAlgorithmComputer {
 
     /**
      * Quickly runs the algorithm on one song without affecting the database.
-     * Note that without the reset, the weights are not 100% precise.
+     * Note that without saving, the weights are not 100% precise.
      *
      * @param vectorConfig
      * @param song

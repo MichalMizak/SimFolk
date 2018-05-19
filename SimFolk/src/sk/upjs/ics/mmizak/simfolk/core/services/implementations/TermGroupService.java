@@ -27,19 +27,7 @@ public class TermGroupService implements ITermGroupService {
     public List<WeightedTermGroup> syncInitAndSaveTermGroups(List<Term> terms, VectorAlgorithmConfiguration vectorConfiguration, double tolerance) {
         List<WeightedTermGroup> result = syncAndInitTermGroups(terms, vectorConfiguration, tolerance);
 
-        result = initIncidenceCount(result);
-
-        result = saveOrEditWeightedTermGroups(result);
-
-        return result;
-    }
-
-    private List<WeightedTermGroup> initIncidenceCount(List<WeightedTermGroup> result) {
-        for (WeightedTermGroup weightedTermGroup : result) {
-            weightedTermGroup.setDatabaseIncidenceCount(
-                    weightedTermGroup.getDatabaseIncidenceCount() +
-                            weightedTermGroup.getTermWeight().intValue());
-        }
+        result = saveOrEditTermGroupsFromWeightedTermGroups(result);
 
         return result;
     }
@@ -58,11 +46,11 @@ public class TermGroupService implements ITermGroupService {
             }
         }
 
+        List<WeightedTermGroup> result = new ArrayList<>();
+
+        // TODO: This doesn't merge groups with same ids.
         if (!foundNull) {
-            List<WeightedTermGroup> result = new ArrayList<>();
-
             syncedTermGroups.stream().map(WeightedTermGroup::new).forEach(result::add);
-
             return result;
         }
 
@@ -71,12 +59,30 @@ public class TermGroupService implements ITermGroupService {
 
         switch (vectorConfiguration.getTermGroupMergingStrategy()) {
             case MERGE_ALL:
-                return mergeAll(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
+                result = mergeAll(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
+                break;
             case MERGE_ANY:
-                return mergeAny(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
+                result =  mergeAny(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
+                break;
             default:
                 throw new UnsupportedOperationException();
         }
+
+        // TODO: This doesn't take into account if we are considering the same song
+        // Meaning that if the song is already in the database, the incidence count is higher
+        // than it should be by the number of times it is in the song.
+        result = initIncidenceCount(result);
+        return result;
+    }
+
+    private List<WeightedTermGroup> initIncidenceCount(List<WeightedTermGroup> result) {
+        for (WeightedTermGroup weightedTermGroup : result) {
+            weightedTermGroup.setDatabaseIncidenceCount(
+                    weightedTermGroup.getDatabaseIncidenceCount() +
+                            weightedTermGroup.getTermWeight().intValue());
+        }
+
+        return result;
     }
 
     /**
@@ -271,7 +277,7 @@ public class TermGroupService implements ITermGroupService {
     }
 
     @Override
-    public List<WeightedTermGroup> saveOrEditWeightedTermGroups(List<WeightedTermGroup> termGroups) {
+    public List<WeightedTermGroup> saveOrEditTermGroupsFromWeightedTermGroups(List<WeightedTermGroup> termGroups) {
         List<WeightedTermGroup> result = new ArrayList<>();
 
         for (WeightedTermGroup termGroup : termGroups) {

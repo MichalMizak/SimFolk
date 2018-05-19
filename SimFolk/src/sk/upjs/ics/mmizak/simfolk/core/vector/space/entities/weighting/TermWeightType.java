@@ -69,7 +69,19 @@ public class TermWeightType {
     }
 
     public static TermWeightType getFrequencyWeight() {
-        return new TermWeightType(null, TF.TF_NAIVE, IDF.NONE);
+        return new TermWeightType(1, TF.TF_NAIVE, IDF.NONE);
     }
+
+    @Override
+    public String toString() {
+        return "TermWeightType{" +
+                "isTFIDF=" + isTFIDF +
+                ", tf=" + tf +
+                ", idf=" + idf +
+                ", nonTFIDFTermWeightType=" + nonTFIDFTermWeightType +
+                ", id=" + id +
+                '}';
+    }
+
     //</editor-fold>
 }
