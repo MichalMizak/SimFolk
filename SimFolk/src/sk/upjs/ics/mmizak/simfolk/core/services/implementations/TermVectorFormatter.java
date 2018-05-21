@@ -1,6 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.implementations;
 
-import sk.upjs.ics.mmizak.simfolk.core.utilities.WeightedTermGroupIdComparator;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.TermGroupIdComparator;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermVectorFormatter;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
@@ -361,7 +361,7 @@ public class TermVectorFormatter implements ITermVectorFormatter {
     }
 
     private void sortByGroupId(WeightedVector vector) {
-        vector.getVector().sort(new WeightedTermGroupIdComparator());
+        vector.getVector().sort(new TermGroupIdComparator());
     }
 
 

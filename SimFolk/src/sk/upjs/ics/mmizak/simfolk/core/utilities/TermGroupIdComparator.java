@@ -1,5 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.utilities;
 
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 
 import java.util.Comparator;
@@ -11,10 +12,10 @@ import java.util.Comparator;
  *       then A = [1, 3, 4, null, null]
  *       is the result of using Collections.sort()
  */
-public class WeightedTermGroupIdComparator implements Comparator<WeightedTermGroup> {
+public class TermGroupIdComparator implements Comparator<TermGroup> {
 
     @Override
-    public int compare(WeightedTermGroup o1, WeightedTermGroup o2) {
+    public int compare(TermGroup o1, TermGroup o2) {
 
         if (o1.getGroupId() != null && o2.getGroupId() == null) {
             return -1;

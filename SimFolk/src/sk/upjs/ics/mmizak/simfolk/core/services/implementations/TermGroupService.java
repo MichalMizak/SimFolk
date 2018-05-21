@@ -3,6 +3,7 @@ package sk.upjs.ics.mmizak.simfolk.core.services.implementations;
 import sk.upjs.ics.mmizak.simfolk.core.database.dao.interfaces.ITermGroupDao;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermComparator;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermGroupService;
+import sk.upjs.ics.mmizak.simfolk.core.utilities.TermGroupIdComparator;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
@@ -48,9 +49,30 @@ public class TermGroupService implements ITermGroupService {
 
         List<WeightedTermGroup> result = new ArrayList<>();
 
-        // TODO: This doesn't merge groups with same ids.
         if (!foundNull) {
-            syncedTermGroups.stream().map(WeightedTermGroup::new).forEach(result::add);
+            WeightedTermGroup previousTermGroup = null;
+
+            if (!syncedTermGroups.isEmpty())
+                previousTermGroup = new WeightedTermGroup(syncedTermGroups.get(0));
+
+            // sort by ID
+            syncedTermGroups.sort(new TermGroupIdComparator());
+
+            // if it is empty the for cycle won't run and we'll return empty result
+            for (int i = 1; i < syncedTermGroups.size(); i++) {
+                TermGroup syncedTermGroup = syncedTermGroups.get(i);
+
+                if (previousTermGroup.getGroupId().equals(syncedTermGroup.getGroupId())) {
+                    previousTermGroup.setTermWeight(previousTermGroup.getTermWeight() + 1D);
+                } else {
+                    result.add(previousTermGroup);
+                    previousTermGroup = new WeightedTermGroup(syncedTermGroup);
+                }
+            }
+
+            result.add(previousTermGroup);
+            result = initIncidenceCount(result);
+
             return result;
         }
 
@@ -62,7 +84,7 @@ public class TermGroupService implements ITermGroupService {
                 result = mergeAll(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
                 break;
             case MERGE_ANY:
-                result =  mergeAny(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
+                result = mergeAny(syncedTermGroups, allTermGroups, vectorConfiguration, tolerance);
                 break;
             default:
                 throw new UnsupportedOperationException();

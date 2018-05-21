@@ -45,3 +45,5 @@ Nsrc/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermGroupService.java
 Msrc/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermBuilder.java,b\4\b4cc09cea38643e3547f95e07e1b9c275f318edb
 }
 Msrc/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermService.java,c\2\c22d7a76091a8400e76c7866eaae85337d5e218c
+x
+Hsrc/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java,a\8\a812398f498b064de235487650c86fcfe8e815fb

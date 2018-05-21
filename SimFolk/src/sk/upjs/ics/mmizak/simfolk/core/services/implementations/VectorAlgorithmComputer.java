@@ -77,12 +77,6 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
                     tolerance, termComparator,
                     vectorConfig.getVectorInclusion());
 
-            /*if (vectorB.getSongId() == 1 || vectorB.getSongId() == 2) {
-                System.out.println("VectorAlgorithmComputer.computeSimilarity");
-                System.out.println(vectorPair.getA());
-                System.out.println(vectorPair.getB());
-            }*/
-
             double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
                     vectorPair);
 

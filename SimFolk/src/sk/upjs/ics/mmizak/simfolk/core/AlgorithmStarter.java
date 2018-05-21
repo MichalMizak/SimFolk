@@ -17,20 +17,27 @@ import java.util.List;
 
 /**
  * Basic starter of algorithm without UI.
- * Starter generates/ chooses the algorithm configurations, gets songs from somewhere
+ * Starter generates/ chooses the algorithm configurations, gets songs to be compared
  * (for now directly from code) and runs the algorithm with or without saving.
  * Starter also handles the VectorAlgorithmResult.
  */
 public class AlgorithmStarter {
 
     /**
-     * Configure count of songs to be compared.
-     * In order to input songs you need to modify the method getSongs.
+     * In order to change the algorithm configuration,
+     * go to .core.services.implementations.DummyVectorAlgorithmConfigurationService
+     * and change values in the builder in the method generateRandomConfiguration()
      */
-    public static final int SONGS_TO_COMPARE_COUNT = 2;
 
     /**
-     * Configure whether to save songs or not
+     * Configure the number of songs to be compared.
+     * In order to input your own songs you need to modify the method getSongs to return your desired song.
+     */
+    public static final int SONGS_TO_COMPARE_COUNT = 4;
+
+    /**
+     * Configure whether to save songs or not. Note the algorithm isn't 100% precise with this set to false .
+     * for performance reasons.
      */
     public static final boolean SAVE_SONGS = false;
 
@@ -60,11 +67,6 @@ public class AlgorithmStarter {
 
         // TODO: Handle result
     }
-
-    private static void runQuickVersion() {
-
-    }
-
 
     public static void getAndSaveSongs(ISongService songService) {
         List<Song> songs = getSongs();
@@ -160,11 +162,6 @@ public class AlgorithmStarter {
         Song song66 = songService.getById(66L);
 
         System.out.println("fetched songs");
-
-       /* ITermWeightTypeDao termWeightTypeDao = DaoFactory.INSTANCE.getTermWeightTypeDao();
-        TermWeightType frequencyWeight = TermWeightType.getFrequencyWeight();
-        frequencyWeight.setId(null);
-        termWeightTypeDao.saveOrEdit(frequencyWeight);*/
 
         IWeightService termGroupService = ServiceFactory.INSTANCE.getWeightCalculator();
         IToleranceCalculator toleranceCalculator = ServiceFactory.INSTANCE.getToleranceCalculator();
