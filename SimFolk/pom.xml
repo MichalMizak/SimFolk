@@ -91,6 +91,15 @@
             <version>5.1.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.audiveris/proxymusic -->
+        <dependency>
+            <groupId>org.audiveris</groupId>
+            <artifactId>proxymusic</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>

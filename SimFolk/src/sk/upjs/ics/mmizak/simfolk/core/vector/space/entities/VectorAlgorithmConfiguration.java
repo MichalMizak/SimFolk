@@ -4,7 +4,7 @@ import jdk.nashorn.internal.ir.annotations.Immutable;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
 @Immutable
-public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
+public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
 
     private Long id;
 
@@ -18,11 +18,6 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
      * LOG_TF, IDF, LOG_TF-IDF
      */
     private TermWeightType termWeightType;
-
-    /**
-     * NAIVE, LEVENSHTEIN_DISTANCE
-     */
-    private TermComparisonAlgorithm termComparisonAlgorithm;
     private Tolerance tolerance;
 
     private TermGroupMatchingStrategy termGroupMatchingStrategy;
@@ -38,22 +33,105 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
      */
     private VectorComparisonAlgorithm vectorComparisonAlgorithm;
 
+    /**
+     * NAIVE, LEVENSHTEIN_DISTANCE
+     */
+    private TermComparisonAlgorithm termComparisonAlgorithm;
 
+
+    private MusicStringFormat musicStringFormat;
+
+
+    /**
+     * Not to be used, use VectorAlgorithmConfigurationBuilder
+     * @param id
+     * @param termScheme
+     * @param termDimension
+     * @param termWeightType
+     * @param termComparisonAlgorithm
+     * @param termGroupMatchingStrategy
+     * @param termGroupMergingStrategy
+     * @param vectorInclusion
+     * @param vectorComparisonAlgorithm
+     * @param tolerance
+     * @param musicStringFormat
+     */
     public VectorAlgorithmConfiguration(Long id, TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
                                         TermComparisonAlgorithm termComparisonAlgorithm, TermGroupMatchingStrategy termGroupMatchingStrategy,
                                         TermGroupMergingStrategy termGroupMergingStrategy, VectorInclusion vectorInclusion, VectorComparisonAlgorithm vectorComparisonAlgorithm,
-                                        Tolerance tolerance) {
-        this.id = id;
+                                        Tolerance tolerance, MusicStringFormat musicStringFormat) {
         this.termScheme = termScheme;
         this.termDimension = termDimension;
-        this.termWeightType = termWeightType;
         this.termComparisonAlgorithm = termComparisonAlgorithm;
-        this.termGroupMatchingStrategy = termGroupMatchingStrategy;
-        this.termGroupMergingStrategy = termGroupMergingStrategy;
-        this.vectorComparisonAlgorithm = vectorComparisonAlgorithm;
-        this.vectorInclusion = vectorInclusion;
+        this.musicStringFormat = musicStringFormat;
+
+        setId(id);
+        setTermWeightType(termWeightType);
+        setTermGroupMatchingStrategy(termGroupMatchingStrategy);
+        setTermGroupMergingStrategy(termGroupMergingStrategy);
+        setVectorComparisonAlgorithm(vectorComparisonAlgorithm);
+        setVectorInclusion(vectorInclusion);
+        setTolerance(tolerance);
+
+    }
+
+    //<editor-fold desc="Getters and Setters">
+    public TermWeightType getTermWeightType() {
+        return termWeightType;
+    }
+
+    protected void setTermWeightType(TermWeightType termWeightType) {
+        this.termWeightType = termWeightType;
+    }
+
+    public Tolerance getTolerance() {
+        return tolerance;
+    }
+
+    protected void setTolerance(Tolerance tolerance) {
         this.tolerance = tolerance;
     }
+
+    public TermGroupMatchingStrategy getTermGroupMatchingStrategy() {
+        return termGroupMatchingStrategy;
+    }
+
+    protected void setTermGroupMatchingStrategy(TermGroupMatchingStrategy termGroupMatchingStrategy) {
+        this.termGroupMatchingStrategy = termGroupMatchingStrategy;
+    }
+
+    public TermGroupMergingStrategy getTermGroupMergingStrategy() {
+        return termGroupMergingStrategy;
+    }
+
+    protected void setTermGroupMergingStrategy(TermGroupMergingStrategy termGroupMergingStrategy) {
+        this.termGroupMergingStrategy = termGroupMergingStrategy;
+    }
+
+    public VectorInclusion getVectorInclusion() {
+        return vectorInclusion;
+    }
+
+    protected void setVectorInclusion(VectorInclusion vectorInclusion) {
+        this.vectorInclusion = vectorInclusion;
+    }
+
+    public VectorComparisonAlgorithm getVectorComparisonAlgorithm() {
+        return vectorComparisonAlgorithm;
+    }
+
+    public void setVectorComparisonAlgorithm(VectorComparisonAlgorithm vectorComparisonAlgorithm) {
+        this.vectorComparisonAlgorithm = vectorComparisonAlgorithm;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    protected void setId(Long id) {
+        this.id = id;
+    }
+    //</editor-fold>
 
     //<editor-fold desc="Getters and setters">
     public TermScheme getTermScheme() {
@@ -64,41 +142,14 @@ public class VectorAlgorithmConfiguration extends AlgorithmConfiguration {
         return termDimension;
     }
 
-    public TermWeightType getTermWeightType() {
-        return termWeightType;
-    }
-
-    public VectorComparisonAlgorithm getVectorComparisonAlgorithm() {
-        return vectorComparisonAlgorithm;
-    }
-
-    public VectorInclusion getVectorInclusion() {
-        return vectorInclusion;
-    }
-
-    public Tolerance getTolerance() {
-        return tolerance;
-    }
-
     public TermComparisonAlgorithm getTermComparisonAlgorithm() {
         return termComparisonAlgorithm;
     }
 
-    public Long getId() {
-        return id;
+    public MusicStringFormat getMusicStringFormat() {
+        return musicStringFormat;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public TermGroupMatchingStrategy getTermGroupMatchingStrategy() {
-        return termGroupMatchingStrategy;
-    }
-
-    public TermGroupMergingStrategy getTermGroupMergingStrategy() {
-        return termGroupMergingStrategy;
-    }
     //</editor-fold>
 
 

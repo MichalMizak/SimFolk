@@ -1,63 +1,66 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
-public class AlgorithmConfiguration {
+public interface AlgorithmConfiguration {
 
-    public enum AlgorithmType {
-        VECTOR
+
+    enum AlgorithmType {
+        STRING, MUSIC
     }
 
     //<editor-fold desc="Term weight type">
-    public enum NonTFIDFTermWeightType {
+    enum NonTFIDFTermWeightType {
         NONE
-
     }
 
-    public enum TF {
+    enum TF {
         TF_NAIVE, LOG_TF, IDF, NONE, AUGMENTED_TF
     }
 
-    public enum IDF {
+    enum IDF {
         NO, IDF, NONE, PROB_IDF
     }
     //</editor-fold>
 
-    public enum TermScheme {
-        UNGRAM, BIGRAM, TRIGRAM, NGRAM;
+    enum TermScheme {
+        UNGRAM, BIGRAM, TRIGRAM, NGRAM,
+        // music - specifics
+        // MEASURE_NGRAM (is tokenized by measures), NOTE_NGRAM and MEASURE is tokenized by notes
+        WHOLE_SONG, MEASURE_NGRAM, NOTE_NGRAM, MEASURE;
 
         public boolean isDependantOnN() {
-            switch (this) {
-                case NGRAM:
-                    return true;
-                default:
-                    return false;
-            }
+            return this != WHOLE_SONG && this != MEASURE;
         }
     }
 
-    public enum TermComparisonAlgorithm {
+    enum TermComparisonAlgorithm {
         LEVENSHTEIN_DISTANCE, NAIVE
     }
 
-    public enum TermGroupMatchingStrategy {
+    enum TermGroupMatchingStrategy {
         MATCH_ALL, MATCH_ONE
     }
 
-    public enum TermGroupMergingStrategy {
+    enum TermGroupMergingStrategy {
         MERGE_ANY, MERGE_ALL
     }
 
     /**
      * Only vector algorithm enums
      */
-    public enum VectorInclusion {
+    enum VectorInclusion {
         A, B, INTERSECTION, UNIFICATION, ALL
     }
 
-    public enum VectorComparisonAlgorithm {
+    enum VectorComparisonAlgorithm {
         COS
     }
 
-    public enum Tolerance {
+    enum Tolerance {
         NONE, LOW, MEDIUM, HIGH
+    }
+
+    // music specifics
+    enum MusicStringFormat {
+        ABSOLUTE, CONTOUR, RHYTHM, RELATIVE
     }
 }

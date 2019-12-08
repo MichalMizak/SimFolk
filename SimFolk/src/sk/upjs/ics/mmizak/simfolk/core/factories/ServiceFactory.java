@@ -3,10 +3,17 @@ package sk.upjs.ics.mmizak.simfolk.core.factories;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.*;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.ToleranceCalculator;
+import sk.upjs.ics.mmizak.simfolk.melody.MusicTermBuilder;
 
 public enum ServiceFactory {
 
     INSTANCE;
+
+    // music - specific
+    private ITermBuilder musicTermBuilder;
+
+
+
 
     private IVectorAlgorithmConfigurationService algorithmConfigurationService;
 
@@ -39,9 +46,10 @@ public enum ServiceFactory {
         return algorithmConfigurationService;
     }
 
+    // TODO: Validate configuration
     public ITermBuilder getTermBuilder() {
         if (termBuilder == null) {
-            termBuilder = new TermBuilder();
+            termBuilder = new MusicTermBuilder();
         }
         return termBuilder;
     }
@@ -110,5 +118,12 @@ public enum ServiceFactory {
             termGroupService = new TermGroupService(DaoFactory.INSTANCE.getTermGroupDao(), INSTANCE.getTermComparator());
         }
         return termGroupService;
+    }
+
+    public ITermBuilder getMusicTermBuilder() {
+        if (musicTermBuilder == null) {
+            musicTermBuilder = new MusicTermBuilder();
+        }
+        return musicTermBuilder;
     }
 }

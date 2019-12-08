@@ -56,41 +56,6 @@ public class TermVectorFormatter implements ITermVectorFormatter {
     public WeightedVectorPair aFormation(WeightedVector a, WeightedVector b,
                                          ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
                                          double tolerance) {
-        /*List<WeightedTermGroup> bResult = new ArrayList<>();
-        Set<Integer> usedIndices = new HashSet<>();
-        boolean foundSimilarTerm = false;
-
-        for (WeightedTermGroup aGroup : a.getVector()) {
-
-            vectorBCycle:
-            for (int i = 0; i < b.getVector().size(); i++) {
-                if (usedIndices.contains(i)) {
-                    continue;
-                }
-
-                WeightedTermGroup bGroup = b.getVector().get(i);
-
-                if (aGroup.getGroupId() != null && bGroup.getGroupId() != null) {
-                    // the vectors are sorted in ascending order
-                    if (aGroup.getGroupId() < bGroup.getGroupId()) {
-                        break vectorBCycle;
-                    }
-                }
-
-                if (compareGroupsById(aGroup, bGroup)) {
-                    foundSimilarTerm = true;
-                    bResult.add(bGroup);
-                    usedIndices.add(i);
-                    break vectorBCycle;
-                }
-            }
-
-            if (!foundSimilarTerm) {
-                bResult.add(getDummyGroup(a, b, termComparisonAlgorithm, tolerance, aGroup));
-            }
-            foundSimilarTerm = false;
-        }
-*/
 
         // Sort arrays by group id
         sortByGroupId(a);
@@ -380,4 +345,40 @@ public class TermVectorFormatter implements ITermVectorFormatter {
 
         return t1.getGroupId().equals(t2.getGroupId());
     }
+
+          /*List<WeightedTermGroup> bResult = new ArrayList<>();
+        Set<Integer> usedIndices = new HashSet<>();
+        boolean foundSimilarTerm = false;
+
+        for (WeightedTermGroup aGroup : a.getVector()) {
+
+            vectorBCycle:
+            for (int i = 0; i < b.getVector().size(); i++) {
+                if (usedIndices.contains(i)) {
+                    continue;
+                }
+
+                WeightedTermGroup bGroup = b.getVector().get(i);
+
+                if (aGroup.getGroupId() != null && bGroup.getGroupId() != null) {
+                    // the vectors are sorted in ascending order
+                    if (aGroup.getGroupId() < bGroup.getGroupId()) {
+                        break vectorBCycle;
+                    }
+                }
+
+                if (compareGroupsById(aGroup, bGroup)) {
+                    foundSimilarTerm = true;
+                    bResult.add(bGroup);
+                    usedIndices.add(i);
+                    break vectorBCycle;
+                }
+            }
+
+            if (!foundSimilarTerm) {
+                bResult.add(getDummyGroup(a, b, termComparisonAlgorithm, tolerance, aGroup));
+            }
+            foundSimilarTerm = false;
+        }
+*/
 }

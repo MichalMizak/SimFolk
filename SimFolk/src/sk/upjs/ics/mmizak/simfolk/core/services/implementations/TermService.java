@@ -21,9 +21,8 @@ public class TermService implements ITermService {
     }
 
     @Override
-    public List<Term> buildAndSync(Song song, VectorAlgorithmConfiguration vectorConfig) {
-        List<Term> terms = termBuilder.buildTerms(vectorConfig.getTermScheme(),
-                vectorConfig.getTermDimension(), song.getCleanLyrics());
+    public List<Term> buildAndSync(Object objectToBuildTermsFrom, VectorAlgorithmConfiguration vectorConfig) {
+        List<Term> terms = termBuilder.buildTerms(vectorConfig, objectToBuildTermsFrom);
 
         terms = saveOrEdit(terms);
         return terms;

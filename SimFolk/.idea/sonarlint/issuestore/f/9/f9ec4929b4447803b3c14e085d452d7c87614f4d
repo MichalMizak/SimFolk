@@ -1,0 +1,7 @@
+
+„ squid:ForLoopCounterChangedCheckz"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+Isquid:S1135"2Complete the task associated to this TODO comment.(¾¥ê²
+usquid:S3012A"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(ëÚÃ¾øÿÿÿÿ
+psquid:S3012["YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(»ì‹ª
+Ksquid:EmptyStatementUsageChecks"Remove this empty statement.(Åñ­õşÿÿÿÿ
+Ysquid:S1126„"AReplace this if-then-else statement by a single return statement.(ªÉ„

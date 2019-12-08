@@ -1,8 +1,10 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.interfaces;
 
+import org.audiveris.proxymusic.ScorePartwise;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
 
 import java.util.List;
 
@@ -19,6 +21,10 @@ public interface IAlgorithmComputer {
      * @throws Exception
      */
     VectorAlgorithmResult computeSimilarity(VectorAlgorithmConfiguration vectorConfig, Song song);
+
+    List<VectorAlgorithmResult> computeMusicSimilarity(VectorAlgorithmConfiguration vectorConfig, List<MelodySong> melodySongs);
+
+    List<VectorAlgorithmResult> computeMusicSimilarityAndSave(VectorAlgorithmConfiguration vectorAlgorithmConfiguration, List<MelodySong> melodySongs);
 
     List<VectorAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs);
 

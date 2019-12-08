@@ -71,6 +71,7 @@ public class TermGroupService implements ITermGroupService {
             }
 
             result.add(previousTermGroup);
+
             result = initIncidenceCount(result);
 
             return result;

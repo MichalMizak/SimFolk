@@ -1,0 +1,33 @@
+//########################################
+//# This page contains score data, timing data and the media file path. Save it as a text file in
+//# the same folder as abcweb.html. Abcweb preloads score and media when it is opened with the
+//# file name as parameter in the url, for example: http://your.domain.org/abcweb.html?file_name
+//# Also works locally with file:///path/to/abcweb.html?file_name
+//# **** You have to correct the path to the media file below! (media_file="...";) ****
+//########################################
+//#
+media_file = "spevy-i_154-Dolina-dolina-ej-coze-ma-je-po-nej.mp3";
+offset_js = 0.00;
+opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":0,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":false,"metro":0};
+lpRec = {"loopBtn":1,"loopStart":0,"loopEnd":20};
+times_arr = [[0.00,2.00,4.00,6.00,8.00,10.00,12.00,14.00,16.00,18.00],
+[18.00,20.00]];
+abc_arr = ["X:1",
+"T:Title",
+"%%scale 0.83",
+"%%pagewidth 21.01cm",
+"%%leftmargin 1.00cm",
+"%%rightmargin 1.00cm",
+"L:1/8",
+"Q:1/4=60",
+"M:2/4",
+"I:linebreak $",
+"K:G",
+"V:1 treble nm=\"Klavír\" snm=\"Kl.\"",
+"V:1",
+"\"^Pomaly, zádumčivo\" F2 F F | G2 F2 | E2 z2 | d2 c B | e A ^G F |$ F ^G A G | B2 (A2{/^D)} | %7",
+"w: Do- li- na,|do- li-|na,|ej, čo- že|ma je po nej,|keď sa mi ne-|pre- jde,|",
+" E2 E =G | B ^A G2 | F2 z2 |] %10",
+"w: ej, nič mi-|lé- ho po|nej.|",
+""];
+abc_enc = [];

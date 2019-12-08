@@ -1,6 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.interfaces;
 
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 
 import java.util.List;
 
@@ -8,24 +9,21 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 
 public interface ITermBuilder {
 
-    List<Term> buildNGrams(String lyrics, int n);
+    /*List<Term> buildNGrams(String lyrics, int n);
 
     List<Term> buildUnGrams(String lyrics, TermScheme termScheme);
 
     List<Term> buildBiGrams(String lyrics, TermScheme termScheme);
 
-    List<Term> buildTriGrams(String lyrics, TermScheme termScheme);
-
-    List<Term> buildTerms(TermScheme termScheme, String lyrics);
+    List<Term> buildTriGrams(String lyrics, TermScheme termScheme);*/
 
     /**
-     * Builds terms from lyrics according to the term scheme with a fixed
-     * tokenized term count or a one that needs to be otherwise specified
+     * Builds terms from an object according to the algorithm type and term scheme with a fixed
+     * tokenized term count or a one that needs to be otherwise specified by parameter n
      *
-     * @param termScheme
-     * @param n
-     * @param lyrics
+     * @param vectorAlgorithmConfiguration holds neccessary configuration info
+     * @param objectToTokenizeIntoTerms
      * @return
      */
-    List<Term> buildTerms(TermScheme termScheme, Integer n, String lyrics);
+    List<Term> buildTerms(VectorAlgorithmConfiguration vectorAlgorithmConfiguration, Object objectToTokenizeIntoTerms);
 }

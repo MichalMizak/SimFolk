@@ -4,15 +4,20 @@ import sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.DummyVectorAlgorithmConfigurationService;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorAlgorithmComputer;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
-import sk.upjs.ics.mmizak.simfolk.parsing.Parser;
+import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
+import sk.upjs.ics.mmizak.simfolk.parsing.IMusicXMLUnmarshaller;
+import sk.upjs.ics.mmizak.simfolk.parsing.LyricParser;
+import sk.upjs.ics.mmizak.simfolk.parsing.ScorePartwiseUnmarshaller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 
 /**
@@ -33,22 +38,59 @@ public class AlgorithmStarter {
      * Configure the number of songs to be compared.
      * In order to input your own songs you need to modify the method getSongs to return your desired song.
      */
-    public static final int SONGS_TO_COMPARE_COUNT = 4;
+    public static final int SONGS_TO_COMPARE_COUNT = 10;
 
     /**
      * Configure whether to save songs or not. Note the algorithm isn't 100% precise with this set to false .
      * for performance reasons.
      */
-    public static final boolean SAVE_SONGS = false;
+    public static final boolean SAVE_SONGS = true;
+
+
+    public static final AlgorithmConfiguration.AlgorithmType ALGORITHM_TYPE = AlgorithmConfiguration.AlgorithmType.MUSIC;
 
     public static void main(String[] args) {
-
         compute();
 
         // thesisOutput();
     }
 
+    //<editor-fold desc="Non-simfolk-related">
+    public static void nextLesserElement(int[] a) {
+        //int[] a = {40, 50, 11, 32, 55, 68, 75};
+        //        nextLesserElement(a);
+
+        Stack<Integer> s = new Stack<Integer>();
+        Stack<Integer> indices = new Stack<>();
+
+        int[] result = new int[a.length];
+
+        s.push(a[a.length - 1]);
+        indices.push(a.length - 1);
+
+        for (int i = a.length - 2; i >= 0; i--) {
+            if (!s.isEmpty()) {
+                while (!s.isEmpty()) {
+                    if (s.peek() < a[i]) {
+                        break;
+                    }
+                    s.pop();
+                    result[indices.pop()] = i;
+                }
+            }
+            s.push(a[i]);
+            indices.push(i);
+        }
+        while (!s.isEmpty()) {
+            s.pop();
+            result[indices.pop()] = 0;
+        }
+    }
+    //</editor-fold>
+
+
     private static void compute() {
+
         DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator =
                 new DummyVectorAlgorithmConfigurationService();
 
@@ -56,16 +98,49 @@ public class AlgorithmStarter {
                 dummyVectorConfigurationGenerator.generateRandomConfiguration();
         IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
 
-        List<Song> songs = getSongs();
+        if (ALGORITHM_TYPE == AlgorithmConfiguration.AlgorithmType.MUSIC) {
 
-        // TODO: For progress send an object to the algorithm computer
+            List<MelodySong> melodySongs = getMelodySongs();
 
-        if (SAVE_SONGS)
-            algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songs);
-        else
-            algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, songs);
+            if (SAVE_SONGS)
+                algorithmComputer.computeMusicSimilarityAndSave(vectorAlgorithmConfiguration, melodySongs);
+            else
+                algorithmComputer.computeMusicSimilarity(vectorAlgorithmConfiguration, melodySongs);
+        } else {
+            List<Song> songs = getSongs();
 
-        // TODO: Handle result
+            // TODO: For progress send an object to the algorithm computer
+
+            if (SAVE_SONGS)
+                algorithmComputer.computeSimilarityAndSave(vectorAlgorithmConfiguration, songs);
+            else
+                algorithmComputer.computeSimilarity(vectorAlgorithmConfiguration, songs);
+
+            // TODO: Handle result
+        }
+    }
+
+
+    /**
+     * Iterate the xml database
+     *
+     * @return unmarshalled melodies from songs
+     */
+
+    private static List<MelodySong> getMelodySongs() {
+
+        IMusicXMLUnmarshaller scorePartwiseParser = new ScorePartwiseUnmarshaller();
+
+        List<File> xmlFiles = new ArrayList<>();
+
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_001-spievaj-si-dievcatko.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_002-zaspieva-vtaca-na-kosodrevine.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_3-zapada-slniecko-za-daleke-hory.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_007_ej_skoda-ta-suhajko.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_34-vyhodi-slniecko-spoza-lesy.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\zaspievalo_vtaca_edit.xml"));
+
+        return scorePartwiseParser.getSongsInMeasuresFromXML(xmlFiles);
     }
 
     public static void getAndSaveSongs(ISongService songService) {
@@ -89,8 +164,8 @@ public class AlgorithmStarter {
         // -1 because of adding modifiedSong
         songsToCompare--;
 
-        Parser parser = new Parser();
-        List<Song> viktor = parser.parseViktor();
+        LyricParser lyricParser = new LyricParser();
+        List<Song> viktor = lyricParser.parseViktor();
 
         int count = Math.min(viktor.size(), songsToCompare);
 
@@ -103,7 +178,7 @@ public class AlgorithmStarter {
             return songs;
         }
 
-        List<Song> piesne372 = parser.parsePiesne372();
+        List<Song> piesne372 = lyricParser.parsePiesne372();
 
         count = Math.min(piesne372.size(), songsToCompare);
 
@@ -112,6 +187,7 @@ public class AlgorithmStarter {
         }
 
         songsToCompare -= piesne372.size();
+
 
         return songs;
     }

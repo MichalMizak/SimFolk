@@ -1,0 +1,10 @@
+
+jsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(›àşûÿÿÿÿ8¤»¥†î-
+Bsquid:S1172"&Remove these unused method parameters.(ıìæÈ8Ãøª†î-
+Isquid:S1168?"+Return an empty collection instead of null.(¥¹ï8Ëô­†î-
+Isquid:S11686"+Return an empty collection instead of null.(¥¹ï8Ëô­†î-
+Ksquid:S1172&"(Remove this unused method parameter "n".(«ƒÀéşÿÿÿÿ8©ê¬†î-
+Msquid:S1172"1Remove this unused method parameter "melodySong".(ªÊÙ8¤ü¸†î-
+Isquid:S1168;"+Return an empty collection instead of null.(¥¹ï8Ëô­†î-
+bsquid:S1854)"DRemove this useless assignment to local variable "melodyInMeasures".(»™ê8ñÛŠˆî-
+Ssquid:S1481)"5Remove this unused "melodyInMeasures" local variable.(»™ê8ñÛŠˆî-

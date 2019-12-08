@@ -1,17 +1,21 @@
 
-V
-squid:S106g"9Replace this use of System.out or System.err by a logger.(À†ğÂ8ÃÌ²¸,
+W
+squid:S106î"9Replace this use of System.out or System.err by a logger.(¿©È8ŞËõ…î-
 \
-squid:S106¶"9Replace this use of System.out or System.err by a logger.(“ÈÑÇıÿÿÿÿ8ÃÌ²¸,
-‘squid:S1488}"nImmediately return this expression instead of assigning it to the temporary variable "vectorAlgorithmResults".(ŠÚ¶ùÿÿÿÿ8ÃÌ²¸,
-V
-squid:S106f"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8ÃÌ²¸,
+squid:S106Á"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8ŞËõ…î-
+’squid:S1488ò"nImmediately return this expression instead of assigning it to the temporary variable "vectorAlgorithmResults".(ŠÚ¶ùÿÿÿÿ8ŞËõ…î-
+jsquid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(ìÒ°8¦èõ…î-
 \
-squid:S106º"9Replace this use of System.out or System.err by a logger.(…Íïşÿÿÿÿ8ÃÌ²¸,
+squid:S106È"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8ŞËõ…î-
+jsquid:CommentedOutCodeLine¡"<This block of commented-out lines of code should be removed.(ŠÀ„İ8×œñ…î-
+esquid:S1854h"GRemove this useless assignment to local variable "scorePartwiseParser".(„ş†8«†şƒî-
+W
+squid:S106Ü"9Replace this use of System.out or System.err by a logger.(À†ğÂ8×œñ…î-
+Vsquid:S1135ê"2Complete the task associated to this TODO comment.(™äş˜ÿÿÿÿÿ8ŞËõ…î-
+Vsquid:S1481h"8Remove this unused "scorePartwiseParser" local variable.(„ş†8«†şƒî-
 \
-squid:S106Ì"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8ÃÌ²¸,
+squid:S106«"9Replace this use of System.out or System.err by a logger.(“ÈÑÇıÿÿÿÿ8ŞËõ…î-
+W
+squid:S106Û"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8ŞËõ…î-
 \
-squid:S106Ó"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8ÃÌ²¸,
-Usquid:S1135u"2Complete the task associated to this TODO comment.(™äş˜ÿÿÿÿÿ8ÃÌ²¸,
-V
-squid:S106y"9Replace this use of System.out or System.err by a logger.(¿©È8ÃÌ²¸,
+squid:S106¯"9Replace this use of System.out or System.err by a logger.(…Íïşÿÿÿÿ8ŞËõ…î-

@@ -55,6 +55,7 @@ public class SongDao implements ISongDao {
             } else {
                 s.setId(songRecord.getSongid());
 
+
                 for (String attribute : s.getAttributes()) {
                     create.insertInto(T_SONG_TO_ATTRIBUTE, T_SONG_TO_ATTRIBUTE.SONGID,
                             T_SONG_TO_ATTRIBUTE.ATTRIBUTE)

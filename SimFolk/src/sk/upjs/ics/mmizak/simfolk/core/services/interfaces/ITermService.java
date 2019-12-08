@@ -1,6 +1,5 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.interfaces;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 
@@ -10,7 +9,11 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 
 public interface ITermService {
 
-    List<Term> buildAndSync(Song song, VectorAlgorithmConfiguration vectorConfig);
+    /**
+     *  Use very carefully and make sure the instance is of required type
+      */
+
+    List<Term> buildAndSync(Object objectToBuildTermsFrom, VectorAlgorithmConfiguration vectorConfig);
 
     /**
      * Synchronizes the term ids to the database so that

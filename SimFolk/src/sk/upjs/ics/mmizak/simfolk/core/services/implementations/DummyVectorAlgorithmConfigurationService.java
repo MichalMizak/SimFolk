@@ -16,15 +16,16 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
     public VectorAlgorithmConfiguration generateRandomConfiguration() {
         return new VectorAlgorithmConfigurationBuilder()
                 .setId(1L)
-                .setTermScheme(TermScheme.BIGRAM)
-                .setTermDimension(null)
+                .setTermScheme(TermScheme.WHOLE_SONG)
+                .setTermDimension(3)
                 .setTermWeightType(new TermWeightType(null, TF.TF_NAIVE, IDF.NONE))
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(VectorInclusion.A)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
-                .setTolerance(Tolerance.HIGH)
+                .setTolerance(Tolerance.LOW)
+                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
                 .createVectorAlgorithmConfiguration();
     }
 
