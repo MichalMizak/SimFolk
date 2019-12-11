@@ -1,40 +1,44 @@
 
-qsquid:S1192Œ"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8Ì¦¦ƒî-
-Psquid:S1135i"2Complete the task associated to this TODO comment.(ÆÇÊ¥8™¢«ÿí-
-\
-squid:S106"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8Ì¦¦ƒî-
-csquid:S1854“"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8Ì¦¦ƒî-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(¹™ã8Ì¦¦ƒî-
-ssquid:S1149<"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(“À†Êüÿÿÿÿ8™¢«ÿí-
-\
-squid:S106¢"9Replace this use of System.out or System.err by a logger.(ù¿õŞúÿÿÿÿ8™¢«ÿí-
-W
-squid:S106ì"9Replace this use of System.out or System.err by a logger.(½Ó£Ì8Ì¦¦ƒî-
-|squid:S2293<"YReplace the type specification in this constructor call with the diamond operator ("<>").(“À†Êüÿÿÿÿ8™¢«ÿí-
-\
-squid:S106˜"9Replace this use of System.out or System.err by a logger.(ˆİˆ­úÿÿÿÿ8Ì¦¦ƒî-
-\
-squid:S106—"9Replace this use of System.out or System.err by a logger.(¼í·ûÿÿÿÿ8™¢«ÿí-
-W
-squid:S106‰"9Replace this use of System.out or System.err by a logger.(ÿ‡û’8Ì¦¦ƒî-
-ssquid:S1149="PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(‡µ„ııÿÿÿÿ8™¢«ÿí-
-hsquid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(Ã¿¸8ıÌ«ÿí-
-\
-squid:S106Œ"9Replace this use of System.out or System.err by a logger.(Áøİøúÿÿÿÿ8Ì¦¦ƒî-
-csquid:UnusedPrivateMethodà"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8Ì¦¦ƒî-
-Osquid:S1135p"2Complete the task associated to this TODO comment.(ÌÇëv8™¢«ÿí-
-\
-squid:S106œ"9Replace this use of System.out or System.err by a logger.(ó‹¹ışÿÿÿÿ8™¢«ÿí-
-\
-squid:S106£"9Replace this use of System.out or System.err by a logger.(éğŠÊûÿÿÿÿ8Ì¦¦ƒî-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(¥™éU8Ì¦¦ƒî-
-W
-squid:S106ù"9Replace this use of System.out or System.err by a logger.(Ô«Ûô8Ì¦¦ƒî-
-fsquid:S1854¸"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8Ì¦¦ƒî-
-\
-squid:S106ö"9Replace this use of System.out or System.err by a logger.(¨­Î–üÿÿÿÿ8Ì¦¦ƒî-
-W
-squid:S106ƒ"9Replace this use of System.out or System.err by a logger.(üÚÛˆ8Ì¦¦ƒî-
-nsquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(èğÖæøÿÿÿÿ8Ÿ‘¬ÿí-
+]squid:S1854"<Remove this useless assignment to local variable "xmlFiles".(ìÃÂşÿÿÿÿ8å’úÕî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8Îµ ¯î-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨­Î–üÿÿÿÿ8Á·ÅÓî-
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(¥™éU8££Óî-
+Nsquid:S1135"2Complete the task associated to this TODO comment.(ÆÇÊ¥8Îµ ¯î-
+qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(“À†Êüÿÿÿÿ8™¢«ÿí-
+`squid:S1854"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8Á·ÅÓî-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(½Ó£Ì8Á·ÅÓî-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(üÚÛˆ8Á·ÅÓî-
+Msquid:S1135"2Complete the task associated to this TODO comment.(ÌÇëv8Îµ ¯î-
+nsquid:S1192"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8Á·ÅÓî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ˆİˆ­úÿÿÿÿ8Á·ÅÓî-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÿ‡û’8Á·ÅÓî-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(“À†Êüÿÿÿÿ8õ›šŒî-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ó»¤·úÿÿÿÿ8¸¿ÆÓî-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­«„Ë8º…İÕî-
+csquid:S1854"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8Á·ÅÓî-
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(¹™ã8Á·ÅÓî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ù¿õŞúÿÿÿÿ8Á·ÅÓî-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ô«Ûô8Á·ÅÓî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¼í·ûÿÿÿÿ8Á·ÅÓî-
+qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(‡µ„ııÿÿÿÿ8õ›šŒî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(éğŠÊûÿÿÿÿ8Á·ÅÓî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Áøİøúÿÿÿÿ8Á·ÅÓî-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã¿¸8õ›šŒî-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(èğÖæøÿÿÿÿ8õ›šŒî-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ó‹¹ışÿÿÿÿ8Á·ÅÓî-
+bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(¨èâüÿÿÿÿ8º…İÕî-
+`squid:UnusedPrivateMethod"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8Á·ÅÓî-

@@ -52,11 +52,12 @@ public class TermGroupService implements ITermGroupService {
         if (!foundNull) {
             WeightedTermGroup previousTermGroup = null;
 
-            if (!syncedTermGroups.isEmpty())
-                previousTermGroup = new WeightedTermGroup(syncedTermGroups.get(0));
+            if (!syncedTermGroups.isEmpty()) {
+                // sort by ID
+                syncedTermGroups.sort(new TermGroupIdComparator());
 
-            // sort by ID
-            syncedTermGroups.sort(new TermGroupIdComparator());
+                previousTermGroup = new WeightedTermGroup(syncedTermGroups.get(0));
+            }
 
             // if it is empty the for cycle won't run and we'll return empty result
             for (int i = 1; i < syncedTermGroups.size(); i++) {
@@ -70,8 +71,9 @@ public class TermGroupService implements ITermGroupService {
                 }
             }
 
-            result.add(previousTermGroup);
-
+            if (previousTermGroup != null) {
+                result.add(previousTermGroup);
+            }
             result = initIncidenceCount(result);
 
             return result;
@@ -100,9 +102,16 @@ public class TermGroupService implements ITermGroupService {
 
     private List<WeightedTermGroup> initIncidenceCount(List<WeightedTermGroup> result) {
         for (WeightedTermGroup weightedTermGroup : result) {
+
+            if (weightedTermGroup == null) {
+                System.out.println("null");
+            }
+            Integer databaseIncidenceCount = weightedTermGroup.getDatabaseIncidenceCount();
+            int termWeight = weightedTermGroup.getTermWeight().intValue();
+
             weightedTermGroup.setDatabaseIncidenceCount(
-                    weightedTermGroup.getDatabaseIncidenceCount() +
-                            weightedTermGroup.getTermWeight().intValue());
+                    databaseIncidenceCount +
+                            termWeight);
         }
 
         return result;

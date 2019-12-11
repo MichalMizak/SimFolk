@@ -1,0 +1,4 @@
+Song id: 1
+Similarities: {1=100.0, 2=91.0}
+Song id: 2
+Similarities: {1=91.0, 2=100.0}

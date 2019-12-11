@@ -1,21 +1,59 @@
 
 W
-squid:S106î"9Replace this use of System.out or System.err by a logger.(¿©È8ŞËõ…î-
-\
-squid:S106Á"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8ŞËõ…î-
-’squid:S1488ò"nImmediately return this expression instead of assigning it to the temporary variable "vectorAlgorithmResults".(ŠÚ¶ùÿÿÿÿ8ŞËõ…î-
-jsquid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(ìÒ°8¦èõ…î-
-\
-squid:S106È"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8ŞËõ…î-
-jsquid:CommentedOutCodeLine¡"<This block of commented-out lines of code should be removed.(ŠÀ„İ8×œñ…î-
-esquid:S1854h"GRemove this useless assignment to local variable "scorePartwiseParser".(„ş†8«†şƒî-
+squid:S106ö"9Replace this use of System.out or System.err by a logger.(À†ğÂ8šâßî-
 W
-squid:S106Ü"9Replace this use of System.out or System.err by a logger.(À†ğÂ8×œñ…î-
-Vsquid:S1135ê"2Complete the task associated to this TODO comment.(™äş˜ÿÿÿÿÿ8ŞËõ…î-
-Vsquid:S1481h"8Remove this unused "scorePartwiseParser" local variable.(„ş†8«†şƒî-
+squid:S106Ú"9Replace this use of System.out or System.err by a logger.(¿©È8šâßî-
+Gsquid:S1148Õ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8šâßî-
 \
-squid:S106«"9Replace this use of System.out or System.err by a logger.(“ÈÑÇıÿÿÿÿ8ŞËõ…î-
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(ÎøÜßşÿÿÿÿ8šâßî-
+\
+squid:S106ˆ"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8šâßî-
+Vsquid:S1135Ö"2Complete the task associated to this TODO comment.(™äş˜ÿÿÿÿÿ8šâßî-
+isquid:CommentedOutCodeLine¢"<This block of commented-out lines of code should be removed.(Úãºp8šâßî-
+Isquid:S1068 "+Remove this unused "NULL_ID" private field.(É¬Íî8šâßî-
+\
+squid:S106£"9Replace this use of System.out or System.err by a logger.(¡Í“úÿÿÿÿ8šâßî-
+\
+squid:S106±"9Replace this use of System.out or System.err by a logger.(…Íïşÿÿÿÿ8šâßî-
+…squid:UselessImportCheck"URemove this unused import 'sk.upjs.ics.mmizak.simfolk.parsing.IMusicXMLUnmarshaller'.(¸â£âüÿÿÿÿ8šâßî-
 W
-squid:S106Û"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8ŞËõ…î-
+squid:S106¢"9Replace this use of System.out or System.err by a logger.(£¥æ­8šâßî-
+nsquid:S1192Á"JDefine a constant instead of duplicating this literal "Song id: " 3 times.(È™Û¹ÿÿÿÿÿ8šâßî-
+xsquid:UselessImportCheck"HRemove this unused import 'sk.upjs.ics.mmizak.simfolk.melody.NoteUtils'.(À˜Ä¶şÿÿÿÿ8šâßî-
+Vsquid:S1135¨"2Complete the task associated to this TODO comment.(ğşÅŸøÿÿÿÿ8šâßî-
 \
-squid:S106¯"9Replace this use of System.out or System.err by a logger.(…Íïşÿÿÿÿ8ŞËõ…î-
+squid:S106²"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8šâßî-
+„squid:UselessImportCheck"YRemove this unused import 'sk.upjs.ics.mmizak.simfolk.parsing.ScorePartwiseUnmarshaller'.(ªôÈª8šâßî-
+\
+squid:S106›"9Replace this use of System.out or System.err by a logger.(…Íïşÿÿÿÿ8šâßî-
+nsquid:S1192Ä"ODefine a constant instead of duplicating this literal "Similarities: " 3 times.(’Çé¼8šâßî-
+W
+squid:S106õ"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8šâßî-
+\
+squid:S106Ë"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8šâßî-
+\
+squid:S106Ä"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8šâßî-
+\
+squid:S106«"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8šâßî-
+\
+squid:S106­"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8šâßî-
+W
+squid:S106É"9Replace this use of System.out or System.err by a logger.(À†ğÂ8šâßî-
+Gsquid:S1148Ó"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8šâßî-
+\
+squid:S106Š"9Replace this use of System.out or System.err by a logger.(Ç«ïşÿÿÿÿ8šâßî-
+jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Çéí8šâßî-
+W
+squid:S106È"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8šâßî-
+\
+squid:S106—"9Replace this use of System.out or System.err by a logger.(“ÈÑÇıÿÿÿÿ8šâßî-
+Isquid:S00108Ö")Either remove or fill this block of code.(Úîø›8šâßî-
+\
+squid:S106‰"9Replace this use of System.out or System.err by a logger.(ıÓõúÿÿÿÿ8šâßî-
+\
+squid:S106´"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8šâßî-
+’squid:S1488Ş"nImmediately return this expression instead of assigning it to the temporary variable "vectorAlgorithmResults".(ŠÚ¶ùÿÿÿÿ8šâßî-
+gsquid:S1192Å"IDefine a constant instead of duplicating this literal ", Time: " 4 times.(ŠŸ<8šâßî-
+esquid:S1075Ì"ARefactor your code to get this URI from a customizable parameter.(œ·Š‚üÿÿÿÿ8šâßî-
+dsquid:S2147Ô"ECombine this catch with the one at line 210, which has the same body.(ï­£Ä8šâßî-
+jsquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(ìÒ°8šâßî-

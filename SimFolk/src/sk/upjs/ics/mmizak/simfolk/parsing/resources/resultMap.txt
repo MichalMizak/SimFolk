@@ -1,0 +1,5 @@
+VectorAlgorithmConfiguration{musicStringFormat=ABSOLUTE, termScheme=MEASURE_NGRAM, termDimension=4, termWeightType=TermWeightType{isTFIDF=true, tf=LOG_TF, idf=IDF, nonTFIDFTermWeightType=NONE, id=null}
+, tolerance=LOW, termGroupMatchingStrategy=MATCH_ONE, termGroupMergingStrategy=MERGE_ANY, vectorInclusion=UNIFICATION
+, vectorComparisonAlgorithm=COS, termComparisonAlgorithm=LEVENSHTEIN_DISTANCE}
+1 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\5446\spevy-i_120-hej-hore-Turiec.xml
+2 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\0\spevy-i_120-hej-hore-haj-dolu-haj.xml

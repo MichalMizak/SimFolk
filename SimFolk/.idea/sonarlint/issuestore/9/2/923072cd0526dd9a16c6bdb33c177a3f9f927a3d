@@ -1,11 +1,7 @@
 
-ysquid:S2259#"VA "NullPointerException" could be thrown; "notesInMeasureStringList" is nullable here.(šéÌâøÿÿÿÿ8ÏŞÊî-
-ssquid:S2259-"VA "NullPointerException" could be thrown; "notesInMeasureStringList" is nullable here.(æ£ª+8ÏŞÊî-
-usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(˜ı­üÿÿÿÿ8ÏŞÊî-
-Hsquid:S00108W")Either remove or fill this block of code.(“½É’8ÏŞÊî-
-\"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(Ô§ßÉıÿÿÿÿ8ÏŞÊî-
-ssquid:S2259"VA "NullPointerException" could be thrown; "notesInMeasureStringList" is nullable here.(ª‚8ÏŞÊî-
-Ysquid:S1854U"6Remove this useless assignment to local variable "sb".(€ê±Õúÿÿÿÿ8ÏŞÊî-
-Jsquid:S1481U"'Remove this unused "sb" local variable.(€ê±Õúÿÿÿÿ8ÏŞÊî-
-ssquid:S2259("VA "NullPointerException" could be thrown; "notesInMeasureStringList" is nullable here.(ËÄ98ÏŞÊî-
-Gsquid:S1481W")Remove this unused "note" local variable.(“½É’8ÏŞÊî-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(˜ı­üÿÿÿÿ8´õ‹î-
+Fsquid:S00108")Either remove or fill this block of code.(“½É’8è«Çî-
+Esquid:S1481")Remove this unused "note" local variable.(“½É’8è«Çî-
+Hsquid:S1481"'Remove this unused "sb" local variable.(€ê±Õúÿÿÿÿ8è«Çî-
+Wsquid:S1854"6Remove this useless assignment to local variable "sb".(€ê±Õúÿÿÿÿ8è«Çî-
+zsquid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(§­—À8”Ğé¹î-

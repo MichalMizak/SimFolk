@@ -1,8 +1,11 @@
 package sk.upjs.ics.mmizak.simfolk.melody;
 
 import org.audiveris.proxymusic.Note;
+import org.audiveris.proxymusic.Pitch;
 import org.audiveris.proxymusic.ScorePartwise;
+import org.audiveris.proxymusic.Step;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +14,9 @@ import java.util.stream.Collectors;
 
 public class NoteUtils {
 
-    public static final Map<String, Integer> stepToDegree = new HashMap<>();
+    private static final Map<String, Integer> stepToDegree = new HashMap<>();
+
+    private static final Map<Integer, String> degreeToStepString = new HashMap<>();
 
     static {
         stepToDegree.put("C", 1);
@@ -21,6 +26,21 @@ public class NoteUtils {
         stepToDegree.put("G", 8);
         stepToDegree.put("A", 10);
         stepToDegree.put("B", 12);
+    }
+
+    static {
+        degreeToStepString.put(1, "01");
+        degreeToStepString.put(2, "02");
+        degreeToStepString.put(3, "03");
+        degreeToStepString.put(4, "04");
+        degreeToStepString.put(5, "05");
+        degreeToStepString.put(6, "06");
+        degreeToStepString.put(7, "07");
+        degreeToStepString.put(8, "08");
+        degreeToStepString.put(9, "09");
+        degreeToStepString.put(10, "10");
+        degreeToStepString.put(11, "11");
+        degreeToStepString.put(12, "12");
     }
 
     private NoteUtils() {
@@ -39,19 +59,38 @@ public class NoteUtils {
     }
 
     public static int getDegreeWithoutAlterations(Note note) {
-        return stepToDegree.get(note.getPitch().getStep());
+        Pitch pitch = note.getPitch();
+        assert pitch != null;
+
+        Step step = pitch.getStep();
+        assert step != null;
+
+        return stepToDegree.get(step.toString());
     }
 
     public static int getAbsoluteNoteDegree(Note note) {
         Integer degreeWithoutAlterations = getDegreeWithoutAlterations(note);
 
-        int alterationValue = note.getPitch().getAlter().intValue();
+        // since we got here pitch is safely not null
+
+        BigDecimal alter = note.getPitch().getAlter();
+
+        int alterationValue;
+
+        if (alter == null)
+            alterationValue = 0;
+        else
+            alterationValue = alter.intValue();
 
         if (degreeWithoutAlterations == 0 && alterationValue == -1)
             return 12;
         if (degreeWithoutAlterations == 12 && alterationValue == 1)
             return 1;
         return degreeWithoutAlterations + alterationValue;
+    }
+
+    public static String getAbsoluteNoteDegreeString(Note note) {
+        return degreeToStepString.get(getAbsoluteNoteDegree(note));
     }
 
 

@@ -61,27 +61,30 @@ public class MusicTermBuilder implements ITermBuilder {
     private List<Term> buildMeasureNGrams(VectorAlgorithmConfiguration vectorAlgorithmConfiguration, MelodySong melodySong) {
         List<ScorePartwise.Part.Measure> melodyInMeasures = melodySong.getMelodyInMeasures();
 
+        if (melodyInMeasures.size() <= vectorAlgorithmConfiguration.getTermDimension()) {
+            return buildWholeSongTerms(vectorAlgorithmConfiguration, melodySong);
+        }
+
         List<String> measureStrings = melodyToStringConverter.getMelodyInMeasuresAsString(melodyInMeasures,
                 vectorAlgorithmConfiguration.getMusicStringFormat());
 
         List<Term> result = new ArrayList<>();
-
         for (int i = 0; i < measureStrings.size() - vectorAlgorithmConfiguration.getTermDimension(); i++) {
             List<String> tokenizedStringFragment = new ArrayList<>();
             StringBuilder concatenatedMeasures = new StringBuilder();
 
-            for (int j = i; j < vectorAlgorithmConfiguration.getTermDimension(); j++) {
-                String measureString = measureStrings.get(i);
+            for (int j = i; j < i + vectorAlgorithmConfiguration.getTermDimension(); j++) {
+                String measureString = measureStrings.get(j);
                 tokenizedStringFragment.add(measureString);
                 // the measures come trimmed
                 concatenatedMeasures.append(measureString).append(" ");
             }
 
+            if (concatenatedMeasures.toString().isEmpty()) {
+                continue;
+            }
+
             result.add(new Term(null, concatenatedMeasures.toString(), tokenizedStringFragment, vectorAlgorithmConfiguration.getTermScheme()));
-        }
-
-        for (String measureString : measureStrings) {
-
         }
 
         return result;

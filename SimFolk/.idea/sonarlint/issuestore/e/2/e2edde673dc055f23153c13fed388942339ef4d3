@@ -1,5 +1,5 @@
 
-Xsquid:S1191"5Use classes from the Java API instead of Sun classes.(ˆÉÎþþÿÿÿÿ8þç Œí-
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Œ¹’ê8íÅ±Œí-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôªäôÿÿÿÿÿ8íÅ±Œí-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8íÅ±Œí-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôªäôÿÿÿÿÿ8íÅ±Œí-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8íÅ±Œí-
+Vsquid:S1191"5Use classes from the Java API instead of Sun classes.(ˆÉÎþþÿÿÿÿ8þç Œí-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Œ¹’ê8íÅ±Œí-

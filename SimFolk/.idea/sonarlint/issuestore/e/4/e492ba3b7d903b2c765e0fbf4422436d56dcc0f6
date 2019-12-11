@@ -1,7 +1,7 @@
 
-bsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(›Ïæ¿
-isquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸàÍ™
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö•ßŠùÿÿÿÿ
-isquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸàÍ™
-isquid:S00117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö’ Ê
-isquid:S00117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö’ Ê
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸàÍ™
+`squid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(›Ïæ¿
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö’ Ê
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸàÍ™
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö’ Ê
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö•ßŠùÿÿÿÿ

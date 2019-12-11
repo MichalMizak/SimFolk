@@ -60,7 +60,7 @@ public class MelodyToStringConverter {
         List<String> result = new ArrayList<>();
 
         for (String measure : notesInMeasureStringList) {
-            if (!measure.trim().isEmpty()){
+            if (!measure.trim().isEmpty()) {
                 result.add(measure);
             }
         }
@@ -92,17 +92,10 @@ public class MelodyToStringConverter {
 
         for (Note note : notes) {
 
-            sb.append(note.getPitch().getStep().toString());
+            String absoluteNoteDegreeString = NoteUtils.getAbsoluteNoteDegreeString(note);
 
-            BigDecimal alter = note.getPitch().getAlter();
-            if (alter != null) {
-                if (alter.intValue() == -1) {
-                    alter = new BigDecimal(2);
-                }
-                sb.append(alter);
-            }
-
-            sb.append(note.getPitch().getOctave())
+            sb.append(absoluteNoteDegreeString)
+                    .append(note.getPitch().getOctave())
                     .append(" ");
         }
 

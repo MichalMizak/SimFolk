@@ -153,4 +153,21 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
     //</editor-fold>
 
 
+    @Override
+    public String toString() {
+        return "VectorAlgorithmConfiguration{" +
+                "musicStringFormat=" + musicStringFormat +
+                ", termScheme=" + termScheme +
+                ", termDimension=" + termDimension +
+                ", termWeightType=" + termWeightType +
+                "\n" +
+                ", tolerance=" + tolerance +
+                ", termGroupMatchingStrategy=" + termGroupMatchingStrategy +
+                ", termGroupMergingStrategy=" + termGroupMergingStrategy +
+                ", vectorInclusion=" + vectorInclusion +
+                "\n" +
+                ", vectorComparisonAlgorithm=" + vectorComparisonAlgorithm +
+                ", termComparisonAlgorithm=" + termComparisonAlgorithm +
+                '}';
+    }
 }

@@ -1,11 +1,14 @@
 
-psquid:S3776w"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Õ÷Ü8Ë‡×¸,
-rsquid:S2259A"OA "NullPointerException" could be thrown; "previousTermGroup" is nullable here.(í ¢Åúÿÿÿÿ8¸‹á¸,
-‚squid:S4165`"dRemove this useless assignment; "result" already holds the assigned value along all execution paths.(à‚ÉÙ8Ë‡×¸,
-v
-squid:S135º"YReduce the total number of break and continue statements in this loop to use at most one.(÷ÖÇ+8Ë‡×¸,
-‹ squid:ForLoopCounterChangedCheck"XRefactor the code in order to not assign to this loop counter from within the loop body.(å—v8Ë‡×¸,
-‚squid:S4165J"dRemove this useless assignment; "result" already holds the assigned value along all execution paths.(à‚ÉÙ8Ë‡×¸,
-Isquid:S00108Ñ")Either remove or fill this block of code.(ë´÷‰8Ë‡×¸,
-Usquid:S1135]"2Complete the task associated to this TODO comment.(ğêÈüÿÿÿÿ8Ë‡×¸,
-Vsquid:S1135¹"2Complete the task associated to this TODO comment.(‘±ºİøÿÿÿÿ8Ë‡×¸,
+psquid:S2259"OA "NullPointerException" could be thrown; "weightedTermGroup" is nullable here.(…ƒ°¸şÿÿÿÿ8ëºÿÓî-
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Õ÷Ü8ñ©£½î-
+psquid:S2259"OA "NullPointerException" could be thrown; "previousTermGroup" is nullable here.(í ¢Åúÿÿÿÿ8¸‹á¸,
+s
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(÷ÖÇ+8ñ©£½î-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(‘±ºİøÿÿÿÿ8ñ©£½î-
+€squid:S4165"dRemove this useless assignment; "result" already holds the assigned value along all execution paths.(à‚ÉÙ8ñ©£½î-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Âû¯Ğüÿÿÿÿ8¹‚Ôî-
+€squid:S4165"dRemove this useless assignment; "result" already holds the assigned value along all execution paths.(à‚ÉÙ8ñ©£½î-
+Fsquid:S00108")Either remove or fill this block of code.(ë´÷‰8ñ©£½î-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ğêÈüÿÿÿÿ8ñ©£½î-
+ˆ squid:ForLoopCounterChangedCheck"XRefactor the code in order to not assign to this loop counter from within the loop body.(å—v8ñ©£½î-
