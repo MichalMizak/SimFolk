@@ -1,4 +1,4 @@
 
-hsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(›àşûÿÿÿÿ8óéŞî-
-Gsquid:S1172"&Remove these unused method parameters.(óÒ™ıÿÿÿÿ8óéŞî-
-Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8óéŞî-
+Isquid:S1168_"+Return an empty collection instead of null.(¥¹ï8­ìş°Œ.
+jsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(›àşûÿÿÿÿ8­ìş°Œ.
+Isquid:S1172^"&Remove these unused method parameters.(óÒ™ıÿÿÿÿ8­ìş°Œ.

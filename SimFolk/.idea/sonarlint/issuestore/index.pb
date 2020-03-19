@@ -105,3 +105,11 @@ u
 Esrc/sk/upjs/ics/mmizak/simfolk/core/database/jooq/generated/Keys.java,e\8\e83db8c466a743095cec4a897b318e55c230f3c8
 A
 other/simfolk.xml,2\9\29a0b01b98702cc58da2419648df57ba1611c01c
+G
+other/create_script.sql,b\f\bf24a05f16a52107ffed846eb8314a942ac0dc3f
+{
+Ksrc/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java,6\b\6bfaf598aedc34a61c0aa9e3a3e342c3f18cc1e2
+ƒ
+Ssrc/sk/upjs/ics/mmizak/simfolk/core/database/dao/interfaces/IWeightedVectorDao.java,0\6\06011a312677bc851754f3a70ec3ba01c32710ac
+†
+Vsrc/sk/upjs/ics/mmizak/simfolk/core/database/dao/interfaces/IWeightedTermGroupDao.java,2\d\2d6dd13e386b3742e21c291cb5cb96461a133e57

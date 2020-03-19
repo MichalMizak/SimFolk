@@ -18,7 +18,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setId(1L)
                 .setTermScheme(TermScheme.MEASURE_NGRAM)
                 .setTermDimension(4)
-                .setTermWeightType(new TermWeightType(null, TF.LOG_TF, IDF.IDF))
+                .setTermWeightType(new TermWeightType(null, TF.AUGMENTED_TF, IDF.IDF))
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)

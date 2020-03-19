@@ -134,19 +134,19 @@ public class AlgorithmStarter {
         IMusicXMLUnmarshaller scorePartwiseParser = new ScorePartwiseUnmarshaller();
 
         List<File> xmlFiles = new ArrayList<>();
-        //xmlFiles = iterateXMLFiles(MUSICXML_RESOURCE_DIRECTORY);
+       // xmlFiles = iterateXMLFiles(MUSICXML_RESOURCE_DIRECTORY);
 
 
-        /*xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_001-spievaj-si-dievcatko.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_001-spievaj-si-dievcatko.xml"));
         xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_002-zaspieva-vtaca-na-kosodrevine.xml"));
         xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_3-zapada-slniecko-za-daleke-hory.xml"));
         xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_007_ej_skoda-ta-suhajko.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_34-vyhodi-slniecko-spoza-lesy.xml"));*/
-        //xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\zaspievalo_vtaca_edit.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_34-vyhodi-slniecko-spoza-lesy.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\zaspievalo_vtaca_edit.xml"));
         xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5446\\spevy-i_120-hej-hore-Turiec.xml"));
         xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\0\\spevy-i_120-hej-hore-haj-dolu-haj.xml"));
-        // xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5480\\spevy-i_354-Neprisla-mi-moja-zena-z-mesta_1.VYDANIE.xml"));
-        // xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5458\\spevy-i_184-Kazala-mi-mati-biele-husky-hnati_VARIANT.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5480\\spevy-i_354-Neprisla-mi-moja-zena-z-mesta_1.VYDANIE.xml"));
+        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5458\\spevy-i_184-Kazala-mi-mati-biele-husky-hnati_VARIANT.xml"));
 
         assert !xmlFiles.isEmpty();
 
@@ -158,20 +158,31 @@ public class AlgorithmStarter {
 
         File resourceDirectory = new File(musicxmlResourceDirectory);
 
+        int counter = 0;
         // first
-        if (resourceDirectory.isDirectory()) {
-            File[] xmlDirectories = resourceDirectory.listFiles();
-            assert xmlDirectories != null;
+        if (!resourceDirectory.isDirectory()) {
+            return result;
+        }
 
-            for (File xmlDirectory : xmlDirectories) {
-                if (xmlDirectory.isDirectory()) {
-                    File[] potentialXMLs = xmlDirectory.listFiles();
+        File[] xmlDirectories = resourceDirectory.listFiles();
+        assert xmlDirectories != null;
 
-                    assert potentialXMLs != null;
-                    for (File potentialXML : potentialXMLs) {
-                        if (potentialXML.toString().endsWith(".xml")) {
-                            result.add(potentialXML);
-                        }
+        for (File xmlDirectory : xmlDirectories) {
+            if (!xmlDirectory.isDirectory()) {
+                if (xmlDirectory.getPath().endsWith(".xml")) {
+                    result.add(xmlDirectory);
+                }
+                continue;
+            }
+            File[] potentialXMLs = xmlDirectory.listFiles();
+
+            assert potentialXMLs != null;
+            for (File potentialXML : potentialXMLs) {
+                if (potentialXML.getPath().endsWith(".xml")) {
+                    result.add(potentialXML);
+                    counter++;
+                    if (counter == SONGS_TO_COMPARE_COUNT) {
+                        return result;
                     }
                 }
             }

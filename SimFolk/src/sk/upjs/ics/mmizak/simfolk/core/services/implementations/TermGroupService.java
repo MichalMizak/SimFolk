@@ -40,6 +40,7 @@ public class TermGroupService implements ITermGroupService {
 
         boolean foundNull = false;
 
+        // check if there is at least one null
         for (TermGroup termGroup : syncedTermGroups) {
             if (termGroup.getGroupId() == null) {
                 foundNull = true;
@@ -53,16 +54,15 @@ public class TermGroupService implements ITermGroupService {
             WeightedTermGroup previousTermGroup = null;
 
             if (!syncedTermGroups.isEmpty()) {
-                // sort by ID
+                // sort by ID, none are null!
                 syncedTermGroups.sort(new TermGroupIdComparator());
 
                 previousTermGroup = new WeightedTermGroup(syncedTermGroups.get(0));
+                syncedTermGroups.remove(previousTermGroup); // so we dont iterate it again
             }
 
             // if it is empty the for cycle won't run and we'll return empty result
-            for (int i = 1; i < syncedTermGroups.size(); i++) {
-                TermGroup syncedTermGroup = syncedTermGroups.get(i);
-
+            for (TermGroup syncedTermGroup : syncedTermGroups) {
                 if (previousTermGroup.getGroupId().equals(syncedTermGroup.getGroupId())) {
                     previousTermGroup.setTermWeight(previousTermGroup.getTermWeight() + 1D);
                 } else {
@@ -93,9 +93,10 @@ public class TermGroupService implements ITermGroupService {
                 throw new UnsupportedOperationException();
         }
 
-        // TODO: This doesn't take into account if we are considering the same song
+        // TODO: This doesn't take into account if we are considering the song that is already in the database
         // Meaning that if the song is already in the database, the incidence count is higher
         // than it should be by the number of times it is in the song.
+        // This should be taken into consideration before starting the algorithm
         result = initIncidenceCount(result);
         return result;
     }
@@ -104,7 +105,11 @@ public class TermGroupService implements ITermGroupService {
         for (WeightedTermGroup weightedTermGroup : result) {
 
             if (weightedTermGroup == null) {
-                System.out.println("null");
+                try {
+                    throw new Exception("Tried to init incidence count for a null weighted term group");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             Integer databaseIncidenceCount = weightedTermGroup.getDatabaseIncidenceCount();
             int termWeight = weightedTermGroup.getTermWeight().intValue();

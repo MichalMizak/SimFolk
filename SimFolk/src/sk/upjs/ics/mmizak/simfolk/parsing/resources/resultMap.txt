@@ -1,5 +1,13 @@
-VectorAlgorithmConfiguration{musicStringFormat=ABSOLUTE, termScheme=MEASURE_NGRAM, termDimension=4, termWeightType=TermWeightType{isTFIDF=true, tf=LOG_TF, idf=IDF, nonTFIDFTermWeightType=NONE, id=null}
+VectorAlgorithmConfiguration{musicStringFormat=ABSOLUTE, termScheme=MEASURE_NGRAM, termDimension=4, termWeightType=TermWeightType{isTFIDF=true, tf=AUGMENTED_TF, idf=IDF, nonTFIDFTermWeightType=NONE, id=3}
 , tolerance=LOW, termGroupMatchingStrategy=MATCH_ONE, termGroupMergingStrategy=MERGE_ANY, vectorInclusion=UNIFICATION
 , vectorComparisonAlgorithm=COS, termComparisonAlgorithm=LEVENSHTEIN_DISTANCE}
-1 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\5446\spevy-i_120-hej-hore-Turiec.xml
-2 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\0\spevy-i_120-hej-hore-haj-dolu-haj.xml
+1 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_001-spievaj-si-dievcatko.xml
+2 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_002-zaspieva-vtaca-na-kosodrevine.xml
+3 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_3-zapada-slniecko-za-daleke-hory.xml
+4 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_007_ej_skoda-ta-suhajko.xml
+5 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_34-vyhodi-slniecko-spoza-lesy.xml
+6 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\zaspievalo_vtaca_edit.xml
+7 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\5446\spevy-i_120-hej-hore-Turiec.xml
+8 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\0\spevy-i_120-hej-hore-haj-dolu-haj.xml
+9 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\5480\spevy-i_354-Neprisla-mi-moja-zena-z-mesta_1.VYDANIE.xml
+10 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\melody\resources\5458\spevy-i_184-Kazala-mi-mati-biele-husky-hnati_VARIANT.xml

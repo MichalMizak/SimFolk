@@ -45,14 +45,13 @@ public class MusicTermBuilder implements ITermBuilder {
                 vectorAlgorithmConfiguration.getMusicStringFormat());
 
         List<Term> result = new ArrayList<>();
-        List<String> tokenizedStringFragment = measureStrings;
         StringBuilder resultMelodyString = new StringBuilder();
 
         for (String measureString : measureStrings) {
             resultMelodyString.append(measureString);
         }
 
-        result.add(new Term(null, resultMelodyString.toString(), tokenizedStringFragment,
+        result.add(new Term(null, resultMelodyString.toString(), measureStrings,
                 vectorAlgorithmConfiguration.getTermScheme()));
 
         return result;
@@ -69,7 +68,8 @@ public class MusicTermBuilder implements ITermBuilder {
                 vectorAlgorithmConfiguration.getMusicStringFormat());
 
         List<Term> result = new ArrayList<>();
-        for (int i = 0; i < measureStrings.size() - vectorAlgorithmConfiguration.getTermDimension(); i++) {
+        //
+        for (int i = 0; i < measureStrings.size() - vectorAlgorithmConfiguration.getTermDimension() + 1; i++) {
             List<String> tokenizedStringFragment = new ArrayList<>();
             StringBuilder concatenatedMeasures = new StringBuilder();
 

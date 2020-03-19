@@ -1,27 +1,25 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.implementations;
 
-import org.audiveris.proxymusic.ScorePartwise;
-import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IAlgorithmComputer;
-import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
 import sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory;
+import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
 import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
-import sk.upjs.ics.mmizak.simfolk.melody.NoteUtils;
-import sk.upjs.ics.mmizak.simfolk.parsing.IMusicXMLUnmarshaller;
-import sk.upjs.ics.mmizak.simfolk.parsing.ScorePartwiseUnmarshaller;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory.INSTANCE;
-import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
+import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 
 /**
@@ -184,6 +182,14 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             melodyToSimilarityPercentage = new HashMap<>();
         }
 
+        writeResultToFile(vectorConfig, melodySongs, results);
+
+        return results;
+
+        //</editor-fold>
+    }
+
+    private void writeResultToFile(VectorAlgorithmConfiguration vectorConfigs, List<MelodySong> melodySongs, List<VectorAlgorithmResult> results) {
         StringBuilder sb = new StringBuilder();
         sb.append(vectorConfig.toString());
 
@@ -232,34 +238,11 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return results;
-
-        //</editor-fold>
     }
 
-    @Override
-    public List<VectorAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
-        List<VectorAlgorithmResult> results = new ArrayList<>();
-        for (Song song : songs) {
-            VectorAlgorithmResult result = computeSimilarity(vectorConfig, song);
-            results.add(result);
-
-            System.out.println("Song id: " + result.getVectorSong().getSongId());
-            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
-        }
-        return results;
-    }
 
     @Override
-    public VectorAlgorithmResult computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, Song song) {
-        song = saveSong(vectorConfig, song);
-
-        return computeSimilarity(vectorConfig, song);
-    }
-
-    @Override
-    public List<VectorAlgorithmResult> computeMusicSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, List<MelodySong> melodySongs) {
+    public List<VectorAlgorithmResult> computeMusicSimilarityAndSave(List<VectorAlgorithmConfiguration> vectorConfigs, List<MelodySong> melodySongs) {
         ITermService termService = INSTANCE.getTermService();
         ITermGroupService termGroupService = INSTANCE.getTermGroupService();
         IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
@@ -293,9 +276,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             System.out.println("Processing:");
             System.out.println(melodySong.getMusicXML().toString());
 
-
             List<Term> terms = termService.buildAndSync(melodySong, vectorConfig);
-
 
             songToTerms.put(melodySong, terms);
 
@@ -303,11 +284,19 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             System.out.println("VectorAlgorithmComputer.computeMusicSimilarityAndSave MelodySong " + melodySong.getId() +
                     " built into terms, Time: " + System.currentTimeMillis() / 1000 + " sec");
 
-            // save and merge groups for the first time
-            termGroupService.syncInitAndSaveTermGroups(terms, vectorConfig, tolerance);
-            System.out.println("VectorAlgorithmComputer.saveSongs Term groups built, Time: " + System.currentTimeMillis() / 1000 + " sec");
-            System.out.println();
         }
+
+        List<Term> allTerms = new ArrayList<>();
+        songToTerms.values().forEach(allTerms::addAll);
+
+        vectorConfigs
+
+        // save and merge groups for the first time
+        List<WeightedTermGroup> allTermGroups = termGroupService.syncInitAndSaveTermGroups(allTerms, vectorConfig, tolerance);
+        System.out.println("VectorAlgorithmComputer.saveSongs all Term groups built, Time: " + System.currentTimeMillis() / 1000 + " sec");
+        System.out.println();
+
+        allTermGroups.forEach(System.out::println);
 
         TermWeightType frequencyWeight = TermWeightType.getFrequencyWeight();
 
@@ -340,6 +329,25 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
     }
 
 
+    @Override
+    public List<VectorAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
+        List<VectorAlgorithmResult> results = new ArrayList<>();
+        for (Song song : songs) {
+            VectorAlgorithmResult result = computeSimilarity(vectorConfig, song);
+            results.add(result);
+
+            System.out.println("Song id: " + result.getVectorSong().getSongId());
+            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
+        }
+        return results;
+    }
+
+    @Override
+    public VectorAlgorithmResult computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, Song song) {
+        song = saveSong(vectorConfig, song);
+
+        return computeSimilarity(vectorConfig, song);
+    }
     @Override
     public List<VectorAlgorithmResult> computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
         // TODO: save and refresh weights first
