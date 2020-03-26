@@ -1,10 +1,12 @@
 package sk.upjs.ics.mmizak.simfolk.melody;
 
 import org.audiveris.proxymusic.ScorePartwise;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 
 import java.io.File;
 import java.util.List;
 
+// TODO: extends Song
 public class MelodySong {
 
     private Long id;

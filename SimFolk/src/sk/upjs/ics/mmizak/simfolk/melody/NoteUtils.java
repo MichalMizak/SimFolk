@@ -29,23 +29,31 @@ public class NoteUtils {
     }
 
     static {
-        degreeToStepString.put(1, "01");
-        degreeToStepString.put(2, "02");
-        degreeToStepString.put(3, "03");
-        degreeToStepString.put(4, "04");
-        degreeToStepString.put(5, "05");
-        degreeToStepString.put(6, "06");
-        degreeToStepString.put(7, "07");
-        degreeToStepString.put(8, "08");
-        degreeToStepString.put(9, "09");
-        degreeToStepString.put(10, "10");
-        degreeToStepString.put(11, "11");
-        degreeToStepString.put(12, "12");
+        // "hexadecimal" notation
+        degreeToStepString.put(1, "1");
+        degreeToStepString.put(2, "2");
+        degreeToStepString.put(3, "3");
+        degreeToStepString.put(4, "4");
+        degreeToStepString.put(5, "5");
+        degreeToStepString.put(6, "6");
+        degreeToStepString.put(7, "7");
+        degreeToStepString.put(8, "8");
+        degreeToStepString.put(9, "9");
+        degreeToStepString.put(10, "A");
+        degreeToStepString.put(11, "B");
+        degreeToStepString.put(12, "C");
     }
 
     private NoteUtils() {
     }
 
+    /**
+     * Determine if note is higher than the other
+     *
+     * @param noteToBeHigher
+     * @param noteToBeLower
+     * @return true if @param noteToBeHigher is higher than @param noteToBeLower
+     */
     public static boolean isHigherInPitch(Note noteToBeHigher, Note noteToBeLower) {
 
         int octaveToBeHigher = noteToBeHigher.getPitch().getOctave();
@@ -58,12 +66,16 @@ public class NoteUtils {
         return octaveToBeHigher > octaveToBeLower;
     }
 
+    public static String getCountourAsString(Note noteA, Note noteB) {
+        if (isHigherInPitch(noteA, noteB))
+            return "L"; // meaning we go lower/ klesáme
+        else return "H"; // meaning we go higher/ stúpame
+    }
+
     public static int getDegreeWithoutAlterations(Note note) {
         Pitch pitch = note.getPitch();
-        assert pitch != null;
 
         Step step = pitch.getStep();
-        assert step != null;
 
         return stepToDegree.get(step.toString());
     }
@@ -93,6 +105,34 @@ public class NoteUtils {
         return degreeToStepString.get(getAbsoluteNoteDegree(note));
     }
 
+    /**
+     * Returns relative note difference as string
+     *
+     * @param noteA
+     * @param noteB
+     * @return
+     */
+    public static String getRelativeDifferenceAsString(Note noteA, Note noteB) {
+        int difference = getRelativeDifference(noteA, noteB);
+
+        if (difference >= 0) {
+            return "+" + difference;
+        } else
+            return String.valueOf(difference);
+    }
+
+    /**
+     * Returns relative note difference as string
+     *
+     * @param noteA
+     * @param noteB
+     * @return
+     */
+    public static int getRelativeDifference(Note noteA, Note noteB) {
+        int octaveA = noteA.getPitch().getOctave();
+        int octaveB = noteB.getPitch().getOctave();
+        return octaveA * getAbsoluteNoteDegree(noteA) - octaveB * getAbsoluteNoteDegree(noteB);
+    }
 
     public static List<Note> getNotesFromMeasures(List<ScorePartwise.Part.Measure> measures) {
         List<Note> notes = new ArrayList<>();
@@ -108,11 +148,24 @@ public class NoteUtils {
         List<Note> notes = new ArrayList<>();
 
         for (Object attribute : measure.getNoteOrBackupOrForward()) {
-            if (attribute instanceof Note)
-                notes.add((Note) attribute);
+            if (attribute instanceof Note) {
+
+                Note noteToAdd = (Note) attribute;
+                if (!isPitchedNote(noteToAdd)) {
+                    continue;
+                }
+                notes.add(noteToAdd);
+            }
         }
 
         return notes;
+    }
+
+    private static boolean isPitchedNote(Note noteToAdd) {
+        if (noteToAdd.getUnpitched() != null) {
+            System.out.println("Found unpitched note");
+        }
+        return noteToAdd.getPitch() != null && noteToAdd.getPitch().getStep() != null && noteToAdd.getUnpitched() == null;
     }
 
 

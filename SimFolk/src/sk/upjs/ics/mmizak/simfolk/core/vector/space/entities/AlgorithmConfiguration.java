@@ -1,5 +1,8 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
+import java.util.EnumSet;
+import java.util.Set;
+
 public interface AlgorithmConfiguration {
 
 
@@ -13,7 +16,7 @@ public interface AlgorithmConfiguration {
     }
 
     enum TF {
-        TF_NAIVE, LOG_TF, IDF, NONE, AUGMENTED_TF
+        TF_NAIVE, LOG_TF, IDF, AUGMENTED_TF
     }
 
     enum IDF {
@@ -27,8 +30,13 @@ public interface AlgorithmConfiguration {
         // MEASURE_NGRAM (is tokenized by measures), NOTE_NGRAM and MEASURE is tokenized by notes
         WHOLE_SONG, MEASURE_NGRAM, NOTE_NGRAM, MEASURE;
 
+        public static Set<TermScheme> getMusicTermSchemes() {
+            // TODO: NOTE_NGRAM
+            return EnumSet.of(WHOLE_SONG, MEASURE_NGRAM, MEASURE);
+        }
+
         public boolean isDependantOnN() {
-            return this != WHOLE_SONG && this != MEASURE;
+            return this != WHOLE_SONG && this != MEASURE && this != UNGRAM && this != BIGRAM && this != TRIGRAM;
         }
     }
 
@@ -48,7 +56,8 @@ public interface AlgorithmConfiguration {
      * Only vector algorithm enums
      */
     enum VectorInclusion {
-        A, B, INTERSECTION, UNIFICATION, ALL
+        // TODO: ALL formation
+        A, B, INTERSECTION, UNIFICATION
     }
 
     enum VectorComparisonAlgorithm {

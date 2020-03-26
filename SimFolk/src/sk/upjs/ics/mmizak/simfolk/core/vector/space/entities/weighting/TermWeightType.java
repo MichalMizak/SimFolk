@@ -33,7 +33,7 @@ public class TermWeightType {
         isTFIDF = false;
 
         // default values
-        this.tf = TF.NONE;
+        this.tf = TF.TF_NAIVE;
         this.idf = IDF.NONE;
     }
 
@@ -81,6 +81,30 @@ public class TermWeightType {
                 ", nonTFIDFTermWeightType=" + nonTFIDFTermWeightType +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TermWeightType that = (TermWeightType) o;
+
+        if (isTFIDF() != that.isTFIDF()) return false;
+        if (getTf() != that.getTf()) return false;
+        if (getIdf() != that.getIdf()) return false;
+        if (nonTFIDFTermWeightType != that.nonTFIDFTermWeightType) return false;
+        return getId() != null ? getId().equals(that.getId()) : that.getId() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (isTFIDF() ? 1 : 0);
+        result = 31 * result + (getTf() != null ? getTf().hashCode() : 0);
+        result = 31 * result + (getIdf() != null ? getIdf().hashCode() : 0);
+        result = 31 * result + (nonTFIDFTermWeightType != null ? nonTFIDFTermWeightType.hashCode() : 0);
+        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
+        return result;
     }
 
     //</editor-fold>

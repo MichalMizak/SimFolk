@@ -38,6 +38,10 @@ public interface ITermVectorFormatter {
 
     WeightedVectorPair unificationFormation(WeightedVector a, WeightedVector b, ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm, double tolerance);
 
+    WeightedVectorPair sortAndFormVectors(WeightedVector a, WeightedVector b,
+                                          TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
+                                          ITermComparator termComparator, VectorInclusion vectorInclusion);
+
     WeightedVectorPair formVectors(WeightedVectorPair ab,
                                    TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
                                    ITermComparator termComparator, VectorInclusion vectorInclusion);

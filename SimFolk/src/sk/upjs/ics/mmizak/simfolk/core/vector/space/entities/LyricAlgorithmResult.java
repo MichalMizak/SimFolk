@@ -1,14 +1,11 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorSong;
-
 import java.util.Map;
 
 /**
  * A result of one successful algorithm execution for one song.
  */
-public class VectorAlgorithmResult {
+public class LyricAlgorithmResult {
 
     private VectorSong vectorSong;
 
@@ -46,7 +43,7 @@ public class VectorAlgorithmResult {
 
     @Override
     public String toString() {
-        return "VectorAlgorithmResult{" +
+        return "LyricAlgorithmResult{" +
                 "vectorSong=" + vectorSong +
                 ", songToSimilarityPercentage=" + songToSimilarityPercentage +
                 ", vectorAlgorithmConfiguration=" + vectorAlgorithmConfiguration +

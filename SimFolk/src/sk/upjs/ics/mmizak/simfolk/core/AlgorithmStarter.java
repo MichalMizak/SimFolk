@@ -1,7 +1,10 @@
 package sk.upjs.ics.mmizak.simfolk.core;
 
+import sk.upjs.ics.mmizak.simfolk.core.database.ResultMapperAggregator;
 import sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.DummyVectorAlgorithmConfigurationService;
+import sk.upjs.ics.mmizak.simfolk.core.services.implementations.MusicAlgorithmComputer;
+import sk.upjs.ics.mmizak.simfolk.core.services.implementations.MusicVectorAlgorithmConfigurationService;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorAlgorithmComputer;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
@@ -24,7 +27,7 @@ import java.util.Stack;
  * Basic starter of algorithm without UI.
  * Starter generates/ chooses the algorithm configurations, gets songs to be compared
  * (for now directly from code) and runs the algorithm with or without saving.
- * Starter also handles the VectorAlgorithmResult.
+ * Starter also handles the LyricAlgorithmResult.
  */
 public class AlgorithmStarter {
 
@@ -53,6 +56,7 @@ public class AlgorithmStarter {
             "C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources";
 
     public static void main(String[] args) {
+
         compute();
 
         // thesisOutput();
@@ -96,19 +100,30 @@ public class AlgorithmStarter {
         DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator =
                 new DummyVectorAlgorithmConfigurationService();
 
-        VectorAlgorithmConfiguration vectorAlgorithmConfiguration =
-                dummyVectorConfigurationGenerator.generateRandomConfiguration();
-        IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
+        VectorAlgorithmConfiguration vectorAlgorithmConfiguration = dummyVectorConfigurationGenerator.generateRandomConfiguration();
+
+        //List<VectorAlgorithmConfiguration> allConfigurations = dummyVectorConfigurationGenerator.loadAllConfigurations();
+        IVectorAlgorithmConfigurationService musicConfService = new MusicVectorAlgorithmConfigurationService();
+
+        List<VectorAlgorithmConfiguration> allConfigurations = musicConfService.loadAllConfigurations();
+        allConfigurations.subList(0, SONGS_TO_COMPARE_COUNT);
+
 
         if (ALGORITHM_TYPE == AlgorithmConfiguration.AlgorithmType.MUSIC) {
+            IMusicAlgorithmComputer algorithmComputer = new MusicAlgorithmComputer();
 
             List<MelodySong> melodySongs = getMelodySongs();
 
-            if (SAVE_SONGS)
-                algorithmComputer.computeMusicSimilarityAndSave(vectorAlgorithmConfiguration, melodySongs);
-            else
+            ResultMapperAggregator resultMapperAggregator = new ResultMapperAggregator();
+
+            if (SAVE_SONGS) {
+                allConfigurations.forEach(vac ->
+                        resultMapperAggregator.addResult(vac, algorithmComputer.computeMusicSimilarityAndSave(vac, melodySongs)));
+            } else {
                 algorithmComputer.computeMusicSimilarity(vectorAlgorithmConfiguration, melodySongs);
+            }
         } else {
+            IAlgorithmComputer algorithmComputer = new VectorAlgorithmComputer();
             List<Song> songs = getSongs();
 
             // TODO: For progress send an object to the algorithm computer
@@ -134,7 +149,7 @@ public class AlgorithmStarter {
         IMusicXMLUnmarshaller scorePartwiseParser = new ScorePartwiseUnmarshaller();
 
         List<File> xmlFiles = new ArrayList<>();
-       // xmlFiles = iterateXMLFiles(MUSICXML_RESOURCE_DIRECTORY);
+        // xmlFiles = iterateXMLFiles(MUSICXML_RESOURCE_DIRECTORY);
 
 
         xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_001-spievaj-si-dievcatko.xml"));

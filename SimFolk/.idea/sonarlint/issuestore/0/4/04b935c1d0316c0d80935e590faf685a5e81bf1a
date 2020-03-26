@@ -1,53 +1,55 @@
 
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ºò¥òÿÿÿÿÿ8¬ÍÃ„.
-qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(“À†Êüÿÿÿÿ8¬ÍÃ„.
-]squid:S1075"ARefactor your code to get this URI from a customizable parameter.(¤ÇîÑ8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(¬’˜ûùÿÿÿÿ8¬ÍÃ„.
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ã¼Şû8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(Áøİøúÿÿÿÿ8¬ÍÃ„.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(èğÖæøÿÿÿÿ8¬ÍÃ„.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(½Ó£Ì8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(¨èâüÿÿÿÿ8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(éğŠÊûÿÿÿÿ8¬ÍÃ„.
-qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(‡µ„ııÿÿÿÿ8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(¼í·ûÿÿÿÿ8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ê‰íİüÿÿÿÿ8¬ÍÃ„.
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(“À†Êüÿÿÿÿ8¬ÍÃ„.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ô«Ûô8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(óƒ¥¼øÿÿÿÿ8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ÒÔ¡Ãøÿÿÿÿ8¬ÍÃ„.
-nsquid:S1192"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8¬ÍÃ„.
-`squid:UnusedPrivateMethod"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8¬ÍÃ„.
-`squid:S1854"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8¬ÍÃ„.
-Msquid:S1135"2Complete the task associated to this TODO comment.(ÌÇëv8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(¨­Î–üÿÿÿÿ8¬ÍÃ„.
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã¿¸8¬ÍÃ„.
-csquid:S1854"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8¬ÍÃ„.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÿ‡û’8¬ÍÃ„.
-^squid:UnusedPrivateMethod"4Remove this unused private "iterateXMLFiles" method.(Ã¼Şû8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ˆİˆ­úÿÿÿÿ8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ó‹¹ışÿÿÿÿ8¬ÍÃ„.
-S
-squid:S106"9Replace this use of System.out or System.err by a logger.(¥™éU8¬ÍÃ„.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ù¿õŞúÿÿÿÿ8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ùÕºùÿÿÿÿ8¬ÍÃ„.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(üÚÛˆ8¬ÍÃ„.
-S
-squid:S106"9Replace this use of System.out or System.err by a logger.(¹™ã8¬ÍÃ„.
-Nsquid:S1135"2Complete the task associated to this TODO comment.(ÆÇÊ¥8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ˆìÆüÿÿÿÿ8¬ÍÃ„.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(¸º÷çúÿÿÿÿ8¬ÍÃ„.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»ìİÀùÿÿÿÿ8¬ÍÃ„.
+csquid:UnusedPrivateMethod"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8ØÈ“–.
+W
+squid:S106Æ"9Replace this use of System.out or System.err by a logger.(ÿ‡û’8ØÈ“–.
+nsquid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(èğÖæøÿÿÿÿ8ØÈ“–.
+\
+squid:S106³"9Replace this use of System.out or System.err by a logger.(¨­Î–üÿÿÿÿ8ØÈ“–.
+Psquid:S1135{"2Complete the task associated to this TODO comment.(ÆÇÊ¥8ØÈ“–.
+esquid:S1075œ"ARefactor your code to get this URI from a customizable parameter.(ê‰íİüÿÿÿÿ8ØÈ“–.
+fsquid:S1854ö"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8ØÈ“–.
+osquid:CommentedOutCodeLine’"<This block of commented-out lines of code should be removed.(»ìİÀùÿÿÿÿ8ØÈ“–.
+ssquid:S1149D"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(“À†Êüÿÿÿÿ8ØÈ“–.
+hsquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(Ã¿¸8ØÈ“–.
+\
+squid:S106Ù"9Replace this use of System.out or System.err by a logger.(ó‹¹ışÿÿÿÿ8ØÈ“–.
+W
+squid:S106À"9Replace this use of System.out or System.err by a logger.(üÚÛˆ8ØÈ“–.
+csquid:S1854k"ERemove this useless assignment to local variable "allConfigurations".(©øµË8ØÈ“–.
+Tsquid:S1481k"6Remove this unused "allConfigurations" local variable.(©øµË8ØÈ“–.
+qsquid:S1192É"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8ØÈ“–.
+\
+squid:S106ß"9Replace this use of System.out or System.err by a logger.(ù¿õŞúÿÿÿÿ8ØÈ“–.
+esquid:S1075"ARefactor your code to get this URI from a customizable parameter.(óƒ¥¼øÿÿÿÿ8ØÈ“–.
+V
+squid:S106Ú"9Replace this use of System.out or System.err by a logger.(¹™ã8ØÈ“–.
+Psquid:S1135‚"2Complete the task associated to this TODO comment.(ÌÇëv8ØÈ“–.
+\
+squid:S106Ô"9Replace this use of System.out or System.err by a logger.(¼í·ûÿÿÿÿ8ØÈ“–.
+esquid:S1075—"ARefactor your code to get this URI from a customizable parameter.(ˆìÆüÿÿÿÿ8ØÈ“–.
+esquid:S1075˜"ARefactor your code to get this URI from a customizable parameter.(ùÕºùÿÿÿÿ8ØÈ“–.
+\
+squid:S106à"9Replace this use of System.out or System.err by a logger.(éğŠÊûÿÿÿÿ8ØÈ“–.
+W
+squid:S106©"9Replace this use of System.out or System.err by a logger.(½Ó£Ì8ØÈ“–.
+csquid:S1854Ğ"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8ØÈ“–.
+\
+squid:S106Ë"9Replace this use of System.out or System.err by a logger.(â…ûùúÿÿÿÿ8ØÈ“–.
+esquid:S1075™"ARefactor your code to get this URI from a customizable parameter.(¬’˜ûùÿÿÿÿ8ØÈ“–.
+esquid:S1075–"ARefactor your code to get this URI from a customizable parameter.(¸º÷çúÿÿÿÿ8ØÈ“–.
+esquid:S1075›"ARefactor your code to get this URI from a customizable parameter.(ºò¥òÿÿÿÿÿ8ØÈ“–.
+|squid:S2293D"YReplace the type specification in this constructor call with the diamond operator ("<>").(“À†Êüÿÿÿÿ8ØÈ“–.
+\
+squid:S106É"9Replace this use of System.out or System.err by a logger.(Áøİøúÿÿÿÿ8ØÈ“–.
+esquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ÒÔ¡Ãøÿÿÿÿ8ØÈ“–.
+\
+squid:S106Õ"9Replace this use of System.out or System.err by a logger.(ˆİˆ­úÿÿÿÿ8ØÈ“–.
+ssquid:S1149E"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(‡µ„ııÿÿÿÿ8ØÈ“–.
+W
+squid:S106¶"9Replace this use of System.out or System.err by a logger.(Ô«Ûô8ØÈ“–.
+`squid:S1075•"ARefactor your code to get this URI from a customizable parameter.(¤ÇîÑ8ØÈ“–.
+qsquid:S3776¥"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ã¼Şû8ØÈ“–.
+esquid:S1075š"ARefactor your code to get this URI from a customizable parameter.(¨èâüÿÿÿÿ8ØÈ“–.
+V
+squid:S106Í"9Replace this use of System.out or System.err by a logger.(¥™éU8ØÈ“–.
+asquid:UnusedPrivateMethod¥"4Remove this unused private "iterateXMLFiles" method.(Ã¼Şû8ØÈ“–.

@@ -1,7 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.interfaces;
 
-import org.audiveris.proxymusic.ScorePartwise;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmResult;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.LyricAlgorithmResult;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.MusicAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
@@ -20,13 +20,9 @@ public interface IAlgorithmComputer {
      * @return
      * @throws Exception
      */
-    VectorAlgorithmResult computeSimilarity(VectorAlgorithmConfiguration vectorConfig, Song song);
+    LyricAlgorithmResult computeSimilarity(VectorAlgorithmConfiguration vectorConfig, Song song);
 
-    List<VectorAlgorithmResult> computeMusicSimilarity(VectorAlgorithmConfiguration vectorConfig, List<MelodySong> melodySongs);
-
-    List<VectorAlgorithmResult> computeMusicSimilarityAndSave(VectorAlgorithmConfiguration vectorAlgorithmConfiguration, List<MelodySong> melodySongs);
-
-    List<VectorAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs);
+    List<LyricAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs);
 
     /**
      * Saves and runs the deeper version of the algorithm on one song
@@ -36,7 +32,7 @@ public interface IAlgorithmComputer {
      * @return
      * @throws Exception
      */
-    VectorAlgorithmResult computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, Song song);
+    LyricAlgorithmResult computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, Song song);
 
-    List<VectorAlgorithmResult> computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, List<Song> songs);
+    List<LyricAlgorithmResult> computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, List<Song> songs);
 }

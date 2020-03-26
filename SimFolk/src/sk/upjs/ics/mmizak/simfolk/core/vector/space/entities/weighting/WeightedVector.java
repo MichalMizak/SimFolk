@@ -1,5 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting;
 
+import sk.upjs.ics.mmizak.simfolk.core.utilities.TermGroupIdComparator;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 
 import java.util.ArrayList;
@@ -67,5 +68,12 @@ public class WeightedVector {
                 "songId=" + songId +
                 ", vector=" + vector +
                 '}';
+    }
+
+    /**
+     * Sort arrays by group id
+     */
+    public void sort() {
+        vector.sort(new TermGroupIdComparator());
     }
 }

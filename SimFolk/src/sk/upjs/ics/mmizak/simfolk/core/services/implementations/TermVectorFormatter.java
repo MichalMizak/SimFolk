@@ -20,6 +20,16 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 public class TermVectorFormatter implements ITermVectorFormatter {
 
     @Override
+    public WeightedVectorPair sortAndFormVectors(WeightedVector a, WeightedVector b,
+                                                 TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
+                                                 ITermComparator termComparator, VectorInclusion vectorInclusion) {
+        // Sort arrays by group id
+        a.sort();
+        b.sort();
+        return formVectors(a, b, termComparisonAlgorithm, tolerance, termComparator, vectorInclusion);
+    }
+
+    @Override
     public WeightedVectorPair formVectors(WeightedVectorPair ab,
                                           TermComparisonAlgorithm termComparisonAlgorithm, double tolerance,
                                           ITermComparator termComparator, VectorInclusion vectorInclusion) {
@@ -44,8 +54,8 @@ public class TermVectorFormatter implements ITermVectorFormatter {
             case INTERSECTION:
                 return intersectionFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
 
-            case ALL:
-                return allFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
+//            case ALL:
+//                return allFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
 
             default:
                 throw new RuntimeException("Unimplemented vector inclusion");
@@ -56,11 +66,6 @@ public class TermVectorFormatter implements ITermVectorFormatter {
     public WeightedVectorPair aFormation(WeightedVector a, WeightedVector b,
                                          ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
                                          double tolerance) {
-
-        // Sort arrays by group id
-        sortByGroupId(a);
-        sortByGroupId(b);
-
         // we do not create aResult because a vector remains unchanged in the process
         List<WeightedTermGroup> bResult = new ArrayList<>();
 
@@ -92,7 +97,7 @@ public class TermVectorFormatter implements ITermVectorFormatter {
             if (bGroupId == null) {
                 bIndex++;
                 continue;
-        }
+            }
 
             /* Check if current element group id of first
              array is smaller than current element group id
@@ -141,10 +146,6 @@ public class TermVectorFormatter implements ITermVectorFormatter {
     public WeightedVectorPair intersectionFormation(WeightedVector a, WeightedVector b,
                                                     ITermComparator termComparator, TermComparisonAlgorithm termComparisonAlgorithm,
                                                     double tolerance) {
-        // Sort arrays by group id
-        sortByGroupId(a);
-        sortByGroupId(b);
-
         List<WeightedTermGroup> aResult = new ArrayList<>();
         List<WeightedTermGroup> bResult = new ArrayList<>();
 
@@ -216,11 +217,6 @@ public class TermVectorFormatter implements ITermVectorFormatter {
     @Override
     public WeightedVectorPair unificationFormation(WeightedVector a, WeightedVector b, ITermComparator termComparator,
                                                    TermComparisonAlgorithm termComparisonAlgorithm, double tolerance) {
-
-        // Sort arrays by group id
-        sortByGroupId(a);
-        sortByGroupId(b);
-
         List<WeightedTermGroup> aResult = new ArrayList<>();
         List<WeightedTermGroup> bResult = new ArrayList<>();
 
@@ -324,11 +320,6 @@ public class TermVectorFormatter implements ITermVectorFormatter {
                 termComparisonAlgorithm, tolerance, aGroup.getDatabaseIncidenceCount()
         );
     }
-
-    private void sortByGroupId(WeightedVector vector) {
-        vector.getVector().sort(new TermGroupIdComparator());
-    }
-
 
     /**
      * Assumes that if a group has null id it is unique in database

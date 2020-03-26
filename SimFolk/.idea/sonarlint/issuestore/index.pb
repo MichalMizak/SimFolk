@@ -113,3 +113,5 @@ Ksrc/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IWeightService.java,6\
 Ssrc/sk/upjs/ics/mmizak/simfolk/core/database/dao/interfaces/IWeightedVectorDao.java,0\6\06011a312677bc851754f3a70ec3ba01c32710ac
 †
 Vsrc/sk/upjs/ics/mmizak/simfolk/core/database/dao/interfaces/IWeightedTermGroupDao.java,2\d\2d6dd13e386b3742e21c291cb5cb96461a133e57
+š
+jsrc/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicVectorAlgorithmConfigurationService.java,5\6\56775177ebea926c33c3eec1f41121f36194653b

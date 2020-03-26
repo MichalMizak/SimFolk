@@ -29,8 +29,8 @@ public class MusicTermBuilder implements ITermBuilder {
                 return buildWholeSongTerms(vectorAlgorithmConfiguration, melodySong);
             case MEASURE:
                 return buildMeasureTerms(vectorAlgorithmConfiguration, melodySong);
-            case NOTE_NGRAM:
-                return buildNoteNGrams(vectorAlgorithmConfiguration, melodySong);
+           // case NOTE_NGRAM:
+            //    return buildNoteNGrams(vectorAlgorithmConfiguration, melodySong);
             case MEASURE_NGRAM:
                 return buildMeasureNGrams(vectorAlgorithmConfiguration, melodySong);
             default:
@@ -92,6 +92,10 @@ public class MusicTermBuilder implements ITermBuilder {
 
 
     private List<Term> buildNoteNGrams(VectorAlgorithmConfiguration vectorAlgorithmConfiguration, MelodySong melodySong) {
+        List<ScorePartwise.Part.Measure> melodyInMeasures = melodySong.getMelodyInMeasures();
+
+        melodyToStringConverter.getMelodyInMeasuresAsString(melodyInMeasures,
+                vectorAlgorithmConfiguration.getMusicStringFormat());
         return null;
     }
 

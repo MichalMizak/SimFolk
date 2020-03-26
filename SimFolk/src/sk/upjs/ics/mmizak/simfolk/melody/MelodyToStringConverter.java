@@ -60,7 +60,7 @@ public class MelodyToStringConverter {
         List<String> result = new ArrayList<>();
 
         for (String measure : notesInMeasureStringList) {
-            if (!measure.trim().isEmpty()) {
+            if (measure != null && !measure.trim().isEmpty()) {
                 result.add(measure);
             }
         }
@@ -80,8 +80,13 @@ public class MelodyToStringConverter {
     private String getRelativeString(List<Note> notes) {
         StringBuilder sb = new StringBuilder();
 
-        for (Note note : notes) {
-            sb.append(note.getLevel().toString() + " ");
+        if (notes.isEmpty())
+            return "";
+
+        Note previousNote = notes.get(0);
+
+        for (int i = 1; i < notes.size(); i++) {
+            sb.append(NoteUtils.getRelativeDifferenceAsString(previousNote, notes.get(i)));
         }
 
         return sb.toString().trim();
@@ -95,8 +100,7 @@ public class MelodyToStringConverter {
             String absoluteNoteDegreeString = NoteUtils.getAbsoluteNoteDegreeString(note);
 
             sb.append(absoluteNoteDegreeString)
-                    .append(note.getPitch().getOctave())
-                    .append(" ");
+                    .append(note.getPitch().getOctave());
         }
 
         return sb.toString().trim();
@@ -105,9 +109,15 @@ public class MelodyToStringConverter {
     private String getCountourString(List<Note> notes) {
         StringBuilder sb = new StringBuilder();
 
-        for (Note note : notes) {
+        if (notes.isEmpty())
+            return "";
+
+        Note previousNote = notes.get(0);
+
+        for (int i = 1; i < notes.size(); i++) {
+            sb.append(NoteUtils.getCountourAsString(previousNote, notes.get(i)));
         }
 
-        return null;
+        return sb.toString().trim();
     }
 }

@@ -23,14 +23,14 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 
 
 /**
- * Runs the algorithm for one AlgorithmComfiguration and returns VectorAlgorithmResult.
+ * Runs the algorithm for one AlgorithmComfiguration and returns LyricAlgorithmResult.
  */
 public class VectorAlgorithmComputer implements IAlgorithmComputer {
 
     private static final Long NULL_ID = null;
 
     @Override
-    public VectorAlgorithmResult computeSimilarity(VectorAlgorithmConfiguration vectorConfig, Song song) {
+    public LyricAlgorithmResult computeSimilarity(VectorAlgorithmConfiguration vectorConfig, Song song) {
 
         //<editor-fold desc="Preparation of song to be compared">
         // dependencies initiation
@@ -88,7 +88,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             songToSimilarityPercentage.put(vectorB.getSongId(), similarity);
         }
 
-        VectorAlgorithmResult result = new VectorAlgorithmResult();
+        LyricAlgorithmResult result = new LyricAlgorithmResult();
 
         result.setSongToSimilarityPercentage(songToSimilarityPercentage);
         result.setVectorAlgorithmConfiguration(vectorConfig);
@@ -97,243 +97,12 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         return result;
     }
 
-    @Override
-    public List<VectorAlgorithmResult> computeMusicSimilarity(VectorAlgorithmConfiguration vectorConfig, List<MelodySong> melodySongs) {
-        //<editor-fold desc="Preparation of song to be compared">
-        // dependencies initiation
-        // Music specific services
-        ITermBuilder termBuilder = INSTANCE.getTermBuilder();
-
-
-        ITermService termService = INSTANCE.getTermService();
-        IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
-        ITermComparator termComparator = INSTANCE.getTermComparator();
-        ITermGroupService termGroupService = INSTANCE.getTermGroupService();
-        IWeightService weightCalculator = ServiceFactory.INSTANCE.getWeightCalculator();
-        ITermVectorFormatter termVectorFormatter = INSTANCE.getTermVectorFormatter();
-        IVectorComparator vectorComparator = INSTANCE.getVectorComparator();
-
-        // local variables for readability
-        TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
-
-        // calculate numeric value of tolerance
-        double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
-                termComparisonAlgorithm);
-
-        List<WeightedVector> musicVectors = new ArrayList<>();
-
-
-        for (MelodySong melodySong : melodySongs) {
-
-            // transforms measures into terms
-            List<Term> terms = termBuilder.buildTerms(vectorConfig, melodySong);
-
-            // assigns database ids to existing terms
-            terms = termService.syncTermIds(terms);
-
-            List<WeightedTermGroup> frequencyTermGroups = termGroupService.syncAndInitTermGroups(terms, vectorConfig, tolerance);
-
-            WeightedVector vectorA = weightCalculator.calculateNewWeightedVector(melodySong.getId(), frequencyTermGroups, vectorConfig);
-            musicVectors.add(vectorA);
-        }
-        Map<Long, Double> melodyToSimilarityPercentage = new HashMap<>();
-
-        List<VectorAlgorithmResult> results = new ArrayList<>();
-
-        for (int i = 0; i < musicVectors.size(); i++) {
-
-            WeightedVector vectorA = musicVectors.get(i);
-
-            for (int j = 0; j < musicVectors.size(); j++) {
-
-                WeightedVector vectorB = musicVectors.get(j);
-
-                WeightedVectorPair vectorPair = termVectorFormatter.formVectors(vectorA, vectorB,
-                        termComparisonAlgorithm,
-                        tolerance, termComparator,
-                        vectorConfig.getVectorInclusion());
-
-                double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
-                        vectorPair);
-
-                similarity = 100*similarity;
-
-                similarity = Math.round(similarity);
-
-                // TODO: dynamic IDs from database
-                melodyToSimilarityPercentage.put((long) j + 1, similarity);
-            }
-
-            Map<Long, Double> trimmedMelodyToSimilarityPercentage = new HashMap<>();
-
-            for (Map.Entry<Long, Double> idToSimilarity : melodyToSimilarityPercentage.entrySet()) {
-                if (idToSimilarity.getValue() != 0) {
-                    trimmedMelodyToSimilarityPercentage.put(idToSimilarity.getKey(), idToSimilarity.getValue());
-                }
-            }
-
-            VectorAlgorithmResult result = new VectorAlgorithmResult();
-
-            result.setSongToSimilarityPercentage(trimmedMelodyToSimilarityPercentage);
-            result.setVectorAlgorithmConfiguration(vectorConfig);
-            result.setVectorSong(new VectorSong(vectorA));
-
-            results.add(result);
-            melodyToSimilarityPercentage = new HashMap<>();
-        }
-
-        writeResultToFile(vectorConfig, melodySongs, results);
-
-        return results;
-
-        //</editor-fold>
-    }
-
-    private void writeResultToFile(VectorAlgorithmConfiguration vectorConfigs, List<MelodySong> melodySongs, List<VectorAlgorithmResult> results) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(vectorConfig.toString());
-
-        sb.append("\n");
-        for (MelodySong melodySong : melodySongs) {
-            sb.append(melodySong.getId())
-                    .append(" = ")
-                    .append(melodySong.getMusicXML().toString());
-            sb.append("\n");
-        }
-
-        File file = new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\resultMap.txt");
-
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(sb.toString());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        sb = new StringBuilder();
-
-        for (VectorAlgorithmResult result : results) {
-
-            sb.append("Song id: ")
-                    .append(result.getVectorSong().getSongId())
-                    .append("\n")
-                    .append("Similarities: ")
-                    .append(result.getSongToSimilarityPercentage().toString())
-                    .append("\n");
-
-            System.out.println("Song id: " + result.getVectorSong().getSongId());
-            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
-        }
-
-        file = new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\result.txt");
-
-
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(sb.toString());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @Override
-    public List<VectorAlgorithmResult> computeMusicSimilarityAndSave(List<VectorAlgorithmConfiguration> vectorConfigs, List<MelodySong> melodySongs) {
-        ITermService termService = INSTANCE.getTermService();
-        ITermGroupService termGroupService = INSTANCE.getTermGroupService();
-        IToleranceCalculator toleranceCalculator = INSTANCE.getToleranceCalculator();
-
-        IWeightService weightCalculator = ServiceFactory.INSTANCE.getWeightCalculator();
-        ISongService songService = ServiceFactory.INSTANCE.getSongService();
-
-        TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
-        double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
-                termComparisonAlgorithm);
-
-        // List<MelodySong> savedSongs = new ArrayList<>();
-
-        for (int i = 0; i < melodySongs.size(); i++) {
-            melodySongs.get(i).setId((long) i + 1);
-        }
-
-        for (MelodySong song : melodySongs) {
-            Song dummySong = new Song();
-            dummySong.setLyrics(song.getMusicXML().toString());
-            dummySong.setCleanLyrics(dummySong.getLyrics());
-            dummySong.setSource("");
-            dummySong.setAttributes(new ArrayList<>());
-
-            songService.initAndSave(dummySong);
-        }
-
-        Map<MelodySong, List<Term>> songToTerms = new HashMap<>();
-
-        for (MelodySong melodySong : melodySongs) {
-            System.out.println("Processing:");
-            System.out.println(melodySong.getMusicXML().toString());
-
-            List<Term> terms = termService.buildAndSync(melodySong, vectorConfig);
-
-            songToTerms.put(melodySong, terms);
-
-            System.out.println();
-            System.out.println("VectorAlgorithmComputer.computeMusicSimilarityAndSave MelodySong " + melodySong.getId() +
-                    " built into terms, Time: " + System.currentTimeMillis() / 1000 + " sec");
-
-        }
-
-        List<Term> allTerms = new ArrayList<>();
-        songToTerms.values().forEach(allTerms::addAll);
-
-        vectorConfigs
-
-        // save and merge groups for the first time
-        List<WeightedTermGroup> allTermGroups = termGroupService.syncInitAndSaveTermGroups(allTerms, vectorConfig, tolerance);
-        System.out.println("VectorAlgorithmComputer.saveSongs all Term groups built, Time: " + System.currentTimeMillis() / 1000 + " sec");
-        System.out.println();
-
-        allTermGroups.forEach(System.out::println);
-
-        TermWeightType frequencyWeight = TermWeightType.getFrequencyWeight();
-
-        // init NAIVE weights and other weights
-        songToTerms.forEach((song, terms) -> {
-            // get actual term groups after initialization of all songs
-            List<WeightedTermGroup> frequencyWeightedGroups =
-                    termGroupService.syncInitAndSaveTermGroups(terms, vectorConfig, tolerance);
-
-            frequencyWeightedGroups.forEach(wtg -> {
-                wtg.setTermWeightType(frequencyWeight);
-                wtg.setSongId(song.getId());
-            });
-
-            weightCalculator.saveOrEditExcludingTermGroup(new WeightedVector(song.getId(), frequencyWeightedGroups));
-
-            System.out.println("VectorAlgorithmComputer.saveSongs Saved naive weights for Song "
-                    + song.getId() + ", Time: " + System.currentTimeMillis() / 1000 + " sec");
-
-            WeightedVector weightedVector = weightCalculator.calculateNewWeightedVector(
-                    song.getId(), frequencyWeightedGroups, vectorConfig);
-            weightCalculator.saveOrEditExcludingTermGroup(weightedVector);
-
-            System.out.println("VectorAlgorithmComputer.saveSongs Saved nontrivial weights for Song "
-                    + song.getId() + ", Time: " + System.currentTimeMillis() / 1000 + " sec");
-        });
-
-        return computeMusicSimilarity(vectorConfig, melodySongs);
-
-    }
-
-
-    @Override
-    public List<VectorAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
-        List<VectorAlgorithmResult> results = new ArrayList<>();
+    public List<LyricAlgorithmResult> computeSimilarity(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
+        List<LyricAlgorithmResult> results = new ArrayList<>();
         for (Song song : songs) {
-            VectorAlgorithmResult result = computeSimilarity(vectorConfig, song);
+            LyricAlgorithmResult result = computeSimilarity(vectorConfig, song);
             results.add(result);
 
             System.out.println("Song id: " + result.getVectorSong().getSongId());
@@ -343,13 +112,14 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
     }
 
     @Override
-    public VectorAlgorithmResult computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, Song song) {
+    public LyricAlgorithmResult computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, Song song) {
         song = saveSong(vectorConfig, song);
 
         return computeSimilarity(vectorConfig, song);
     }
+
     @Override
-    public List<VectorAlgorithmResult> computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
+    public List<LyricAlgorithmResult> computeSimilarityAndSave(VectorAlgorithmConfiguration vectorConfig, List<Song> songs) {
         // TODO: save and refresh weights first
 
         songs = saveSongs(vectorConfig, songs);
@@ -358,9 +128,9 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
                 " Time:" + System.currentTimeMillis());
 
 
-        List<VectorAlgorithmResult> vectorAlgorithmResults = computeSimilarity(vectorConfig, songs);
+        List<LyricAlgorithmResult> lyricAlgorithmResults = computeSimilarity(vectorConfig, songs);
 
-        return vectorAlgorithmResults;
+        return lyricAlgorithmResults;
     }
 
     private Song saveSong(VectorAlgorithmConfiguration vectorConfig, Song song) {
@@ -375,7 +145,6 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
         TermComparisonAlgorithm termComparisonAlgorithm = vectorConfig.getTermComparisonAlgorithm();
         double tolerance = toleranceCalculator.calculateTolerance(vectorConfig.getTolerance(),
                 termComparisonAlgorithm);
-
 
         song = songService.initAndSave(song);
 

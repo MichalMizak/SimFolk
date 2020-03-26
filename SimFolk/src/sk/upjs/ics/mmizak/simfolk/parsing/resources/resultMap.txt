@@ -1,6 +1,6 @@
-VectorAlgorithmConfiguration{musicStringFormat=ABSOLUTE, termScheme=MEASURE_NGRAM, termDimension=4, termWeightType=TermWeightType{isTFIDF=true, tf=AUGMENTED_TF, idf=IDF, nonTFIDFTermWeightType=NONE, id=3}
-, tolerance=LOW, termGroupMatchingStrategy=MATCH_ONE, termGroupMergingStrategy=MERGE_ANY, vectorInclusion=UNIFICATION
-, vectorComparisonAlgorithm=COS, termComparisonAlgorithm=LEVENSHTEIN_DISTANCE}
+VectorAlgorithmConfiguration{musicStringFormat=ABSOLUTE, termScheme=MEASURE_NGRAM, termDimension=3, termWeightType=TermWeightType{isTFIDF=true, tf=TF_NAIVE, idf=IDF, nonTFIDFTermWeightType=NONE, id=null}
+, tolerance=NONE, termGroupMatchingStrategy=MATCH_ONE, termGroupMergingStrategy=MERGE_ANY, vectorInclusion=INTERSECTION
+, vectorComparisonAlgorithm=COS, termComparisonAlgorithm=NAIVE}
 1 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_001-spievaj-si-dievcatko.xml
 2 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_002-zaspieva-vtaca-na-kosodrevine.xml
 3 = C:\UPJŠ\Bakalárska práca\SimFolk\SimFolk\src\sk\upjs\ics\mmizak\simfolk\parsing\resources\xmlFiles\spevy-i_3-zapada-slniecko-za-daleke-hory.xml

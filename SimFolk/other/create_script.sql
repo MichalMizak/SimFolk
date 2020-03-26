@@ -9,8 +9,8 @@ CREATE TABLE `SONG`
   lyrics	TEXT NOT NULL,
   cleanLyrics TEXT NOT NULL,
   title		VARCHAR(250),
-  songStyle VARCHAR(40),
-  region	VARCHAR(40),
+  songStyle VARCHAR(400),
+  region	VARCHAR(400),
   source	VARCHAR(50) NOT NULL,
   PRIMARY KEY (`songId`),
   UNIQUE(`lyrics`(767))
@@ -29,7 +29,7 @@ CREATE TABLE `SONG_TO_ATTRIBUTE`
 CREATE TABLE `TERM`
 (
 	termId			BIGINT NOT NULL AUTO_INCREMENT,
-    lyricsFragment	VARCHAR(80) NOT NULL,
+    lyricsFragment	VARCHAR(800) NOT NULL,
 	wordCount		INT NOT NULL,
     termScheme		VARCHAR(40),
     PRIMARY KEY (`termId`),
@@ -38,9 +38,9 @@ CREATE TABLE `TERM`
 
 CREATE TABLE `TERM_TOKENIZED`
 (
-	termId			BIGINT NOT NULL,				
+	termId			BIGINT NOT NULL,
     orderNumber		INT NOT NULL,
-    word			VARCHAR(30) NOT NULL,
+    word			VARCHAR(300) NOT NULL,
     PRIMARY KEY (`termId`, `orderNumber`),
     FOREIGN KEY (`termId`)
     REFERENCES TERM(`termId`)
@@ -90,7 +90,7 @@ CREATE TABLE `WEIGHTED_TERM_GROUP`
     groupId				BIGINT NOT NULL,
     termWeightTypeId	INT NOT NULL,
     weight				DOUBLE NOT NULL,
-    PRIMARY KEY (`songId`, `groupId`, `termWeightTypeId`), 
+    PRIMARY KEY (`songId`, `groupId`, `termWeightTypeId`),
     FOREIGN KEY (`songId`)
     REFERENCES SONG(`songId`)
     ON DELETE CASCADE,
@@ -137,7 +137,7 @@ CREATE TABLE `RESULT_TO_SONG`
 (
 	songId 		BIGINT NOT NULL,
     resultId	BIGINT NOT NULL,
-    similarity	DOUBLE NOT NULL,	
+    similarity	DOUBLE NOT NULL,
     UNIQUE (`songId`, `resultId`),
     FOREIGN KEY (`songId`)
     REFERENCES SONG(`songId`)
@@ -146,7 +146,3 @@ CREATE TABLE `RESULT_TO_SONG`
     REFERENCES VECTOR_ALGORITHM_RESULT(`resultId`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
-
-

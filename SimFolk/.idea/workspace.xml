@@ -2,29 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16b2b1a9-f2df-4141-a1b8-8b945c8863b9" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/ResultMapperAggregator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicAlgorithmComputer.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicVectorAlgorithmConfigurationService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IMusicAlgorithmComputer.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/CollectionsUtilities.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/MusicAlgorithmResult.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_3.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_3.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_10_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_3.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04b935c1d0316c0d80935e590faf685a5e81bf1a" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04b935c1d0316c0d80935e590faf685a5e81bf1a" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/099db53575a3f85e0d409a03fe7490d33df4e08a" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/099db53575a3f85e0d409a03fe7490d33df4e08a" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0d3d88da1b2919dcb2a3a1f05a6f66dd45b3ab79" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0d3d88da1b2919dcb2a3a1f05a6f66dd45b3ab79" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/f/0fe508bff47d98961da6074b75a7e378c41ce1df" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/f/0fe508bff47d98961da6074b75a7e378c41ce1df" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/336cc45147fcc71d41683fd27f80ec317fe21af0" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/336cc45147fcc71d41683fd27f80ec317fe21af0" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b181039983e5bd78cdbc3f8c9039699f79cd83c" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b181039983e5bd78cdbc3f8c9039699f79cd83c" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/463a53ebe7879c6246228e914f7d56018f463b13" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/463a53ebe7879c6246228e914f7d56018f463b13" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5f4ef58333bc5f144661e8de86675ab391604a8a" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5f4ef58333bc5f144661e8de86675ab391604a8a" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/b/6b3642c515557316cc23dee697a4433a88dfeb2b" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/b/6b3642c515557316cc23dee697a4433a88dfeb2b" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/923072cd0526dd9a16c6bdb33c177a3f9f927a3d" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/923072cd0526dd9a16c6bdb33c177a3f9f927a3d" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/8/a812398f498b064de235487650c86fcfe8e815fb" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/8/a812398f498b064de235487650c86fcfe8e815fb" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d3e46b5db59a6ca46103ef71ac52c51e846ee478" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d3e46b5db59a6ca46103ef71ac52c51e846ee478" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/5/d548e5ed467e4cd2dcb86bcef5d7b351f71b3d61" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/5/d548e5ed467e4cd2dcb86bcef5d7b351f71b3d61" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f4fb3b168945dec20f6a602e5a67be830d465ce7" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f4fb3b168945dec20f6a602e5a67be830d465ce7" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc85ef9babaacc5f3d5912d8d48862376b325e9b" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc85ef9babaacc5f3d5912d8d48862376b325e9b" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc8c332c00f36104906095fcbd0e2bc13813b5b2" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fc8c332c00f36104906095fcbd0e2bc13813b5b2" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fec5d87dd53f14003b38e16283c3c74826f96528" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fec5d87dd53f14003b38e16283c3c74826f96528" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/SimFolk.iml" afterPath="$PROJECT_DIR$/SimFolk.iml" />
+      <change beforePath="$PROJECT_DIR$/other/create_script.sql" afterPath="$PROJECT_DIR$/other/create_script.sql" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/AlgorithmStarter.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/AlgorithmStarter.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java" />
       <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" />
-      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermGroupService.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermGroupService.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermVectorFormatter.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermVectorFormatter.java" />
       <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorComparator.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorComparator.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IAlgorithmComputer.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IAlgorithmComputer.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermVectorFormatter.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermVectorFormatter.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmResult.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/LyricAlgorithmResult.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/builders/VectorAlgorithmConfigurationBuilder.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/builders/VectorAlgorithmConfigurationBuilder.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodyToStringConverter.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodyToStringConverter.java" />
       <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MusicTermBuilder.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MusicTermBuilder.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java" />
+      <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/Serializer.java" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/Serializer.java" />
       <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/resources/result.txt" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/resources/result.txt" />
       <change beforePath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/resources/resultMap.txt" afterPath="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/resources/resultMap.txt" />
     </list>
@@ -38,6 +56,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/SimFolk$AlgorithmStarter.coverage" NAME="AlgorithmStarter Coverage Results" MODIFIED="1585252644534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sk.upjs.ics.mmizak.simfolk.lyrics.services.interfaces.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SimFolk$SongDaoTest_getAll.coverage" NAME="SongDaoTest.getAll Coverage Results" MODIFIED="1521817445809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.sk.upjs.ics.mmizak.simfolk.core.dao.implementations.*</FILTER>
     </SUITE>
@@ -64,15 +85,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="VectorAlgorithmComputer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MusicAlgorithmResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/MusicAlgorithmResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding>
+                <element signature="e#258#259#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VectorAlgorithmComputer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="293" column="36" lean-forward="false" selection-start-line="293" selection-start-column="36" selection-end-line="293" selection-end-column="36" />
+            <state relative-caret-position="0">
+              <caret line="0" column="56" lean-forward="true" selection-start-line="0" selection-start-column="56" selection-end-line="0" selection-end-column="56" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#computeSimilarity#0;class#VectorAlgorithmComputer#0" expanded="false" />
-                <element signature="method#writeResultToFile#0;class#VectorAlgorithmComputer#0" expanded="false" />
                 <element signature="method#computeSimilarity#1;class#VectorAlgorithmComputer#0" expanded="false" />
                 <element signature="method#computeSimilarityAndSave#0;class#VectorAlgorithmComputer#0" expanded="false" />
                 <element signature="method#computeSimilarityAndSave#1;class#VectorAlgorithmComputer#0" expanded="false" />
@@ -83,45 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VectorAlgorithmResult.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-              <folding>
-                <element signature="n#!!doc;n#getVectorSong#0;n#VectorAlgorithmResult#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Override.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Override.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WeightService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2525">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AlgorithmStarter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/AlgorithmStarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1525">
-              <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+            <state relative-caret-position="832">
+              <caret line="120" column="52" lean-forward="true" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
               <folding>
                 <element signature="n#!!doc;n#nextLesserElement#0;n#AlgorithmStarter#0" expanded="false" />
                 <element signature="method#nextLesserElement#0;class#AlgorithmStarter#0" expanded="false" />
@@ -132,67 +132,49 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MusicAlgorithmComputer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicAlgorithmComputer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2558">
+              <caret line="233" column="20" lean-forward="false" selection-start-line="233" selection-start-column="14" selection-end-line="233" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollectionsUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/CollectionsUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResultMapperAggregator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/ResultMapperAggregator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1585264833813" expanded="true" signature="2967:2972" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="IAlgorithmComputer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IAlgorithmComputer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="475">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TermWeightType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding>
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1231#1232#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ITermGroupService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermGroupService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MelodySong.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="e#912#913#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TermGroupService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermGroupService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6725">
-              <caret line="280" column="29" lean-forward="false" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#13190#13191#0" expanded="true" />
-                <element signature="e#13244#13245#0" expanded="true" />
-                <element signature="e#13523#13524#0" expanded="true" />
-                <element signature="e#13584#13585#0" expanded="true" />
-                <element signature="e#13654#13655#0" expanded="true" />
-                <element signature="e#13711#13712#0" expanded="true" />
-                <element signature="e#13772#13773#0" expanded="true" />
-                <element signature="e#13818#13819#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -235,6 +217,7 @@
       <find>0.9</find>
       <find>0.8</find>
       <find>toString</find>
+      <find>System</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -251,23 +234,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/jooq/generated/tables/records/SongRecord.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/implementations/TermVectorFormatter.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/interfaces/ITermVectorFormatter.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/implementations/LyricCleaner.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/ServiceFactory.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/dao/implementations/SongDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/dao/implementations/WeightedVectorDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/implementations/WeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java" />
-        <option value="$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/database/access/dao/implementations/SongDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermWeightTypeDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/WeightedTermGroupDao.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/WeightedTermGroupIdComparator.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermVectorFormatter.java" />
         <option value="$PROJECT_DIR$/src/test/java/sk/upjs/ics/mmizak/simfolk/core/database/access/dao/implementations/Ekoharmonikar.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/Parser.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/LyricParser.java" />
@@ -281,27 +249,42 @@
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/IMusicXMLUnmarshaller.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermBuilder.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/ScorePartwiseUnmarshaller.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/builders/VectorAlgorithmConfigurationBuilder.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/StringTermBuilder.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IAlgorithmComputer.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermService.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermService.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/factories/ServiceFactory.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/SongDao.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodyToStringConverter.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermGroupService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MusicTermBuilder.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/builders/VectorAlgorithmConfigurationBuilder.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicVectorAlgorithmConfigurationService.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java" />
-        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/AlgorithmStarter.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MusicTermBuilder.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodyToStringConverter.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java" />
+        <option value="$PROJECT_DIR$/other/create_script.sql" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/ProgressTracker.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorComparator.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermVectorFormatter.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/Serializer.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmResult.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/LyricAlgorithmResult.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IAlgorithmComputer.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/MusicAlgorithmResult.java" />
         <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/AlgorithmStarter.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/collectionsUtilities.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/CollectionsUtilities.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicAlgorithmComputer.java" />
+        <option value="$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/ResultMapperAggregator.java" />
       </list>
     </option>
   </component>
@@ -330,10 +313,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-1631" />
-    <option name="width" value="1101" />
-    <option name="height" value="1042" />
+    <option name="x" value="20" />
+    <option name="y" value="-1364" />
+    <option name="width" value="1942" />
+    <option name="height" value="1102" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -373,10 +356,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -413,6 +395,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simfolk" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -423,6 +413,22 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
               <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimFolk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simfolk" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimFolk" type="b2602c69:ProjectViewProjectNode" />
@@ -448,6 +454,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,7 +465,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.42528737" />
-    <property name="SearchEverywhereHistoryKey" value="comput&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java&#10;dumm&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java&#10;Dumm&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java&#10;dummy&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java&#10;vectorcom&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java&#10;WeightServic&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/implementations/WeightService.java&#10;We&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/interfaces/IWeightService.java&#10;termGroupDao&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/database/access/dao/implementations/TermGroupDao.java&#10;ti&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/utilities/UtilityFactory.java" />
+    <property name="SearchEverywhereHistoryKey" value="termVe&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermVectorFormatter.java&#10;vectorcompar&#9;PSI&#9;JAVA://sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorComparator&#10;comput&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java&#10;dumm&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java&#10;Dumm&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java&#10;dummy&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java&#10;vectorcom&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/VectorAlgorithmComputer.java&#10;WeightServic&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/implementations/WeightService.java&#10;We&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/database/access/services/interfaces/IWeightService.java&#10;termGroupDao&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/core/database/access/dao/implementations/TermGroupDao.java&#10;ti&#9;FILE&#9;file://C:/UPJŠ/Bakalárska práca/SimFolk/SimFolk/src/sk/upjs/ics/mmizak/simfolk/utilities/UtilityFactory.java" />
     <property name="SONARLINT_ANALYSIS_RESULTS_SCOPE" value="VCS changed files" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -468,6 +475,7 @@
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="sk.upjs.ics.mmizak.simfolk.core.services.interfaces" />
       <recent name="sk.upjs.ics.mmizak.simfolk.parsing" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -1136,6 +1144,8 @@
       <workItem from="1583869430783" duration="6953000" />
       <workItem from="1584197522679" duration="9444000" />
       <workItem from="1584609922879" duration="486000" />
+      <workItem from="1584614490984" duration="10690000" />
+      <workItem from="1585248009579" duration="17033000" />
     </task>
     <servers />
   </component>
@@ -1172,7 +1182,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="545252000" />
+    <option name="totallyTimeSpent" value="572975000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1185,40 +1195,41 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-1631" width="2902" height="1582" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760596" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837933" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74791914" sideWeight="0.50216216" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953736" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32767162" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19957536" sideWeight="0.49783784" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5081387" sideWeight="0.49783784" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953736" sideWeight="0.5065177" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3821656" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16725978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2597865" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43515152" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918918" sideWeight="0.49348232" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34465677" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25351351" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24982207" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2668082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31988677" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837933" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953736" sideWeight="0.5065177" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34465677" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1255,45 +1266,34 @@
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java</url>
           <line>34</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java</url>
-          <line>306</line>
+          <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java</url>
+          <line>165</line>
           <properties />
-          <option name="timeStamp" value="82" />
+          <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java</url>
-          <line>294</line>
+          <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java</url>
+          <line>98</line>
           <properties />
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java</url>
-          <line>367</line>
-          <properties />
-          <option name="timeStamp" value="84" />
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="85" />
+      <option name="time" value="94" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="frequencyWeightedGroups.get(0)" />
         <watch expression="weightedVector.vector" />
+        <watch expression="lyricsFragment.value" />
       </configuration>
     </watches-manager>
   </component>
@@ -1302,280 +1302,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ISongService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/interfaces/ISongDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/SongService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/factories/ServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/SongDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorSong.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jooq/jooq/3.10.6/jooq-3.10.6.jar!/org/jooq/impl/Internal.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="32" column="50" lean-forward="false" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/jooq/generated/Keys.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="115" column="90" lean-forward="true" selection-start-line="115" selection-start-column="90" selection-end-line="115" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jooq/jooq/3.10.6/jooq-3.10.6.jar!/org/jooq/impl/SelectImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="2018" column="0" lean-forward="false" selection-start-line="2018" selection-start-column="0" selection-end-line="2018" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/other/simfolk.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="234" column="18" lean-forward="false" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/audiveris/proxymusic/3.0.1/proxymusic-3.0.1-sources.jar!/org/audiveris/proxymusic/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5700">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/audiveris/proxymusic/3.0.1/proxymusic-3.0.1-sources.jar!/org/audiveris/proxymusic/Pitch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1325">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
-          <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding>
-            <element signature="method#isHigherInPitch#0;class#NoteUtils#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodyToStringConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1625">
-          <caret line="73" column="31" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="2140" column="26" lean-forward="false" selection-start-line="2140" selection-start-column="18" selection-end-line="2140" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermGroupDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Term.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/StringTermBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2675">
-          <caret line="115" column="22" lean-forward="false" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermGroupService">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermGroupService</OriginalElement>
-          <nodes>
-            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermGroupService</node>
-            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermGroupService</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="112.0" y="72.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/sk.upjs.ics.mmizak.simfolk.core.AlgorithmStarter">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>sk.upjs.ics.mmizak.simfolk.core.AlgorithmStarter</OriginalElement>
-          <nodes>
-            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.AlgorithmStarter</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="103.0" y="24.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/other/create_script.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/function/BiConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/ScorePartwiseUnmarshaller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2101#2102#0" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MusicTermBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="70" column="10" lean-forward="false" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1614,75 +1345,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermGroupService.java">
+    <entry file="uml://JAVA/sk.upjs.ics.mmizak.simfolk">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>sk.upjs.ics.mmizak.simfolk</OriginalElement>
+          <nodes>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.AlgorithmType</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermComparator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorSong</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermComparator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.parsing.IMusicXMLUnmarshaller</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.NonTFIDFTermWeightType</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.parsing.ScorePartwiseUnmarshaller</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.MusicStringFormat</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.StringTermBuilder</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmResult</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.utilities.TermGroupIdComparator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IVectorAlgorithmConfigurationService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.ToleranceCalculator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.melody.MelodyToStringConverter</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.VectorInclusion</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermVectorFormatter</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TF</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.melody.NoteUtils</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.factories.DaoFactory</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.WeightService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.SongBuilder</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.Tolerance</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.DummyVectorAlgorithmConfigurationService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.melody.MelodySong</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermGroupService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.database</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.LyricCleaner</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermBuilder</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.parsing.Serializer</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorAlgorithmComputer</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.VectorComparisonAlgorithm</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IToleranceCalculator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ITermService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.VectorAlgorithmConfigurationBuilder</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ILyricCleaner</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorComparator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.SongService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermGroupMatchingStrategy</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermGroupMergingStrategy</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IVectorComparator</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.IDF</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.parsing.LyricParser</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermVectorFormatter</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.melody.MusicTermBuilder</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IWeightService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermScheme</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.melody.resources</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.AlgorithmStarter</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IAlgorithmComputer</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.implementations.TermGroupService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.parsing.resources.xmlFiles</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.parsing.resources.old_results</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.services.interfaces.ISongService</node>
+            <node x="" y="">sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedTermGroup</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="1148.0" y="2939.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Properties</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6725">
-          <caret line="280" column="29" lean-forward="false" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#13190#13191#0" expanded="true" />
-            <element signature="e#13244#13245#0" expanded="true" />
-            <element signature="e#13523#13524#0" expanded="true" />
-            <element signature="e#13584#13585#0" expanded="true" />
-            <element signature="e#13654#13655#0" expanded="true" />
-            <element signature="e#13711#13712#0" expanded="true" />
-            <element signature="e#13772#13773#0" expanded="true" />
-            <element signature="e#13818#13819#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="250">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/factories/ServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermGroupService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#912#913#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2525">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-293">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1690,22 +1455,340 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodySong.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicVectorAlgorithmConfigurationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#generateRandomConfiguration#0;class#MusicVectorAlgorithmConfigurationService#0" expanded="false" />
+            <element signature="method#generateTermWeights#0;class#MusicVectorAlgorithmConfigurationService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/builders/VectorAlgorithmConfigurationBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="method#setId#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setTermScheme#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setTermDimension#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setTermWeightType#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setTermGroupMatchingStrategy#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setTermGroupMergingStrategy#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setVectorInclusion#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setVectorComparisonAlgorithm#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setTolerance#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#setMusicStringFormat#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#equals#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+            <element signature="method#hashCode#0;class#VectorAlgorithmConfigurationBuilder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/Song.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/WeightService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="145" column="21" lean-forward="true" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/TermWeightType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/DummyVectorAlgorithmConfigurationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="76" column="55" lean-forward="true" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MusicTermBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/audiveris/proxymusic/3.0.1/proxymusic-3.0.1-sources.jar!/org/audiveris/proxymusic/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="110" column="18" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
+          <folding>
+            <element signature="e#9200#9201#0" expanded="false" />
+            <element signature="e#9228#9229#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/audiveris/proxymusic/3.0.1/proxymusic-3.0.1-sources.jar!/org/audiveris/proxymusic/Unpitched.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="47" column="30" lean-forward="true" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/AlgorithmConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="58" column="30" lean-forward="false" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/MelodyToStringConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Long.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="1251" column="43" lean-forward="true" selection-start-line="1251" selection-start-column="43" selection-end-line="1251" selection-end-column="43" />
+          <folding>
+            <element signature="e#47101#47102#0" expanded="false" />
+            <element signature="e#47157#47158#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="1232" column="22" lean-forward="false" selection-start-line="1232" selection-start-column="22" selection-end-line="1232" selection-end-column="22" />
+          <folding>
+            <element signature="e#47036#47037#0" expanded="false" />
+            <element signature="e#47092#47093#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermGroupService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="57" column="52" lean-forward="false" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#2149#2150#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/melody/NoteUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/dao/implementations/TermDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/other/create_script.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <marker date="1585255550090" expanded="true" signature="63:388" ph="CREATE TABLE... SONG" />
+            <marker date="1585255550090" expanded="true" signature="391:661" ph="CREATE TABLE... SONG_TO_ATTRIBUTE" />
+            <marker date="1585255550090" expanded="true" signature="664:950" ph="CREATE TABLE... TERM" />
+            <marker date="1585255550090" expanded="true" signature="953:1252" ph="CREATE TABLE... TERM_TOKENIZED" />
+            <marker date="1585255550090" expanded="true" signature="1255:1592" ph="CREATE TABLE... TERM_GROUP" />
+            <marker date="1585255550090" expanded="true" signature="1595:1946" ph="CREATE TABLE... TERM_GROUP_TO_TERM" />
+            <marker date="1585255550090" expanded="true" signature="1949:2298" ph="CREATE TABLE... TERM_WEIGHT_TYPE" />
+            <marker date="1585255550090" expanded="true" signature="2301:2371" ph="INSERT INTO term_weight_type... " />
+            <marker date="1585255550090" expanded="true" signature="2375:2929" ph="CREATE TABLE... WEIGHTED_TERM_GROUP" />
+            <marker date="1585255550090" expanded="true" signature="2933:3571" ph="CREATE TABLE... VECTOR_ALGORITHM_CONFIGURATION" />
+            <marker date="1585255550090" expanded="true" signature="3574:4040" ph="CREATE TABLE... VECTOR_ALGORITHM_RESULT" />
+            <marker date="1585255550090" expanded="true" signature="4043:4434" ph="CREATE TABLE... RESULT_TO_SONG" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/TermGroupIdComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/TermVectorFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2987">
+          <caret line="321" column="5" lean-forward="false" selection-start-line="321" selection-start-column="5" selection-end-line="321" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorSong.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/jooq/generated/tables/TWeightedTermGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="30" column="3" lean-forward="false" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/parsing/Serializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/LyricAlgorithmResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc;n#getVectorSong#0;n#LyricAlgorithmResult#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IAlgorithmComputer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="475">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IMusicAlgorithmComputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/stream/Stream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="156" column="40" lean-forward="false" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/MusicAlgorithmResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/utilities/CollectionsUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="56" lean-forward="true" selection-start-line="0" selection-start-column="56" selection-end-line="0" selection-end-column="56" />
+          <folding>
+            <element signature="method#computeSimilarity#0;class#VectorAlgorithmComputer#0" expanded="false" />
+            <element signature="method#computeSimilarity#1;class#VectorAlgorithmComputer#0" expanded="false" />
+            <element signature="method#computeSimilarityAndSave#0;class#VectorAlgorithmComputer#0" expanded="false" />
+            <element signature="method#computeSimilarityAndSave#1;class#VectorAlgorithmComputer#0" expanded="false" />
+            <element signature="method#saveSong#0;class#VectorAlgorithmComputer#0" expanded="false" />
+            <element signature="method#saveSongs#0;class#VectorAlgorithmComputer#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/AlgorithmStarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1525">
-          <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+        <state relative-caret-position="832">
+          <caret line="120" column="52" lean-forward="true" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
           <folding>
             <element signature="n#!!doc;n#nextLesserElement#0;n#AlgorithmStarter#0" expanded="false" />
             <element signature="method#nextLesserElement#0;class#AlgorithmStarter#0" expanded="false" />
@@ -1715,29 +1798,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmResult.java">
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/MusicAlgorithmComputer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="2558">
+          <caret line="233" column="20" lean-forward="false" selection-start-line="233" selection-start-column="14" selection-end-line="233" selection-end-column="20" />
           <folding>
-            <element signature="n#!!doc;n#getVectorSong#0;n#VectorAlgorithmResult#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorAlgorithmComputer.java">
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/weighting/WeightedVector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="293" column="36" lean-forward="false" selection-start-line="293" selection-start-column="36" selection-end-line="293" selection-end-column="36" />
+        <state relative-caret-position="225">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/vector/space/entities/VectorAlgorithmConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/IVectorComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/services/implementations/VectorComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="12" column="107" lean-forward="false" selection-start-line="12" selection-start-column="107" selection-end-line="12" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sk/upjs/ics/mmizak/simfolk/core/database/ResultMapperAggregator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#computeSimilarity#0;class#VectorAlgorithmComputer#0" expanded="false" />
-            <element signature="method#writeResultToFile#0;class#VectorAlgorithmComputer#0" expanded="false" />
-            <element signature="method#computeSimilarity#1;class#VectorAlgorithmComputer#0" expanded="false" />
-            <element signature="method#computeSimilarityAndSave#0;class#VectorAlgorithmComputer#0" expanded="false" />
-            <element signature="method#computeSimilarityAndSave#1;class#VectorAlgorithmComputer#0" expanded="false" />
-            <element signature="method#saveSong#0;class#VectorAlgorithmComputer#0" expanded="false" />
-            <element signature="method#saveSongs#0;class#VectorAlgorithmComputer#0" expanded="false" />
+            <marker date="1585264833813" expanded="true" signature="2967:2972" ph="..." />
           </folding>
         </state>
       </provider>

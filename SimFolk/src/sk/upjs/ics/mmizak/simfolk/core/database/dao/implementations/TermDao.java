@@ -87,13 +87,17 @@ public class TermDao implements ITermDao {
 
     @Override
     public Term getTerm(TermScheme termScheme, String lyricsFragment) {
-        Term term = create.selectFrom(T_TERM)
-                .where(T_TERM.TERMSCHEME.eq(termScheme.toString()))
-                .and(T_TERM.LYRICSFRAGMENT.eq(lyricsFragment))
-                .fetchOne(this::map);
+        Term term = null;
+        try {
+           term = create.selectFrom(T_TERM)
+                   .where(T_TERM.TERMSCHEME.eq(termScheme.toString()))
+                   .and(T_TERM.LYRICSFRAGMENT.eq(lyricsFragment))
+                   .fetchOne(this::map);
 
-        term = initTokenizedLyricsFragment(term);
-
+           term = initTokenizedLyricsFragment(term);
+       } catch (NullPointerException e) {
+            System.out.println();
+        }
         return term;
     }
 

@@ -11,22 +11,24 @@ public class VectorComparator implements IVectorComparator {
 
     @Override
     public double calculateSimilarity(VectorComparisonAlgorithm algorithm, WeightedVectorPair vectorPair) {
-       /* System.out.println("@VectorComparator/calculateSimilarity");
-        System.out.println(vectorPair.getA().getWeightValueVector());
-        System.out.println(vectorPair.getB().getWeightValueVector());
-        System.out.println();*/
         return calculateSimilarity(algorithm,
                 vectorPair.getA().getWeightValueVector(), vectorPair.getB().getWeightValueVector());
-}
+    }
 
     @Override
     public double calculateSimilarity(VectorComparisonAlgorithm algorithm, List<Double> A, List<Double> B) {
         switch (algorithm) {
             case COS:
-                return calculateCosineSimilarity(A, B);
+                return normalize(calculateCosineSimilarity(A, B));
             default:
                 return 0;
         }
+    }
+
+    private double normalize(double similarity) {
+        similarity = 100 * similarity;
+
+        return Math.round(similarity * 10) / 10.0;
     }
 
     @Override
