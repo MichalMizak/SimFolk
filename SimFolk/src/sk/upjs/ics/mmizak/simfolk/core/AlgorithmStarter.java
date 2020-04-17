@@ -1,6 +1,9 @@
 package sk.upjs.ics.mmizak.simfolk.core;
 
-import sk.upjs.ics.mmizak.simfolk.core.database.ResultMapperAggregator;
+import org.neo4j.graphdb.GraphDatabaseService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import sk.upjs.ics.mmizak.simfolk.core.database.neo4j.services.MelodyResultAggregatorService;
+import sk.upjs.ics.mmizak.simfolk.core.database.neo4j.Neo4jConfig;
 import sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.DummyVectorAlgorithmConfigurationService;
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.MusicAlgorithmComputer;
@@ -8,19 +11,20 @@ import sk.upjs.ics.mmizak.simfolk.core.services.implementations.MusicVectorAlgor
 import sk.upjs.ics.mmizak.simfolk.core.services.implementations.VectorAlgorithmComputer;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.MusicAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Song;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVector;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedVectorPair;
 import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
-import sk.upjs.ics.mmizak.simfolk.parsing.IMusicXMLUnmarshaller;
+import sk.upjs.ics.mmizak.simfolk.melody.MusicDataProvider;
 import sk.upjs.ics.mmizak.simfolk.parsing.LyricParser;
-import sk.upjs.ics.mmizak.simfolk.parsing.ScorePartwiseUnmarshaller;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -31,7 +35,7 @@ import java.util.Stack;
  */
 public class AlgorithmStarter {
 
-    /**
+    /*
      * In order to change the algorithm configuration,
      * go to .core.services.implementations.DummyVectorAlgorithmConfigurationService
      * and change values in the builder in the method generateRandomConfiguration()
@@ -41,10 +45,10 @@ public class AlgorithmStarter {
      * Configure the number of songs to be compared.
      * In order to input your own songs you need to modify the method getSongs to return your desired song.
      */
-    public static final int SONGS_TO_COMPARE_COUNT = 10;
+    public static final int SONGS_TO_COMPARE_COUNT = 500;
 
     /**
-     * Configure whether to save songs or not. Note the algorithm isn't 100% precise with this set to false .
+     * Configure whether to save songs or not. Note the algorithm isn't 100% precise with this set to false
      * for performance reasons.
      */
     public static final boolean SAVE_SONGS = true;
@@ -55,9 +59,15 @@ public class AlgorithmStarter {
     public static final String MUSICXML_RESOURCE_DIRECTORY =
             "C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources";
 
+    private static void registerShutdownHook(GraphDatabaseService graphDatabaseService) {
+        Runtime.getRuntime().addShutdownHook(new Thread(graphDatabaseService::shutdown));
+    }
+
+
     public static void main(String[] args) {
 
-        compute();
+        AlgorithmStarter algorithmStarter = new AlgorithmStarter();
+        algorithmStarter.compute();
 
         // thesisOutput();
     }
@@ -95,7 +105,7 @@ public class AlgorithmStarter {
     }
     //</editor-fold>
 
-    private static void compute() {
+    public void compute() {
 
         DummyVectorAlgorithmConfigurationService dummyVectorConfigurationGenerator =
                 new DummyVectorAlgorithmConfigurationService();
@@ -106,19 +116,30 @@ public class AlgorithmStarter {
         IVectorAlgorithmConfigurationService musicConfService = new MusicVectorAlgorithmConfigurationService();
 
         List<VectorAlgorithmConfiguration> allConfigurations = musicConfService.loadAllConfigurations();
-        allConfigurations.subList(0, SONGS_TO_COMPARE_COUNT);
-
 
         if (ALGORITHM_TYPE == AlgorithmConfiguration.AlgorithmType.MUSIC) {
+
             IMusicAlgorithmComputer algorithmComputer = new MusicAlgorithmComputer();
 
-            List<MelodySong> melodySongs = getMelodySongs();
-
-            ResultMapperAggregator resultMapperAggregator = new ResultMapperAggregator();
+            List<MelodySong> melodySongs = new MusicDataProvider().getMelodySongs();
 
             if (SAVE_SONGS) {
-                allConfigurations.forEach(vac ->
-                        resultMapperAggregator.addResult(vac, algorithmComputer.computeMusicSimilarityAndSave(vac, melodySongs)));
+                AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Neo4jConfig.class);
+                MelodyResultAggregatorService resultAggregator = context.getBean(MelodyResultAggregatorService.class);
+
+                resultAggregator.init(melodySongs);
+
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+                allConfigurations.forEach(vac -> {
+                    List<MusicAlgorithmResult> oneConfigurationResults = algorithmComputer.computeMusicSimilarityAndSave(vac, melodySongs);
+
+                    resultAggregator.addResult(vac, oneConfigurationResults);
+                    executorService.execute(resultAggregator);
+                });
+
+                executorService.execute(context::close);
+                executorService.shutdown();
             } else {
                 algorithmComputer.computeMusicSimilarity(vectorAlgorithmConfiguration, melodySongs);
             }
@@ -138,73 +159,6 @@ public class AlgorithmStarter {
     }
 
 
-    /**
-     * Iterate the xml database
-     *
-     * @return unmarshalled melodies from songs
-     */
-
-    private static List<MelodySong> getMelodySongs() {
-
-        IMusicXMLUnmarshaller scorePartwiseParser = new ScorePartwiseUnmarshaller();
-
-        List<File> xmlFiles = new ArrayList<>();
-        // xmlFiles = iterateXMLFiles(MUSICXML_RESOURCE_DIRECTORY);
-
-
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_001-spievaj-si-dievcatko.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_002-zaspieva-vtaca-na-kosodrevine.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_3-zapada-slniecko-za-daleke-hory.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_007_ej_skoda-ta-suhajko.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\spevy-i_34-vyhodi-slniecko-spoza-lesy.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\xmlFiles\\zaspievalo_vtaca_edit.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5446\\spevy-i_120-hej-hore-Turiec.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\0\\spevy-i_120-hej-hore-haj-dolu-haj.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5480\\spevy-i_354-Neprisla-mi-moja-zena-z-mesta_1.VYDANIE.xml"));
-        xmlFiles.add(new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\melody\\resources\\5458\\spevy-i_184-Kazala-mi-mati-biele-husky-hnati_VARIANT.xml"));
-
-        assert !xmlFiles.isEmpty();
-
-        return scorePartwiseParser.getSongsInMeasuresFromXML(xmlFiles);
-    }
-
-    private static List<File> iterateXMLFiles(String musicxmlResourceDirectory) {
-        List<File> result = new ArrayList<>();
-
-        File resourceDirectory = new File(musicxmlResourceDirectory);
-
-        int counter = 0;
-        // first
-        if (!resourceDirectory.isDirectory()) {
-            return result;
-        }
-
-        File[] xmlDirectories = resourceDirectory.listFiles();
-        assert xmlDirectories != null;
-
-        for (File xmlDirectory : xmlDirectories) {
-            if (!xmlDirectory.isDirectory()) {
-                if (xmlDirectory.getPath().endsWith(".xml")) {
-                    result.add(xmlDirectory);
-                }
-                continue;
-            }
-            File[] potentialXMLs = xmlDirectory.listFiles();
-
-            assert potentialXMLs != null;
-            for (File potentialXML : potentialXMLs) {
-                if (potentialXML.getPath().endsWith(".xml")) {
-                    result.add(potentialXML);
-                    counter++;
-                    if (counter == SONGS_TO_COMPARE_COUNT) {
-                        return result;
-                    }
-                }
-            }
-        }
-
-        return result;
-    }
 
     public static void getAndSaveSongs(ISongService songService) {
         List<Song> songs = getSongs();
@@ -358,7 +312,27 @@ public class AlgorithmStarter {
         System.out.println("Pair 2 similarity: " + vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(), weightedVectorPair2));
 
     }
+      /* GraphDatabaseService graphDatabaseService = new GraphDatabaseFactory().newEmbeddedDatabase(new File(""));
+        registerShutdownHook(graphDatabaseService);
+        graphDatabaseService.shutdown();
 
+        GraphDatabaseSettings.BoltConnector bolt = GraphDatabaseSettings.boltConnector("0");
+
+        GraphDatabaseService graphDb = new GraphDatabaseFactory()
+                .newEmbeddedDatabaseBuilder(new File("dblocation"))
+                .setConfig(bolt.type, "BOLT")
+                .setConfig(bolt.enabled,"BOLT" )
+                .setConfig(bolt.address,"true" )
+                .newGraphDatabase();*/
+
+
+//        ​GraphDatabaseSettings.BoltConnector bolt = GraphDatabaseSettings.boltConnector("0");
+//       ​GraphDatabaseService graphDb = new GraphDatabaseFactory()
+//               ​.newEmbeddedDatabaseBuilder(DB_PATH)
+//               ​.setConfig(bolt.type, "BOLT")
+//               ​.setConfig(bolt.enabled, "true")
+//               ​.setConfig(bolt.address, "localhost:7687")
+//               ​.newGraphDatabase();
 
 }
 

@@ -2,6 +2,7 @@ package sk.upjs.ics.mmizak.simfolk.parsing;
 
 import org.audiveris.proxymusic.Note;
 import org.audiveris.proxymusic.ScorePartwise;
+import org.audiveris.proxymusic.Work;
 import org.audiveris.proxymusic.util.Marshalling;
 import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
 import sk.upjs.ics.mmizak.simfolk.melody.NoteUtils;
@@ -10,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +19,8 @@ public class ScorePartwiseUnmarshaller implements IMusicXMLUnmarshaller {
 
     @Override
     public List<MelodySong> getSongsInMeasuresFromXML(List<File> xmlFiles) {
-        return xmlFiles.stream().map(this::getMelodySongFromXmlFile).collect(Collectors.toList());
+        List<MelodySong> result = xmlFiles.stream().map(this::getMelodySongFromXmlFile).collect(Collectors.toList());
+        return result;
     }
 
     @Override
@@ -33,7 +36,27 @@ public class ScorePartwiseUnmarshaller implements IMusicXMLUnmarshaller {
         assert scorePartwise != null;
         assert scorePartwise.getPart().isEmpty();
 
-        return new MelodySong(scorePartwise.getPart().get(0).getMeasure(), xmlFile);
+        MelodySong result = new MelodySong(scorePartwise.getPart().get(0).getMeasure(), xmlFile);
+
+        Work work = scorePartwise.getWork();
+
+        if (work != null) {
+            String workTitle = work.getWorkTitle();
+            if (workTitle != null && !workTitle.isEmpty()) {
+                result.setTitle(workTitle);
+            }
+        }
+
+        if (result.getTitle() == null)
+            result.setTitle(xmlFile.getName());
+
+        result.setLyrics(xmlFile.getAbsolutePath());
+        result.setCleanLyrics(xmlFile.getAbsolutePath());
+
+        result.setSource(xmlFile.getAbsolutePath());
+        result.setAttributes(new ArrayList<>());
+
+        return result;
     }
 
     @Override

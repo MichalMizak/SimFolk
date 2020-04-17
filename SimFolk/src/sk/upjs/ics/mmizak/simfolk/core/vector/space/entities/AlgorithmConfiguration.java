@@ -1,7 +1,6 @@
 package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 
-import java.util.EnumSet;
-import java.util.Set;
+import java.util.*;
 
 public interface AlgorithmConfiguration {
 
@@ -41,7 +40,7 @@ public interface AlgorithmConfiguration {
     }
 
     enum TermComparisonAlgorithm {
-        LEVENSHTEIN_DISTANCE, NAIVE
+        LEVENSHTEIN_DISTANCE // dont need naive comparison, no tolerance + levenshtein distance gives good results
     }
 
     enum TermGroupMatchingStrategy {
@@ -56,8 +55,7 @@ public interface AlgorithmConfiguration {
      * Only vector algorithm enums
      */
     enum VectorInclusion {
-        // TODO: ALL formation
-        A, B, INTERSECTION, UNIFICATION
+        UNIFICATION, A, B, INTERSECTION;
     }
 
     enum VectorComparisonAlgorithm {
@@ -70,6 +68,6 @@ public interface AlgorithmConfiguration {
 
     // music specifics
     enum MusicStringFormat {
-        ABSOLUTE, CONTOUR, RHYTHM, RELATIVE
+       RHYTHM //, ABSOLUTE, CONTOUR, RELATIVE,
     }
 }

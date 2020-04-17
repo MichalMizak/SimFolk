@@ -5,6 +5,9 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 
+import java.util.Collections;
+import java.util.Objects;
+
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 
@@ -21,11 +24,13 @@ public class TermComparator implements ITermComparator {
      * @param t1
      * @param t2
      * @param tolerance
-     * @param termComparisonAlgorithm
+     * @param vectorAlgorithmConfiguration
      * @return
      */
     @Override
-    public boolean compare(Term t1, Term t2, double tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
+    public boolean compare(Term t1, Term t2, double tolerance, VectorAlgorithmConfiguration vectorAlgorithmConfiguration) {
+
+        TermComparisonAlgorithm termComparisonAlgorithm = vectorAlgorithmConfiguration.getTermComparisonAlgorithm();
 
         if (t1.getId() != null && t1.getId().equals(t2.getId())) {
             return true;
@@ -34,10 +39,11 @@ public class TermComparator implements ITermComparator {
         double similarity = 0;
 
         switch (termComparisonAlgorithm) {
-            case NAIVE:
-                return naiveTermComparison(t1, t2);
             case LEVENSHTEIN_DISTANCE:
-                similarity = normalizedLevenshteinDistance(t1.getLyricsFragment(), t2.getLyricsFragment());
+                if (vectorAlgorithmConfiguration.getMusicStringFormat() == MusicStringFormat.RHYTHM)
+                    similarity = normalizedRhythmLevenshteinDistance(t1.getLyricsFragment(), t2.getLyricsFragment());
+                else
+                    similarity = normalizedLevenshteinDistance(t1.getLyricsFragment(), t2.getLyricsFragment());
                 break;
             default:
                 throw new UnsupportedOperationException();
@@ -45,14 +51,77 @@ public class TermComparator implements ITermComparator {
         return similarity >= tolerance;
     }
 
+    private double normalizedRhythmLevenshteinDistance(String leftString, String rightString) {
+
+        Object[] leftIntArray = parseNumericString(leftString);
+        Object[] rightIntArray = parseNumericString(rightString);
+
+        double maxLength = Math.max(leftIntArray.length, rightIntArray.length);
+
+        return 1 - objectLevenshteinDistance(leftIntArray, rightIntArray) / maxLength;
+
+    }
+
+    private double objectLevenshteinDistance(Object[] leftIntArray, Object[] rightIntArray) {
+        int leftLength = leftIntArray.length + 1;
+        int rightLength = rightIntArray.length + 1;
+
+        // the array of distances
+        int[] cost = new int[leftLength];
+        int[] newCost = new int[leftLength];
+
+        // initial cost of skipping prefix in String s0
+        for (int i = 0; i < leftLength; i++)
+            cost[i] = i;
+
+        // dynamically computing the array of distances
+
+        // transformation cost for each letter in s1
+        for (int j = 1; j < rightLength; j++) {
+            // initial cost of skipping prefix in String s1
+            newCost[0] = j;
+
+            // transformation cost for each letter in s0
+            for (int i = 1; i < leftLength; i++) {
+                // matching current letters in both strings
+                int match = Objects.equals(leftIntArray[i - 1], rightIntArray[j - 1]) ? 0 : 1;
+
+                // computing cost for each transformation
+                int costReplace = cost[i - 1] + match;
+                int costInsert = cost[i] + 1;
+                int costDelete = newCost[i - 1] + 1;
+
+                // keep minimum cost
+                newCost[i] = Math.min(Math.min(costInsert, costDelete), costReplace);
+            }
+
+            // swap cost/newCost arrays
+            int[] swap = cost;
+            cost = newCost;
+            newCost = swap;
+        }
+
+        // the distance is the cost for transforming all letters in both strings
+        return cost[leftLength - 1];
+    }
+
+    private Integer[] parseNumericString(String leftString) {
+        String[] leftStringArray = leftString.split(" ");
+        Integer[] leftIntArray = new Integer[leftStringArray.length];
+        for (int i = 0; i < leftStringArray.length; i++) {
+            leftIntArray[i] = Integer.parseInt(leftStringArray[i]);
+        }
+        return leftIntArray;
+    }
+
     /**
-     *
      * @param leftString
      * @param rightString
      * @return Normalized levenshteinDistance  so that for the same strings the similarity
      * is 1 and the less similar two strings are the lower the value is
      */
     public double normalizedLevenshteinDistance(String leftString, String rightString) {
+
         double maxLength = Math.max(leftString.length(), rightString.length());
         return 1 - levenshteinDistance(leftString, rightString) / maxLength;
     }
@@ -66,6 +135,7 @@ public class TermComparator implements ITermComparator {
      * @return The Levenshtein distance between given strings.
      */
     public int levenshteinDistance(String leftString, String rightString) {
+
         int leftLength = leftString.length() + 1;
         int rightLength = rightString.length() + 1;
 
@@ -87,15 +157,15 @@ public class TermComparator implements ITermComparator {
             // transformation cost for each letter in s0
             for (int i = 1; i < leftLength; i++) {
                 // matching current letters in both strings
-                int match = (leftString.charAt(i - 1) == rightString.charAt(j - 1)) ? 0 : 1;
+                int match = Objects.equals(leftString.charAt(i - 1), rightString.charAt(j - 1)) ? 0 : 1;
 
                 // computing cost for each transformation
-                int cost_replace = cost[i - 1] + match;
-                int cost_insert = cost[i] + 1;
-                int cost_delete = newCost[i - 1] + 1;
+                int costReplace = cost[i - 1] + match;
+                int costInsert = cost[i] + 1;
+                int costDelete = newCost[i - 1] + 1;
 
                 // keep minimum cost
-                newCost[i] = Math.min(Math.min(cost_insert, cost_delete), cost_replace);
+                newCost[i] = Math.min(Math.min(costInsert, costDelete), costReplace);
             }
 
             // swap cost/newCost arrays
@@ -116,19 +186,19 @@ public class TermComparator implements ITermComparator {
 
         switch (vectorConfiguration.getTermGroupMatchingStrategy()) {
             case MATCH_ONE:
-                return matchOne(aTermGroup, bTermGroup, tolerance, vectorConfiguration.getTermComparisonAlgorithm());
+                return matchOne(aTermGroup, bTermGroup, vectorConfiguration, tolerance);
             case MATCH_ALL:
-                return matchAll(aTermGroup, bTermGroup, tolerance, vectorConfiguration.getTermComparisonAlgorithm());
+                return matchAll(aTermGroup, bTermGroup, vectorConfiguration, tolerance);
             default:
                 return false;
         }
     }
 
     private boolean matchAll(TermGroup aTermGroup, TermGroup bTermGroup,
-                             double tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
+                             VectorAlgorithmConfiguration vectorConfiguration, double tolerance) {
         for (Term aTerm : aTermGroup.getTerms()) {
             for (Term bTerm : bTermGroup.getTerms()) {
-                if (!compare(aTerm, bTerm, tolerance, termComparisonAlgorithm)) {
+                if (!compare(aTerm, bTerm, tolerance, vectorConfiguration)) {
                     return false;
                 }
             }
@@ -137,10 +207,10 @@ public class TermComparator implements ITermComparator {
     }
 
     private boolean matchOne(TermGroup aTermGroup, TermGroup bTermGroup,
-                             double tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
+                             VectorAlgorithmConfiguration vectorConfiguration, double tolerance) {
         for (Term aTerm : aTermGroup.getTerms()) {
             for (Term bTerm : bTermGroup.getTerms()) {
-                if (compare(aTerm, bTerm, tolerance, termComparisonAlgorithm)) {
+                if (compare(aTerm, bTerm, tolerance, vectorConfiguration)) {
                     return true;
                 }
             }

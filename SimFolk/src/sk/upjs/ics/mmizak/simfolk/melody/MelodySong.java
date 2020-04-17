@@ -7,9 +7,7 @@ import java.io.File;
 import java.util.List;
 
 // TODO: extends Song
-public class MelodySong {
-
-    private Long id;
+public class MelodySong extends Song {
 
     private List<ScorePartwise.Part.Measure> melodyInMeasures;
 
@@ -36,11 +34,18 @@ public class MelodySong {
         this.melodyInMeasures = melodyInMeasures;
     }
 
-    public Long getId() {
-        return id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MelodySong that = (MelodySong) o;
+
+        return getId().equals(that.getId());
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public int hashCode() {
+        return getId().hashCode();
     }
 }

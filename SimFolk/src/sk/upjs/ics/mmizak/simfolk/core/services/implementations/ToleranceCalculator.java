@@ -10,8 +10,6 @@ public class ToleranceCalculator implements IToleranceCalculator {
     @Override
     public Double calculateTolerance(Tolerance tolerance, TermComparisonAlgorithm termComparisonAlgorithm) {
         switch (termComparisonAlgorithm) {
-            case NAIVE:
-                return 1D;
             case LEVENSHTEIN_DISTANCE:
                 return getLevenshteinTolerance(tolerance);
             default:
@@ -22,7 +20,7 @@ public class ToleranceCalculator implements IToleranceCalculator {
     private Double getLevenshteinTolerance(Tolerance tolerance) {
         switch (tolerance) {
             case HIGH:
-                return 0.6D;
+                return 0.7D;
             case MEDIUM:
                 return 0.8D;
             case LOW:

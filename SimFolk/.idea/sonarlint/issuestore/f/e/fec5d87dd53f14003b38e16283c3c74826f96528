@@ -1,52 +1,9 @@
 
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ªüÙşÿÿÿÿ8¾¬ü.
-ksquid:S1192"JDefine a constant instead of duplicating this literal "Song id: " 3 times.(È™Û¹ÿÿÿÿÿ8¾¬ü.
-asquid:S2147"ECombine this catch with the one at line 236, which has the same body.(ï­£Ä8¾¬ü.
-Gsquid:S1068"+Remove this unused "NULL_ID" private field.(É¬Íî8¾¬ü.
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾¬ü.
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾¬ü.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8¾¬ü.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(œÙ­œ8˜“ª”.
-ksquid:S1192"ODefine a constant instead of duplicating this literal "Similarities: " 3 times.(’Çé¼8¾¬ü.
-Ssquid:S1135"2Complete the task associated to this TODO comment.(ğşÅŸøÿÿÿÿ8¾¬ü.
-bsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(¾¬É…úÿÿÿÿ8¾¬ü.
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾¬ü.
-asquid:S2147"ECombine this catch with the one at line 209, which has the same body.(ï­£Ä8¾¬ü.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(À†ğÂ8¾¬ü.
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¾¬ü.
-dsquid:S1192"IDefine a constant instead of duplicating this literal ", Time: " 4 times.(ŠŸ<8¨Œ°”.
-squid:S1488"nImmediately return this expression instead of assigning it to the temporary variable "vectorAlgorithmResults".(ŠÚ¶ùÿÿÿÿ8¨Œ°”.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(£¥æ­8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(¡Í“úÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÎøÜßşÿÿÿÿ8¨Œ°”.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.( †8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8¨Œ°”.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÿò¿¦8¨Œ°”.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(À†ğÂ8¨Œ°”.
-Ssquid:S1135"2Complete the task associated to this TODO comment.(™äş˜ÿÿÿÿÿ8¨Œ°”.
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(¿©È8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(“ÈÑÇıÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(…Íïşÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(â€ùıÿÿÿÿÿ8¨Œ°”.
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÕŠØıÿÿÿÿ8¨Œ°”.
+Rsquid:UselessImportCheck")Remove this unused import 'java.io.File'.(†Ğ¥Å8œ©ÀÈ‘.
+^squid:UselessImportCheck"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8œ©ÀÈ‘.
+Gsquid:S1068"+Remove this unused "NULL_ID" private field.(É¬Íî8œ©ÀÈ‘.
+‰squid:S1488"mImmediately return this expression instead of assigning it to the temporary variable "lyricAlgorithmResults".(—ô•8œ©ÀÈ‘.
+wsquid:UselessImportCheck"IRemove this unused import 'sk.upjs.ics.mmizak.simfolk.melody.MelodySong'.(¿šàìúÿÿÿÿ8œ©ÀÈ‘.
+Ssquid:S1135"2Complete the task associated to this TODO comment.(™äş˜ÿÿÿÿÿ8œ©ÀÈ‘.
+]squid:UselessImportCheck"/Remove this unused import 'java.io.FileWriter'.(Ã‘ÅÃıÿÿÿÿ8œ©ÀÈ‘.
+hsquid:UselessImportCheck":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ8œ©ÀÈ‘.

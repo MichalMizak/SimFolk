@@ -11,7 +11,6 @@ public class LyricAlgorithmResult {
 
     // TODO: Proper format of result
     private Map<Long, Double> songToSimilarityPercentage;
-
     private VectorAlgorithmConfiguration vectorAlgorithmConfiguration;
 
     //<editor-fold desc="Getters and setters">

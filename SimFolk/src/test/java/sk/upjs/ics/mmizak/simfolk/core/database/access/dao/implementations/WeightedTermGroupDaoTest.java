@@ -71,7 +71,7 @@ class WeightedTermGroupDaoTest {
         termDao.saveOrEdit(terms);
 
         termGroup = new TermGroup(null, TermScheme.UNGRAM, terms, 4,
-                TermComparisonAlgorithm.NAIVE, 0D);
+                TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0D);
 
         termGroup = termGroupDao.saveOrEdit(termGroup);
 
@@ -257,8 +257,8 @@ class WeightedTermGroupDaoTest {
         Term okTerm2 = new Term(null, "test2", new ArrayList<>(Collections.singleton("test2")), TermScheme.UNGRAM);
 
         // with null ids of terms from database
-        TermGroup okTermGroup = termGroupDao.syncGroupId(okTerm, TermComparisonAlgorithm.NAIVE, 0);
-        TermGroup okTermGroup2 = termGroupDao.syncGroupId(okTerm2, TermComparisonAlgorithm.NAIVE, 0);
+        TermGroup okTermGroup = termGroupDao.syncGroupId(okTerm, TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0);
+        TermGroup okTermGroup2 = termGroupDao.syncGroupId(okTerm2, TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0);
 
         assertNull(okTermGroup.getGroupId());
         assertNull(okTermGroup2.getGroupId());
@@ -270,8 +270,8 @@ class WeightedTermGroupDaoTest {
         assertNotNull(okTerm.getId());
         assertNotNull(okTerm2.getId());
 
-        okTermGroup = termGroupDao.syncGroupId(okTerm, TermComparisonAlgorithm.NAIVE, 0);
-        okTermGroup2 = termGroupDao.syncGroupId(okTerm2, TermComparisonAlgorithm.NAIVE, 0);
+        okTermGroup = termGroupDao.syncGroupId(okTerm, TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0);
+        okTermGroup2 = termGroupDao.syncGroupId(okTerm2, TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0);
 
         assertNotNull(okTermGroup.getGroupId());
         assertNotNull(okTermGroup2.getGroupId());
@@ -279,8 +279,8 @@ class WeightedTermGroupDaoTest {
         Term notOkTerm1 = new Term(null, "test6", new ArrayList<>(Collections.singleton("test3")), TermScheme.UNGRAM);
         Term notOkTerm2 = new Term(null, "test7", new ArrayList<>(Collections.singleton("test4")), TermScheme.UNGRAM);
 
-        TermGroup notOkTermGroup = termGroupDao.syncGroupId(notOkTerm1, TermComparisonAlgorithm.NAIVE, 0);
-        TermGroup notOkTermGroup2 = termGroupDao.syncGroupId(notOkTerm2, TermComparisonAlgorithm.NAIVE, 0);
+        TermGroup notOkTermGroup = termGroupDao.syncGroupId(notOkTerm1, TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0);
+        TermGroup notOkTermGroup2 = termGroupDao.syncGroupId(notOkTerm2, TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE, 0);
 
         assertNull(notOkTermGroup.getGroupId());
         assertNull(notOkTermGroup2.getGroupId());

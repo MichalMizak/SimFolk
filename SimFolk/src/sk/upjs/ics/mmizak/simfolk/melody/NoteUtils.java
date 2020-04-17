@@ -18,6 +18,18 @@ public class NoteUtils {
 
     private static final Map<Integer, String> degreeToStepString = new HashMap<>();
 
+    private static final Map<String, Integer> noteTypeToAbsoluteDuration = new HashMap<>();
+
+    static {
+        noteTypeToAbsoluteDuration.put("whole,", 96);
+        noteTypeToAbsoluteDuration.put("half", 48);
+        noteTypeToAbsoluteDuration.put("quarter", 24);
+        noteTypeToAbsoluteDuration.put("eighth", 12);
+        noteTypeToAbsoluteDuration.put("16th", 6);
+        noteTypeToAbsoluteDuration.put("32nd,", 3);
+    }
+
+
     static {
         stepToDegree.put("C", 1);
         stepToDegree.put("D", 3);
@@ -118,20 +130,24 @@ public class NoteUtils {
         if (difference >= 0) {
             return "+" + difference;
         } else
-            return String.valueOf(difference);
+            return String.valueOf(difference); // the "-" is implicit here
     }
 
     /**
-     * Returns relative note difference as string
+     * Returns relative note difference
      *
      * @param noteA
      * @param noteB
      * @return
      */
     public static int getRelativeDifference(Note noteA, Note noteB) {
-        int octaveA = noteA.getPitch().getOctave();
-        int octaveB = noteB.getPitch().getOctave();
-        return octaveA * getAbsoluteNoteDegree(noteA) - octaveB * getAbsoluteNoteDegree(noteB);
+        return getAbsoluteAbsoluteNoteDegree(noteA) - getAbsoluteAbsoluteNoteDegree(noteB);
+    }
+
+    // get the note degree taking octave into account
+    private static int getAbsoluteAbsoluteNoteDegree(Note note) {
+        int octave = note.getPitch().getOctave();
+        return (octave * 12) + getAbsoluteNoteDegree(note);
     }
 
     public static List<Note> getNotesFromMeasures(List<ScorePartwise.Part.Measure> measures) {
@@ -205,5 +221,23 @@ public class NoteUtils {
 
     public static List<List<ScorePartwise.Part.Measure>> getMelodiesInMeasuresFromMelodySongs(List<MelodySong> melodySongs) {
         return melodySongs.stream().map((MelodySong::getMelodyInMeasures)).collect(Collectors.toList());
+    }
+
+    public static Integer getDivisionsFactor(Integer divisions) {
+        // TODO: more sophisticated conversion, this fits only the thesis dataset
+        return 24 / divisions;
+    }
+
+    public static int getAbsoluteDuration(Note note, Integer divisionsFactor) {
+        if (note.getDuration() == null) {
+            return 0;
+        }
+        int duration = note.getDuration().intValue();
+
+        duration = divisionsFactor * duration; // normalize the length to the default divisions
+
+        //  String noteType = note.getType().getValue();
+        //  noteTypeToAbsoluteDuration.get(noteType); // get absolute length
+        return duration;
     }
 }

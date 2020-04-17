@@ -1,5 +1,5 @@
 
-Xsquid:S1133P"5Do not forget to remove this deprecated code someday.(¢Âêüÿÿÿÿ8ÃÌ²¸,
-]squid:UselessImportCheck"-Remove this unused import 'org.jooq.Record1'.(®íÊ‰ÿÿÿÿÿ8ÃÌ²¸,
-Zsquid:UselessImportCheck"/Remove this unused import 'org.jooq.Condition'.(‚ğâ8ÃÌ²¸,
-\squid:MissingDeprecatedCheckP"(Add the missing @deprecated Javadoc tag.(¢Âêüÿÿÿÿ8ÃÌ²¸,
+Vsquid:S1133"5Do not forget to remove this deprecated code someday.(¢Âêüÿÿÿÿ8ÃÌ²¸,
+Zsquid:MissingDeprecatedCheck"(Add the missing @deprecated Javadoc tag.(¢Âêüÿÿÿÿ8ÃÌ²¸,
+Xsquid:UselessImportCheck"/Remove this unused import 'org.jooq.Condition'.(‚ğâ8ÃÌ²¸,
+[squid:UselessImportCheck"-Remove this unused import 'org.jooq.Record1'.(®íÊ‰ÿÿÿÿÿ8ÃÌ²¸,

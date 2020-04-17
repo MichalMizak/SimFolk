@@ -25,7 +25,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setVectorInclusion(VectorInclusion.UNIFICATION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
-                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
+                .setMusicStringFormat(MusicStringFormat.RHYTHM)
                 .createVectorAlgorithmConfiguration();
     }
 
@@ -45,7 +45,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setVectorInclusion(VectorInclusion.UNIFICATION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
-                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
+                .setMusicStringFormat(MusicStringFormat.RHYTHM)
                 .createVectorAlgorithmConfiguration());
 
         result.add(new VectorAlgorithmConfigurationBuilder()
@@ -59,7 +59,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setVectorInclusion(VectorInclusion.UNIFICATION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
-                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
+                .setMusicStringFormat(MusicStringFormat.RHYTHM)
                 .createVectorAlgorithmConfiguration());
 
         result.add(new VectorAlgorithmConfigurationBuilder()
@@ -73,7 +73,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setVectorInclusion(VectorInclusion.UNIFICATION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
-                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
+                .setMusicStringFormat(MusicStringFormat.RHYTHM)
                 .createVectorAlgorithmConfiguration());
 
         result.add(new VectorAlgorithmConfigurationBuilder()
@@ -87,7 +87,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setVectorInclusion(VectorInclusion.UNIFICATION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
-                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
+                .setMusicStringFormat(MusicStringFormat.RHYTHM)
                 .createVectorAlgorithmConfiguration());
 
         return result;

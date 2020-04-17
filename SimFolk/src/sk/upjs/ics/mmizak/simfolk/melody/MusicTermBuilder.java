@@ -51,7 +51,7 @@ public class MusicTermBuilder implements ITermBuilder {
             resultMelodyString.append(measureString);
         }
 
-        result.add(new Term(null, resultMelodyString.toString(), measureStrings,
+        result.add(new Term(null, resultMelodyString.toString().trim(), measureStrings,
                 vectorAlgorithmConfiguration.getTermScheme()));
 
         return result;
@@ -76,15 +76,15 @@ public class MusicTermBuilder implements ITermBuilder {
             for (int j = i; j < i + vectorAlgorithmConfiguration.getTermDimension(); j++) {
                 String measureString = measureStrings.get(j);
                 tokenizedStringFragment.add(measureString);
-                // the measures come trimmed
-                concatenatedMeasures.append(measureString).append(" ");
+                // the measures come with a delimiter at the end
+                concatenatedMeasures.append(measureString);
             }
 
             if (concatenatedMeasures.toString().isEmpty()) {
                 continue;
             }
 
-            result.add(new Term(null, concatenatedMeasures.toString(), tokenizedStringFragment, vectorAlgorithmConfiguration.getTermScheme()));
+            result.add(new Term(null, concatenatedMeasures.toString().trim(), tokenizedStringFragment, vectorAlgorithmConfiguration.getTermScheme()));
         }
 
         return result;
@@ -111,7 +111,7 @@ public class MusicTermBuilder implements ITermBuilder {
             List<String> tokenizedStringFragment = new ArrayList<>();
             tokenizedStringFragment.add(measureString);
 
-            result.add(new Term(null, measureString, tokenizedStringFragment, vectorAlgorithmConfiguration.getTermScheme()));
+            result.add(new Term(null, measureString.trim(), tokenizedStringFragment, vectorAlgorithmConfiguration.getTermScheme()));
         }
 
         return result;

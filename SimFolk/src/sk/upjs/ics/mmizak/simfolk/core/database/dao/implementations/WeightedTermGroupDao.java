@@ -17,12 +17,10 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.WeightedT
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.jooq.impl.DSL.exists;
 import static sk.upjs.ics.mmizak.simfolk.core.database.jooq.generated.tables.TWeightedTermGroup.T_WEIGHTED_TERM_GROUP;
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.TermComparisonAlgorithm;
 
 public class WeightedTermGroupDao implements IWeightedTermGroupDao {
-
 
     private final DSLContext create;
     private final ITermWeightTypeDao termWeightTypeDao;
@@ -52,7 +50,6 @@ public class WeightedTermGroupDao implements IWeightedTermGroupDao {
                 .and(T_WEIGHTED_TERM_GROUP.GROUPID.eq(groupId))
                 .and(T_WEIGHTED_TERM_GROUP.TERMWEIGHTTYPEID.eq(termWeightType.getId())));
     }
-
 
     /**
      * All weighted term groups, unsorted.

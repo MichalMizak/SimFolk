@@ -44,6 +44,7 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
 
     /**
      * Not to be used, use VectorAlgorithmConfigurationBuilder
+     *
      * @param id
      * @param termScheme
      * @param termDimension
@@ -156,18 +157,18 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
     @Override
     public String toString() {
         return "VectorAlgorithmConfiguration{" +
-                "musicStringFormat=" + musicStringFormat +
-                ", termScheme=" + termScheme +
-                ", termDimension=" + termDimension +
-                ", termWeightType=" + termWeightType +
+                "musicStringFormat: " + musicStringFormat +
+                ", termScheme: " + termScheme +
+                ", termDimension: " + termDimension +
+                ", termWeightType: " + termWeightType +
                 "\n" +
-                ", tolerance=" + tolerance +
-                ", termGroupMatchingStrategy=" + termGroupMatchingStrategy +
-                ", termGroupMergingStrategy=" + termGroupMergingStrategy +
-                ", vectorInclusion=" + vectorInclusion +
+                ", tolerance: " + tolerance +
+                ", termGroupMatchingStrategy: " + termGroupMatchingStrategy +
+                ", termGroupMergingStrategy: " + termGroupMergingStrategy +
+                ", vectorInclusion: " + vectorInclusion +
                 "\n" +
-                ", vectorComparisonAlgorithm=" + vectorComparisonAlgorithm +
-                ", termComparisonAlgorithm=" + termComparisonAlgorithm +
+                ", vectorComparisonAlgorithm: " + vectorComparisonAlgorithm +
+                ", termComparisonAlgorithm: " + termComparisonAlgorithm +
                 '}';
     }
 }

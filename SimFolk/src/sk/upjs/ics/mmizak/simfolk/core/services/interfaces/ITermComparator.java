@@ -9,7 +9,7 @@ import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmCon
 public interface ITermComparator {
 
     // determines whether the terms are equal or similar within the tolerance
-    boolean compare(Term t1, Term t2, double tolerance, TermComparisonAlgorithm termComparisonAlgorithm);
+    boolean compare(Term t1, Term t2, double tolerance, VectorAlgorithmConfiguration vectorAlgorithmConfiguration);
 
     boolean compareGroups(TermGroup aTermGroup, TermGroup bTermGroup,
                           VectorAlgorithmConfiguration vectorConfiguration,

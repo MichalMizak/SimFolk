@@ -1,2 +1,3 @@
 
-lsquid:UselessImportCheck"CRemove this unused import 'org.audiveris.proxymusic.ScorePartwise'.(¡ÆÄó8øî½Œî-
+squid:UselessImportCheck"gRemove this unused import 'sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.MusicAlgorithmResult'.(§ÇÑï8œ©ÀÈ‘.
+wsquid:UselessImportCheck"IRemove this unused import 'sk.upjs.ics.mmizak.simfolk.melody.MelodySong'.(¿šàìúÿÿÿÿ8œ©ÀÈ‘.

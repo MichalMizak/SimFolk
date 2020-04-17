@@ -26,7 +26,7 @@ public class MusicVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setVectorInclusion(VectorInclusion.UNIFICATION)
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
-                .setMusicStringFormat(MusicStringFormat.ABSOLUTE)
+                .setMusicStringFormat(MusicStringFormat.RHYTHM)
                 .createVectorAlgorithmConfiguration();
     }
 
@@ -40,7 +40,9 @@ public class MusicVectorAlgorithmConfigurationService implements IVectorAlgorith
 
         builders = generateTermComparisonAlgorithmBuilders(builders);
 
-        builders.forEach(builder -> builder.setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE));
+        builders.forEach(builder -> builder.setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ALL));
+        // builders = generateTermGroupMatchingStrategy(builders);
+
         builders.forEach(builder -> builder.setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY));
 
         builders = generateVectorInclusionBuilders(builders);
@@ -53,6 +55,23 @@ public class MusicVectorAlgorithmConfigurationService implements IVectorAlgorith
 
 
         return builders.stream().map(VectorAlgorithmConfigurationBuilder::createVectorAlgorithmConfiguration).collect(Collectors.toList());
+    }
+
+    private Set<VectorAlgorithmConfigurationBuilder> generateTermGroupMatchingStrategy(Set<VectorAlgorithmConfigurationBuilder> builders) {
+        List<Set<VectorAlgorithmConfigurationBuilder>> copiedBuilders = new ArrayList<>();
+        Set<VectorAlgorithmConfigurationBuilder> cachedBuilders = getCachedSet(builders);
+
+        TermGroupMatchingStrategy[] musicStringFormats = TermGroupMatchingStrategy.values();
+
+        for (TermGroupMatchingStrategy termGroupMatchingStrategy : musicStringFormats) {
+            Set<VectorAlgorithmConfigurationBuilder> oneTermWeightSet = new HashSet<>();
+            for (VectorAlgorithmConfigurationBuilder cachedBuilder : cachedBuilders) {
+                oneTermWeightSet.add(cachedBuilder.getBuilderClone().setTermGroupMatchingStrategy(termGroupMatchingStrategy));
+            }
+            copiedBuilders.add(oneTermWeightSet);
+        }
+
+        return flatMapBuilders(builders, copiedBuilders);
     }
 
     private Set<VectorAlgorithmConfigurationBuilder> generateMusicStringFormatBuilders(Set<VectorAlgorithmConfigurationBuilder> builders) {
