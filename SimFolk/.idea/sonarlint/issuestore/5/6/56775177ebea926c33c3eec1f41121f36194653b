@@ -1,12 +1,14 @@
 
-isquid:UnusedPrivateMethod"?Remove this unused private "generateTermWeightBuilders" method.(½Ğâ8„–‡˜.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(İí¯«ıÿÿÿÿ8„–‡˜.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(æ¯Å–úÿÿÿÿ8²²ª˜.
+‡squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(ÁõÄùÿÿÿÿ8€ÀÃ•.
 ‚squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(ëß€8ôãÿ•.
+‡squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(¦Ÿ±»üÿÿÿÿ8ñµ…–.
 xsquid:UnusedPrivateMethod"NRemove this unused private "generateVectorComparisonAlgorithmBuilders" method.(†şºª8²²ª˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(æ¯Å–úÿÿÿÿ8²²ª˜.
+usquid:UnusedPrivateMethod"FRemove this unused private "generateTermGroupMatchingStrategy" method.(Ó‰‚Ÿşÿÿÿÿ8‰¼Á½˜.
+‚squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(Îº¢ê8ò˜ó•.
 ‡squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(Ç¦é—şÿÿÿÿ8èò•.
 squid:S3252"oUse static access with "sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration" for "TF".(üàùçıÿÿÿÿ8Â–ú•.
-‡squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(¦Ÿ±»üÿÿÿÿ8ñµ…–.
-‡squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(ÁõÄùÿÿÿÿ8€ÀÃ•.
-‚squid:S4165"fRemove this useless assignment; "builders" already holds the assigned value along all execution paths.(Îº¢ê8ò˜ó•.
 ‘squid:S3252"pUse static access with "sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration" for "IDF".(ı®üïùÿÿÿÿ8Â–ú•.
+isquid:UnusedPrivateMethod"?Remove this unused private "generateTermWeightBuilders" method.(½Ğâ8„–‡˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(İí¯«ıÿÿÿÿ8„–‡˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(§Ñãæÿÿÿÿÿ8‰¼Á½˜.

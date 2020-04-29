@@ -68,6 +68,6 @@ public interface AlgorithmConfiguration {
 
     // music specifics
     enum MusicStringFormat {
-       RHYTHM //, ABSOLUTE, CONTOUR, RELATIVE,
+       RHYTHM, ABSOLUTE, CONTOUR, RELATIVE, FUZZY_RELATIVE
     }
 }

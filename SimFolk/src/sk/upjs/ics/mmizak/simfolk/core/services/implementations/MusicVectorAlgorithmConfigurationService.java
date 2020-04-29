@@ -1,7 +1,7 @@
 package sk.upjs.ics.mmizak.simfolk.core.services.implementations;
 
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IVectorAlgorithmConfigurationService;
-import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.VectorAlgorithmConfigurationBuilder;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
@@ -23,7 +23,7 @@ public class MusicVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(Arrays.asList(AlgorithmConfiguration.VectorInclusion.values()))
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
                 .setMusicStringFormat(MusicStringFormat.RHYTHM)
@@ -54,7 +54,13 @@ public class MusicVectorAlgorithmConfigurationService implements IVectorAlgorith
         builders = generateMusicStringFormatBuilders(builders);
 
 
-        return builders.stream().map(VectorAlgorithmConfigurationBuilder::createVectorAlgorithmConfiguration).collect(Collectors.toList());
+        List<VectorAlgorithmConfiguration> result = builders.stream().map(VectorAlgorithmConfigurationBuilder::createVectorAlgorithmConfiguration).collect(Collectors.toList());
+
+        for (int i = 0; i < result.size(); i++) {
+            result.get(i).setId((long) i);
+        }
+
+        return result;
     }
 
     private Set<VectorAlgorithmConfigurationBuilder> generateTermGroupMatchingStrategy(Set<VectorAlgorithmConfigurationBuilder> builders) {
@@ -126,20 +132,10 @@ public class MusicVectorAlgorithmConfigurationService implements IVectorAlgorith
     }
 
     private Set<VectorAlgorithmConfigurationBuilder> generateVectorInclusionBuilders(Set<VectorAlgorithmConfigurationBuilder> builders) {
-        List<Set<VectorAlgorithmConfigurationBuilder>> copiedBuilders = new ArrayList<>();
-        Set<VectorAlgorithmConfigurationBuilder> cachedBuilders = getCachedSet(builders);
+        List<VectorInclusion> inclusions = Arrays.asList(AlgorithmConfiguration.VectorInclusion.values());
 
-        VectorInclusion[] vectorInclusions = VectorInclusion.values();
-
-        for (VectorInclusion vectorInclusion : vectorInclusions) {
-            Set<VectorAlgorithmConfigurationBuilder> oneTermWeightSet = new HashSet<>();
-            for (VectorAlgorithmConfigurationBuilder cachedBuilder : cachedBuilders) {
-                oneTermWeightSet.add(cachedBuilder.getBuilderClone().setVectorInclusion(vectorInclusion));
-            }
-            copiedBuilders.add(oneTermWeightSet);
-        }
-
-        return flatMapBuilders(builders, copiedBuilders);
+        builders.forEach(v -> v.setVectorInclusion(inclusions));
+        return builders;
     }
 
     private Set<VectorAlgorithmConfigurationBuilder> generateTermComparisonAlgorithmBuilders(Set<VectorAlgorithmConfigurationBuilder> builders) {

@@ -3,8 +3,10 @@ package sk.upjs.ics.mmizak.simfolk.core.services.implementations;
 import sk.upjs.ics.mmizak.simfolk.core.services.interfaces.IVectorAlgorithmConfigurationService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders.VectorAlgorithmConfigurationBuilder;
@@ -22,7 +24,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(Arrays.asList(AlgorithmConfiguration.VectorInclusion.values()))
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
                 .setMusicStringFormat(MusicStringFormat.RHYTHM)
@@ -42,7 +44,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(Arrays.asList(AlgorithmConfiguration.VectorInclusion.values()))
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
                 .setMusicStringFormat(MusicStringFormat.RHYTHM)
@@ -56,7 +58,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(Arrays.asList(AlgorithmConfiguration.VectorInclusion.values()))
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
                 .setMusicStringFormat(MusicStringFormat.RHYTHM)
@@ -70,7 +72,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(Arrays.asList(AlgorithmConfiguration.VectorInclusion.values()))
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
                 .setMusicStringFormat(MusicStringFormat.RHYTHM)
@@ -84,7 +86,7 @@ public class DummyVectorAlgorithmConfigurationService implements IVectorAlgorith
                 .setTermComparisonAlgorithm(TermComparisonAlgorithm.LEVENSHTEIN_DISTANCE)
                 .setTermGroupMatchingStrategy(TermGroupMatchingStrategy.MATCH_ONE)
                 .setTermGroupMergingStrategy(TermGroupMergingStrategy.MERGE_ANY)
-                .setVectorInclusion(VectorInclusion.UNIFICATION)
+                .setVectorInclusion(Arrays.asList(AlgorithmConfiguration.VectorInclusion.values()))
                 .setVectorComparisonAlgorithm(VectorComparisonAlgorithm.COS)
                 .setTolerance(Tolerance.LOW)
                 .setMusicStringFormat(MusicStringFormat.RHYTHM)

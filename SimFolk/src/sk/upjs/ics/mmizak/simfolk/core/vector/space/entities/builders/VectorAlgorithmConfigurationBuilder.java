@@ -3,6 +3,8 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.builders;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
+import java.util.List;
+
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
 
 public class VectorAlgorithmConfigurationBuilder {
@@ -14,7 +16,7 @@ public class VectorAlgorithmConfigurationBuilder {
     private TermComparisonAlgorithm termComparisonAlgorithm;
     private TermGroupMatchingStrategy termGroupMatchingStrategy;
     private TermGroupMergingStrategy termGroupMergingStrategy;
-    private VectorInclusion vectorInclusion;
+    private List<VectorInclusion> vectorInclusion;
     private VectorComparisonAlgorithm vectorComparisonAlgorithm;
     private Tolerance tolerance;
 
@@ -56,7 +58,7 @@ public class VectorAlgorithmConfigurationBuilder {
         return this;
     }
 
-    public VectorAlgorithmConfigurationBuilder setVectorInclusion(VectorInclusion vectorInclusion) {
+    public VectorAlgorithmConfigurationBuilder setVectorInclusion(List<VectorInclusion> vectorInclusion) {
         this.vectorInclusion = vectorInclusion;
         return this;
     }
@@ -112,7 +114,8 @@ public class VectorAlgorithmConfigurationBuilder {
         if (termComparisonAlgorithm != that.termComparisonAlgorithm) return false;
         if (termGroupMatchingStrategy != that.termGroupMatchingStrategy) return false;
         if (termGroupMergingStrategy != that.termGroupMergingStrategy) return false;
-        if (vectorInclusion != that.vectorInclusion) return false;
+        if (vectorInclusion != null ? !vectorInclusion.equals(that.vectorInclusion) : that.vectorInclusion != null)
+            return false;
         if (vectorComparisonAlgorithm != that.vectorComparisonAlgorithm) return false;
         if (tolerance != that.tolerance) return false;
         return musicStringFormat == that.musicStringFormat;

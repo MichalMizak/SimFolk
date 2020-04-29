@@ -1,17 +1,17 @@
 
-Isquid:S1199"-Extract this nested code block into a method.(Ψ Φλ8’πέ¦–.
-Isquid:S1199"-Extract this nested code block into a method.(ήΫ»ά8’πέ¦–.
-Isquid:S1199"-Extract this nested code block into a method.(φψκª8’πέ¦–.
 Isquid:S1199"-Extract this nested code block into a method.( ΕΜ»8’πέ¦–.
-‘squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(οϊΡΤ8’πέ¦–.
-‘squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(««8’πέ¦–.
-–squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(¦Β‘ÿÿÿÿÿ8’πέ¦–.
+Ssquid:S1135"2Complete the task associated to this TODO comment.(Ό”ΐ„ϋÿÿÿÿ8’πέ¦–.
+Isquid:S1199"-Extract this nested code block into a method.(Ψ Φλ8’πέ¦–.
+‘"squid:SwitchLastCaseIsDefaultCheck"YComplete cases by adding the missing enum constants or add a default case to this switch.(‰»¦ώÿÿÿÿ8’πέ¦–.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…΅”ώÿÿÿÿ8’πέ¦–.
+csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(„Σ‰Ο8’πέ¦–.
+csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(„Σ‰Ο8’πέ¦–.
 gsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(Μ“Ό¥8’πέ¦–.
 lsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(‰»¦ώÿÿÿÿ8’πέ¦–.
-csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(„Σ‰Ο8’πέ¦–.
-csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(„Σ‰Ο8’πέ¦–.
-Ssquid:S1135"2Complete the task associated to this TODO comment.(ϊήμϊÿÿÿÿ8’πέ¦–.
-Ssquid:S1135"2Complete the task associated to this TODO comment.(Ό”ΐ„ϋÿÿÿÿ8’πέ¦–.
-‘"squid:SwitchLastCaseIsDefaultCheck"YComplete cases by adding the missing enum constants or add a default case to this switch.(‰»¦ώÿÿÿÿ8’πέ¦–.
 lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Τ§΅όÿÿÿÿ8’πέ¦–.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…΅”ώÿÿÿÿ8’πέ¦–.
+Isquid:S1199"-Extract this nested code block into a method.(φψκª8’πέ¦–.
+‘squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(««8’πέ¦–.
+Isquid:S1199"-Extract this nested code block into a method.(ήΫ»ά8’πέ¦–.
+‘squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(οϊΡΤ8’πέ¦–.
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ϊήμϊÿÿÿÿ8’πέ¦–.
+–squid:S4165"uRemove this useless assignment; "frequencyWeightedGroups" already holds the assigned value along all execution paths.(¦Β‘ÿÿÿÿÿ8’πέ¦–.

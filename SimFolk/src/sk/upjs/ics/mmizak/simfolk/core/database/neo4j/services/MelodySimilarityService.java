@@ -7,7 +7,9 @@ import sk.upjs.ics.mmizak.simfolk.core.database.neo4j.entities.NeoSimilarity;
 import sk.upjs.ics.mmizak.simfolk.core.database.neo4j.entities.NeoSong;
 import sk.upjs.ics.mmizak.simfolk.core.database.neo4j.repositories.MelodySimilarityRepository;
 import sk.upjs.ics.mmizak.simfolk.core.database.neo4j.repositories.MelodySongRepository;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.MusicAlgorithmResult;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.SimpleMusicAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
 
@@ -50,8 +52,8 @@ public class MelodySimilarityService {
                 song1 = new NeoSong((long) i, "title" + i, "tittle", new ArrayList<>());
                 NeoSong song2 = new NeoSong((long) i + 1, "title" + i + 1, "tittle", new ArrayList<>());
 
-            //    NeoSimilarity similarity = new NeoSimilarity(1000 * Math.random() * j % 100, "demo" + j, song1, song2);
-           //     melodySimilarityRepository.save(similarity);
+                //    NeoSimilarity similarity = new NeoSimilarity(1000 * Math.random() * j % 100, "demo" + j, song1, song2);
+                //     melodySimilarityRepository.save(similarity);
             }
         }
 //
@@ -82,10 +84,10 @@ public class MelodySimilarityService {
         all.forEach(System.out::println);
     }
 
-    public void save(VectorAlgorithmConfiguration latestConfiguration, List<MusicAlgorithmResult> filteredResults) {
+    public void save(VectorAlgorithmConfiguration latestConfiguration, List<SimpleMusicAlgorithmResult> filteredResults
+            , AlgorithmConfiguration.VectorInclusion vectorInclusion) {
         initMap(melodySongs);
-        List<NeoSimilarity> neoSimilarityList = getNeo4jMelodySimilarities(latestConfiguration,
-                filteredResults);
+        List<NeoSimilarity> neoSimilarityList = getNeo4jMelodySimilarities(latestConfiguration, filteredResults, vectorInclusion);
 
         melodySimilarityRepository.saveAll(neoSimilarityList);
     }
@@ -104,7 +106,8 @@ public class MelodySimilarityService {
         melodySongs.forEach(s -> partialResultSongMap.put(s, new NeoSong(s)));
     }
 
-    private List<NeoSimilarity> getNeo4jMelodySimilarities(VectorAlgorithmConfiguration latestConfigurationDescription, List<MusicAlgorithmResult> filteredResults) {
+    private List<NeoSimilarity> getNeo4jMelodySimilarities(VectorAlgorithmConfiguration latestConfigurationDescription, List<SimpleMusicAlgorithmResult> filteredResults
+            , AlgorithmConfiguration.VectorInclusion vectorInclusion) {
         List<NeoSimilarity> neoSimilarityList = new ArrayList<>();
 
         filteredResults.forEach(result -> {
@@ -114,14 +117,16 @@ public class MelodySimilarityService {
                             new NeoSimilarity(
                                     value,
                                     latestConfigurationDescription,
+                                    vectorInclusion,
                                     partialResultSongMap.get(melodySongA),
                                     partialResultSongMap.get(melodySongB))
                     ));
         });
+
         return neoSimilarityList;
     }
 
-    public void saveAggregatedResults(double[][] aggregatedResults, double totalConfigurationEvaluationValue, int configurationsProcessed) {
+    public void saveAggregatedResults(double[][] aggregatedResults) {
 
         melodySimilarityRepository.deleteAll(aggregatedNeoResults);
         aggregatedNeoResults.clear();

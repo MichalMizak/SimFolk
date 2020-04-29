@@ -72,7 +72,7 @@ public class MusicDataProvider {
 
         for (File xmlDirectory : xmlDirectories) {
             if (!xmlDirectory.isDirectory()) {
-                if (xmlDirectory.getPath().endsWith(".xml")) {
+                if (isMusicxmlExtension(xmlDirectory)) {
                     result.add(xmlDirectory);
                 }
                 continue;
@@ -81,7 +81,7 @@ public class MusicDataProvider {
 
             assert potentialXMLs != null;
             for (File potentialXML : potentialXMLs) {
-                if (potentialXML.getPath().endsWith(".xml")) {
+                if (isMusicxmlExtension(potentialXML)) {
                     result.add(potentialXML);
                     counter++;
                     if (counter == AlgorithmStarter.SONGS_TO_COMPARE_COUNT) {
@@ -94,5 +94,7 @@ public class MusicDataProvider {
         return result;
     }
 
-
+    private static boolean isMusicxmlExtension(File xmlFile) {
+        return xmlFile.getPath().endsWith(".xml") ||  xmlFile.getPath().endsWith(".musicxml");
+    }
 }

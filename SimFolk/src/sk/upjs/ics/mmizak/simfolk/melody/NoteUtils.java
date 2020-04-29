@@ -19,6 +19,7 @@ public class NoteUtils {
     private static final Map<Integer, String> degreeToStepString = new HashMap<>();
 
     private static final Map<String, Integer> noteTypeToAbsoluteDuration = new HashMap<>();
+    private static Map<Integer, String> intervalToFuzzyClass = new HashMap<>();
 
     static {
         noteTypeToAbsoluteDuration.put("whole,", 96);
@@ -56,6 +57,41 @@ public class NoteUtils {
         degreeToStepString.put(12, "C");
     }
 
+    static {
+        intervalToFuzzyClass.put(-11, "9");
+        intervalToFuzzyClass.put(-10, "9");
+        intervalToFuzzyClass.put(-9, "9");
+        intervalToFuzzyClass.put(-8, "9");
+
+        intervalToFuzzyClass.put(-7, "8");
+        intervalToFuzzyClass.put(-6, "8");
+        intervalToFuzzyClass.put(-5, "8");
+
+        intervalToFuzzyClass.put(-4, "7");
+        intervalToFuzzyClass.put(-3, "7");
+
+        intervalToFuzzyClass.put(-2, "6");
+        intervalToFuzzyClass.put(-1, "6");
+
+        intervalToFuzzyClass.put(0, "5");
+
+        intervalToFuzzyClass.put(1, "4");
+        intervalToFuzzyClass.put(2, "4");
+
+        intervalToFuzzyClass.put(3, "3");
+        intervalToFuzzyClass.put(4, "3");
+
+        intervalToFuzzyClass.put(5, "2");
+        intervalToFuzzyClass.put(6, "2");
+        intervalToFuzzyClass.put(7, "2");
+
+        intervalToFuzzyClass.put(8, "1");
+        intervalToFuzzyClass.put(9, "1");
+        intervalToFuzzyClass.put(10, "1");
+        intervalToFuzzyClass.put(11, "1");
+
+    }
+
     private NoteUtils() {
     }
 
@@ -78,9 +114,32 @@ public class NoteUtils {
         return octaveToBeHigher > octaveToBeLower;
     }
 
+    /**
+     * Determine if note is higher lower or the same
+     *
+     * @param noteToBeHigher
+     * @param noteToBeLower
+     * @return true if @param noteToBeHigher is higher than @param noteToBeLower
+     */
+    public static int comparePitch(Note noteToBeHigher, Note noteToBeLower) {
+
+        int octaveToBeHigher = noteToBeHigher.getPitch().getOctave();
+        int octaveToBeLower = noteToBeLower.getPitch().getOctave();
+
+        if (octaveToBeHigher == octaveToBeLower) {
+            return Integer.compare(getAbsoluteNoteDegree(noteToBeHigher), getAbsoluteNoteDegree(noteToBeLower));
+        }
+
+        return Integer.compare(octaveToBeHigher, octaveToBeLower);
+    }
+
+
     public static String getCountourAsString(Note noteA, Note noteB) {
-        if (isHigherInPitch(noteA, noteB))
-            return "L"; // meaning we go lower/ klesáme
+        int pitchCompare = comparePitch(noteA, noteB);
+        if (pitchCompare == 0)
+            return "R"; // meaning we go lower/ klesáme
+        if (pitchCompare == -1)
+            return "L";
         else return "H"; // meaning we go higher/ stúpame
     }
 
@@ -126,11 +185,12 @@ public class NoteUtils {
      */
     public static String getRelativeDifferenceAsString(Note noteA, Note noteB) {
         int difference = getRelativeDifference(noteA, noteB);
+        difference = difference % 12;
 
         if (difference >= 0) {
-            return "+" + difference;
+            return "" + difference + " ";
         } else
-            return String.valueOf(difference); // the "-" is implicit here
+            return String.valueOf(difference) + " "; // the "-" is implicit here
     }
 
     /**
@@ -142,6 +202,13 @@ public class NoteUtils {
      */
     public static int getRelativeDifference(Note noteA, Note noteB) {
         return getAbsoluteAbsoluteNoteDegree(noteA) - getAbsoluteAbsoluteNoteDegree(noteB);
+    }
+
+    public static String getFuzzyRelativeDifferenceAsString(Note noteA, Note noteB) {
+        int difference = getRelativeDifference(noteA, noteB);
+        difference = difference % 12;
+
+        return intervalToFuzzyClass.get(difference);
     }
 
     // get the note degree taking octave into account
@@ -240,4 +307,6 @@ public class NoteUtils {
         //  noteTypeToAbsoluteDuration.get(noteType); // get absolute length
         return duration;
     }
+
+
 }

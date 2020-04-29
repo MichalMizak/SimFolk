@@ -22,6 +22,10 @@ public class NeoSimilarity {
     @Property
     private boolean aggregationResult;
 
+    // configuration properties
+    @Property
+    private Long configurationId;
+
     @Property
     private AlgorithmConfiguration.Tolerance tolerance;
 
@@ -45,18 +49,18 @@ public class NeoSimilarity {
 
     @Property
     private AlgorithmConfiguration.VectorComparisonAlgorithm vectorComparisonAlgorithm;
-    // configuration properties
 
 
-    public NeoSimilarity(Double percentage, VectorAlgorithmConfiguration vectorAlgorithmConfiguration, NeoSong startSong, NeoSong endSong) {
+    public NeoSimilarity(Double percentage, VectorAlgorithmConfiguration vectorAlgorithmConfiguration,
+                         AlgorithmConfiguration.VectorInclusion vectorInclusion, NeoSong startSong, NeoSong endSong) {
         this.percentage = percentage;
         this.startSong = startSong;
         this.endSong = endSong;
 
         aggregationResult = false;
-
+        this.configurationId = vectorAlgorithmConfiguration.getId();
         tolerance = vectorAlgorithmConfiguration.getTolerance();
-        vectorInclusion = vectorAlgorithmConfiguration.getVectorInclusion();
+        this.vectorInclusion = vectorInclusion;
 
         termScheme = vectorAlgorithmConfiguration.getTermScheme();
         termDimension = vectorAlgorithmConfiguration.getTermDimension();

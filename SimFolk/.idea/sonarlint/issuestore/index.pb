@@ -131,8 +131,6 @@ Ysrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/repositories/MelodySongRepos
 _src/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/repositories/MelodySimilarityRepository.java,e\5\e5cd90979f782ff5e57f6e91d3d7a7bc64a3ea16
 s
 Csrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/Neo4jConfig.java,5\d\5d080c7f667d253dee0a9416f9ab4e98d11d44a0
-€
-Psrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/entities/Neo4jMelodySong.java,e\f\ef11a21e4815cb85cee2faacacc2b07c793054c0
 …
 Usrc/sk/upjs/ics/mmizak/simfolk/core/services/implementations/ToleranceCalculator.java,8\c\8c1d396831eace00d74ee8d3240c532e3cc2e8f5
 l
@@ -141,5 +139,9 @@ l
 ^src/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/services/MelodyResultAggregatorService.java,f\1\f1bdf4a39c58a34e2a08ae0078949573bff16cd8
 ˆ
 Xsrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/services/MelodySimilarityService.java,1\3\13169c17b855cb88e8db752b2acb5433997114e7
-†
-Vsrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/entities/Neo4jMelodySimilarity.java,8\3\83121abd2135e45c61008051c4c860ec442232d5
+x
+Hsrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/entities/NeoSong.java,0\2\025e88bdb9e403aff85b66dac0205a9b7e0fe585
+~
+Nsrc/sk/upjs/ics/mmizak/simfolk/core/database/neo4j/entities/NeoSimilarity.java,5\7\57cfbe2336c89a859a0f69968bba32b0d70291a2
+|
+Lsrc/sk/upjs/ics/mmizak/simfolk/core/services/interfaces/ITermComparator.java,e\d\edd75754cc8ae57b94803286845f22e1d119a2b6

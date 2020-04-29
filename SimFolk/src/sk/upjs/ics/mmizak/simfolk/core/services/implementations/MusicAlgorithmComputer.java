@@ -14,10 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.RecursiveTask;
 
 import static sk.upjs.ics.mmizak.simfolk.core.factories.ServiceFactory.INSTANCE;
@@ -61,7 +58,6 @@ public class MusicAlgorithmComputer implements IMusicAlgorithmComputer {
             WeightedVector vectorA = weightCalculator.calculateNewWeightedVector(melodySong.getId(), frequencyTermGroups, vectorConfig);
             musicVectors.add(vectorA);
         }
-        Map<MelodySong, Double> melodyToSimilarityPercentage = new HashMap<>();
 
         List<MusicAlgorithmResult> results = new ArrayList<>();
 
@@ -70,34 +66,44 @@ public class MusicAlgorithmComputer implements IMusicAlgorithmComputer {
 
         for (int i = 0; i < musicVectors.size(); i++) {
 
+            Map<AlgorithmConfiguration.VectorInclusion, Map<MelodySong, Double>> inclusionToResult = new HashMap<>();
+
+            for (AlgorithmConfiguration.VectorInclusion vectorInclusion : vectorConfig.getVectorInclusion()) {
+                inclusionToResult.put(vectorInclusion, new HashMap<>());
+            }
+
             WeightedVector vectorA = musicVectors.get(i);
 
             for (int j = i + 1; j < musicVectors.size(); j++) {
                 WeightedVector vectorB = musicVectors.get(j);
 
-                WeightedVectorPair vectorPair = termVectorFormatter.formVectors(vectorA, vectorB,
-                        termComparisonAlgorithm,
-                        tolerance, termComparator,
-                        vectorConfig.getVectorInclusion());
+                for (AlgorithmConfiguration.VectorInclusion vectorInclusion : vectorConfig.getVectorInclusion()) {
+                    WeightedVectorPair vectorPair = termVectorFormatter.formVectors(vectorA, vectorB,
+                            termComparisonAlgorithm,
+                            tolerance, termComparator,
+                            vectorInclusion);
 
-                double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
-                        vectorPair);
+                    double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
+                            vectorPair);
 
-                // TODO: for god's sake make this prettier
-                //melodyToSimilarityPercentage.put((long) j + 1, similarity);
-                // melody songs are sorted the same way as musicVectors
-                melodyToSimilarityPercentage.put(melodySongs.get(j), similarity);
-              //  melodyToVectorPair.put(melodySongs.get(j), vectorPair);
+                    // TODO: for god's sake make this prettier
+                    //melodyToSimilarityPercentage.put((long) j + 1, similarity);
+                    // melody songs are sorted the same way as musicVectors
+                    inclusionToResult.get(vectorInclusion).put(melodySongs.get(j), similarity);
+                    //  melodyToVectorPair.put(melodySongs.get(j), vectorPair);
+                }
+
+
             }
             MusicAlgorithmResult result = new MusicAlgorithmResult();
             result.setMelodySong(melodySongs.get(i));
 
-            result.setSongToSimilarityPercentage(melodyToSimilarityPercentage);
+            result.setInclusionToSongToSimilarityPercentage(inclusionToResult);
+            // setSongToSimilarityPercentage(melodyToSimilarityPercentage);
             result.setVectorAlgorithmConfiguration(vectorConfig);
             result.setVectorSong(new VectorSong(vectorA));
 
             results.add(result);
-            melodyToSimilarityPercentage = new HashMap<>();
         }
 
         return results;
@@ -105,58 +111,6 @@ public class MusicAlgorithmComputer implements IMusicAlgorithmComputer {
         //</editor-fold>
     }
 
-    private void writeResultToFile(VectorAlgorithmConfiguration vectorConfig, List<MelodySong> melodySongs, List<MusicAlgorithmResult> results) {
-        writeResultToFile(vectorConfig, melodySongs, results);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(vectorConfig.toString());
-
-        sb.append("\n");
-        for (MelodySong melodySong : melodySongs) {
-            sb.append(melodySong.getId())
-                    .append(" = ")
-                    .append(melodySong.getMusicXML().toString());
-            sb.append("\n");
-        }
-
-        File file = new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\resultMap.txt");
-
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(sb.toString());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        sb = new StringBuilder();
-
-        for (MusicAlgorithmResult result : results) {
-
-            sb.append("Song id: ")
-                    .append(result.getVectorSong().getSongId())
-                    .append("\n")
-                    .append("Similarities: ")
-                    .append(result.getSongToSimilarityPercentage().toString())
-                    .append("\n");
-
-            System.out.println("Song id: " + result.getVectorSong().getSongId());
-            System.out.println("Similarities: " + result.getSongToSimilarityPercentage().toString());
-        }
-
-        file = new File("C:\\UPJŠ\\Bakalárska práca\\SimFolk\\SimFolk\\src\\sk\\upjs\\ics\\mmizak\\simfolk\\parsing\\resources\\result.txt");
-
-
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(sb.toString());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Prepare database for one configuration calculation

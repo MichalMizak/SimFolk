@@ -37,32 +37,54 @@ public class MelodyToStringConverter {
                 notesInMeasureStringList.add(getRhythmString(notes, divisionsFactor));
             }
         } else {
-//            notesInMeasures = NoteUtils.removeRests(notesInMeasures);
-//            switch (format) {
-//
-//                case ABSOLUTE:
-//                    for (List<Note> notes : notesInMeasures) {
-//                        notesInMeasureStringList.add(getAbsoluteString(notes));
-//                    }
-//                    break;
-//                case RELATIVE:
-//                    for (List<Note> notes : notesInMeasures) {
-//                        notesInMeasureStringList.add(getRelativeString(notes));
-//                    }
-//                    break;
-//                case CONTOUR:
-//                    for (List<Note> notes : notesInMeasures) {
-//                        notesInMeasureStringList.add(getCountourString(notes));
-//                    }
-//                    break;
-//                default:
-//                    throw new UnsupportedOperationException();
-//            }
+            notesInMeasures = NoteUtils.removeRests(notesInMeasures);
+            switch (format) {
+
+                case ABSOLUTE:
+                    for (List<Note> notes : notesInMeasures) {
+                        notesInMeasureStringList.add(getAbsoluteString(notes));
+                    }
+                    break;
+                case RELATIVE:
+                    for (List<Note> notes : notesInMeasures) {
+                        notesInMeasureStringList.add(getRelativeString(notes));
+                    }
+                    break;
+                case FUZZY_RELATIVE:
+                    for (List<Note> notes : notesInMeasures) {
+                        notesInMeasureStringList.add(getFuzzyRelativeString(notes));
+                    }
+                    break;
+                case CONTOUR:
+                    for (List<Note> notes : notesInMeasures) {
+                        notesInMeasureStringList.add(getCountourString(notes));
+                    }
+                    break;
+                default:
+                    throw new UnsupportedOperationException();
+            }
         }
 
         List<String> result = removeEmptyMeasures(notesInMeasureStringList);
 
         return result;
+    }
+
+    private String getFuzzyRelativeString(List<Note> notes) {
+        StringBuilder sb = new StringBuilder();
+
+        if (notes.isEmpty())
+            return "";
+
+        Note previousNote = notes.get(0);
+
+        for (int i = 1; i < notes.size(); i++) {
+            sb.append(NoteUtils.getFuzzyRelativeDifferenceAsString(previousNote, notes.get(i)));
+        }
+
+        return sb.toString().trim();
+
+
     }
 
     private BigDecimal getDivisions(List<ScorePartwise.Part.Measure> measures) {

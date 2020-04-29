@@ -3,6 +3,8 @@ package sk.upjs.ics.mmizak.simfolk.core.vector.space.entities;
 import jdk.nashorn.internal.ir.annotations.Immutable;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.weighting.TermWeightType;
 
+import java.util.List;
+
 @Immutable
 public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
 
@@ -26,7 +28,7 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
     /**
      * A, B, INTERSECTION, UNIFICATION, ALL
      */
-    private VectorInclusion vectorInclusion;
+    private List<VectorInclusion> vectorInclusion;
 
     /**
      * SIMPLE_MATCHING, COS_COEFFICIENT, DICE'S_COEFICIENT, JACCARD'S_COEFFICIENT...
@@ -59,7 +61,7 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
      */
     public VectorAlgorithmConfiguration(Long id, TermScheme termScheme, Integer termDimension, TermWeightType termWeightType,
                                         TermComparisonAlgorithm termComparisonAlgorithm, TermGroupMatchingStrategy termGroupMatchingStrategy,
-                                        TermGroupMergingStrategy termGroupMergingStrategy, VectorInclusion vectorInclusion, VectorComparisonAlgorithm vectorComparisonAlgorithm,
+                                        TermGroupMergingStrategy termGroupMergingStrategy, List<VectorInclusion> vectorInclusion, VectorComparisonAlgorithm vectorComparisonAlgorithm,
                                         Tolerance tolerance, MusicStringFormat musicStringFormat) {
         this.termScheme = termScheme;
         this.termDimension = termDimension;
@@ -109,12 +111,28 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
         this.termGroupMergingStrategy = termGroupMergingStrategy;
     }
 
-    public VectorInclusion getVectorInclusion() {
+    public void setTermScheme(TermScheme termScheme) {
+        this.termScheme = termScheme;
+    }
+
+    public void setTermDimension(Integer termDimension) {
+        this.termDimension = termDimension;
+    }
+
+    public List<VectorInclusion> getVectorInclusion() {
         return vectorInclusion;
     }
 
-    protected void setVectorInclusion(VectorInclusion vectorInclusion) {
+    public void setVectorInclusion(List<VectorInclusion> vectorInclusion) {
         this.vectorInclusion = vectorInclusion;
+    }
+
+    public void setTermComparisonAlgorithm(TermComparisonAlgorithm termComparisonAlgorithm) {
+        this.termComparisonAlgorithm = termComparisonAlgorithm;
+    }
+
+    public void setMusicStringFormat(MusicStringFormat musicStringFormat) {
+        this.musicStringFormat = musicStringFormat;
     }
 
     public VectorComparisonAlgorithm getVectorComparisonAlgorithm() {
@@ -129,7 +147,7 @@ public class VectorAlgorithmConfiguration implements AlgorithmConfiguration {
         return id;
     }
 
-    protected void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     //</editor-fold>

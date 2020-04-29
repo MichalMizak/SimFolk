@@ -1,12 +1,13 @@
 
 gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(êë§£8õ ñ°–.
-hsquid:S1192"GDefine a constant instead of duplicating this literal "tittle" 3 times.(úÌÓÙùÿÿÿÿ8‹‰ô°–.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»Êãÿûÿÿÿÿ8õ ñ°–.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á”þÿÿÿÿÿ8õ ñ°–.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(çú»ûÿÿÿÿ8õ ñ°–.
-osquid:UselessImportCheck"ARemove this unused import 'org.neo4j.ogm.session.SessionFactory'.(‹û»šúÿÿÿÿ8„¯›²–.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ù™€úÿÿÿÿ8—üý½˜.
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ü™ìì8—üý½˜.
+hsquid:S1192"GDefine a constant instead of duplicating this literal "tittle" 3 times.(éÞØóýÿÿÿÿ8—üý½˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜è‰çþÿÿÿÿ8—üý½˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Õ’‡èþÿÿÿÿ8—üý½˜.
 Nsquid:S1135"2Complete the task associated to this TODO comment.(Ò¶ì¶8õ ñ°–.
 Gsquid:S1172"&Remove these unused method parameters.(Ãýê†úÿÿÿÿ8ÅÇÿ±–.
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ìôÂð8õ ñ°–.
+Ksquid:S1481"*Remove this unused "song2" local variable.(åÃ†“üÿÿÿÿ8—üý½˜.
 Vsquid:S1068"5Remove this unused "AGGREGATED_RESULT" private field.(““£‚þÿÿÿÿ8à—ìù–.
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÁÐØƒ8õ ñ°–.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á”þÿÿÿÿÿ8õ ñ°–.
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ìôÂð8õ ñ°–.

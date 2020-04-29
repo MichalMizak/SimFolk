@@ -1,4 +1,11 @@
 
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(˜ı­üÿÿÿÿ8´õ‹î-
-zsquid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(§­—À8”Ğé¹î-
-Zsquid:UselessImportCheck"1Remove this unused import 'java.math.BigDecimal'.(êêŠ8®Êøø-
+osquid:UnusedPrivateMethod"@Remove this unused private "getAbsoluteStringWithOctave" method.(Ÿ÷œÍùÿÿÿÿ8ÚóÅ½˜.
+zsquid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(§­—À8ÚóÅ½˜.
+esquid:UnusedPrivateMethod"6Remove this unused private "getRelativeString" method.(§šô„şÿÿÿÿ8ğğ¶É˜.
+`squid:UnusedPrivateMethod"6Remove this unused private "getAbsoluteString" method.(³ –ú8ğğ¶É˜.
+esquid:UnusedPrivateMethod"6Remove this unused private "getCountourString" method.(¡õÊÌÿÿÿÿÿ8ğğ¶É˜.
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(üÆÔ¾8ğğ¶É˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·ç³Âşÿÿÿÿ8ğğ¶É˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·ç³Âşÿÿÿÿ8ğğ¶É˜.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·ç³Âşÿÿÿÿ8ğğ¶É˜.
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¼ä8ğğ¶É˜.

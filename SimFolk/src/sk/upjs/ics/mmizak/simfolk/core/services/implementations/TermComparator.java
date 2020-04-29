@@ -5,7 +5,6 @@ import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.Term;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.TermGroup;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 
-import java.util.Collections;
 import java.util.Objects;
 
 import static sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration.*;
@@ -40,8 +39,9 @@ public class TermComparator implements ITermComparator {
 
         switch (termComparisonAlgorithm) {
             case LEVENSHTEIN_DISTANCE:
-                if (vectorAlgorithmConfiguration.getMusicStringFormat() == MusicStringFormat.RHYTHM)
-                    similarity = normalizedRhythmLevenshteinDistance(t1.getLyricsFragment(), t2.getLyricsFragment());
+                if (vectorAlgorithmConfiguration.getMusicStringFormat() == MusicStringFormat.RHYTHM
+                        || vectorAlgorithmConfiguration.getMusicStringFormat() == MusicStringFormat.RELATIVE)
+                    similarity = normalizedNumericLevenshteinDistance(t1.getLyricsFragment(), t2.getLyricsFragment());
                 else
                     similarity = normalizedLevenshteinDistance(t1.getLyricsFragment(), t2.getLyricsFragment());
                 break;
@@ -51,10 +51,13 @@ public class TermComparator implements ITermComparator {
         return similarity >= tolerance;
     }
 
-    private double normalizedRhythmLevenshteinDistance(String leftString, String rightString) {
+    private double normalizedNumericLevenshteinDistance(String leftString, String rightString) {
 
         Object[] leftIntArray = parseNumericString(leftString);
         Object[] rightIntArray = parseNumericString(rightString);
+
+        if (leftIntArray == null || rightIntArray == null)
+            return 0;
 
         double maxLength = Math.max(leftIntArray.length, rightIntArray.length);
 
@@ -109,7 +112,11 @@ public class TermComparator implements ITermComparator {
         String[] leftStringArray = leftString.split(" ");
         Integer[] leftIntArray = new Integer[leftStringArray.length];
         for (int i = 0; i < leftStringArray.length; i++) {
-            leftIntArray[i] = Integer.parseInt(leftStringArray[i]);
+            try {
+                leftIntArray[i] = Integer.parseInt(leftStringArray[i]);
+            } catch (NumberFormatException e) {
+                return null;
+            }
         }
         return leftIntArray;
     }

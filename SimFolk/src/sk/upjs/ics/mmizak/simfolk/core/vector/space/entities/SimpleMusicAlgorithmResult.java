@@ -4,20 +4,21 @@ import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
 
 import java.util.Map;
 
-/**
- * One result for all vector inclusions of one song songs
- */
-public class MusicAlgorithmResult {
-
+public class SimpleMusicAlgorithmResult {
     private VectorAlgorithmConfiguration vectorAlgorithmConfiguration;
 
     private VectorSong vectorSong;
 
-    private Map<AlgorithmConfiguration.VectorInclusion, Map<MelodySong, Double>> inclusionToSongToSimilarityPercentage;
-
-    // private Map<MelodySong, Double> songToSimilarityPercentage;
+    private Map<MelodySong, Double> songToSimilarityPercentage;
 
     private MelodySong melodySong;
+
+    public SimpleMusicAlgorithmResult(MusicAlgorithmResult inclusionResult, Map<MelodySong, Double> melodySongDoubleMap) {
+        this.vectorAlgorithmConfiguration = inclusionResult.getVectorAlgorithmConfiguration();
+        this.vectorSong = inclusionResult.getVectorSong();
+        this.songToSimilarityPercentage = melodySongDoubleMap;
+        this.melodySong = inclusionResult.getMelodySong();
+    }
 
     //<editor-fold desc="Getters and setters">
     public MelodySong getMelodySong() {
@@ -45,20 +46,12 @@ public class MusicAlgorithmResult {
         this.vectorAlgorithmConfiguration = vectorAlgorithmConfiguration;
     }
 
-    /*public Map<MelodySong, Double> getSongToSimilarityPercentage() {
+    public Map<MelodySong, Double> getSongToSimilarityPercentage() {
         return songToSimilarityPercentage;
     }
 
     public void setSongToSimilarityPercentage(Map<MelodySong, Double> songToSimilarityPercentage) {
         this.songToSimilarityPercentage = songToSimilarityPercentage;
-    }*/
-
-    public Map<AlgorithmConfiguration.VectorInclusion, Map<MelodySong, Double>> getInclusionToSongToSimilarityPercentage() {
-        return inclusionToSongToSimilarityPercentage;
-    }
-
-    public void setInclusionToSongToSimilarityPercentage(Map<AlgorithmConfiguration.VectorInclusion, Map<MelodySong, Double>> inclusionToSongToSimilarityPercentage) {
-        this.inclusionToSongToSimilarityPercentage = inclusionToSongToSimilarityPercentage;
     }
 
     //</editor-fold>
@@ -67,9 +60,8 @@ public class MusicAlgorithmResult {
     public String toString() {
         return "LyricAlgorithmResult{" +
                 "melodySong" + melodySong.getMusicXML().toString() +
-                ", songToSimilarityPercentage=" + inclusionToSongToSimilarityPercentage +
+                ", songToSimilarityPercentage=" + songToSimilarityPercentage +
                 ", vectorAlgorithmConfiguration=" + vectorAlgorithmConfiguration +
                 '}';
     }
-
 }

@@ -80,7 +80,7 @@ public class VectorAlgorithmComputer implements IAlgorithmComputer {
             WeightedVectorPair vectorPair = termVectorFormatter.formVectors(vectorA, vectorB,
                     termComparisonAlgorithm,
                     tolerance, termComparator,
-                    vectorConfig.getVectorInclusion());
+                    vectorConfig.getVectorInclusion().get(0));
 
             double similarity = vectorComparator.calculateSimilarity(vectorConfig.getVectorComparisonAlgorithm(),
                     vectorPair);

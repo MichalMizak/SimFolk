@@ -1,18 +1,17 @@
 
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü‡ßÔùÿÿÿÿ8Å…œ¨–.
 Nsquid:S1135"2Complete the task associated to this TODO comment.(ÆÇÊ¥8Å…œ¨–.
-qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(‡µ„ııÿÿÿÿ8Å…œ¨–.
-nsquid:S1192"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8Å…œ¨–.
-`squid:UnusedPrivateMethod"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8Å…œ¨–.
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã¿¸8Å…œ¨–.
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ı±Ó8Å…œ¨–.
-qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(“À†Êüÿÿÿÿ8Å…œ¨–.
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(†ŸãËıÿÿÿÿ8Å…œ¨–.
-csquid:S1854"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8Å…œ¨–.
-Msquid:S1135"2Complete the task associated to this TODO comment.(ÌÇëv8Å…œ¨–.
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(“À†Êüÿÿÿÿ8Å…œ¨–.
-`squid:S1854"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8Å…œ¨–.
-csquid:UnusedPrivateMethod"9Remove this unused private "registerShutdownHook" method.(Ÿ§„8Å…œ¨–.
 lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(èğÖæøÿÿÿÿ8Å…œ¨–.
-Msquid:S1612",Replace this lambda with a method reference.(¬È’üÿÿÿÿ8Å…œ¨–.
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ı±Ó8Å…œ¨–.
+Msquid:S1135"2Complete the task associated to this TODO comment.(ÌÇëv8Å…œ¨–.
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã¿¸8Å…œ¨–.
+nsquid:S1192"MDefine a constant instead of duplicating this literal "\\\\ \\hline" 4 times.(Áøİøúÿÿÿÿ8Å…œ¨–.
+qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(“À†Êüÿÿÿÿ8Å…œ¨–.
+csquid:UnusedPrivateMethod"9Remove this unused private "registerShutdownHook" method.(Ÿ§„8Å…œ¨–.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ü‡ßÔùÿÿÿÿ8Å…œ¨–.
+`squid:UnusedPrivateMethod"1Remove this unused private "thesisOutput" method.(–­´‘úÿÿÿÿ8Å…œ¨–.
+qsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(‡µ„ııÿÿÿÿ8Å…œ¨–.
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(“À†Êüÿÿÿÿ8Å…œ¨–.
 gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿§¬È8Å…œ¨–.
+`squid:S1854"?Remove this useless assignment to local variable "rowsPerPage".(¡ß¶¢üÿÿÿÿ8Å…œ¨–.
+csquid:S1854"BRemove this useless assignment to local variable "songsToCompare".(¾’çÏüÿÿÿÿ8Å…œ¨–.
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(†ŸãËıÿÿÿÿ8Å…œ¨–.

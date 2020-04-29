@@ -146,3 +146,10 @@ CREATE TABLE `RESULT_TO_SONG`
     REFERENCES VECTOR_ALGORITHM_RESULT(`resultId`)
         ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- select of grouped lyricFragments
+CREATE VIEW `tt` as
+    select t1.lyricsFragment, wtg1.groupId from TERM t1 join TERM_GROUP_TO_TERM tg1 on t1.termId = tg1.termId JOIN WEIGHTED_TERM_GROUP wtg1 on wtg1.groupId = tg1.groupId group by t1.lyricsFragment order by tg1.groupId
+
+SELECT * from tt
+WHERE groupId IN ( SELECT groupId FROM tt GROUP BY groupId HAVING COUNT(groupId) > 1)

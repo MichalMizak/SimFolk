@@ -1,5 +1,5 @@
 
-hsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(›àşûÿÿÿÿ8ï•–Â‘.
-csquid:UnusedPrivateMethod"4Remove this unused private "buildNoteNGrams" method.(óÒ™ıÿÿÿÿ8•Ü¤Â‘.
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÚÑ8•Ü¤Â‘.
-Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8ï•–Â‘.
+hsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(›àşûÿÿÿÿ8àñ‡Ã˜.
+Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8àñ‡Ã˜.
+csquid:UnusedPrivateMethod"4Remove this unused private "buildNoteNGrams" method.(óÒ™ıÿÿÿÿ8àñ‡Ã˜.
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÚÑ8àñ‡Ã˜.

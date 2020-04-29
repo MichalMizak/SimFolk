@@ -54,9 +54,6 @@ public class TermVectorFormatter implements ITermVectorFormatter {
             case INTERSECTION:
                 return intersectionFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
 
-//            case ALL:
-//                return allFormation(a, b, termComparator, termComparisonAlgorithm, tolerance);
-
             default:
                 throw new RuntimeException("Unimplemented vector inclusion");
         }

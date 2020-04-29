@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.AlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.MusicAlgorithmResult;
+import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.SimpleMusicAlgorithmResult;
 import sk.upjs.ics.mmizak.simfolk.core.vector.space.entities.VectorAlgorithmConfiguration;
 import sk.upjs.ics.mmizak.simfolk.melody.MelodySong;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +16,7 @@ import java.util.Map;
 @Service
 public class MelodyResultAggregatorService implements Runnable {
 
-    private Map<VectorAlgorithmConfiguration, List<MusicAlgorithmResult>> allResults = new HashMap<>();
+    private static final int LEAST_PERCENTAGE_SAVED = 50;
 
     private List<MusicAlgorithmResult> latestResults;
     private VectorAlgorithmConfiguration latestConfiguration;
@@ -37,16 +39,25 @@ public class MelodyResultAggregatorService implements Runnable {
     }
 
     private List<MusicAlgorithmResult> filterResults(List<MusicAlgorithmResult> musicAlgorithmResults) {
+        // interate all results for one song
         musicAlgorithmResults.forEach(result ->
         {
-            Map<MelodySong, Double> newMap = new HashMap<>();
+            // iterate all inclusions of the result
 
-            for (Map.Entry<MelodySong, Double> entry : result.getSongToSimilarityPercentage().entrySet()) {
-                if (matchesfilter(result, entry))
-                    newMap.put(entry.getKey(), entry.getValue());
-            }
+            Map<AlgorithmConfiguration.VectorInclusion, Map<MelodySong, Double>> newMap = new HashMap<>();
 
-            result.setSongToSimilarityPercentage(newMap);
+            result.getInclusionToSongToSimilarityPercentage().forEach(((vectorInclusion, melodySongDoubleMap) -> {
+
+                Map<MelodySong, Double> newMapForOneInclusion = new HashMap<>();
+                for (Map.Entry<MelodySong, Double> entry : melodySongDoubleMap.entrySet()) {
+                    if (matchesfilter(result, entry))
+                        newMapForOneInclusion.put(entry.getKey(), entry.getValue());
+                }
+
+                newMap.put(vectorInclusion, newMapForOneInclusion);
+            }));
+
+            result.setInclusionToSongToSimilarityPercentage(newMap);
         });
 
 
@@ -54,48 +65,56 @@ public class MelodyResultAggregatorService implements Runnable {
     }
 
     private boolean matchesfilter(MusicAlgorithmResult result, Map.Entry<MelodySong, Double> songToSimilarityEntry) {
-        return !songToSimilarityEntry.getKey().equals(result.getMelodySong()) && songToSimilarityEntry.getValue() > 40;
+        return !songToSimilarityEntry.getKey().equals(result.getMelodySong()) && songToSimilarityEntry.getValue() > LEAST_PERCENTAGE_SAVED;
     }
 
     private void aggregateResult() {
-        // evaluate configuration
 
-        double configurationEvaluationValue = evaluateConfiguration(latestConfiguration);
+        Map<AlgorithmConfiguration.VectorInclusion, List<SimpleMusicAlgorithmResult>> simpleResults = getSimpleResults(latestResults, latestConfiguration);
 
+        simpleResults.forEach(((vectorInclusion, simpleMusicAlgorithmResults) -> {
 
-        double oldTotalConfigurationEvaluationValue = totalConfigurationEvaluationValue;
-        totalConfigurationEvaluationValue += configurationEvaluationValue;
+            // evaluate configuration
+            double configurationEvaluationValue = evaluateConfiguration(latestConfiguration, vectorInclusion);
 
-        // if no valid configurations were calculated. This should not happen, but what if.
-        if (totalConfigurationEvaluationValue == 0)
-            return;
+            double oldTotalConfigurationEvaluationValue = totalConfigurationEvaluationValue;
+            totalConfigurationEvaluationValue += configurationEvaluationValue;
 
-        latestResults.forEach(result -> {
-            Long idA = result.getMelodySong().getId();
+            // if no valid configurations were calculated. This should not happen, but what if.
+            if (totalConfigurationEvaluationValue == 0)
+                return;
 
-            result.getSongToSimilarityPercentage().forEach((
-                    (melodySong, similarity) -> {
-                        int x = idA.intValue();
-                        int y = melodySong.getId().intValue();
+            // aggregate all results, not ony the filtered ones
+            simpleMusicAlgorithmResults.forEach(result -> {
+                Long idA = result.getMelodySong().getId();
 
-                        // TODO: careful for the song count
+                result.getSongToSimilarityPercentage().forEach((
+                        (melodySong, similarity) -> {
+                            int x = idA.intValue();
+                            int y = melodySong.getId().intValue();
 
-                        // for each present song pair re-evaluate the similarity percentage taking count of processed configs into account
-                        double beforeAverage = (aggregatedResults[x][y] * oldTotalConfigurationEvaluationValue)
-                                // normalize the similarity percentages by the evaluation factor
-                                + (similarity * configurationEvaluationValue);
+                            // TODO: careful for the song count
 
-                        double newSimilarity;
+                            // for each present song pair re-evaluate the similarity percentage taking count of processed configs into account
+                            double beforeAverage = (aggregatedResults[x][y] * oldTotalConfigurationEvaluationValue)
+                                    // normalize the similarity percentages by the evaluation factor
+                                    + (similarity * configurationEvaluationValue);
 
-                        newSimilarity = beforeAverage / (totalConfigurationEvaluationValue);
+                            double newSimilarity;
 
-                        // 2D array for the percentage map, map value both ways
-                        aggregatedResults[x][y] = newSimilarity;
-                        aggregatedResults[y][x] = newSimilarity;
-                    }));
-        });
+                            newSimilarity = beforeAverage / (totalConfigurationEvaluationValue);
 
-        melodySimilarityService.saveAggregatedResults(aggregatedResults, totalConfigurationEvaluationValue, configurationsProcessed);
+                            newSimilarity = ((int) (newSimilarity * 1000)) / 1000.0;
+
+                            // 2D array for the percentage map, map value both ways
+                            aggregatedResults[x][y] = newSimilarity;
+                            aggregatedResults[y][x] = newSimilarity;
+                        }));
+            });
+
+            melodySimilarityService.saveAggregatedResults(aggregatedResults);
+
+        }));
 //
 //        for (Map.Entry<Long, Double> idToSimilarity : melodyToSimilarityPercentage.entrySet()) {
 //            // write all non-zero results, null-safe equals for ID (self-similarity)
@@ -105,28 +124,38 @@ public class MelodyResultAggregatorService implements Runnable {
 //        }
     }
 
-    private double evaluateConfiguration(VectorAlgorithmConfiguration latestConfiguration) {
-        if (latestConfiguration.getVectorInclusion() == AlgorithmConfiguration.VectorInclusion.INTERSECTION &&
-                latestConfiguration.getMusicStringFormat() == AlgorithmConfiguration.MusicStringFormat.RHYTHM)
-            return 0.2;
-        if (latestConfiguration.getTolerance() == AlgorithmConfiguration.Tolerance.HIGH
-                || latestConfiguration.getVectorInclusion() == AlgorithmConfiguration.VectorInclusion.INTERSECTION)
+    private double evaluateConfiguration(VectorAlgorithmConfiguration latestConfiguration, AlgorithmConfiguration.VectorInclusion vectorInclusion) {
+
+        boolean isIntersection = vectorInclusion == AlgorithmConfiguration.VectorInclusion.INTERSECTION;
+        boolean isMeasure = latestConfiguration.getTermScheme() == AlgorithmConfiguration.TermScheme.MEASURE;
+        boolean isRhythm = latestConfiguration.getMusicStringFormat() == AlgorithmConfiguration.MusicStringFormat.RHYTHM;
+        boolean isContour = latestConfiguration.getMusicStringFormat() == AlgorithmConfiguration.MusicStringFormat.CONTOUR;
+
+        if ((isIntersection && isMeasure) || (isIntersection && isRhythm) || (isIntersection && isContour))
+            return 0.25;
+
+        if (isIntersection || (isMeasure && isRhythm) || (isMeasure && isContour)) // tieto boli hore
             return 0.5;
-        if (latestConfiguration.getTolerance() == AlgorithmConfiguration.Tolerance.MEDIUM
-                || latestConfiguration.getMusicStringFormat() == AlgorithmConfiguration.MusicStringFormat.RHYTHM)
-            return 0.8;
-        if (latestConfiguration.getTolerance() == AlgorithmConfiguration.Tolerance.LOW)
-            return 0.9;
+
+        if (isMeasure ) // || isRhythm || isContour
+            return 0.75;
+
         else
             return 1;
     }
 
     @Override
     public void run() {
-        List<MusicAlgorithmResult> filteredResults = filterResults(latestResults);
-        allResults.put(latestConfiguration, filteredResults);
+        //  allResults.put(latestConfiguration, latestResults);
 
-        melodySimilarityService.save(latestConfiguration, filteredResults);
+        // all results are processed but only filtered results are saved
+        List<MusicAlgorithmResult> filteredResults = filterResults(latestResults);
+
+        Map<AlgorithmConfiguration.VectorInclusion, List<SimpleMusicAlgorithmResult>> simpleResultMap =
+                getSimpleResults(filteredResults, latestConfiguration);
+
+        simpleResultMap.forEach(((vectorInclusion, simpleMusicAlgorithmResults) ->
+                melodySimilarityService.save(latestConfiguration, simpleMusicAlgorithmResults, vectorInclusion)));
 
         aggregateResult();
 
@@ -140,6 +169,25 @@ public class MelodyResultAggregatorService implements Runnable {
 //                System.out.println(result.getSongToSimilarityPercentage().toString());
 //            }
 //        });
+    }
+
+    private Map<AlgorithmConfiguration.VectorInclusion, List<SimpleMusicAlgorithmResult>> getSimpleResults(List<MusicAlgorithmResult> inclusionResults,
+                                                                                                           VectorAlgorithmConfiguration vectorConfig) {
+
+        Map<AlgorithmConfiguration.VectorInclusion, List<SimpleMusicAlgorithmResult>> simpleResults = new HashMap<>();
+
+        // init all simple lists
+        for (AlgorithmConfiguration.VectorInclusion vectorInclusion : vectorConfig.getVectorInclusion()) {
+            simpleResults.put(vectorInclusion, new ArrayList<>());
+        }
+
+        inclusionResults.forEach(inclusionResult -> {
+            inclusionResult.getInclusionToSongToSimilarityPercentage().forEach(((vectorInclusion, melodySongDoubleMap) -> {
+                simpleResults.get(vectorInclusion).add(new SimpleMusicAlgorithmResult(inclusionResult, melodySongDoubleMap));
+            }));
+        });
+
+        return simpleResults;
     }
 
     public void init(List<MelodySong> melodySongs) {
